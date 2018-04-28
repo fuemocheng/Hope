@@ -32,3 +32,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# XGC Add
+General Unity Framework/Library
+General Unity Framework/Temp
+General Unity Framework/.vs
