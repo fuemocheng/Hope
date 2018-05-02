@@ -34,6 +34,7 @@ sysinfo.txt
 *.unitypackage
 
 # XGC Add
+General Unity Framework/Export
 General Unity Framework/Library
 General Unity Framework/Temp
 General Unity Framework/.vs
