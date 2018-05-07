@@ -250,7 +250,18 @@ public class TestXmlLoad : MonoBehaviour
 
     private void TestXElementRead()
     {
-        WWW www = new WWW(Application.streamingAssetsPath + "/xml/Test.xml");
+        string filePath = "";
+
+#if UNTIY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        filePath = "file://" + Application.streamingAssetsPath + "/xml/Test.xml";
+#elif UNITY_IOS || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+        filePath = "file://" + Application.streamingAssetsPath + "/xml/Test.xml";
+#elif UNITY_ANDROID
+        filePath = Application.streamingAssetsPath + "/xml/Test.xml";
+        //filePath = "jar:file://" + Application.dataPath + "!/assets/xml/Test.xml";    //与上一行一样
+#endif
+
+        WWW www = new WWW(filePath);
         while (www.isDone == false)
         {
             //未加载完成
