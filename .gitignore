@@ -39,3 +39,9 @@ General Unity Framework/Library
 General Unity Framework/Temp
 General Unity Framework/.vs
 General Unity Framework/Assets/StreamingAssets/build_info.txt
+Test/Export
+Test/Library
+Test/Temp
+Test/.vs
+Test/Assets/StreamingAssets/build_info.txt
+Test/Assets/StreamingAssets/build_info.txt.meta
