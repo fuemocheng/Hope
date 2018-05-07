@@ -40,3 +40,6 @@ Test/Library
 Test/Temp
 Test/Assets/StreamingAssets/build_info.txt
 Test/Assets/StreamingAssets/build_info.txt.meta
+
+# Mac
+.DS_Store
