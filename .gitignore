@@ -37,6 +37,7 @@ sysinfo.txt
 Test/.vs
 Test/Export
 Test/Library
+Test/obj
 Test/Temp
 Test/Assets/StreamingAssets/build_info.txt
 Test/Assets/StreamingAssets/build_info.txt.meta
