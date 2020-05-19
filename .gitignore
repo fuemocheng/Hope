@@ -37,10 +37,12 @@ sysinfo.txt
 Test/.vs
 Test/Export
 Test/Library
+Test/Logs
 Test/obj
 Test/Temp
 Test/Assets/StreamingAssets/build_info.txt
 Test/Assets/StreamingAssets/build_info.txt.meta
+
 
 # Mac
 .DS_Store
