@@ -35,6 +35,7 @@ sysinfo.txt
 
 # XGC Add
 Test/.vs
+Test/.vsconfig
 Test/Export
 Test/Library
 Test/Logs
