@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class TestLoadAssetBundles : MonoBehaviour
 {
@@ -112,10 +113,33 @@ public class TestLoadAssetBundles : MonoBehaviour
     }
 
 
-    IEnumerator TestUnityWebRequest()
+    IEnumerator TestUnityWebRequestAssetBundle()
     {
+        /// string url = "file:///" + Application.dataPath + "/AssetBundles/cube";
+        string url = "http://127.0.0.1:8080/cube";
+        UnityWebRequest webRequest = UnityWebRequestAssetBundle.GetAssetBundle(url, 0);
+        yield return webRequest.SendWebRequest();
+        AssetBundle assetBundle = DownloadHandlerAssetBundle.GetContent(webRequest);
 
-        yield return null;
+        Texture cubeTex_02 = assetBundle.LoadAsset<Texture>("cubeTex_02");
+        Material material = assetBundle.LoadAsset<Material>("cubeMat_01");
+        material.mainTexture = cubeTex_02;
+        GameObject cube = assetBundle.LoadAsset<GameObject>("Cube_01");
+        GameObject cubeClone = Instantiate(cube);
+
+        assetBundle.Unload(false);
+    }
+
+    void LoadDependencies()
+    {
+        string manifestFilePath = Path.Combine(Application.dataPath, "AssetBundles/AssetBundles.manifest");
+        AssetBundle bundle = AssetBundle.LoadFromFile(manifestFilePath);
+        AssetBundleManifest manifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+        string[] dependencies = manifest.GetAllDependencies("cube");
+        foreach(string dependency in dependencies)
+        {
+            AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "AssetBundles/" + dependency));
+        }
     }
 
     void Init()
@@ -133,8 +157,10 @@ public class TestLoadAssetBundles : MonoBehaviour
         /// StartCoroutine(LoadFromMemoryAsync());
 
         /// 5.DownLoadFromServer
-        StartCoroutine(DownLoadFromServer());
+        /// StartCoroutine(DownLoadFromServer());
 
+        /// 6.DownLoadFromServer
+        StartCoroutine(TestUnityWebRequestAssetBundle());
 
     }
 

@@ -47,3 +47,5 @@ Test/Assets/StreamingAssets/build_info.txt.meta
 
 # Mac
 .DS_Store
+
+Test/UserSettings/EditorUserSettings.asset
