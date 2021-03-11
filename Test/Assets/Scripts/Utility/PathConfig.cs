@@ -51,7 +51,7 @@ public class PathConfig
 #elif UNITY_ANDROID
         return "Android" + version;
 #else
-        return "Others/" + verison;
+        return "Others/" + version;
 #endif
     }
 
