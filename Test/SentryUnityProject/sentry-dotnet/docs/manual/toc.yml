@@ -1,0 +1,8 @@
+ - name: Getting started
+   href: getting-started.md
+ - name: Manual
+   href: manual.md
+ - name: Testing
+   href: testing.md
+ - name: Log4net integration
+   href: log4net.md
