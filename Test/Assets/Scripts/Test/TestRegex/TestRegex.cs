@@ -19,7 +19,7 @@ public class TestRegex : MonoBehaviour
 
     void TestFun()
     {
-        string msg = "ÄãaaaºÃaa¹ş¹şa";
+        string msg = "ä½ aaaå¥½aaå“ˆå“ˆa";
         msg = Regex.Replace(msg, @"a+", "A");
         Debug.LogError(msg);
 
@@ -30,7 +30,7 @@ public class TestRegex : MonoBehaviour
         Debug.LogError(msg2);
 
 
-        string msg3 = "ÎÄÌìÏé12345678911";
+        string msg3 = "æ–‡å¤©ç¥¥12345678911";
         msg3 = Regex.Replace(msg3, "([0-9]{4})[0-9]{4}([0-9]{3})", "$1****$2");
         Debug.LogError(msg3);
 
@@ -39,7 +39,7 @@ public class TestRegex : MonoBehaviour
         msg4 = Regex.Replace(msg4, "(.+?)@", "*****");
         Debug.LogError(msg4);
 
-        string msg5 = "¶Ô»°¿ªÍ·#¶Ô»°ÄĞ|¶Ô»°Å®#,¶Ô»°½áÎ²";
+        string msg5 = "å¯¹è¯å¼€å¤´#å¯¹è¯ç”·|å¯¹è¯å¥³#,å¯¹è¯ç»“å°¾";
         Match msg6 = Regex.Match(msg5, $"(#.+?#)");
         string[] strArr = msg6.ToString().Substring(1, msg6.Length - 2).Split('|');
 

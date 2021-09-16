@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UpdateAssets : MonoBehaviour
 {
-    //±£´æ±¾µØµÄassetbundleÃûºÍ¶ÔÓ¦µÄMD5Öµ
+    //ä¿å­˜æœ¬åœ°çš„assetbundleåå’Œå¯¹åº”çš„MD5å€¼
     private Dictionary<string, string> LocalResVerison;
     private Dictionary<string, string> ServerResVersion;
 
-    //ĞèÒª¸üĞÂµÄassetbundleÃû
+    //éœ€è¦æ›´æ–°çš„assetbundleå
     private List<string> NeedDownFiles;
 
     private bool NeedUpdateLocalVersionFile = false;
@@ -27,7 +27,7 @@ public class UpdateAssets : MonoBehaviour
         ServerResVersion = new Dictionary<string, string>();
         NeedDownFiles = new List<string>();
 
-        //¼ÓÔØ±¾µØÅäÖÃversionÎÄ¼ş
+        //åŠ è½½æœ¬åœ°é…ç½®versionæ–‡ä»¶
         _localUrl = PathConfig.localUrl + "/" + PathConfig.GetManifestFileName() + "/";
 
         yield return null;

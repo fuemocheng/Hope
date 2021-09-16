@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestError : MonoBehaviour
+public class TestCrash : MonoBehaviour
 {
 
     private GameObject testOb = null;
