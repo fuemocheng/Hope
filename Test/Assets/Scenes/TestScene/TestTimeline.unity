@@ -507,7 +507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1429601286
 PlayableDirector:
@@ -526,6 +526,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -1734080113361811734, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
     value: {fileID: 539745478287636284}
+  - key: {fileID: 1438243914437739566, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
+    value: {fileID: 7635726065903704646}
   m_ExposedReferences:
     m_References:
     - 2163e949880313c4995d06b84154bee1: {fileID: 1600643034}
@@ -559,7 +561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1629139448
 GameObject:
@@ -809,6 +811,191 @@ MonoBehaviour:
     - Selection Change
     - Set Exposed Property
     - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Create Track
+    - Selection Change
+    - Selection Change
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Set Exposed Property
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Set Exposed Property
+    - Jammo_Player Parenting
+    - Selection Change
+    - TimelineRoot Parenting
+    - Selection Change
+    - Selection Change
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Drag
+    - Selection Change
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Move PlayerAnim
+    - Drag
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Drag
+    - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Drag
+    - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Move Items
+    - Selection Change
+    - Inspector
+    - Selection Change
+    - Timeline Create Track
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
 --- !u!4 &1860916286
 Transform:
   m_ObjectHideFlags: 3
@@ -851,7 +1038,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &38101694252750266
 Transform:
@@ -1062,7 +1249,7 @@ Transform:
   - {fileID: 4977372144725775830}
   - {fileID: 3107201403662362262}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &632919408889050503
 Transform:
