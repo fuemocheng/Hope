@@ -306,6 +306,274 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &712812581
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712812583}
+  - component: {fileID: 712812582}
+  m_Layer: 0
+  m_Name: UndoProRecords
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &712812582
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712812581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2e38fe214ee4c44a50953f0e0468b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  undoProRecords: []
+  undoState:
+    redoRecords: []
+    undoRecords:
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Mute Tracks
+    - Timeline Mute Tracks
+    - Timeline Lock Tracks
+    - Timeline Lock Tracks
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Create Track
+    - Selection Change
+    - Timeline Create Track
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Move CustomAnim
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Create Track
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Destroy Object
+    - Timeline Create Track
+    - Selection Change
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline PlayableDirector Binding
+    - Drag
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Timeline Delete Clip
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Destroy Object
+    - Timeline Create Track
+    - Selection Change
+    - Drag
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+--- !u!4 &712812583
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712812581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1410638607
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1429601286
 PlayableDirector:
@@ -524,9 +792,7 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: -1734080113361811734, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
-    value: {fileID: 539745478287636284}
-  - key: {fileID: 1438243914437739566, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
+  - key: {fileID: 1885773807927854139, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
     value: {fileID: 7635726065903704646}
   m_ExposedReferences:
     m_References:
@@ -561,7 +827,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1629139448
 GameObject:
@@ -629,387 +895,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1860916284
-GameObject:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1860916286}
-  - component: {fileID: 1860916285}
-  m_Layer: 0
-  m_Name: UndoProRecords
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1860916285
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860916284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2e38fe214ee4c44a50953f0e0468b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  undoProRecords: []
-  undoState:
-    redoRecords: []
-    undoRecords:
-    - Selection Change
-    - Create GameObject
-    - Create GameObject
-    - Selection Change
-    - Selection Change
-    - Create Canvas
-    - Add Canvas
-    - Add CanvasScaler
-    - Add GraphicRaycaster
-    - Create Canvas
-    - Create EventSystem
-    - Add EventSystem
-    - Add StandaloneInputModule
-    - Create EventSystem
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Create Text
-    - Add Text
-    - 
-    - 
-    - 
-    - Create Text
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Rename GameObject
-    - TimelineRoot Parenting
-    - Root order changed
-    - Selection Change
-    - Root order changed
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - AddComponent
-    - AddComponent
-    - Selection Change
-    - Timeline Create Track
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Items
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Selection Change
-    - Destroy Object
-    - Timeline Create Track
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Selection Change
-    - Destroy Object
-    - Timeline Create Track
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - ' Drag Instantiate'
-    - Selection Change
-    - Drag
-    - Drag
-    - ' Drag Instantiate'
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Remove MonoBehaviour
-    - Selection Change
-    - Remove MonoBehaviour
-    - Selection Change
-    - Remove CharacterController
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Move
-    - Move
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Selection Change
-    - Drag
-    - Inspector
-    - Selection Change
-    - Unpack Prefab instance
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Drag
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Create GameObject
-    - Create GameObject
-    - Selection Change
-    - Rename GameObject
-    - Reset StartPos Transform
-    - Inspector
-    - Selection Change
-    - Create GameObject
-    - Create GameObject
-    - Selection Change
-    - Rename GameObject
-    - Reset EndPos Transform
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline PlayableDirector Binding
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Set Exposed Property
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Create Track
-    - Selection Change
-    - Selection Change
-    - Timeline PlayableDirector Binding
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Set Exposed Property
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Set Exposed Property
-    - Jammo_Player Parenting
-    - Selection Change
-    - TimelineRoot Parenting
-    - Selection Change
-    - Selection Change
-    - Timeline PlayableDirector Binding
-    - Selection Change
-    - Drag
-    - Selection Change
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Selection Change
-    - Timeline Move Items
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Move PlayerAnim
-    - Drag
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Drag
-    - Inspector
-    - Timeline Move Items
-    - Selection Change
-    - Selection Change
-    - Timeline Move Items
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Items
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Timeline Delete Items
-    - Selection Change
-    - Destroy Object
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Drag
-    - Inspector
-    - Timeline Move Items
-    - Selection Change
-    - Selection Change
-    - Timeline Trim Clip
-    - Timeline Trim Clip
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Trim Clip
-    - Timeline Trim Clip
-    - Timeline Trim Clip
-    - Timeline Trim Clip
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Trim Clip
-    - Timeline Trim Clip
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Selection Change
-    - Timeline Move Items
-    - Timeline Move Items
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Timeline Create Track
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Selection Change
-    - Timeline Move Items
-    - Selection Change
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
-    - Selection Change
-    - Selection Change
-    - Timeline Move Items
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Items
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Timeline Delete Items
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
---- !u!4 &1860916286
-Transform:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860916284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144508878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &38101694252750266
 Transform:
@@ -1249,7 +1134,7 @@ Transform:
   - {fileID: 4977372144725775830}
   - {fileID: 3107201403662362262}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &632919408889050503
 Transform:
@@ -5594,7 +5479,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541754001980900655}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f8af0573aab879f4c9cd410a4e0a39f9, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
   m_Controller: {fileID: 9100000, guid: 535d24752e3d6444da644e79e90ec2ca, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
