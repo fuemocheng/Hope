@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 268698358}
   - component: {fileID: 268698357}
   - component: {fileID: 268698356}
+  - component: {fileID: 268698359}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -206,6 +207,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268698359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268698355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &325332861
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +341,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &712812581
+--- !u!1 &787735405
 GameObject:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,8 +349,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 712812583}
-  - component: {fileID: 712812582}
+  - component: {fileID: 787735407}
+  - component: {fileID: 787735406}
   m_Layer: 0
   m_Name: UndoProRecords
   m_TagString: Untagged
@@ -323,13 +358,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &712812582
+--- !u!114 &787735406
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712812581}
+  m_GameObject: {fileID: 787735405}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c2e38fe214ee4c44a50953f0e0468b8, type: 3}
@@ -353,119 +388,22 @@ MonoBehaviour:
     - Selection Change
     - Selection Change
     - Selection Change
+    - Timeline Move Items
     - Selection Change
     - Selection Change
     - Selection Change
+    - Timeline Move Items
+    - Timeline Move Items
+    - Timeline Move Items
     - Selection Change
-    - Timeline Mute Tracks
-    - Timeline Mute Tracks
-    - Timeline Lock Tracks
-    - Timeline Lock Tracks
     - Selection Change
     - Selection Change
+    - Timeline Move Items
     - Selection Change
     - Selection Change
     - Selection Change
+    - Timeline Move Items
     - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Create Track
-    - Selection Change
-    - Timeline Create Track
-    - Timeline PlayableDirector Binding
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline PlayableDirector Binding
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Clip
-    - Selection Change
-    - Destroy Object
-    - Timeline Delete Clip
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Clip
-    - Selection Change
-    - Destroy Object
-    - Timeline Delete Clip
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Destroy Object
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Move CustomAnim
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Create Track
-    - Selection Change
-    - Timeline Create Clip
-    - Timeline Create Clip
     - Selection Change
     - Selection Change
     - Timeline Move Items
@@ -473,29 +411,35 @@ MonoBehaviour:
     - Selection Change
     - Selection Change
     - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Track
-    - Timeline Delete Clip
+    - Timeline Delete Items
     - Selection Change
     - Destroy Object
     - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Delete Items
+    - Selection Change
     - Destroy Object
-    - Timeline Create Track
-    - Selection Change
-    - Selection Change
     - Drag
     - Timeline Create Clip
     - Timeline Create Clip
     - Selection Change
-    - Selection Change
     - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Move Items
+    - Timeline Move Items
+    - Timeline Move Items
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
     - Timeline Move Items
     - Selection Change
     - Selection Change
@@ -505,32 +449,281 @@ MonoBehaviour:
     - Selection Change
     - Selection Change
     - Inspector
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
     - Timeline Move Items
     - Selection Change
     - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Inspector
+    - Inspector
     - Inspector
     - Selection Change
     - Selection Change
-    - Inspector
-    - Timeline PlayableDirector Binding
+    - Timeline Delete Items
     - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Timeline PlayableDirector Binding
+    - Destroy Object
     - Drag
-    - Timeline PlayableDirector Binding
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Inspector
+    - Timeline Move Items
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Move Items
+    - Inspector
+    - Inspector
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Inspector
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Selection Change
     - Selection Change
     - Selection Change
     - Timeline Move Items
     - Selection Change
     - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Track
+    - Timeline Bind Track
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
     - Timeline Move Items
-    - Timeline PlayableDirector Binding
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Move Items
+    - Drag
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Rename AnimationBlendTrack
+    - Selection Change
+    - Selection Change
+    - Rename AnimationBlendTrack
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
     - Selection Change
     - Selection Change
     - Selection Change
@@ -548,8 +741,119 @@ MonoBehaviour:
     - Destroy Object
     - Timeline Create Track
     - Selection Change
-    - Drag
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Timeline Create Track
+    - Selection Change
+    - Selection Change
     - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Inspector
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Move Items
     - Selection Change
     - Selection Change
     - Drag
@@ -559,14 +863,182 @@ MonoBehaviour:
     - Selection Change
     - Inspector
     - Timeline Move Items
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Move Items
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
     - Inspector
---- !u!4 &712812583
+    - Selection Change
+    - Timeline Create Track
+    - Selection Change
+    - Timeline PlayableDirector Binding
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Timeline Create Track
+    - Selection Change
+    - AddComponent
+    - Timeline PlayableDirector Binding
+    - Drag
+    - Timeline Create Track
+    - AddComponent
+    - Timeline Bind Track
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Timeline Delete Track
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Drag
+    - Timeline Create Clip
+    - Timeline Create Clip
+    - Selection Change
+    - Inspector
+    - Timeline Trim Clip
+    - Timeline Trim Clip
+    - Timeline Move Items
+    - Selection Change
+    - Selection Change
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Timeline Move Items
+    - Timeline Delete Items
+    - Selection Change
+    - Destroy Object
+    - Selection Change
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Add TestAnimator
+    - Inspector
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Inspector
+    - Selection Change
+    - Selection Change
+    - Inspector
+--- !u!4 &787735407
 Transform:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712812581}
+  m_GameObject: {fileID: 787735405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -792,7 +1264,7 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 1885773807927854139, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
+  - key: {fileID: -1960588296818003161, guid: 4e4d8294e49a78f43beb55a2dbf44103, type: 2}
     value: {fileID: 7635726065903704646}
   m_ExposedReferences:
     m_References:
@@ -808,6 +1280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600643034}
+  - component: {fileID: 1600643035}
   m_Layer: 0
   m_Name: StartPos
   m_TagString: Untagged
@@ -829,6 +1302,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &1600643035
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600643033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1629139448
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,8 +1424,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6036028704910381550}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.017859343, z: 0.0008989906}
+  m_LocalRotation: {x: 0.084621966, y: 0.015164901, z: -0.005483842, w: 0.99628264}
+  m_LocalPosition: {x: -0.00040923193, y: 0.016526287, z: -0.0010652288}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9027401759274322259}
@@ -949,7 +1441,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969289617894502604}
-  m_LocalRotation: {x: -5.695085e-17, y: -0.00000023841983, z: 2.2725062e-12, w: 1}
+  m_LocalRotation: {x: 0.3610172, y: -0.000000011334868, z: -0.04030972, w: 0.9316876}
   m_LocalPosition: {x: 3.8882017e-10, y: 0.0022338866, z: 8.2124e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -964,7 +1456,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702350966440370885}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.09465023, y: -0.043869484, z: -0.009357729, w: 0.9944995}
   m_LocalPosition: {x: -0, y: 0.0042980956, z: -0.00016456126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1104,7 +1596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541754001980900655}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8447345115038493418}
@@ -1143,7 +1635,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8114064758939647113}
-  m_LocalRotation: {x: -5.695085e-17, y: 0.00000023841983, z: -2.2725062e-12, w: 1}
+  m_LocalRotation: {x: 0.5931616, y: -0.00000001524917, z: 0.07877493, w: 0.8012203}
   m_LocalPosition: {x: -3.8882017e-10, y: 0.0022338866, z: 8.2124e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1174,7 +1666,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2583774798195097241}
-  m_LocalRotation: {x: 0.0066927033, y: 0.0435071, z: 0.034402333, w: 0.99843824}
+  m_LocalRotation: {x: -0.2161604, y: 0.03413461, z: 0.02487001, w: 0.975444}
   m_LocalPosition: {x: -4.4703483e-10, y: 0.0026198607, z: 0.0000000010430813}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children:
@@ -1203,7 +1695,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6266911181753101547}
-  m_LocalRotation: {x: -0.025451161, y: -0.00014295697, z: -0.00014227511, w: 0.99967605}
+  m_LocalRotation: {x: 0.61002576, y: -0.00011277507, z: 0.08110363, w: 0.78822005}
   m_LocalPosition: {x: 1.4959368e-10, y: 0.002752743, z: 0.000000002810193}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
   m_Children:
@@ -1296,7 +1788,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5263768506091658079}
-  m_LocalRotation: {x: 0.084491365, y: 0.013635955, z: 0.012378372, w: 0.996254}
+  m_LocalRotation: {x: 0.62894607, y: 0.01033244, z: -0.07811065, w: 0.7734461}
   m_LocalPosition: {x: -7.4505804e-11, y: 0.00260657, z: 0.0000000028708018}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
   m_Children:
@@ -1658,7 +2150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5437356775466479242}
-  m_LocalRotation: {x: -0.024770312, y: 0.06330372, z: -0.049688194, w: 0.99644876}
+  m_LocalRotation: {x: -0.14681321, y: 0.03205339, z: 0.13991332, w: 0.97869444}
   m_LocalPosition: {x: -4.842877e-10, y: 0.007151887, z: -0.000000003740133}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children:
@@ -1726,7 +2218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6772751989782129577}
-  m_LocalRotation: {x: 0.025758917, y: 0.022072563, z: -0.034884524, w: 0.9988155}
+  m_LocalRotation: {x: 0.71942246, y: -0.030341065, z: 0.075397596, w: 0.68980145}
   m_LocalPosition: {x: 0.0025373795, y: 0.0046996134, z: -0.00022197569}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1}
   m_Children:
@@ -1852,7 +2344,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127583716494022536}
-  m_LocalRotation: {x: 0.025515562, y: 9.017148e-20, z: -1.6228038e-17, w: 0.99967444}
+  m_LocalRotation: {x: -0.0055288784, y: 0.0141630685, z: -0.0001728439, w: 0.9998844}
   m_LocalPosition: {x: -2.4632455e-21, y: 0.007856388, z: 0.000015783942}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1994,7 +2486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8529237798452897170}
-  m_LocalRotation: {x: 0.0856364, y: 0.006608644, z: -0.010808363, w: 0.9962459}
+  m_LocalRotation: {x: 0.279677, y: -0.16139032, z: 0.30483386, w: 0.8959968}
   m_LocalPosition: {x: -9.3132255e-12, y: 0.0015929624, z: 7.4505804e-11}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1}
   m_Children:
@@ -2120,7 +2612,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021755809405305216}
-  m_LocalRotation: {x: -1.1641565e-10, y: -0.00000035806318, z: -8.458274e-10, w: 1}
+  m_LocalRotation: {x: 0.6726636, y: -0.00000007311476, z: 0.089428276, w: 0.7345246}
   m_LocalPosition: {x: 1.6977413e-10, y: 0.0021414177, z: 0.000000002316954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2291,7 +2783,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146668805276881680}
-  m_LocalRotation: {x: -0.012545594, y: 3.912023e-27, z: 4.4453675e-18, w: 0.9999213}
+  m_LocalRotation: {x: 0.032215625, y: -0.017503314, z: -0.00035651468, w: 0.9993276}
   m_LocalPosition: {x: -0, y: 0.001946106, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2308,7 +2800,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727390975953325070}
-  m_LocalRotation: {x: 0.07751489, y: -0.0025662382, z: -0.043736637, w: 0.9960281}
+  m_LocalRotation: {x: 0.93078685, y: -0.01804907, z: 0.050714415, w: -0.3615773}
   m_LocalPosition: {x: -3.910145e-10, y: 0.007955141, z: -8.731149e-13}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
   m_Children:
@@ -2546,7 +3038,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8806910139915925772}
-  m_LocalRotation: {x: 0.0489316, y: 0.016163496, z: -0.040470988, w: 0.997851}
+  m_LocalRotation: {x: 0.60891217, y: 0.008203221, z: 0.11511194, w: 0.784798}
   m_LocalPosition: {x: -0.0020207374, y: 0.0049411217, z: -0.00019330285}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
   m_Children:
@@ -2777,7 +3269,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3938096646608715847}
-  m_LocalRotation: {x: -0.02349268, y: -0.011118597, z: 0.031047342, w: 0.99917996}
+  m_LocalRotation: {x: 0.04926594, y: -0.17868808, z: 0.60716116, w: 0.772657}
   m_LocalPosition: {x: -3.7252902e-11, y: 0.006685836, z: 5.3085386e-10}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -2933,7 +3425,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255314166444889245}
-  m_LocalRotation: {x: 0.0066927033, y: -0.0435071, z: -0.034402333, w: 0.99843824}
+  m_LocalRotation: {x: -0.30053353, y: -0.14066614, z: -0.189258, w: 0.9241613}
   m_LocalPosition: {x: 4.4703483e-10, y: 0.0026198607, z: 0.0000000010430813}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children:
@@ -2963,7 +3455,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3539654176474329418}
-  m_LocalRotation: {x: -1.1641565e-10, y: 0.00000035806318, z: 8.458274e-10, w: 1}
+  m_LocalRotation: {x: 0.46459517, y: -0.00000005688892, z: -0.051939994, w: 0.88399863}
   m_LocalPosition: {x: -1.6977413e-10, y: 0.0021414177, z: 0.000000002316954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3023,7 +3515,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7473569449267023266}
-  m_LocalRotation: {x: -0.02349268, y: 0.011118597, z: -0.031047342, w: 0.99917996}
+  m_LocalRotation: {x: 0.050225973, y: 0.18188831, z: -0.61899185, w: 0.762393}
   m_LocalPosition: {x: 3.7252902e-11, y: 0.006685836, z: 5.3085386e-10}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -3038,7 +3530,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085054738578038756}
-  m_LocalRotation: {x: -0.00023406364, y: -0.008087971, z: 0.99964195, w: 0.025505608}
+  m_LocalRotation: {x: 0.06362242, y: 0.13157032, z: 0.98785585, w: 0.052748203}
   m_LocalPosition: {x: 0.0046964264, y: -0.000097808836, z: 0.00006266594}
   m_LocalScale: {x: 1.0000329, y: 1, z: 1.0000032}
   m_Children:
@@ -3229,6 +3721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539745478287636284}
   - component: {fileID: 7635726065903704646}
+  - component: {fileID: 3541754001980900656}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Untagged
@@ -3236,6 +3729,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3541754001980900656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754001980900655}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6b3bffeeeef61438bf3c83ba36fc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip0: {fileID: 7400000, guid: 9045b628a2e38a246a988d3abea05c36, type: 2}
+  clip1: {fileID: 7400000, guid: 2e5cbd52f3af8384fafcc9a73ad2f1e0, type: 2}
+  delayTime: 5
+  tranTime: 1
 --- !u!4 &3609869344572402566
 Transform:
   m_ObjectHideFlags: 0
@@ -3257,7 +3766,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7439667444655494822}
-  m_LocalRotation: {x: 0.0856364, y: -0.006608644, z: 0.010808363, w: 0.9962459}
+  m_LocalRotation: {x: 0.41402808, y: -0.16457742, z: 0.031074261, w: 0.8947231}
   m_LocalPosition: {x: 9.3132255e-12, y: 0.0015929624, z: 7.4505804e-11}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1}
   m_Children:
@@ -3272,7 +3781,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8537379886492137687}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.018953444, y: -0.016060308, z: -0.0025062023, w: 0.9996882}
   m_LocalPosition: {x: -0, y: 0.0015119934, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3319,7 +3828,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3356505892938213599}
-  m_LocalRotation: {x: 0.084491365, y: -0.013635955, z: -0.012378372, w: 0.996254}
+  m_LocalRotation: {x: 0.6239292, y: -0.010371352, z: 0.09072322, w: 0.77612764}
   m_LocalPosition: {x: 7.4505804e-11, y: 0.00260657, z: 0.0000000028708018}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
   m_Children:
@@ -3725,7 +4234,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2718572269851851365}
-  m_LocalRotation: {x: 0.16970277, y: -0.028958654, z: 0.12204973, w: 0.9774795}
+  m_LocalRotation: {x: 0.15272474, y: -0.031937703, z: 0.120249316, w: 0.9804057}
   m_LocalPosition: {x: 5.937181e-11, y: 0.0059650694, z: 2.9802322e-10}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.99999994}
   m_Children:
@@ -3757,7 +4266,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9211191336829022101}
-  m_LocalRotation: {x: 0.025758917, y: -0.022072563, z: 0.034884524, w: 0.9988155}
+  m_LocalRotation: {x: 0.6037752, y: -0.057847783, z: -0.003926233, w: 0.79504323}
   m_LocalPosition: {x: -0.0025373795, y: 0.0046996134, z: -0.00022197569}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1}
   m_Children:
@@ -4074,7 +4583,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3921334144497306996}
-  m_LocalRotation: {x: -0.058209147, y: -0.002894446, z: -0.0026199205, w: 0.9982968}
+  m_LocalRotation: {x: 0.58467424, y: -0.002628337, z: -0.06689645, w: 0.8085011}
   m_LocalPosition: {x: 0.0000020551151, y: 0.0022241578, z: -0.0000000016406647}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1.0000001}
   m_Children:
@@ -4139,7 +4648,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8832146669846934366}
-  m_LocalRotation: {x: -0.0019515395, y: 0.005228092, z: 0.0052265446, w: 0.9999708}
+  m_LocalRotation: {x: 0.6033694, y: 0.0041532563, z: -0.07065063, w: 0.7943152}
   m_LocalPosition: {x: -1.862645e-10, y: 0.0026217757, z: 0.0000000013853423}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -4517,7 +5026,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9104068794331177027}
-  m_LocalRotation: {x: -0.012620335, y: -0.03131938, z: 0.026116652, w: 0.99908847}
+  m_LocalRotation: {x: 0.6030637, y: -0.062414, z: -0.022662146, w: 0.79492456}
   m_LocalPosition: {x: -0.00031127295, y: 0.0050714696, z: -0.000049081573}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children:
@@ -4597,7 +5106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4275852571073015482}
-  m_LocalRotation: {x: 0.07751489, y: 0.0025662382, z: 0.043736637, w: 0.9960281}
+  m_LocalRotation: {x: -0.35977432, y: 0.022020165, z: 0.039877843, w: 0.9319267}
   m_LocalPosition: {x: 3.910145e-10, y: 0.007955141, z: -8.731149e-13}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
   m_Children:
@@ -4612,7 +5121,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4944228959579827095}
-  m_LocalRotation: {x: 0.3080849, y: 0.11623043, z: -0.18718553, w: 0.9254922}
+  m_LocalRotation: {x: -0.03303959, y: 0.15512826, z: -0.17560527, w: 0.97159994}
   m_LocalPosition: {x: 0.000094732044, y: 0.0016309698, z: 0.000000058356672}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -4641,7 +5150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7678658565267956591}
-  m_LocalRotation: {x: -0.012620335, y: 0.03131938, z: -0.026116652, w: 0.99908847}
+  m_LocalRotation: {x: 0.6424811, y: 0.017075183, z: 0.07549028, w: 0.7623829}
   m_LocalPosition: {x: 0.00031127295, y: 0.0050714696, z: -0.000049081573}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children:
@@ -4689,7 +5198,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7195248419661401690}
-  m_LocalRotation: {x: 0.44886628, y: -0.5215398, z: 0.48690292, w: 0.53799707}
+  m_LocalRotation: {x: 0.50390613, y: -0.47425172, z: 0.500762, w: 0.52000135}
   m_LocalPosition: {x: -0.0051535415, y: 0.0061933035, z: -0.0009587702}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children:
@@ -4704,7 +5213,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837269256449860380}
-  m_LocalRotation: {x: -0.025027193, y: -0.03098387, z: -0.56412834, w: 0.8247259}
+  m_LocalRotation: {x: 0.25081727, y: -0.14356624, z: -0.29673582, w: 0.9101798}
   m_LocalPosition: {x: 0.0019131002, y: 0.0013891871, z: 0.00032658404}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
   m_Children:
@@ -4752,7 +5261,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2234763684751203989}
-  m_LocalRotation: {x: 0.16970277, y: 0.028958654, z: -0.12204973, w: 0.9774795}
+  m_LocalRotation: {x: 0.15854299, y: 0.04265287, z: -0.1180312, w: 0.9793434}
   m_LocalPosition: {x: -5.937181e-11, y: 0.0059650694, z: 2.9802322e-10}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.99999994}
   m_Children:
@@ -4767,7 +5276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2542026527309368249}
-  m_LocalRotation: {x: 0.47223574, y: -0.000778242, z: -0.010722834, w: 0.8814067}
+  m_LocalRotation: {x: 0.69124967, y: 0.0070342664, z: -0.01429815, w: 0.72244036}
   m_LocalPosition: {x: 1.2369128e-12, y: 0.007032073, z: -2.3515895e-10}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children:
@@ -4969,7 +5478,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7969958674720630373}
-  m_LocalRotation: {x: -0.0019515395, y: -0.005228092, z: -0.0052265446, w: 0.9999708}
+  m_LocalRotation: {x: 0.5782879, y: -0.0042450675, z: 0.0799606, w: 0.81189376}
   m_LocalPosition: {x: 1.862645e-10, y: 0.0026217757, z: 0.0000000013853423}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -5015,7 +5524,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6348465274960184235}
-  m_LocalRotation: {x: 0.44886628, y: 0.5215398, z: -0.48690292, w: 0.53799707}
+  m_LocalRotation: {x: 0.49850908, y: 0.48018953, z: -0.50763863, w: 0.5130398}
   m_LocalPosition: {x: 0.0051535415, y: 0.0061933035, z: -0.0009587702}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children:
@@ -5160,7 +5669,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4252157926763084363}
-  m_LocalRotation: {x: 0.3080849, y: -0.11623043, z: 0.18718553, w: 0.9254922}
+  m_LocalRotation: {x: 0.029782625, y: -0.2552485, z: 0.2691535, w: 0.92817974}
   m_LocalPosition: {x: -0.000094732044, y: 0.0016309698, z: 0.000000058356672}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -5526,7 +6035,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7403674876636970917}
-  m_LocalRotation: {x: 0.0489316, y: -0.016163496, z: 0.040470988, w: 0.997851}
+  m_LocalRotation: {x: 0.6671114, y: -0.04751274, z: -0.02975171, w: 0.7428458}
   m_LocalPosition: {x: 0.0020207374, y: 0.0049411217, z: -0.00019330285}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
   m_Children:
@@ -5541,7 +6050,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3465011012010326134}
-  m_LocalRotation: {x: 0.47223574, y: 0.000778242, z: 0.010722834, w: 0.8814067}
+  m_LocalRotation: {x: 0.77604717, y: 0.01573971, z: 0.05566211, w: 0.6280166}
   m_LocalPosition: {x: -1.2369128e-12, y: 0.007032073, z: -2.3515895e-10}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children:
@@ -5556,7 +6065,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9193520577006966107}
-  m_LocalRotation: {x: 0.056340646, y: 8.164802e-19, z: 1.1755652e-17, w: 0.99841166}
+  m_LocalRotation: {x: -0.077927195, y: 0.05501986, z: 0.026279738, w: 0.99509275}
   m_LocalPosition: {x: 8.283988e-24, y: 0.0030691673, z: 0.000090436486}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -5573,7 +6082,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191948013770284889}
-  m_LocalRotation: {x: -0.025027193, y: 0.03098387, z: 0.56412834, w: 0.8247259}
+  m_LocalRotation: {x: 0.18862091, y: 0.22712052, z: 0.3112186, w: 0.9033169}
   m_LocalPosition: {x: -0.0019131002, y: 0.0013891871, z: 0.00032658404}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
   m_Children:
@@ -5871,7 +6380,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6982769456935439682}
-  m_LocalRotation: {x: -0.025451161, y: 0.00014295697, z: 0.00014227511, w: 0.99967605}
+  m_LocalRotation: {x: 0.61017895, y: 0.00011297435, z: -0.06821844, w: 0.78932124}
   m_LocalPosition: {x: -1.4959368e-10, y: 0.002752743, z: 0.000000002810193}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
   m_Children:
@@ -5903,7 +6412,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6974470746297400349}
-  m_LocalRotation: {x: -0.058209147, y: 0.002894446, z: 0.0026199205, w: 0.9982968}
+  m_LocalRotation: {x: 0.5082963, y: 0.0027400611, z: 0.06898336, w: 0.85841054}
   m_LocalPosition: {x: -0.0000020551151, y: 0.0022241578, z: -0.0000000016406647}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1.0000001}
   m_Children:
@@ -6103,7 +6612,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4761579679583892108}
-  m_LocalRotation: {x: -0.024770312, y: -0.06330372, z: 0.049688194, w: 0.99644876}
+  m_LocalRotation: {x: -0.06242259, y: -0.032359857, z: -0.047194168, w: 0.99640805}
   m_LocalPosition: {x: 4.842877e-10, y: 0.007151887, z: -0.000000003740133}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children:
@@ -6343,7 +6852,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024321854514335791}
-  m_LocalRotation: {x: 0.00023406364, y: -0.008087971, z: 0.99964195, w: -0.025505608}
+  m_LocalRotation: {x: -0.04085462, y: 0.47176543, z: 0.8807108, w: -0.0108074}
   m_LocalPosition: {x: -0.0046964264, y: -0.000097808836, z: 0.00006266594}
   m_LocalScale: {x: 1.0000329, y: 1, z: 1.0000032}
   m_Children:

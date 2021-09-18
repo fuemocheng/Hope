@@ -34,7 +34,7 @@ public class TestAnimator : MonoBehaviour
         m_Graph.Connect(clipPlayable1, 0, m_Mixer, 1);
 
         m_Mixer.SetInputWeight(0, 1);
-        //m_Mixer.SetInputWeight(1, 0);
+        m_Mixer.SetInputWeight(1, 0);
 
         m_Graph.Play();
 
