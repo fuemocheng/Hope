@@ -10,18 +10,14 @@ public class AnimationBlendBehaviour : PlayableBehaviour
     public AnimationClip endClip;
 
     Playable inPlayable;
-
     PlayableGraph playableGraph;
 
-    AnimationClipPlayable clipPlayable;
-
-    AnimationClipPlayable endClipPlayable;
-
     AnimationMixerPlayable m_mixerPlayable;
+    AnimationClipPlayable clipPlayable;
+    AnimationClipPlayable endClipPlayable;
 
     //控制所有AnimationBlendPlayableBehaviour的AnimationMixerPlayable
     Playable m_fatherMixerPlayable;
-
 
     public override void OnPlayableCreate(Playable playable)
     {
@@ -30,7 +26,7 @@ public class AnimationBlendBehaviour : PlayableBehaviour
 
         m_mixerPlayable = AnimationMixerPlayable.Create(playableGraph, 2);
         playable.ConnectInput(0, m_mixerPlayable, 0);
-
+        playable.SetInputWeight(0, 0);
         //inPlayable = playable;
     }
 
@@ -41,8 +37,8 @@ public class AnimationBlendBehaviour : PlayableBehaviour
        
         m_mixerPlayable.ConnectInput(0, clipPlayable, 0);
         m_mixerPlayable.ConnectInput(1, endClipPlayable, 0);
-        m_mixerPlayable.SetInputWeight(0, 1);
-        m_mixerPlayable.SetInputWeight(1, 0);
+        m_mixerPlayable.SetInputWeight(0, 0);
+        //m_mixerPlayable.SetInputWeight(1, 0);
 
         //inPlayable.ConnectInput(0, clipPlayable, 0);
     }
@@ -52,6 +48,8 @@ public class AnimationBlendBehaviour : PlayableBehaviour
         base.OnGraphStart(playable);
 
         m_fatherMixerPlayable = playable.GetOutput(0);
+
+        //m_fatherMixerPlayable.ConnectInput(0, endClipPlayable, 0);
     }
 
     public override void OnGraphStop(Playable playable)
@@ -61,14 +59,14 @@ public class AnimationBlendBehaviour : PlayableBehaviour
 
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
-        //m_mixerPlayable.SetInputWeight(0, 1);
-        //m_mixerPlayable.SetInputWeight(1, 0);
+        m_mixerPlayable.SetInputWeight(0, 1);
+        m_mixerPlayable.SetInputWeight(1, 0);
     }
 
     public override void OnBehaviourPause(Playable playable, FrameData info)
     {
         base.OnBehaviourPause(playable, info);
-
+        m_mixerPlayable.SetInputWeight(0, 0);
         //m_mixerPlayable.SetInputWeight(0, 0);
         //m_mixerPlayable.SetInputWeight(1, 1);
 
@@ -104,11 +102,20 @@ public class AnimationBlendBehaviour : PlayableBehaviour
 
             //endClipPlayable = AnimationClipPlayable.Create(playableGraph, endClip);
             //playable.ConnectInput(0, endClipPlayable, 0);
+
+            //m_fatherMixerPlayable.ConnectInput(0, endClipPlayable, 0);
         }
     }
 
     public override void PrepareFrame(Playable playable, FrameData info)
     {
-        
+        Debug.LogError("AnimationBlendBehaviour - PrepareFrame");
+
+    }
+
+    public override void ProcessFrame(Playable playable, FrameData info, object playerData)
+    {
+        base.ProcessFrame(playable, info, playerData);
+        Debug.LogError("AnimationBlendBehaviour - ProcessFrame");
     }
 }
