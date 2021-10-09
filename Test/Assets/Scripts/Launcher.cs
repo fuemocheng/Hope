@@ -16,12 +16,16 @@ public class Launcher : MonoSingleton<Launcher>
     void Start()
     {
         m_CustomLogHandler = new CustomLogHandler();
-        //m_CustomLogHandler.EnableLog = false;
-        logger.LogError(kTAG, "Start");
+        LuaRoot.Init();
     }
 
     void Update()
     {
-        
+        LuaRoot.Update();
+    }
+
+    void OnDestroy()
+    {
+        LuaRoot.OnDestroy();
     }
 }

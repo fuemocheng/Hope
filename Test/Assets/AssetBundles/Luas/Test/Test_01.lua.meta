@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: d208135f8273ac64a8de510579b98c86
+labels:
+- lua
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
