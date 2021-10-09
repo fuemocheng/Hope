@@ -3,7 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
+[CSharpCallLua]
+[LuaCallCSharp]
 public static class LuaRoot
 {
     //all lua behaviour shared one luaenv only!
@@ -18,12 +23,12 @@ public static class LuaRoot
     static bool _inited;
 
     /// <summary>
-    /// luaÎÄ¼ş»º´æ
+    /// luaæ–‡ä»¶ç¼“å­˜
     /// </summary>
     private static Dictionary<string, byte[]> m_bytesDict = new Dictionary<string, byte[]>();
 
     /// <summary>
-    /// luaºó×º
+    /// luaåç¼€
     /// </summary>
     static string _luaSuffix = "";
 
@@ -35,7 +40,7 @@ public static class LuaRoot
             return;
         _inited = true;
         
-        //Ê¹ÓÃ AssetBundle
+        //ä½¿ç”¨ AssetBundle
         if (_useAssetBundle)
         {
             _luaSuffix = ".lua.bytes";
@@ -55,7 +60,7 @@ public static class LuaRoot
     }
 
     /// <summary>
-    /// ×Ô¶¨Òålua¼ÓÔØ·½·¨
+    /// è‡ªå®šä¹‰luaåŠ è½½æ–¹æ³•
     /// </summary>
     /// <param name="filepath"></param>
     /// <returns></returns>
@@ -83,14 +88,14 @@ public static class LuaRoot
         meta.Set("__index", _luaEnv.Global);
         _envTable.SetMetaTable(meta);
 
-
         meta.Dispose();
 
 #if UNITY_EDITOR
-        //LuaPanda µ÷ÊÔ
+        //LuaPanda è°ƒè¯•
         _luaEnv.DoString("require 'LuaFrame/LuaPanda'.start('127.0.0.1', 8818)");
+        _luaEnv.DoString("UNITY_EDITOR = true");
 #endif
-
+        //luaæ€»å…¥å£
         _luaEnv.DoString("require 'LuaFrame/LuaEntry'");
 
         _envTable.Get("CSStart", out _start);
@@ -107,15 +112,68 @@ public static class LuaRoot
 
         _update?.Invoke();
 
-        //Çå³ıLuaµÄÎ´ÊÖ¶¯ÊÍ·ÅµÄLuaBase¶ÔÏó£¨±ÈÈç£ºLuaTable£¬ LuaFunction£©£¬ÒÔ¼°ÆäËüÒ»Ğ©ÊÂÇé¡£
-        //ĞèÒª¶¨ÆÚµ÷ÓÃ£¬±ÈÈçÔÚMonoBehaviourµÄUpdateÖĞµ÷ÓÃ¡£
+        //æ¸…é™¤Luaçš„æœªæ‰‹åŠ¨é‡Šæ”¾çš„LuaBaseå¯¹è±¡ï¼ˆæ¯”å¦‚ï¼šLuaTableï¼Œ LuaFunctionï¼‰ï¼Œä»¥åŠå…¶å®ƒä¸€äº›äº‹æƒ…ã€‚
+        //éœ€è¦å®šæœŸè°ƒç”¨ï¼Œæ¯”å¦‚åœ¨MonoBehaviourçš„Updateä¸­è°ƒç”¨ã€‚
         _luaEnv?.Tick();
     }
 
+    public static void Dispose()
+    {
+        m_bytesDict.Clear();
+        _luaEnv = new LuaEnv();
+        _inited = false;
+    }
 
     public static void OnDestroy()
     {
         m_bytesDict.Clear();
         _luaEnv?.Dispose();
+        _inited = false;
     }
 }
+
+
+
+#if UNITY_EDITOR
+public class LuaFastProcessor : AssetPostprocessor
+{
+    static string assetBundlePath = "Assets/AssetBundles/";
+    static List<string> luaFiles = new List<string>();
+    public static void OnPostprocessAllAssets(string[] importedAsset, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+    {
+        if (Application.isPlaying)
+        {
+            //luaFiles.Clear();
+            //for (int i = 0; i < importedAsset.Length; i++)
+            //{
+            //    bool isLuaFile = importedAsset[i].EndsWith(".lua");
+            //    if (isLuaFile)
+            //    {
+            //        string luaPath = importedAsset[i];
+
+            //        luaPath = luaPath.Substring(assetBundlePath.Length, luaPath.Length - assetBundlePath.Length);
+            //        luaPath = luaPath.Replace(".lua", "");
+            //        luaFiles.Add(luaPath);
+
+            //    }
+            //}
+            //if (luaFiles.Count > 0)
+            //{
+            //    EditorUtility.DisplayProgressBar("HotUpdateLua", "", 0);
+            //    try
+            //    {
+            //        LuaRoot.HotUpdate(luaFiles);
+            //        Debug.Log("LuaHotUpdate:" + string.Join(",", luaFiles.ToArray()));
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Debug.LogException(e);
+            //    }
+
+            //    luaFiles.Clear();
+            //    EditorUtility.ClearProgressBar();
+            //}
+        }
+    }
+}
+#endif
