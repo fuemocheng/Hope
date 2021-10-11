@@ -1713,5 +1713,19 @@ namespace XLua
                 throw new Exception("invalid lua value for decimal, LuaType=" + lua_type);
             }
         }
+
+        public List<(int, int, string)> RetriveLuaObjectMap()
+        {
+            var ret = new List<(int, int, string)>();
+
+            foreach (var kv in this.reverseMap)
+            {
+                Type keyType = kv.Key.GetType();
+
+                ret.Add((kv.Key.GetHashCode(), keyType.Name.GetHashCode(), keyType.Name));
+            }
+
+            return ret;
+        }
     }
 }

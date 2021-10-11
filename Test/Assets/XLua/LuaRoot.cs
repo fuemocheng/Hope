@@ -87,6 +87,8 @@ public static class LuaRoot
         var meta = _luaEnv.NewTable();
         meta.Set("__index", _luaEnv.Global);
         _envTable.SetMetaTable(meta);
+        LuaUtility.globalTable = _envTable;
+        LuaUtility.luaEnv = _luaEnv;
 
         meta.Dispose();
 

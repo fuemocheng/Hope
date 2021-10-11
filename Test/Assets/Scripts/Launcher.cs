@@ -28,4 +28,9 @@ public class Launcher : MonoSingleton<Launcher>
     {
         LuaRoot.OnDestroy();
     }
+
+    public void Test()
+    {
+        LuaUtility.Instance.CallLuaFunc("");    
+    }
 }
