@@ -2,7 +2,9 @@
     "Lua.diagnostics.disable": [
         "lowercase-global",
         "undefined-global",
-        "undefined-field"
+        "undefined-field",
+        "unbalanced-assignments",
+        "redundant-parameter"
     ],
     "files.exclude": {
         "**/.git": true,
