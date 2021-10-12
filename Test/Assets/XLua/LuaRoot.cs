@@ -129,7 +129,7 @@ public static class LuaRoot
     public static void OnDestroy()
     {
         m_bytesDict.Clear();
-        _luaEnv?.Dispose();
+        //_luaEnv?.Dispose();
         _inited = false;
     }
 }
