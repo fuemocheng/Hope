@@ -1,11 +1,10 @@
 --------------------------------------------------------------------------------
---      Copyright (c) 2021 - 2022 , MattXu fuemocheng@163.com
+--      Copyright (c) 2021 - 2022 , MattXu
 --      All rights reserved.
 --      Use, modification and distribution are subject to the "MIT License"
 --------------------------------------------------------------------------------
 
 -- Implementation of lua class
-
 
 -- No.1
 -- https://www.cocos.com/
@@ -26,6 +25,10 @@ function class(classname, ...)
 
         -- 这里是class继承的第一种情况，继承一个方法（在子类new之前先执行的内建函数__create）
         if superType == "function" then
+            -- 下面是class的第二，第三种情况，当传过来的值是table类型的时候
+            -- 这里需要明确的一点是，在lua里table其实还分两种，一种是lua的table，另一种是c里转换过来的一种类型叫userTable，
+            -- 在用tolua++绑定cocos2dx引擎的时候，tolua++会为userTable类型的类在执行create方法的时候为其加入.isclass属性
+            -- （大家可以用执行dump(cc.Layer)观察）
             assert(
                 cls.__create == nil,
                 string.format('class() - create class "%s" with more than one creating function', classname)
@@ -33,11 +36,6 @@ function class(classname, ...)
             -- if super is function, set it to __create
             -- 如果super是一个方法，把super直接复制给内建函数__create
             cls.__create = super
-
-        -- 下面是class的第二，第三种情况，当传过来的值是table类型的时候
-        -- 这里需要明确的一点是，在lua里table其实还分两种，一种是lua的table，另一种是c里转换过来的一种类型叫userTable，
-        -- 在用tolua++绑定cocos2dx引擎的时候，tolua++会为userTable类型的类在执行create方法的时候为其加入.isclass属性
-        -- （大家可以用执行dump(cc.Layer)观察）
         elseif superType == "table" then
             if super[".isclass"] then
                 -- super is native class
@@ -124,7 +122,6 @@ function class(classname, ...)
 end
 --]]
 
-
 -- No.2
 -- https://blog.codingnow.com/cloud/LuaOO
 --[[
@@ -187,13 +184,14 @@ end
 -- https://blog.csdn.net/mywcyfl/article/details/37706085
 -- https://blog.csdn.net/mywcyfl/article/details/37706247
 
+--[[
 -- Internal register
 local _class = {}
 
 function class(classname, base)
     local class_type = {}
 
-    class_type.__typeName = classname -- 增加typeName
+    class_type.__typeName = classname       -- 增加typeName
     class_type.__type = "class"
     class_type.ctor = false
 
@@ -281,3 +279,184 @@ function class(classname, base)
 
     return class_type
 end
+--]]
+
+-- No.4
+-- 在No.3的基础上增加Get,Set
+
+-- Internal register
+local _class = {}
+
+function class(classname, base)
+    local class_type = {}
+
+    class_type.__typeName = classname   -- 增加typeName
+    class_type.__type = "class"
+    class_type.ctor = nil               -- 改成nil
+    class_type.Get = {}
+    class_type.Set = {}
+
+    local Get = class_type.Get
+    local Set = class_type.Set
+
+    local vtbl = {}
+    _class[class_type] = vtbl
+    setmetatable(class_type, {__newindex = vtbl, __index = vtbl})
+
+    if base then
+        setmetatable(
+            vtbl,
+            {
+                __index = function(t, k)
+                    local ret = _class[base][k]
+                    vtbl[k] = ret
+                    return ret
+                end
+            }
+        )
+
+        --copy super getter
+        if base.Get then
+            for key, value in pairs(base.Get) do
+                Get[key] = value
+            end
+        end
+        --copy supper setter
+        if base.Set then
+            for key, value in pairs(base.Set) do
+                Set[key] = value
+            end
+        end
+    end
+
+    function class_type.__index(self, key)
+        local func = class_type[key]
+        if func then
+            return func
+        end
+        local getter = Get[key]
+        if getter then
+            return getter(self)
+        end
+        return nil
+    end
+
+    function class_type.__newindex(self, key, value)
+        local setter = Set[key]
+        if setter then
+            setter(self, value or false)
+            return
+        end
+        if Get[key] then
+            assert(false, "readonly property")
+        end
+        rawset(self, key, value)
+    end
+
+    class_type.__base = base
+    class_type.new = function(...)
+        --create a object, dependent on .__createFunc
+        local obj = {}
+        obj.__base = class_type
+        obj.__type = "object"
+        do
+            local create
+            create = function(c, ...)
+                if c.__base then
+                    create(c.__base, ...)
+                end
+                if c.ctor then
+                    c.ctor(obj, ...)
+                end
+            end
+
+            create(class_type, ...)
+        end
+
+        setmetatable(obj, _class[class_type])
+        return obj
+    end
+
+    class_type.super = function(self, f, ...)
+        assert(
+            self and self.__type == "object",
+            string.format("'self' must be a object when call super(self, '%s', ...)", tostring(f))
+        )
+
+        local originBase = self.__base
+        --find the first f function that differ from self[f] in the inheritance chain
+        local s = originBase
+        local base = s.__base
+        while base and s[f] == base[f] do
+            s = base
+            base = base.__base
+        end
+
+        assert(
+            base and base[f],
+            string.format("base class or function cannot be found when call .super(self, '%s', ...)", tostring(f))
+        )
+        --now base[f] is differ from self[f], but f in base also maybe inherited from base's baseClass
+        while base.__base and base[f] == base.__base[f] do
+            base = base.__base
+        end
+
+        -- If the base also has a baseclass, temporarily set :super to call that baseClass' methods
+        -- this is to avoid stack overflow
+        if base.__base then
+            self.__base = base
+        end
+
+        --now, call the super function
+        local result = base[f](self, ...)
+
+        --set back
+        if base.__base then
+            self.__base = originBase
+        end
+
+        return result
+    end
+
+    class_type.superSet = function(self, f, value)
+        assert(
+            self and self.__type == "object",
+            string.format("'self' must be a object when call superSet(self, '%s', ...)", tostring(f))
+        )
+        local originBase = self.__base
+
+        local s = originBase
+        local base = s.__base
+        while base and s.Set[f] == base.Set[f] do
+            s = base
+            base = base.__base
+        end
+        assert(
+            base and base.Set[f],
+            string.format("base class or function cannot be found when call .superSet(self, '%s', ...)", tostring(f))
+        )
+        base.Set[f](self, value)
+    end
+    class_type.superGet = function(self, f)
+        assert(
+            self and self.__type == "object",
+            string.format("'self' must be a object when call superGet(self, '%s')", tostring(f))
+        )
+        local originBase = self.__base
+
+        local s = originBase
+        local base = s.__base
+        while base and s.Get[f] == base.Get[f] do
+            s = base
+            base = base.__base
+        end
+        assert(
+            base and base.Get[f],
+            string.format("base class or function cannot be found when call .superGet(self, '%s')", tostring(f))
+        )
+        return base.Get[f](self)
+    end
+
+    return class_type
+end
+--]]
