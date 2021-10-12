@@ -4,14 +4,27 @@
 --      Use, modification and distribution are subject to the "MIT License"
 --------------------------------------------------------------------------------
 
-require "LuaFrame/Class"
-require "LuaFrame.LuaManager"
-require "Test/Test_01"
+LuaManager = class("LuaManager")
+local M = LuaManager
 
-CSStart = function()
-    print("CSStart")
+function M:ctor()
+    -- body
 end
 
-CSUpdate = function()
-    --LuaManager.Instance:Update()
+function M:Init()
+    -- body
 end
+
+function M:Update()
+    print("LuaManager-Update")
+end
+
+function M:Clear()
+    -- body
+end
+
+function M:CheckGC()
+    --body
+end
+
+LuaManager.Instance = M.new()
