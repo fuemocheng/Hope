@@ -5,13 +5,13 @@
 --------------------------------------------------------------------------------
 
 require "LuaFrame/Class"
-require "LuaFrame.LuaManager"
-require "Test/Test_01"
+require "LuaFrame/LuaManager"
+require "Test/TestManager"
 
 CSStart = function()
     print("CSStart")
 end
 
 CSUpdate = function()
-    --LuaManager.Instance:Update()
+    LuaManager.Instance:Update()
 end
