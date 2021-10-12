@@ -31,6 +31,6 @@ public class Launcher : MonoSingleton<Launcher>
 
     public void Test()
     {
-        LuaUtility.Instance.CallLuaFunc("");    
+        LuaUtility.Instance.CallLuaFunc("");
     }
 }

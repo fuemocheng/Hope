@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using XLua;
 
@@ -49,12 +50,58 @@ public static class LuaConfig
     //    "NativeLeakDetectionMode", "WWWAudioExtensions", "UnityEngine.Experimental",
     //};
 
+    //static List<string> excludeCustom = new List<string> {
+    //    "LoginUtility", "RuntimeMeshCombine", "GameRandom","DebugParams",
+    //    "CameraPosHelper","DefaultDramaScriptNode","EditorConst","SoundProprietaryNode",
+    //    "TestTextureIporter","InputRegistering","LuaFastProcessor","ScreencapTool","GrassGPUInstance",
+    //    "GrassDataAsset","GrassByVertexColor","GrassDataAsset.GrassGroupData", "UWAEngine", "UWA_Launcher"
+    //};
+
+    //static HashSet<string> excludeCustomNamespace = new HashSet<string> {
+    //    "main", "UWA", "UWAEngine", "Assets.UWA", "PV.Timeline", "Enhanced.Timeline"
+    //};
+
+    //static List<string> excludeDelegate = new List<string>{
+    //    "OnRequestRebuild" 
+    //};
+
     //static bool isExcluded(Type type)
     //{
     //    var fullName = type.FullName;
     //    for (int i = 0; i < exclude.Count; i++)
     //    {
     //        if (fullName.Contains(exclude[i]))
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    return false;
+    //}
+
+    //static bool isExcludedCustom(Type type)
+    //{
+    //    var fullName = type.FullName;
+    //    for (int i = 0; i < excludeCustom.Count; i++)
+    //    {
+    //        if (fullName.Contains(excludeCustom[i]))
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    return false;
+    //}
+
+    //static bool isExcludedCustomNamespace(Type type)
+    //{
+    //    return type.Namespace != null && excludeCustomNamespace.Contains(type.Namespace);
+    //}
+
+    //static bool isExcludedDelegate(Type type)
+    //{
+    //    var fullName = type.FullName;
+    //    for (int i = 0; i < excludeDelegate.Count; i++)
+    //    {
+    //        if (fullName.Contains(excludeDelegate[i]))
     //        {
     //            return true;
     //        }
@@ -70,7 +117,9 @@ public static class LuaConfig
     //        List<string> namespaces = new List<string>() // 在这里添加名字空间
     //        {
     //            "UnityEngine",
-    //            "UnityEngine.UI"
+    //            "UnityEngine.UI",
+    //            "UnityEngine.Timeline",
+    //            "UnityEngine.U2D"
     //        };
     //        var unityTypes = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
     //                          where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)
@@ -81,9 +130,13 @@ public static class LuaConfig
 
     //        string[] customAssemblys = new string[] {
     //            "Assembly-CSharp",
+    //            "Hotfix",
+    //            "Lib"
     //        };
     //        var customTypes = (from assembly in customAssemblys.Select(s => Assembly.Load(s))
     //                           from type in assembly.GetExportedTypes()
+    //                           where !isExcludedCustom(type)
+    //                           where !isExcludedCustomNamespace(type)
     //                           where type.Namespace == null || !type.Namespace.StartsWith("XLua")
     //                                   && type.BaseType != typeof(MulticastDelegate) && !type.IsInterface && !type.IsEnum
     //                           select type);
@@ -91,7 +144,7 @@ public static class LuaConfig
     //    }
     //}
 
-    ////自动把LuaCallCSharp涉及到的delegate加到CSharpCallLua列表，后续可以直接用lua函数做callback
+    //////自动把LuaCallCSharp涉及到的delegate加到CSharpCallLua列表，后续可以直接用lua函数做callback
     //[CSharpCallLua]
     //public static List<Type> CSharpCallLua
     //{
@@ -124,7 +177,9 @@ public static class LuaConfig
     //                }
     //            }
     //        }
-    //        return delegate_types.Where(t => t.BaseType == typeof(MulticastDelegate) && !hasGenericParameter(t) && !delegateHasEditorRef(t)).Distinct().ToList();
+    //        return delegate_types.Where(t => t.BaseType == typeof(MulticastDelegate) && !hasGenericParameter(t) && !delegateHasEditorRef(t))
+    //            .Where(t => !isExcludedDelegate(t))
+    //            .Distinct().ToList();
     //    }
     //}
     //--------------end 纯lua编程配置参考----------------------------
@@ -180,10 +235,11 @@ public static class LuaConfig
     //    {
     //        foreach (var typeArg in type.GetGenericArguments())
     //        {
-    //            if (typeArg.IsGenericParameter) {
+    //            if (typeArg.IsGenericParameter)
+    //            {
     //                //skip unsigned type parameter
     //                continue;
-    //            } 
+    //            }
     //            if (typeHasEditorRef(typeArg))
     //            {
     //                return true;
@@ -205,7 +261,7 @@ public static class LuaConfig
     //    return method.GetParameters().Any(pinfo => typeHasEditorRef(pinfo.ParameterType));
     //}
 
-    // 配置某Assembly下所有涉及到的delegate到CSharpCallLua下，Hotfix下拿不准那些delegate需要适配到lua function可以这么配置
+    //// 配置某Assembly下所有涉及到的delegate到CSharpCallLua下，Hotfix下拿不准那些delegate需要适配到lua function可以这么配置
     //[CSharpCallLua]
     //static IEnumerable<Type> AllDelegate
     //{
@@ -215,7 +271,9 @@ public static class LuaConfig
     //        List<Type> allTypes = new List<Type>();
     //        var allAssemblys = new Assembly[]
     //        {
-    //            Assembly.Load("Assembly-CSharp")
+    //            Assembly.Load("Assembly-CSharp"),
+    //            Assembly.Load("Hotfix"),
+    //            Assembly.Load("Lib"),
     //        };
     //        foreach (var t in (from assembly in allAssemblys from type in assembly.GetTypes() select type))
     //        {
@@ -240,7 +298,7 @@ public static class LuaConfig
     //    }
     //}
     //--------------end 热补丁自动化配置-------------------------
-    
+
     //黑名单
     [BlackList]
     public static List<List<string>> BlackList = new List<List<string>>()  {
