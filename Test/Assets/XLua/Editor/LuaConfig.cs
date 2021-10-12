@@ -240,7 +240,7 @@ public static class LuaConfig
     //    }
     //}
     //--------------end 热补丁自动化配置-------------------------
-    /*
+    
     //黑名单
     [BlackList]
     public static List<List<string>> BlackList = new List<List<string>>()  {
@@ -300,5 +300,5 @@ public static class LuaConfig
         }
         return false;
     };
-#endif*/
+#endif
 }

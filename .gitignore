@@ -41,8 +41,11 @@ Test/Library
 Test/Logs
 Test/obj
 Test/Temp
+Test/Assets/StreamingAssets/build_info
+Test/Assets/StreamingAssets/build_info.meta
 Test/Assets/StreamingAssets/build_info.txt
 Test/Assets/StreamingAssets/build_info.txt.meta
+Test/Assets/XLua/Gen
 
 
 # Mac
