@@ -4,7 +4,7 @@
 --      Use, modification and distribution are subject to the "MIT License"
 --------------------------------------------------------------------------------
 
-require "LuaFrame/class"
+require "LuaFrame/Class"
 require "Test/Test_01"
 
 CSStart = function()
