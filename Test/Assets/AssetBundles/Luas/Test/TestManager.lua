@@ -6,3 +6,10 @@
 
 print ("TestManager")
 --require "Test/TestSort"
+--require("Test/TestCSFunction")
+
+function OnClickTest()
+    LogError("OnClickTest")
+    local launcher = CS.UnityEngine.GameObject.Find("Launcher")
+    LogError(launcher.name)
+end

@@ -6,15 +6,15 @@
 
 
 Log = function(...)
-    print(...)
+    UnityEngine.Debug.Log(...)
 end
 
 LogWarning = function(...)
-    print(...)
+    UnityEngine.Debug.LogWarning(...)
 end
 
 LogError = function(...)
-    print(...)
+    UnityEngine.Debug.LogError(...)
 end
 
 -- 字符串分割

@@ -31,6 +31,9 @@ public class Launcher : MonoSingleton<Launcher>
 
     public void Test()
     {
-        LuaUtility.Instance.CallLuaFunc("");
+        var time1 = Time.realtimeSinceStartup;
+        LuaUtility.Instance.CallLuaFunc("OnClickTest");
+        var time2 = Time.realtimeSinceStartup;
+        Debug.LogError(string.Format("{0:F6}", time2 - time1));
     }
 }
