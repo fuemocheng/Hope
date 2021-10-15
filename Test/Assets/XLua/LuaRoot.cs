@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
+using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -19,7 +20,7 @@ public static class LuaRoot
     static Action _start;
     static Action _update;
     static Action _destory;
-
+    static Action<LuaTable> _onHotLoadUpdate;
     static bool _inited;
 
     /// <summary>
@@ -36,10 +37,10 @@ public static class LuaRoot
 
     public static void Init()
     {
-        if (_inited) 
+        if (_inited)
             return;
         _inited = true;
-        
+
         //使用 AssetBundle
         if (_useAssetBundle)
         {
@@ -71,7 +72,7 @@ public static class LuaRoot
 #if UNITY_EDITOR
         string newpath = $"Assets/AssetBundles/Luas/{filepath}" + _luaSuffix;
         LuaAsset luaAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<LuaAsset>(newpath);
-        if(luaAsset != null)
+        if (luaAsset != null)
         {
             var data = luaAsset.GetDecodeBytes();
             m_bytesDict.Add(filepath, data);
@@ -93,15 +94,34 @@ public static class LuaRoot
         meta.Dispose();
 
 #if UNITY_EDITOR
-        //LuaPanda 调试
+        // LuaPanda 调试
         _luaEnv.DoString("require 'LuaFrame/LuaPanda'.start('127.0.0.1', 8818)");
         _luaEnv.DoString("UNITY_EDITOR = true");
+
+#if UNITY_STANDALONE
+        _luaEnv.DoString("UNITY_STANDALONE = true");
 #endif
-        //lua总入口
+
+#if UNITY_STANDALONE_WIN
+        _luaEnv.DoString("UNITY_STANDALONE_WIN = true");
+#endif
+
+#endif
+        // lua总入口
         _luaEnv.DoString("require 'LuaFrame/LuaEntry'");
 
         _envTable.Get("CSStart", out _start);
         _envTable.Get("CSUpdate", out _update);
+
+#if UNITY_EDITOR && UNITY_STANDALONE_WIN
+        // CSHotLoadInit
+        Action<string> hotLoadInit;
+        _envTable.Get("CSHotLoadInit", out hotLoadInit);
+        string luaRootPath = Application.dataPath + "/AssetBundles/Luas";
+        hotLoadInit?.Invoke(luaRootPath);
+        // CSHotLoadUpdate
+        _envTable.Get("CSHotLoadUpdate", out _onHotLoadUpdate);
+#endif
 
         _start?.Invoke();
     }
@@ -117,6 +137,18 @@ public static class LuaRoot
         //清除Lua的未手动释放的LuaBase对象（比如：LuaTable， LuaFunction），以及其它一些事情。
         //需要定期调用，比如在MonoBehaviour的Update中调用。
         _luaEnv?.Tick();
+    }
+
+    public static void HotUpdate(List<string> fileList)
+    {
+        string fileStr = string.Join(",", fileList.Select(x => string.Format("'{0}'", x)).ToArray());
+        string str = "return { " + fileStr + "}";
+
+        var objs = _luaEnv.DoString(str);
+
+        LuaTable table = objs[0] as LuaTable;
+
+        _onHotLoadUpdate?.Invoke(table);
     }
 
     public static void Dispose()
@@ -139,42 +171,42 @@ public static class LuaRoot
 #if UNITY_EDITOR
 public class LuaFastProcessor : AssetPostprocessor
 {
-    static string assetBundlePath = "Assets/AssetBundles/";
+    static string assetBundlePath = "Assets/AssetBundles/Luas/";
     static List<string> luaFiles = new List<string>();
     public static void OnPostprocessAllAssets(string[] importedAsset, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
     {
         if (Application.isPlaying)
         {
-            //luaFiles.Clear();
-            //for (int i = 0; i < importedAsset.Length; i++)
-            //{
-            //    bool isLuaFile = importedAsset[i].EndsWith(".lua");
-            //    if (isLuaFile)
-            //    {
-            //        string luaPath = importedAsset[i];
+            luaFiles.Clear();
+            for (int i = 0; i < importedAsset.Length; i++)
+            {
+                bool isLuaFile = importedAsset[i].EndsWith(".lua");
+                if (isLuaFile)
+                {
+                    string luaPath = importedAsset[i];
 
-            //        luaPath = luaPath.Substring(assetBundlePath.Length, luaPath.Length - assetBundlePath.Length);
-            //        luaPath = luaPath.Replace(".lua", "");
-            //        luaFiles.Add(luaPath);
+                    luaPath = luaPath.Substring(assetBundlePath.Length, luaPath.Length - assetBundlePath.Length);
+                    luaPath = luaPath.Replace(".lua", "");
+                    luaFiles.Add(luaPath);
 
-            //    }
-            //}
-            //if (luaFiles.Count > 0)
-            //{
-            //    EditorUtility.DisplayProgressBar("HotUpdateLua", "", 0);
-            //    try
-            //    {
-            //        LuaRoot.HotUpdate(luaFiles);
-            //        Debug.Log("LuaHotUpdate:" + string.Join(",", luaFiles.ToArray()));
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Debug.LogException(e);
-            //    }
+                }
+            }
+            if (luaFiles.Count > 0)
+            {
+                EditorUtility.DisplayProgressBar("HotUpdateLua", "", 0);
+                try
+                {
+                    LuaRoot.HotUpdate(luaFiles);
+                    Debug.Log("LuaHotUpdate:" + string.Join(",", luaFiles.ToArray()));
+                }
+                catch (Exception e)
+                {
+                    Debug.LogException(e);
+                }
 
-            //    luaFiles.Clear();
-            //    EditorUtility.ClearProgressBar();
-            //}
+                luaFiles.Clear();
+                EditorUtility.ClearProgressBar();
+            }
         }
     }
 }

@@ -77,15 +77,16 @@ function HU.InitFileMap(RootPath)
 		local file = io.popen("dir /S/B /A:A \""..rootpath.."\"")
 		io.input(file)
 		for line in io.lines() do
-	   		local FileName = string.match(line,".*\\(.*)%.lua")
+	   		local FileName = string.match(line,".*\\(.*)%.lua$")
 	  	    if FileName ~= nil then
-	            if TheMap[FileName] == nil then
-	            	TheMap[FileName] = {}
-	        	end
+	            
 	        	local luapath = string.sub(line, #rootpath+2, #line-4)
-				luapath = string.gsub(luapath, "\\", ".")
+				luapath = string.gsub(luapath, "\\", "/")
+				if TheMap[luapath] == nil then
+	            	TheMap[luapath] = {}
+	        	end
 				HU.LuaPathToSysPath[luapath] = SysPath
-	        	table.insert(TheMap[FileName], {SysPath = line, LuaPath = luapath})
+	        	table.insert(TheMap[luapath], {SysPath = line, LuaPath = luapath})
 	    	end
 	    end
 	    file:close()
@@ -161,9 +162,10 @@ function HU.InitProtection()
 	HU.Protection[table] = true
 end
 
-function HU.AddFileFromHUList()
-	package.loaded[HU.UpdateListFile] = nil
-	local FileList = require (HU.UpdateListFile)
+function HU.AddFileFromHUList(filelist)
+	-- package.loaded[HU.UpdateListFile] = nil
+	-- local FileList = require (HU.UpdateListFile)
+	local FileList = filelist
 	HU.ALL = false
 	HU.HUMap = {}
 	for _, file in pairs(FileList) do
@@ -433,8 +435,8 @@ function HU.SetFileLoader(InitFileMapFunc, LoadStringFunc)
 	HU.LoadStringFunc = LoadStringFunc
 end
 
-function HU.Init(UpdateListFile, RootPath, FailNotify, ENV, CallOriginFunctions)
-	HU.UpdateListFile = UpdateListFile
+function HU.Init(--[[UpdateListFile, ]] RootPath, FailNotify, ENV, CallOriginFunctions)
+	--HU.UpdateListFile = UpdateListFile
 	HU.HUMap = {}
 	HU.FileMap = {}
 	HU.NotifyFunc = FailNotify
@@ -453,11 +455,19 @@ function HU.Init(UpdateListFile, RootPath, FailNotify, ENV, CallOriginFunctions)
 	HU.TryReloadFileCount = {}
 end
 
-function HU.Update()
-	HU.AddFileFromHUList()
+function HU.Update(filelist)
+	HU.AddFileFromHUList(filelist)
 	for LuaPath, SysPath in pairs(HU.HUMap) do
 		HU.HotUpdateCode(LuaPath, SysPath)
 	end
+end
+
+CSHotLoadInit = function (path)
+    HU.Init({path})
+end
+
+CSHotLoadUpdate = function(filelist)
+    HU.Update(filelist)
 end
 
 return HU

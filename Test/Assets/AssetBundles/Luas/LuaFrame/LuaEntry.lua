@@ -4,13 +4,20 @@
 --      Use, modification and distribution are subject to the "MIT License"
 --------------------------------------------------------------------------------
 
+-- luaunit
 require "LuaFrame/luaunit"
 
+-- base
 require "LuaFrame/Class"
 require "LuaFrame/BaseDefines"
+require "LuaFrame/luahotupdate"
+
+-- Utility
 require "LuaFrame/Utility"
 require "LuaFrame/LuaManager"
 
+
+--GamePlay
 require "Test/TestManager"
 
 
