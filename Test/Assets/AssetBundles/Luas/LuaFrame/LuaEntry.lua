@@ -16,13 +16,12 @@ require "LuaFrame/luahotupdate"
 require "LuaFrame/Utility"
 require "LuaFrame/LuaManager"
 
-
 --GamePlay
 require "Test/TestManager"
 
 
 CSStart = function()
-    print("CSStart")
+    LuaManager.Instance:Init()
 end
 
 CSUpdate = function()

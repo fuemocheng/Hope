@@ -79,7 +79,6 @@ function HU.InitFileMap(RootPath)
 		for line in io.lines() do
 	   		local FileName = string.match(line,".*\\(.*)%.lua$")
 	  	    if FileName ~= nil then
-	            
 	        	local luapath = string.sub(line, #rootpath+2, #line-4)
 				luapath = string.gsub(luapath, "\\", "/")
 				if TheMap[luapath] == nil then
@@ -299,7 +298,8 @@ function HU.Travel_G()
 	f(registryTable)
 	
 	for _, funcs in ipairs(HU.ChangedFuncList) do
-		if funcs[3] == "HUDebug" then funcs[4]:HUDebug() end
+		--if funcs[3] == "HUDebug" then funcs[4]:HUDebug() end
+		if funcs[3] == "HotUpdate" then funcs[4]:HotUpdate() end
 	end
 end
 
@@ -462,7 +462,7 @@ function HU.Update(filelist)
 	end
 end
 
-CSHotLoadInit = function (path)
+CSHotLoadInit = function(path)
     HU.Init({path})
 end
 
