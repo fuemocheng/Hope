@@ -1,0 +1,481 @@
+syntax = "proto3";
+package battle_proto;
+import public "game.proto";
+
+option go_package = "proto";
+
+message SceneLoadedReq
+{
+
+}
+
+message SceneLoadedAck
+{
+}
+
+enum SceneTeamType
+{
+	PLAYER = 0;
+	MONSTER = 1;
+}
+
+enum BuffTriggerType
+{
+	BF_TRIGGER_UNKNOW = 0;
+	BF_TRIGGER_NORATK = 1; // 每当自身进行普通攻击时
+	BF_TRIGGER_PRE_SUF_DAMAGE = 2; // 每当自身受到伤害时（未结算伤害）
+	BF_TRIGGER_AFT_MAKE_DAMAGE = 3; // 每当自己造成伤害后
+	BF_TRIGGER_DT = 4; // 每间隔多少秒后 P1:间隔时长（单位ms)
+	BF_TRIGGER_MAKE_DAMAGE_DEATH = 5; // 每当自己造成伤害后
+	BF_TRIGGER_MAKE_DAMAGE_CRITE = 6; // 每当自己造成的伤害暴击时
+	BF_TRIGGER_MAKE_DAMAGE_NORMAL = 7; // 每当普通攻击造成伤害时
+	BF_TRIGGER_MAKE_CURE = 8; // 每当受到治疗还未结算时
+	BF_TRIGGER_BEFORE_ADD_STATE = 9; // 中状态时（还未触发，特指StateManagement表中状态）
+	BF_TRIGGER_HP_CURE = 10; // 每当自己回复血量时（还未触发，特指StateManagement表中状态）
+	BF_TRIGGER_SUF_ALL_DAMAGE = 11; // 每当自身受到伤害时（中毒也算）
+	BF_TRIGGER_SUF_ATTACK = 12; // 每当自身受到大于一定攻击力的攻击时（中毒不算）
+	BF_TRIGGER_AFTER_DODGE = 13; // 每当进行闪避判断时
+	BF_TRIGGER_MAKE_DAMAGE_NORMAL_SKILL = 14;// 每当自身进行攻击时(普攻 + 技能)仅针对Action1
+	BF_TRIGGER_BUFF_LAYER = 15;// buff层数达到某个值后
+	BF_TRIGGER_ADD_BUFF = 16;// 每当自身获得某个buff时
+	BF_TRIGGER_ACC_BUFF_DAMAGE = 17;// 每当自身收到伤害时触发给牧师累计伤害减免
+	BF_TRIGGER_BEFORE_ADD_NEGATIVE = 18;// 每当自身被添加减益BUFF
+	BF_TRIGGER_Skill = 19;//每当自身进行技能攻击时
+}
+
+//触发返回
+enum ActionResultType
+{
+	AC_RESULT_UNKNOW = 0;
+	AC_RESULT_CURE_FORBID = 1; //禁治疗
+	AC_RESULT_FORBID_CTRL_ALL = 2; //受控免疫（所有种类）
+	AC_RESULT_FORBID_CTRL_ID = 3; //受控免疫（ID见StateManagement表）
+	AC_RESULT_FORBID_ATTACK = 4; //受伤免疫
+	AC_RESULT_FORBID_DODGE = 5; //禁闪避
+	AC_RESULT_NO_NEGATIVE_EFFECT = 6; //不受到负面影响
+}
+
+message SceneTeam
+{
+	SceneTeamType teamType = 1;
+	repeated SceneUnit units = 2;
+}
+
+message Point
+{
+	double x = 1;
+	double y = 2;
+}
+
+message SceneUnit
+{
+	game_proto.CharBaseInfo base = 1;
+	Point pos = 2; // 战斗初始位置
+	repeated int32 skills = 3; // 主动技能
+	Point initScenePos = 4; // 入场初始站位
+	Point timelinePos = 5;
+}
+
+message SceneSearchBossReq
+{
+	int32 levelid = 1;//为0代表当前关卡，非0代表过往关卡
+}
+
+message SceneSearchBossAck
+{
+}
+
+message SceneBossRewardReq
+{
+	bool giveUp=1;// 放弃
+}
+
+message SceneBossRewardAck
+{
+	BattleEndNtf endNtf=1; // 真的
+	repeated game_proto.ItemInfo bossAwards= 2; // boss关卡道具奖励，已经入库
+	int32 level=3; // 最终关卡
+}
+
+//
+//战斗内协议
+//
+
+message BattleStartNtf
+{
+	SceneTeam teama = 1; // 我方
+	SceneTeam teamb = 2; // 敌方
+	int32 btsceneid = 3; // battle_scene 表 id
+	int32 levelid = 4;   // level 表 id
+}
+
+message BattleUpdateNtf
+{
+    int32 fixedMSecPerFrame = 1;
+    repeated BattleFrame frames = 2;
+    repeated TimeLineSeq seqs = 3;
+}
+
+message TimeLineSeq
+{
+    TimeLineType seqType = 1;
+    int32 srcInstanceId = 2;//发起者id（如释放技能时施法者id）
+    int32 srcBehaviorConfigId = 3;//发起效果id（如释放的技能id）
+    int32 battleTime = 4;//战斗时间戳
+}
+
+enum TimeLineType
+{
+    TL_UNKNOW = 0;
+    TL_USE_SKILL = 1;//使用技能
+    TL_BREAK_SKILL = 2;//打断
+    TL_CONTROL_SKILL = 3;//受控延缓技能
+}
+
+message BattleFrame
+{
+    int32 frameNumber = 1;
+    repeated BattleEvent events = 2;
+}
+
+message BattleEvent
+{
+	BattleEventType eventType = 1;
+	int32 srcInstanceId = 2;//发起者id（如释放技能时施法者id）
+	int32 srcBehaviorConfigId = 3;//发起效果id（如释放的技能id）
+	int32 srcActionId = 4;
+	repeated BattleDest dests = 5;
+}
+
+enum BattleEventType
+{
+	UNKNOW = 0;
+	USE_SKILL = 1;
+	DO_SKILL = 2;
+	MOVE_START = 3;
+	MOVE_UPDATE = 4;
+	MOVE_END = 5;
+	BUFF_CHANGE = 6; //仅作为buff自然消失的情况发送
+	BUFF_TRIGGER = 7; //等价于buff的DO_SKILL
+	CHANGE_ATTRIBUTE = 8;
+	BREAK_SKILL = 9;
+	UNIT_CHANGE = 10;
+
+	USE_TACTICS=11; // 战术技能
+
+	ACTION_MOVE_START = 12; // 技能位移（action）
+	ACTION_MOVE_UPDATE = 13;
+	ACTION_MOVE_END = 14;
+	ACTION_LIGHTNING_CHAIN = 15;  //闪电链
+	RAGE_DATA = 16; // 狂暴
+	CHARGE_TIME = 17; // 蓄力常规动画时长
+	ENTER_STATE = 18;
+	LEAVE_STATE = 19;
+}
+
+//协定：一个BattleDest只能有一个ChangeXX，多个ChangeXX需要分开协议发送
+//（比如一个DoSkill触发了ChangeHP和ChangeBuff，需要拆分两个DoSkill对应触发ChangeHp和ChangeBuff）
+message BattleDest
+{
+	int32 destInstanceId = 1; //触发的效果目标id（如释放技能时的目标单位id）
+	ChangeHP changeHP = 101;
+	ChangeElem changeElem = 102;
+	ChangeBuff changeBuff = 103;
+	ChangeEnergy changeEnergy = 104;
+	MoveUpdate moveUpdate = 105; //srcInstanceId和destInstanceId都是移动者自己
+	ChangeUnit changeUnit = 106; //destInstanceId为召唤物ID
+	ActionMove actionMoveUpdate= 107; // action配表位移，srcInstanceId为发起（击退）的人，destInstanceId为移动者自己，srcBehaviorConfigId是技能ID
+	ChangeAnger changeAnger = 108;
+	BattleRage battleRage = 109;
+	BattleCharge battleCharge = 110;
+	StateAdd stateadd = 111;   	// 进入某个状态
+	StateRemove stateremove = 112;	// 离开某个状态
+}
+
+// 血量变化类型
+enum HPChgType
+{
+	Physics = 0;	// 物理攻击
+	Magic = 1;		// 魔法攻击
+	Heal = 2;		// 治疗
+	Block = 3;		// 全抵抗护盾
+	Buff=4;			// buff作用
+	Steal=5;		// 吸血
+	Poision=6;		// 中毒掉血
+	SummonClear = 8;// 召唤物驱散
+	ImmCtrl = 9; 	// 免疫控制
+	RealHurt = 10; 	// 真实伤害
+}
+
+// 命中类型
+enum HitType
+{
+	Normal = 0;	// 正常
+	Dodge=1;	// 闪避
+	Crit=2;		// 暴击
+	Immunity=3; 	// 免疫
+	Block1=4;	// 格挡
+}
+
+message ChangeHP
+{
+	int32 hp = 1;
+	int32 shield = 2;
+	HPChgType chgType = 3;
+	HitType chgRes = 4;
+	int32 max_shield = 5;
+	int32 max_hp = 6;
+	bool is_maxhp_update = 7;
+	int32 max_shield_phy = 8;
+	int32 cur_shield_phy = 9;
+	int32 max_shield_mag = 10;
+	int32 cur_shield_mag = 11;
+}
+
+message ChangeAnger
+{
+	int32 anger = 1;
+}
+
+message ChangeElem
+{
+	int32 elem = 1;
+}
+
+message ChangeEnergy
+{
+	int32 mp = 1;
+	int32 mpmax = 2;
+}
+
+enum UnitChangeType
+{
+	UNIT_UNKNOW = 0; //未知操作
+	UNIT_ADD = 1; //追加
+	UNIT_LEAVE = 2; //离去 --播放离去特效
+	UNIT_DEATH = 3; //死亡 --播放死亡倒地特效
+}
+
+message ChangeUnit
+{
+	UnitChangeType changeType = 1;
+	SceneTeamType teamType = 2;
+	SceneUnit unit = 3;
+}
+
+enum BuffChangeType
+{
+	BUFF_UNKNOW = 0; //未知操作
+	BUFF_ADD = 1; //追加
+	BUFF_UPD = 2; //更新
+	BUFF_DEL = 3; //删除
+}
+
+enum BuffRemoveType
+{
+	BUFF_RM_BREAK =  0; //护盾破碎
+	BUFF_RM_VANISH =  1; //消失
+	BUFF_RM_CLEAR =  2; //净化消失
+	BUFF_RM_SHEILD_BREAK =  3; //破盾
+}
+
+
+message ChangeBuff
+{
+	BuffChangeType changeType = 1;//变化类型
+	BuffRemoveType removeType = 2;//消失状态
+	int32 buffUid = 3;
+	int32 buffCid = 4;
+	int32 dtime = 5; //持续时间
+	int32 layerCt = 6; //层数
+	Point centerPos = 7; //固定位置X坐标 x=-1 y=-1为附着在战斗单位上 仅在创建时生效
+}
+
+message MoveUpdate
+{
+	Point pos = 1;
+	float speed = 2;
+}
+
+// action位移
+message ActionMove
+{
+	Point pos = 1;
+	float speed = 2;
+	float duration = 3; //只有ActionMoveStart才发送
+	bool facePos=4; // 是不是要面对目标点
+}
+
+enum BattleEndReason
+{
+	BATTLE_END_REASON_UNKNOW = 0; //未知操作
+	BATTLE_END_REASON_TEAMDEATH = 1; //一方队伍倒地
+	BATTLE_END_REASON_ALLDEATH = 2; //双方全部倒地 平局
+	BATTLE_END_REASON_TIMEOUT = 3; //战斗超时
+}
+
+message BattleEndNtf
+{
+	int32 frameCount = 1; // 战斗总帧数
+	BattleEndReason reason = 2; //战斗结束原因
+	bool win = 3;// 是不是赢了
+	int32 battleTime = 4; // 战斗实际消耗时间
+	int32 result = 5;//战斗星级 按位标识，0x1 0x2 0x4待定3个星，客户端做排序
+	int32 star = 6;//战斗星级
+	int32 levelid = 7;
+	repeated game_proto.ItemInfo items= 8;//战斗奖励
+
+	repeated game_proto.CharBaseInfo base = 9;	// 返回A队数据
+}
+
+enum RageType
+{
+	RAGE_NONE = 0;
+	RAGE_WARN = 1;
+	RAGE_PLAY = 2;
+}
+
+message BattleRage
+{
+	RageType rageType = 1;
+	int32 leftSec = 2; 	// 剩余秒数
+	repeated int32 ids = 3;
+}
+
+message BattleCharge
+{
+	int32 charge_time = 1; // 蓄力常规动画时长
+    int32 camera_time = 2; // 
+}
+
+// 状态类型
+enum StateType
+{
+	STATE_NONE = 0;
+	STATE_SILENT= 1;	// 沉默
+	STATE_BREAK = 2;	// 打断
+	STATE_KNOCK_DOWN = 3;	// 击倒
+	STATE_KNOCK_BACK = 4;	// 击退
+	STATE_KNOCK_FLY  = 5; 	// 击飞
+	STATE_FROZEN	 = 6;	// 冰冻
+	STATE_CHARM	 = 7;	// 魅惑
+	STATE_DIZZY	 = 8; 	// 眩晕
+}
+
+// 击倒/击退/击飞数据
+message StateKonckData
+{
+	Point down_pos = 1; 	 // 落点坐标
+	int32 fly_time  = 2;	 // 飞行时间	(毫秒) 
+	int32 down_time = 3;	 // 下落时间	(毫秒)
+	int32 getup_time= 4;	 // 爬起时间	(毫秒)
+	int32 fly_speed = 5;	 // 飞行初速度	(像素/秒)
+	int32 fly_accelerate = 6;// 飞行加速度	(像素/秒/秒)
+}
+
+// 冰冻数据
+message StateFrozenData
+{
+	int32 ratio  = 2;	 // 缩放比例
+}
+
+message StateAdd
+{
+	int32 state_id = 1;	 // 状态表ID
+    StateFrozenData frozen = 2; // 冰冻数据
+	StateKonckData knock = 3;// 击退/击退/击飞
+}
+
+message StateRemove
+{
+	int32 state_id = 1;	// 状态表ID  
+}
+
+
+//------------------副本------------S-----------
+
+//请求开启副本
+message  OpenDungeonReq
+{
+	int32  dungeonid = 1;  //副本ID
+}
+//请求开启副本-res
+message  OpenDungeonAck
+{
+}
+
+
+
+//请求单场战斗数据
+message  DungeonFightResultReq
+{
+	int32  dungeonid = 1;  //副本ID
+	int32  sceneid	 = 2;  //场景ID
+
+}
+//请求战斗数据返回
+message  DungeonFightResultAck
+{
+	//int32  dungeonid 		= 1;  //副本ID
+	//int32  sceneid	 		= 2;  //场景ID
+	BattleStartNtf start 	= 1;  //战斗开始数据
+	BattleUpdateNtf update 	= 2;  //战斗更新数据
+	BattleEndNtf 	end 	= 3;  //战斗结束数据
+}
+
+
+//请求领取副本奖励
+message  DungeonRewordReq
+{
+	int32  dungeonid = 1;  //副本ID
+}
+
+//请求副本奖励-res
+message  DungeonRewordAck
+{
+	int32 dungeonid = 1;//副本ID
+	repeated game_proto.ItemInfo Awards= 2; //道具奖励，已经入库
+}
+
+
+//请求退出副本
+message  DungeonQuitReq
+{
+	int32  dungeonid = 1;  //副本ID
+}
+
+//请求退出副本-res
+message  DungeonQuitAck
+{
+	int32 dungeonid = 1;//副本ID
+}
+
+//------------------副本------------E-----------
+
+//--------------盗宝贼战斗------------S-----------
+
+//请求战斗
+message  ThiefFightReq
+{
+	int32  id = 1;  //盗宝贼ID
+}
+
+message  ThiefFightAck
+{
+
+}
+
+message  ThiefStageReward
+{
+    int32 stageHp = 1;//盗宝贼受击血量百分值
+    repeated game_proto.ItemInfo rewards= 2; //血量比例道具奖励
+}
+
+message  ThiefRewardNtf
+{
+    int32 id = 1;//盗宝贼ID
+    battle_proto.BattleEndNtf endMsg = 3;
+    repeated game_proto.ItemInfo perRewards= 4; //每1%血量对应奖励总和
+    repeated ThiefStageReward stageRewards= 5; //血量比例道具奖励
+}
+//--------------盗宝贼战斗------------E-----------

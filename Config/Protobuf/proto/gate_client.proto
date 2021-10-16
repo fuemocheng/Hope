@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "gate_common.proto";
+
+package gate;
+
+enum ClientMsgType
+{
+	ClientType_GameMsg = 0;
+	ClientType_LoginReq = 1;
+	ClientType_LoginResp = 2;
+	ClientType_EnterGameResult = 3;
+	ClientType_Logout = 4;
+	ClientType_GetQueueNumReq = 5;
+	ClientType_GetQueueNumResp = 6;
+	ClientType_KickoutNotify = 7;
+}
+
+enum LoginType
+{
+	LoginType_Account = 0;
+	LoginType_GIANT_SDK = 1;
+	LoginType_Login_Token = 2;      // 使用login生成的token登录
+}
+
+//C->S
+message LoginReq
+{
+    string token = 1;
+	string version = 2;
+	string account = 3;
+	LoginType login_type = 4;
+}
+
+//S->C
+message LoginResp
+{
+	ResultType result = 1;
+}
+
+//S->C
+message EnterGameResult
+{
+	uint32 result = 1;
+	string result_msg = 2;
+}
+
+//C->S
+message Logout
+{
+    
+}
+
+//C->S
+message GetQueueNumReq
+{
+}
+
+//S->C
+message GetQueueNumResp
+{
+	uint32 queue_num = 1;
+}
+
+//S->C
+message KickoutNotify
+{
+	string reason = 1;
+	uint32 reason_id = 2;
+}

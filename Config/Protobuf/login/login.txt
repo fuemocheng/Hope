@@ -1,0 +1,45 @@
+// login 跟 serverlist 需要 appid！！！！！
+
+http://211.159.201.138/php/serverlist.php?appid=0
+http://192.168.133.215:13000/login?api=local&account=test&version=110010101010&debug=1&appid=0
+http://192.168.133.215:13000/login?api=gup&entity=test&sign=test&version=110010101010&debug=1&appid=0
+
+{"error":0,"msg":"{\"token\":\"101-66048-1576551268177213800\"}"}
+
+{"error":0,"msg":"{\"token\":\"1-66048-1576552372951054800\",\"roles\":[{\"roleId\":1,\"worldId\":2,\"dbId\":1}]}"}
+
+message AuthResult  {
+	Error int32  `json:"error"`
+	Msg   string `json:"msg"`
+}
+
+message UserRole
+{
+	int64 roleId = 1;
+	int64 worldId = 2;
+}
+
+message UserLoginAck
+{
+	string token = 1; // 大区登录认证码
+	repeated UserRole roles = 2; // 在哪些区有角色
+}
+
+
+http://192.168.133.215:13000/login?api=login&token=101-66048-1576551268177213800&worldId=2
+
+{"error":0,"msg":"{\"token\":\"101-66048-1576551268177213800\",\"ip\":\"192.168.133.215\",\"port\":24000}"}
+
+mesage LoginResult {
+	Error int32  `json:"error"`
+	Msg   string `json:"msg"`
+}
+
+message LoginWorldAck
+{
+	string token = 1; // 游戏登录认证码
+	string ip = 2; // 区GameIP
+	int32 port =3; // 区GamePort
+}
+
+

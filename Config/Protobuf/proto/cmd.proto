@@ -1,0 +1,784 @@
+syntax = "proto3";
+package cmd_proto;
+
+import public "battle.proto";
+import public "game.proto";
+
+option go_package = "proto";
+
+enum Cmd
+{
+	NONE = 0;
+	PING = 1;
+	GAME_CLIENTVER_NTF = 40; // 客户端热更
+	GAME_GAIN_NTF = 41;
+	GAME_ROLE_BOARD = 42;
+
+	GAME_LOGIN_SWITCH=49; // 数据迁移,刷新token
+	GAME_LOGIN = 50; // 登录游戏
+	GAME_CREATE_ROLE = 51; // 创建角色
+	GAME_ROLEINFO = 52; // 角色信息
+	GAME_LOGIN_END = 53; // 登录结束
+	GAME_CMD = 54; // 游戏内部指令
+	GAME_SKILL = 55; // 角色技能背包
+	GAME_CHAR = 56; //   角色char列表
+	GAME_SCENE = 57; // 场景数据
+	GAME_COLLECT = 58; // 收取
+	GAME_COLLECT_OPEN = 59; // 打开
+	GAME_SET_SKILL = 60; // 设置CHAR技能
+	GAME_SKILL_POS = 61; // 交换CHAR技能
+	GAME_PACKAGE = 62; // 角色物品背包
+	GAME_SKILL_UPGRADE = 63; // 技能升级
+	GAME_NPC = 64; // 家园NPC
+	GAME_NPC_PV=65; // 新加入剧情展示好了
+	GMAE_TOUCH_NPC=66;// 抚摸NPC
+	GMAE_ROLL_SKILL=67;// 抽取
+	GMAE_ROLL_INFO=68;// 抽取信息
+	GMAE_ROLL_RECORD=69;// 抽取记录
+
+
+	GAME_FRIEND = 70;
+	GAME_FRIEND_ADD = 71;
+	GAME_FRIEND_DEL = 72;
+	GAME_FRIEND_NTF=73;
+	GAME_FRIEND_RELOAD=74;
+	GAME_FRIEND_RECOMMEND=75;
+
+	GAME_CHAR_PV=76; // 新加入剧情展示好了
+
+	GMAE_ROLL = 78;// 抽卡
+	GAME_UNLOCK_MAINHERO_SKILL = 79;
+
+
+	EQUIP_ON = 80;
+	EQUIP_OFF = 81;
+	EQUIP_DECOMPOSE=82;
+	EQUIP_COMPOSE=83;
+
+	MAIL_OPEN = 85;
+	MAIL_ATCH = 86;
+	MAIL_DEL = 87;
+	MAIL_LIST = 88; // 邮件列表
+	MAIL_MARK = 89; // 邮件标记
+
+	TEAM_HERO = 90; // 保存队伍
+	SET_FOLLOW_HERO = 91;// 设置跟随伙伴
+
+	TOPN_LIST = 95; // 排行
+	SCENE_PROC=96; // 关卡进度百分比
+
+	SCENE_LOADED = 102;
+	SCENE_SEARCH_BOSS = 103;
+	SCENE_BOSS_REWARD = 104;
+
+	SCENE_ROLE=105; // 拉场景玩家
+	SCENE_PASS_HIS=106; // 取场景通关记录
+
+	WORLD_CHAT = 110;
+	WORLD_CHAT_NTF=111;
+	SYS_NOTICE_NTF=112;
+
+	GAME_FRIENDS_LV_UP=120;		// 伙伴升级
+	GAME_SET_ROLENAME = 121; // 设置角色名字
+	DEL_CHATMSG_NTF = 122; // 删除玩家聊天信息
+
+	BATTLE_START_NTF = 201;
+	BATTLE_UPDATE_NTF = 202;
+	BATTLE_END_NTF = 203;
+
+	// 生活技能
+	EQUIP_FORGE=210;			// 锻造请求
+	EQUIP_FORGE_SKILL=211;		// 锻造技能释放
+	EQUIP_FORGE_SUBMIT=212;		// 锻造结果提交
+	EQUIP_FORGE_REC=213;		// 锻造进度通知
+
+	// 交互系统
+	INTERACTION_NTF=220;		// 交互通知
+	INTERACTION_REPLY=221;		// 交互回复请求
+
+	// 任务系统
+	TASK_SAVE=230;				// 任务进度保存
+	TASK_NTF=231;				// 任务进度通知
+	TASK_AWARD=232;				// 任务奖励
+
+	// 家园切换
+	FORCE_HOMELAND=240;			// 家园野外切换
+	HOMELAND_NTF=241;			// 家园切换通知
+
+	GAME_SEASON_STATE = 250; //获得赛季状态
+	GAME_SEASON_GET_RWD = 251; //获得赛季奖励
+	GAME_SEASON_NTF = 252; // 赛季状态通知
+
+	GAME_FORBIDDEN=260;		// 通知禁止（禁言等）
+
+	GAME_UNLOCK=280;			// 通知已解锁的的IDs ntf
+
+	GAME_CHAR_ENHANCE_INFO = 291; //角色觉醒属性界面
+	GAME_CHAR_ENHANCE_ENHANCE = 292; //角色觉醒
+	GAME_CHAR_ADD_PROP = 293;//角色加点
+	GAME_CHAR_RESET_PROP = 294;//角色加点重置
+	GAME_CHAR_NTF = 295;//单独更新伙伴
+    
+	GAME_CHAR_CONTRACT_UP = 297; //角色契约升级
+    
+	GAME_ITEM_USE = 300; //物品使用
+
+	GAME_KILL_COLLECT = 314;         //打怪上报
+
+	GAME_SECOND_SKILL_LVUP=331;	// 伙伴技能升级 	req ack
+
+	GAME_UP_HERO_QUALITY_NTF = 341; //伙伴晋升
+
+	CDKEY_REWARD = 400; // CDKEY
+	QUESTION_GETREWARD = 401; //领取调查问卷奖励
+	GAME_SET_PV_HAS_PLAY = 402; //设置PV已播放记录
+
+    //盗宝贼
+    THIEVES_LIST 				= 420; //通知盗宝贼列表
+    SET_THIEF_POS 				= 421; //设置盗宝贼坐标
+    SET_HANGUP    				= 422; //设置挂机状态
+    THIEVES_FIGHT 				= 423; //盗宝贼挑战
+    THIEVES_REWARD 				= 424; //盗宝贼奖励
+    THIEVES_ADD 				= 425; //新增盗宝贼
+    THIEVES_DEL 				= 426; //删除盗宝贼
+
+	//星级评定
+	BATTLE_STAR_NTF             = 430;//关卡星级数据
+	BATTLE_STAR_REWARD	        = 431;//关卡星级奖励
+
+	//快速战斗
+	FAST_BATTLE_INFO            = 440;//快速战斗信息
+	//快速探索
+	FAST_SEARCH                 = 450;//快速探索
+	//印记
+	IMPRINT_EQUIP               = 460;//脱穿印记装备
+	IMPRINT_LEVELUP             = 461;//印记升级
+
+	//队伍槽位
+	TEAM_INFO                 = 470;//槽位信息
+	TEAM_EQUIP_POS_LVUP       = 471;//升级槽位装备位置
+	TEAM_POS_NTF              = 472;//单体推送更新槽位
+	TEAM_FIGHTHERO_NTF        = 473;//单体推送更新阵容
+	TEAM_EQUIP_POS_PUTEQUIP   = 474;//槽位脱穿装备
+	TEAM_PUT_HERO             = 475;//上阵下阵操作
+	TEAM_FIGHTHERO_INFO      = 476;//请求阵容数据
+	TEAM_SET_FIGHT_TEAM      = 477;//设置战前阵容
+
+	//装备兑换
+	EQUIP_EXCHANGE_INFO      = 480;//装备兑换信息
+	EQUIP_EXCHANGE_BUY       = 481;//购买装备兑换
+	EQUIP_EXCHANGE_REFRESH   = 482;//刷新装备兑换
+
+	//商店
+	SHOP_INFO               = 490;//商店购买信息
+	SHOP_BUY                = 491;//商店购买
+
+	//咔嗒牌
+	KATA_EQUIP_INFO         = 500;//咔嗒牌装备信息
+	KATA_PUT_EQUIP			= 501;//咔嗒牌脱穿
+	KATA_SHOP_INFO          = 502;//咔嗒商店信息
+	KATA_SHOP_BUY           = 503;//购买卡塔牌
+	KATA_SHOP_REFRESH       = 504;//刷新
+	KATA_SHOP_AUTOREFRESH   = 505;//锁定咔嗒牌
+	KATA_MOVE_EQUIP         = 506;//仓库移动到背包
+
+
+
+//=====================赛季--S==============================
+	//赛季
+    SEASON_MSG_START            = 530; //赛季消息断起始号
+	SEASON_GET_INFO				= 531; //请求个人赛季信息
+	SEASON_GET_REWORD		    = 532; //请求领取竞赛期奖励
+    SEASON_PAY_SEASON           = 533; //付费
+	SEASON_DAILY_REPORT			= 534; //赛季播报
+    SEASON_GET_PASS_SEASON_QUEST = 535; //休赛季任务状态
+    SEASON_COMPLETE_QUEST       = 536;  //完成某任务条件
+    SEASON_AWARD_NOTIFY         = 537;  //推送奖励状态(能由付费、升级等操作触发)
+    SEASON_GET_RANK         	= 538;  //请求榜单
+
+    SEASON_MSG_END              = 600;  //赛季消息断终止号, 新增消息请加在上方(服务内部对消息进行了路由)!!!!
+//=====================赛季--E==============================
+
+
+//=====================任务--S==============================
+	TASK_ONLINE                 = 700; //登录同步任务信息
+	TASK_ACCEPT                 = 701; //任务接取
+	TASK_ADD_PROGRESS           = 702; //任务追加进度
+	TASK_TAKE_REWARD            = 703; //任务领取奖励
+	TASK_ADD_STEP               = 704; //设置任务步骤
+	TASK_RESET_AUTOTASK         = 705; //重置挂机任务
+
+//=====================任务--E==============================
+
+}
+
+enum ErrorCode
+{
+	SUCCESS = 0;
+
+	SERVICE_CLOSED      = 1;    // 服务关闭
+	SERVICE_UNAVAILABLE = 2;    // 服务繁忙
+	SERVICE_DBMAX       = 3;    // 禁止新用户进入
+	VERSION_INVALID     = 4;    // 版本号不对
+	PARAM_INVALID       = 5;    // 参数不合法
+	OPREATE_FAST        = 6;    // 操作太快了
+	WORLD_MERGING  		= 7;   // 世界合并中
+	USER_RELOGIN        = 20;   // 重复登陆
+	TOKEN_INVALID       = 21;   // token不合法
+	ROLE_FOUND          = 22;   // 已经创建过角色
+	NAME_DUPLICATE      = 23;   // 角色名重复
+	NAME_INVALID        = 24;   // 角色名不合法
+	NEED_LOGIN          = 25;   // 请重新登陆
+	FORBIDDEN_LOGIN     = 26;   // 账号禁止登录
+	FORBIDDEN_TALK      = 27;   // 角色禁言
+	LOGIN_FAST          = 28;   // 登录过快，请2分钟后重试
+	KICK_USER           = 29;   // 您已被强制下线
+	CHAR_INVALID        = 50;   // 非法的CHAR_ID
+	SKILL_INVALID       = 51;   // 非法的SKILL_ID
+	BATTLE_IN_CD        = 52;   // 战斗在cd
+
+	SYSTEM_DEBUG_MODE_NOT_FOUND = 61; // 没有对应的Debug模式
+
+	ROLE_LOAD_DATA_ERROR = 70; // 角色数据无法读取
+	ROLE_GET_BORAD_ERROR = 71; // 角色头像无法获取
+
+	ITEM_CFG_NOT_FOUND       = 101;	// 物品配置未找到
+	ITEM_TYPE_NOT_FOUND      = 102;	// 物品类型不存在
+	ITEM_COUNT_ERROR         = 103; // 物品数量追加错误
+	ITEM_OVER_MAX_SLOT       = 104; // 物品超出背包上限
+	ITEM_NOT_ENOUGH          = 105; // 物品不足
+	ITEM_IN_USE_CD           = 106; // 物品使用冷却中
+	ITEM_NOT_FOUND           = 107; // 物品未找到
+	ITEM_LEVEL_LIMIT         = 108;	// 物品使用等级限制(礼包、宝箱等)
+	ITEM_HERO_LIMIT          = 109;	// 物品使用英雄限制(食物投喂、礼品赠送)
+	ITEM_COLLECT_SEQ_LIMIT   = 110; // 掉落领取频率过高
+	ITEM_RES_TRACE_ERROR     = 111; // 资源安全检查不合法
+
+	SKILL_NOT_FOUND                          = 201; // 技能未找到
+	SKILL_CFG_NOT_FOUND                      = 202; // 技能配置未找到
+	SKILL_QUACFG_NOT_FOUND                   = 203; // 技能未找到
+	SKILL_UPGRADE_DUP                        = 204; // 升级过程中使用了重复的技能
+	SKILL_UPGRADE_QUAREQ_ERR                 = 205; // 材料技能品质不足
+	SKILL_UPGRADE_COUNTREQ_ERR               = 206; // 材料技能品质不足
+	SKILL_UPGRADE_NAME_ERR                   = 207; // 材料技能与要升级的技能不同名
+	SKILL_UPGRADE_PLAYERID_ERR               = 208; // 材料技能与要升级的技能不同名
+	SKILL_UPGRADE_NEXT_SKILL_NONE            = 209; // 没有下一阶的技能了
+	SKILL_UPGRADE_ITEM_ERR                   = 210; // 放入背包时出错
+	SKILL_HERO_LIMIT                         = 211;	// 技能英雄限制，无法挂载
+	SKILL_HERO_LEVEL_LIMIT                   = 212;	// 技能英雄等级限制，无法挂载
+	SKILL_UPGRADE_SKILL_LVCFG_NOT_FOUND      = 213; // 技能升级等级模板没有找到
+	SKILL_UPGRADE_SKILL_QUACFG_NOT_FOUND     = 214; // 技能升级基础经验模板没有找到
+	SKILL_UPGRADE_SKILL_COSTLIST_ZERO        = 215; // 没有选中任何需要消耗的技能
+	SKILL_UPGRADE_SKILL_COST_SELF            = 216; // 升级材料中包含了升级目标
+	SKILL_NOT_SATISFY_ENHANCE				 = 217; // 不满足觉醒等级对技能等级的限制条件
+
+	HERO_PLAYER_CFG_NOT_FOUND         = 250; // 角色模板未找到
+	HERO_SET_SKILL_CONDITION_EROR     = 251; // 该角色技能激活条件不足
+
+	FRIEND_SOCIAL_CLOSE       = 300; // 好友社交服务器未开
+	FRIEND_NOT_READY          = 301; // 好友未初始化
+	FRIEND_NOT_FIND           = 302; // 好友未找到
+	FRIEND_ALREADY_LOAD       = 303; // 好友已经初始化
+	FRIEND_INVALID_RID        = 304; // 好友无效roleId
+	FRIEND_ADD_SELF           = 305; // 不能添加自己为好友
+	FRIEND_ALREADY_ADD        = 306; // 重复添加好友
+	FRIEND_RECOMMEND_NONE     = 307; // 推荐好友为空
+	FRIEND_SYS_BUSY           = 308; // 好友系统忙，频繁刷新错误
+	FRIEND_SYS_REQ_ERROR      = 309; // 好友服务添加请求处理错误
+
+	EQUIP_NOT_FOUND                 = 400; // 装备未找到
+	EQUIP_CFG_NOT_FOUND             = 401; // 装备模板未找到
+	EQUIP_ALREADY_OCCUPY            = 402; // 装备占用中
+	EQUIP_INVALID_HID               = 403; // 装备目标英雄无效
+	EQUIP_INVALID_EID               = 404; // 装备目标装备无效
+	EQUIP_INVALID_POS               = 405; // 装备位置不匹配
+	EQUIP_INVALID_ARGS              = 406; // 装备参数无效
+	EQUIP_OCCUPY_ON                 = 407; // 装备占用中
+	EQUIP_OCCUPY_OFF                = 408; // 装备未穿着，无法卸下
+	EQUIP_HERO_LIMIT                = 409; // 装备英雄限制，无法使用
+	EQUIP_HERO_LEVEL_LIMIT          = 410; // 装备英雄等级限制，无法使用
+	EQUIP_DECOMPOSE_COUNT_ERROR     = 411; // 装备分解数量错误
+	EQUIP_COMPOSE_MANUFACTURE_ERROR = 412; // 装备合成配方错误
+	EQUIP_COMPOSE_RECIPE_ERROR      = 413; // 装备合成材料不足
+
+
+	MAIL_NOT_FOUND      = 415; // 邮件不存在
+	MAIL_MARKED         = 416; // 邮件被标记
+	MAIL_MARKED_DEL     = 417; // 邮件被标记隔天删除
+
+	SCENE_STAGE_RANK_REQ_ERR        = 500; // 请求关卡排行榜失败
+	SCENE_FINISH_LEVEL_BOSS_ERR     = 501; // 已经到达最后一关无法挑战
+	SCENE_CFG_NOT_FOUND             = 502; // 该关卡配置不存在
+	SCENE_ERR_BOSS_INDEX            = 503; // 错误的boss序列
+
+	// 锻造错误码
+	EQUIP_FORGE_CFG                 = 520; // 锻造槽位模板未找到
+	EQUIP_FORGE_SKILL_CFG           = 521; // 锻造技能模板未找到
+	EQUIP_FORGE_INVALID_OPT         = 522; // 锻造无效操作
+	EQUIP_FORGE_SKILL_INS           = 523; // 锻造技能实例未找到
+	EQUIP_FORGE_COST_GOLD           = 524; // 锻造消耗扣除失败
+	EQUIP_FORGE_COST_ENERGY         = 525; // 锻造消耗制作力
+	EQUIP_FORGE_COST_DURABILITY     = 526; // 锻造消耗耐久
+	EQUIP_FORGE_SKILL_RATE          = 527; // 锻造技能失败
+	EQUIP_FORGE_RES_SUCCESS         = 528; // 锻造成功
+	EQUIP_FORGE_RES_FAIL            = 529; // 锻造失败
+	EQUIP_FORGE_NOT_FINISHED        = 530; // 锻造未完成
+
+	// 十连抽
+	ROLL_SKILL_UNKNOW_MODE           = 600; // 抽取模式选择错误
+	ROLL_SKILL_NOT_SUIT_POOL         = 601;	// 没有符合条件的抽取池
+	ROLL_SKILL_COST_NOT_ENOUGH       = 602;	// 消耗品不足
+	ROLL_SKILL_SKILL_ITEM_ID_ERR     = 603;	// 抽取物品数据不存在
+	ROLL_SKILL_OVER_DAYLIMIT         = 604;	// 超出每日抽取上限
+    ROLL_SKILL_UP_POOL_TIME_OUT      = 605;	// UP池活动已结束
+
+	// 交互系统
+	INTERACTION_CFG                = 700; // 交互模板无效
+	INTERACTION_INVALID            = 701; // 交互实例未找到
+	INTERACTION_EXPIRE             = 702; // 交互超时
+	INTERACTION_REPLY_CFG          = 703; // 交互回复模板无效
+	INTERACTION_REPLY_INVALID      = 704; // 交互回复无效
+	INTERACTION_INVALID_OPT        = 705; // 交互无效操作
+	INTERACTION_REPLY_EXPIRE       = 706; // 交互回复超时
+	INTERACTION_AWARD_EXPIRE       = 707; // 交互奖励超时
+	INTERACTION_ALREADY_FLAG	   = 708; // 交互已经标记
+	INTERACTION_NOT_ALLOW_FLAG     = 709; // 交互不允许标记
+
+
+	// 赛季系统
+	SEASON_NOT_IN_SEASON        = 800; // 当前没有任何赛季
+	SEASON_NONE_REWARD          = 801; // 没有奖励可以领取
+	SEASON_PROC_DATA_ERROR      = 802; // 赛季成绩错误
+
+	// 主线任务
+	MAINLINETASK_COMPLEATE                = 810; // 任务已完成
+	MAINLINETASK_UN_COMPLEATE             = 811; // 任务未完成
+	MAINLINETASK_NO_ID                    = 812; // 非法任务ID
+	MAINLINETASK_ACCEPT_REPEAT            = 813; // 任务已接取
+	MAINLINNO_RUNNINGETASK_NO_RUNNING     = 814; // 提交任务失败，任务未在进行中
+	UNLOCKSYSTEM_NO_ID                    = 815; // 非法解锁ID
+	UNLOCKSYSTEM_ALREADY_UNLOCK           = 816; // 功能重复解锁
+	MAINLINNO_RUNNINGETASK_CHECKPOINT     = 817; // 提交任务失败，关卡进度不满足
+	OPT_UI_ALREADY_SAVE					  = 818; // 保存UI失败，该ID已保存
+
+
+	// 觉醒
+	ENHANCE_HERO_NOT_FOUND         = 820; // 该英雄不存在
+	ENHANCE_HERO_CFG_NOT_FOUND     = 821; // 该英雄配置不存在
+	ENHANCE_NEXT_NONE              = 822; // 不能激活，没有更高等级可激活
+    
+	ENHANCE_ITEM_NOT_ENOUGH        = 823; // 没有足够的物品进行觉醒
+    ENHANCE_HERO_CAN_NOT_LEADER    = 824; // 男主不能晋升
+
+	//支线任务
+	BRANCH_TASK_NOT_FOUND_TASK          = 840; // 找不到任务记录
+	BRANCH_TASK_NOT_RUNNING             = 841; // 任务没有处于正在进行状态
+	BRANCH_TASK_NOT_COMPLETE            = 842; // 任务没有完成
+	BRANCH_TASK_NOT_PROCEEDS_ERROR      = 843; // 掉落等级错误
+
+
+	INVALID_CDKEY 					 = 844; // CDKEY不合法
+	QUESTION_GETREWARD_CFG_NOT_FOUND = 845; // 调查问卷数据不存在
+	QUESTION_GETREWARD_LEVEL_INVALID = 846; // 未到达要求关卡
+	QUESTION_GETREWARD_RWD_HAS_GOT   = 847; // 该问卷的奖励已经领取
+
+	//杀怪上报
+	KILL_COLLECT_COUNT_ERROR            = 850; // 杀怪上报数量0
+	KILL_COLLECT_PROCEEDS_ERROR         = 851; // 无掉落数据
+
+	SYSTEM_UNKNOW = 999; // 未知错误
+
+	SYSTEM_LOGIN_WORLD_REDIS_ERROR       = 1001; // 系统错误 登录区服错误
+	SYSTEM_GET_USER_REDIS_ERROR          = 1002; // 系统错误 账号错误
+	SYSTEM_REG_ACCOUNT_REDIS_ERROR       = 1003; // 系统错误 注册账号错误
+	SYSTEM_REG_SET_USERID_REDIS_ERROR    = 1004; // 系统错误 账号ID设置错误
+	SYSTEM_REG_ACCOUNT_MYSQL_ERROR       = 1005; // 系统错误 注册账号错误
+	SYSTEM_TOKEN_INIT_ERROR 			 = 1006; // 系统错误 令牌初始化错误
+	SYSTEM_LOGIN_GAME_REDIS_ERROR        = 1007; // 系统错误 游戏登录错误
+	SYSTEM_LOAD_ROLE_ERROR      		 = 1008; // 系统错误 加载角色错误
+	SYSTEM_GET_USER_ERROR      		     = 1009; // 系统错误 无法获得玩家
+	SYSTEM_REG_NAME_REDIS_ERROR          = 1010; // 系统错误 注册昵称错误
+	SYSTEM_INCR_UUID_REDIS_ERROR         = 1011; // 系统错误 UUID注册错误
+	SYSTEM_CREATE_ROLE_MYSQL_ERROR       = 1012; // 系统错误 角色创建错误
+	SYSTEM_LOAD_ACCOUNT_MYSQL_ERROR      = 1013; // 系统错误 加载账号错误
+	SYSTEM_SWITCH_HUB_ROLE_ERROR         = 1014; // 系统错误 选择服务器角色错误
+	SYSTEM_GET_ROLE_ERROR      		     = 1015; // 系统错误 无法获得角色数据
+
+	SOCIALSVR_FRIEND_LOAD_LIST_ERROR    = 1700; // 社交系统错误 好友列表处理错误
+	SOCIALSVR_FRIEND_ADD_REQ_ERROR      = 1701; // 社交系统错误 好友添加处理错误
+	SOCIALSVR_FRIEND_DEL_REQ_ERROR      = 1702; // 社交系统错误 好友删除处理错误
+
+	CHAR_ID_NOT_FOUND					= 1800; // 升级失败，角色查找失败
+	CAN_NOT_OPT_MAIN_CHAR				= 1801; // 升级失败，主角不能通过这种方式升级
+	CHAR_LEVEL_IS_MAX					= 1802; // 升级失败，已达最大等级
+	CHAR_LEVEL_IS_HIGHT_THAN_MAIN_CHAR	= 1803; // 升级失败，不能高于主角等级
+	HERO_PROP_NUM_NOT_ENOUGH            = 1804; // 加点点数不足
+	SKILL_ID_NOT_FOUND		    = 1805; // 升级技能失败，找不到技能技能
+	SKILL_LEVEL_IS_MAX		    = 1806; // 升级技能失败，等级已满
+
+
+	//战斗副本
+	DUNGOEN_REPEATED			= 1900;  //副本正在进行中
+	DUNGOEN_NOT_FOUND			= 1901;  //根据ID找不到副本配置
+	DUNGOEN_NOT_IN				= 1902;  //当前不在副本中
+	DUNGOEN_FIGHTSVR_BUSY	  	= 1903;  //战斗服务器忙
+	DUNGOEN_ID_NOT_MATCH		= 1904;  //副本ID不匹配
+	DUNGOEN_SCENE_NOT_MATCH	  	= 1905;  //场景ID不匹配
+	DUNGOEN_FINISHED	  		= 1906;  //副本已经完成
+
+
+	//盗宝贼
+	THIEF_REPEATED			= 2000;  //正在进行中
+	THIEF_NOT_FOUND			= 2001;  //根据ID找不到盗宝贼
+    THIEF_TIME_OUT			= 2002;  //盗宝贼过期
+
+  //赛季-新
+    SEASON_ERROR               = 2100;     // 赛季错误
+    SEASON_CURRENCY_NOT_ENOUGH = 2101;    // 货币不足
+    SEASON_OP_TYPE_ERROR      = 2102;     // 操作类型错误
+    SEASON_AWARD_FAILED       = 2103;     // 领取奖励失败
+    SEASON_DAILY_SHOWED       = 2104;     // 今日播报已经展示
+	
+	
+	//任务
+	TASK_INFO_NOT_FOUND       = 2200;     // 任务数据未找到
+    TASK_STATE_ERROR          = 2201;     // 任务状态错误
+    TASK_CFG_ERROR            = 2202;     // 任务配置未找到
+	TASK_ADD_PROGRESS_ERROR   = 2203;     // 任务进度追加条件不足
+
+	//装备兑换
+	EQUIP_EXCHANGE_IS_BUY = 2300;//该装备已被兑换了
+	EQUIP_EXCHANGE_REFRESH_MAX = 2301;//刷新到上限了
+	//咔嗒牌
+	KATA_EQUIP_IS_BUY = 2400;//该装备已被兑换了
+	KATA_REFRESH_MAX = 2401;//刷新到上限
+
+	//背包
+	PACKAGE_IS_FULL = 2500;//背包满了
+}
+
+message Ping
+{
+}
+
+message CommonMessage
+{
+	Cmd code = 1;
+	ErrorCode errorCode = 2;
+	Ping ping = 3;
+	game_proto.NewClientVerNtf newClientVerNtf = 401; // 通知客户端有新版本
+	game_proto.GainInfoNtf gainInfoNtf= 411; // 通用数据更改,特殊请走ack
+	//协议号对应字段号规则：协议cmd=101，字段号req=1010，ack=1011, ntf=1011
+	//新增协议的时候，客户端可以通过菜单“刀疤兔-生成网络协议”来生成协议号对应数据的绑定代码（比如GAME_LOGIN协议对应收取LoginGameAck的数据）
+
+	game_proto.RoleBoardReq roleBoardReq = 421;
+	game_proto.RoleBoardAck roleBoardAck = 422;
+
+	game_proto.LoginSwtichNtf loginSwtichNtf= 491; // 数据迁移
+
+	game_proto.LoginGameReq loginGameReq = 500;
+	game_proto.LoginGameAck loginGameAck = 501;
+	game_proto.CreateRoleReq createRoleReq = 510;
+	game_proto.CreateRoleAck createRoleAck = 511;
+	game_proto.RoleInfoNtf roleInfoNtf = 521;
+	game_proto.LoginEndNtf loginEndNtf = 531;
+
+	game_proto.GCommandReq gCommandReq = 540;
+	game_proto.GCommandAck gCommandAck = 541;
+
+	game_proto.RoleSkillNtf roleSkillNtf = 551;
+	game_proto.RoleCharNtf roleCharNtf = 561;
+	game_proto.RoleSceneNtf roleSceneNtf = 571;
+
+	game_proto.CollectReq collectReq = 580;
+	game_proto.CollectAck collectAck = 581;
+
+	game_proto.CollectOpenReq collectOpenReq = 590;
+	game_proto.CollectOpenAck collectOpenAck = 591;
+
+	game_proto.SetSkillReq setSkillReq = 600;
+	game_proto.SetSkillAck setSkillAck = 601;
+	game_proto.SkillPosReq SkillPosReq = 610;
+	game_proto.SkillPosAck SkillPosAck = 611;
+
+	game_proto.RolePackageNtf rolePackageNtf = 621;
+
+	game_proto.SkillUpgradeReq SkillUpgradeReq = 630;
+	game_proto.SkillUpgradeAck SkillUpgradeAck = 631;
+
+	game_proto.RoleNpcNtf roleNpcNtf = 641;
+
+	game_proto.NpcPvOpenReq npcPvOpenReq = 650;
+	game_proto.NpcPvOpenAck npcPvOpenAck = 651;
+	game_proto.TouchNpcReq touchNpcReq = 660;
+	game_proto.TouchNpcAck touchNpcAck = 661;
+
+	// RollSkill
+	game_proto.RollSkillReq rollSkillReq = 670;
+	game_proto.RollSkillAck rollSkillAck = 671;
+	game_proto.RollInfoReq rollInfoReq = 680;
+	game_proto.RollInfoAck rollInfoAck = 681;
+	game_proto.RollRecordReq rollRecordReq = 690;
+	game_proto.RollRecordAck rollRecordAck = 691;
+	game_proto.RollReq rollReq = 780;
+	game_proto.RollAck rollAck = 781;
+
+	game_proto.RoleFriendNtf roleFriendNtf = 701;
+	game_proto.FriendAddReq friendAddReq = 710;
+	game_proto.FriendAddAck friendAddAck = 711;
+	game_proto.FriendDelReq friendDelReq = 720;
+	game_proto.FriendDelAck friendDelAck = 721;
+	game_proto.FriendMdNtf friendMdNtf = 731;
+	game_proto.FriendReloadReq friendReloadReq = 740;
+	game_proto.FriendReloadAck friendReloadAck = 741;
+	game_proto.FriendRecommendReq friendRecommendReq = 750;
+	game_proto.FriendRecommendAck friendRecommendAck = 751;
+
+	game_proto.CharPvOpenReq charPvOpenReq = 760;
+	game_proto.CharPvOpenAck charPvOpenAck = 761;
+
+	game_proto.UnlockMainHeroSkillReq unlockmainheroskillreq = 790;
+	game_proto.UnlockMainHeroSkillNtf unlockmainheroskillntf = 791;
+
+	game_proto.EquipOnReq equipOnReq = 800;
+	game_proto.EquipOnAck equipOnAck = 801;
+	game_proto.EquipOffReq equipOffReq = 810;
+	game_proto.EquipOffAck equipOffAck = 811;
+	game_proto.EquipDecomposeReq equipDecomposeReq=820;
+	game_proto.EquipDecomposeAck equipDecomposeAck=821;
+	game_proto.EquipComposeReq equipComposeReq=830;
+	game_proto.EquipComposeAck equipComposeAck=831;
+
+	game_proto.OpenMailReq openMailReq = 850;
+	game_proto.OpenMailAck openMailAck = 851;
+	game_proto.MailAtchReq mailAtchReq = 860;
+	game_proto.MailAtchAck mailAtchAck = 861;
+	game_proto.DelMailReq delMailReq = 870;
+	game_proto.DelMailAck delMailAck = 871;
+	game_proto.MailInfoNtf mailInfoNtf = 881;
+	game_proto.MarkMailReq markMailReq = 890;
+	game_proto.MarkMailAck markMailAck = 891;
+
+	game_proto.SaveTeamReq saveTeamReq = 900;
+	game_proto.SaveTeamAck saveTeamAck = 901;
+
+	game_proto.SetFollowHeroReq setFollowHeroReq = 910;
+	game_proto.SetFollowHeroAck setFollowHeroAck = 911;
+
+	game_proto.TopNListReq topNListReq = 950;
+	game_proto.TopNListAck topNListAck = 951;
+
+	game_proto.SceneProcReq sceneProcReq = 960;
+	game_proto.SceneProcAck sceneProcAck = 961;
+
+	battle_proto.SceneLoadedReq sceneLoadedReq = 1020;
+	battle_proto.SceneLoadedAck sceneLoadedAck = 1021;
+
+	battle_proto.SceneSearchBossReq sceneSearchBossReq = 1030;
+	battle_proto.SceneSearchBossAck sceneSearchBossAck = 1031;
+
+	battle_proto.SceneBossRewardReq sceneBossRewardReq = 1040;
+	battle_proto.SceneBossRewardAck sceneBossRewardAck = 1041;
+
+	game_proto.SceneRoleReq sceneRoleReq = 1050;
+	game_proto.SceneRoleAck sceneRoleAck = 1051;
+	game_proto.GetSceneHisReq getSceneHisReq = 1060;
+	game_proto.GetSceneHisAck getSceneHisAck = 1061;
+
+	game_proto.WorldChatReq worldChatReq = 1100;
+	game_proto.WorldChatAck worldChatAck = 1101;
+	game_proto.WorldChatNtf worldChatNtf = 1111;
+	game_proto.SysNoticeNtf sysNoticeNtf = 1121;
+
+	game_proto.FriendsLvUpReq friendsLvUpReq= 1200;
+	game_proto.FriendsLvUpAck friendsLvUpAck= 1201;
+	
+	game_proto.SetRoleNameReq setRoleNameReq= 1210;
+	game_proto.SetRoleNameAck setRoleNameAck= 1211;
+	game_proto.DelChatMsgNtf delChatMsgNtf = 1221;
+
+	//battle
+	battle_proto.BattleStartNtf battleStartNtf = 2011;
+	battle_proto.BattleUpdateNtf battleUpdateNtf = 2021;
+	battle_proto.BattleEndNtf battleEndNtf = 2031;
+
+	// forge
+	game_proto.EquipForgeReq equipForgeReq = 2100;
+	game_proto.EquipForgeAck equipForgeAck = 2101;
+	game_proto.EquipForgeSkillReq equipForgeSkillReq = 2110;
+	game_proto.EquipForgeSkillAck equipForgeSkillAck = 2111;
+	game_proto.EquipForgeSubmitReq equipForgeSubmitReq=2120;
+	game_proto.EquipForgeSubmitAck equipForgeSubmitAck=2121;
+	game_proto.EquipForgeRecNtf equipForgeRecNtf=2131;
+
+	// interaction
+	game_proto.InteractionInfoNtf interactionInfoNtf = 2201;
+	game_proto.InteractionReplyReq interactionReplyReq = 2210;
+	game_proto.InteractionReplyAck interactionReplyAck = 2211;
+
+	// task
+	game_proto.TaskRecordSaveReq taskRecordSaveReq = 2300;
+	game_proto.TaskRecordSaveAck taskRecordSaveAck = 2301;
+	game_proto.NotifyTaskRecord notifyTaskRecord = 2311;
+	game_proto.TaskAwardReq taskAwardReq=2320;
+	game_proto.TaskAwardAck taskAwardAck=2321;
+
+	// homeland
+	game_proto.ForceHomelandReq forceHomelandReq=2400;
+	game_proto.ForceHomelandAck forceHomelandAck=2401;
+	game_proto.HomelandChangeNtf homelandChangeNtf=2411;
+
+	// season
+	game_proto.SeasonStateReq seasonStateReq = 2500;
+	game_proto.SeasonStateAck seasonStateAck = 2501;
+	game_proto.GetSeasonRewardReq getSeasonRewardReq = 2510;
+	game_proto.GetSeasonRewardAck getSeasonRewardAck = 2511;
+	game_proto.SeasonStateNtf seasonStateNtf =2521;
+
+	// 系统通知禁止行为
+	game_proto.ForbiddenNtf forbiddenNtf = 2601;
+
+
+	// 解锁功能
+	game_proto.UnlockIDsNtf unlockIDsNtf = 2801;
+
+	// 觉醒
+	game_proto.CharEnhanceInfoReq charEnhanceInfoReq = 2910;
+	game_proto.CharEnhanceInfoAck charEnhanceInfoAck = 2911;
+	game_proto.CharEnhanceEnhanceReq charEnhanceEnhanceReq = 2920;
+	game_proto.CharEnhanceEnhanceAck charEnhanceEnhanceAck = 2921;
+    
+	game_proto.RoleAddPropReq addPropReq = 2930;
+	game_proto.RoleResetPropReq resetPropReq = 2940;
+	game_proto.HeroInfoNtf  heroInfo = 2951;
+
+	game_proto.HeroContractUpReq heroContractUpReq = 2970;
+	game_proto.HeroContractUpAck heroContractUpAck = 2971;
+    
+	// 物品使用
+	game_proto.ItemUseReq itemUseReq = 3000;
+	game_proto.ItemUseAck itemUseAck = 3001;
+
+	// 杀怪收集
+    game_proto.KillCollectReq killCollectReq = 3140;
+	game_proto.KillCollectAck killCollectAck = 3141;	
+
+	// 伙伴技能升级
+	game_proto.SecondSkillLvUpReq secondSkillLvUpReq = 3310;
+	game_proto.SecondSkillLvUpAck secondSkillLvUpAck = 3311;
+
+	// 伙伴晋升
+	game_proto.UpHeroQualityNtf  upHeroQualityNtf = 3411;
+
+	// CDKEY
+	game_proto.CDKeyRewardReq cdKeyRewardReq = 4000;
+	game_proto.CDKeyRewardAck cdKeyRewardAck = 4001;
+
+	// 问卷奖励领取
+	game_proto.GetQuestionRwdReq getQuestionRwdReq = 4010;
+	game_proto.GetQuestionRwdAck getQuestionRwdAck = 4011;
+
+	// PV播放记录
+	game_proto.SetPVHasPlayReq setPVHasPlayReq = 4020;
+	game_proto.SetPVHasPlayAck setPVHasPlayAck = 4021;
+
+	// 盗宝贼
+    game_proto.ThievesInfoNtf thievesInfoNtf = 4201;
+    game_proto.SetThiefPosReq setThiefPosReq = 4210;
+    game_proto.SetThiefPosAck setThiefPosAck = 4211;
+    game_proto.SetHangupReq setHangupReq   = 4220;//其他功能可能用
+    game_proto.SetHangupAck setHangupAck   = 4221;
+    battle_proto.ThiefFightReq thiefFightReq  = 4230;
+    battle_proto.ThiefFightAck thiefFightAck  = 4231;
+    battle_proto.ThiefRewardNtf thiefRewardNtf  = 4241;
+
+
+	//战斗星级
+	game_proto.BattleStarNtf  battleStarNtf = 4301;
+	game_proto.BattleStarRewardReq  battleStarRewardReq = 4310;
+	game_proto.BattleStarRewardAck  battleStarRewardAck = 4311;
+
+	//快速战斗
+	game_proto.FastBattleReq  fastBattleReq = 4400;
+	game_proto.FastBattleAck  fastBattleAck = 4401;
+	//快速探索
+	game_proto.FastSearchReq  fastSearchReq = 4500;
+	game_proto.FastSearchAck  fastSearchAck = 4501;
+	//印记
+	game_proto.ImprintEquipReq  imprintEquipReq = 4600;
+	game_proto.ImprintEquipAck  imprintEquipAck = 4601;
+	game_proto.ImprintLevelUpReq  imprintLevelUpReq = 4610;
+	game_proto.ImprintLevelUpAck  imprintLevelUpAck = 4611;
+	//队伍槽位
+	game_proto.TeamInfoReq  teamInfoReq = 4700;
+	game_proto.TeamInfoAck  teamInfoAck = 4701;
+	game_proto.TeamEquipPosLvupReq  teamEquipPosLvupReq = 4710;
+	game_proto.TeamEquipPosLvupReq  teamEquipPosLvupAck = 4711;
+	game_proto.TeamEquipPosNtf  teamEquipPosNtf = 4721;
+	game_proto.TeamHeroNtf  teamHeroNtf = 4731;
+	game_proto.TeamEquipPosPutEquipReq  teamEquipPosPutEquipReq = 4740;
+	game_proto.TeamEquipPosPutEquipAck  teamEquipPosPutEquipAck = 4741;
+	game_proto.TeamPutHeroReq  teamPutHeroReq = 4750;
+	game_proto.TeamPutHeroAck  teamPutHeroAck = 4751;
+	game_proto.TeamFightHeroInfoReq  teamFightHeroInfoReq = 4760;
+	game_proto.TeamFightHeroInfoAck  teamFightHeroInfoAck = 4761;
+	game_proto.SetFightTeamReq  setFigthTeamReq = 4770;
+	game_proto.SetFightTeamAck  setFigthTeamAck = 4771;
+	//装备兑换
+	game_proto.EquipExchangeInfoReq equipExchangeInfoReq = 4800;
+	game_proto.EquipExchangeInfoAck equipExchangeInfoAck = 4801;
+	game_proto.EquipExchangeBuyReq equipExchangeBuyReq = 4810;
+	game_proto.EquipExchangeBuyAck equipExchangeBuyAck = 4811;
+	game_proto.EquipExchangeRefreshReq equipExchangeRefreshReq = 4820;
+	game_proto.EquipExchangeRefreshAck equipExchangeRefreshAck = 4821;
+	//商店
+	game_proto.ShopInfoReq shopInfoReq = 4900;
+	game_proto.ShopInfoAck shopInfoAck = 4901;
+	game_proto.ShopBuyReq shopBuyReq = 4910;
+	game_proto.ShopBuyAck shopBuyAck = 4911;
+	//咔嗒牌
+	game_proto.KataEquipInfoReq kataEquipInfoReq = 5000;
+	game_proto.KataEquipInfoAck kataEquipInfoAck = 5001;
+	game_proto.KataPutEquipReq kataPutEquipReq = 5010;
+	game_proto.KataPutEquipAck kataPutEquipAck = 5011;
+	game_proto.KataShopInfoReq kataShopInfoReq = 5020;
+	game_proto.KataShopInfoAck kataShopInfoAck = 5021;
+	game_proto.KataShopBuyReq kataShopBuyReq = 5030;
+	game_proto.KataShopBuyAck kataShopBuyAck = 5031;
+	game_proto.KataShopRefreshReq kataShopRefreshyReq = 5040;
+	game_proto.KataShopRefreshAck kataShopRefreshyAck = 5041;
+	game_proto.KataShopAutoRefreshReq kataShopAutoRefreshReq = 5050;
+	game_proto.KataShopAutoRefreshAck kataShopAutoRefreshAck = 5051;
+	game_proto.KataMoveEquipReq kataMoveEquipReq = 5060;
+	game_proto.KataMoveEquipAck kataMoveEquipAck = 5061;
+
+    // 赛季-新
+    game_proto.GetUserSeasonInfoReq getUserSeasonInfoReq = 5310;
+    game_proto.GetUserSeasonInfoAck getUserSeasonInfoAck = 5311;
+    game_proto.GetSeasonAwardReq getSeasonAwardReq = 5320;
+    game_proto.GetSeasonAwardAck getSeasonAwardAck = 5321;
+    game_proto.PayForSeasonReq payForSeasonReq = 5330;
+    game_proto.PayForSeasonAck payForSeasonAck = 5331;
+    game_proto.SeasonDailyReportReq seasonDailyReportReq = 5340;
+    game_proto.SeasonDailyReport seasonDailyReport = 5341;
+    game_proto.GetPassSeasonQuestStatusReq getPassSeasonQuestStatusReq = 5350;
+    game_proto.GetPassSeasonQuestStatusAck getPassSeasonQuestStatusAck = 5351;
+    game_proto.CompleteSeasonQuestReq completeSeasonQuestReq = 5360;
+    game_proto.CompleteSeasonQuestAck completeSeasonQuestAck = 5361;
+    game_proto.NewSeasonAwardStatusNtf newSeasonAwardStatusNtf = 5371;
+    game_proto.GetSeasonRankReq getSeasonRankReq = 5380;
+    game_proto.GetSeasonRankAck getSeasonRankAck = 5381;
+	
+	// 任务
+	game_proto.TaskLoginNtf  taskLoginNtf  = 7001;
+	game_proto.TaskAccpetReq taskAccpetReq = 7010;
+    game_proto.TaskAccpetAck taskAccpetAck = 7011;
+	game_proto.TaskAddProgressReq taskAddProgressReq = 7020;
+    game_proto.TaskAddProgressAck taskAddProgressAck = 7021;
+	game_proto.TaskTakeRewardReq taskTakeRewardReq = 7030;
+    game_proto.TaskTakeRewardAck taskTakeRewardAck = 7031;
+	game_proto.TaskAddStepReq taskAddStepReq = 7040;
+    game_proto.TaskAddStepAck taskAddStepAck = 7041;
+	game_proto.TaskResetAutoTaskReq taskResetAutoTaskReq = 7050;
+    game_proto.TaskResetAutoTaskAck taskResetAutoTaskAck = 7051;
+}

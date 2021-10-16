@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package gate;
+
+//Result type
+enum ResultType 
+{
+	Success = 0;
+	TokenInvalid = 1;
+	InLoginProcess = 2; //正在登陆	
+}
+
+//服务器和客户端之间的rpc
+message C2SRPCRequest
+{
+	int32 callbackid = 1;   // callback id
+	string methodname = 2;	// rpc方法名
+	bytes req_message = 3;	// 请求消息
+};
+
+//服务器和客户端之间的rpc
+message S2CRPCResponse
+{
+	int32 callbackid = 1;       // callback id
+	int32 ret_val = 2;			// 返回值
+	bytes ret_message = 5;      // 返回值消息
+}
+
+message S2CRPCRequest
+{
+	int32 callbackid = 1;   // callback id
+	int32 callerserviceid = 2;	// 调用者服务id
+	int32 calledserviceid = 3; // 被调用者服务id
+	int32 needresponse = 4; // 是否需要回执
+	string methodname = 5;	// rpc方法名
+	string paramsname = 6;	// 参数名
+	string returnname = 7;	// 返回值名
+};
+
