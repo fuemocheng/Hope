@@ -1030,7 +1030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &545985541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1099,7 +1099,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545985540}
   m_CullTransparentMesh: 0
---- !u!1 &549674017
+--- !u!1 &715347516
 GameObject:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1107,8 +1107,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 549674019}
-  - component: {fileID: 549674018}
+  - component: {fileID: 715347518}
+  - component: {fileID: 715347517}
   m_Layer: 0
   m_Name: UndoProRecords
   m_TagString: Untagged
@@ -1116,13 +1116,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &549674018
+--- !u!114 &715347517
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549674017}
+  m_GameObject: {fileID: 715347516}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c2e38fe214ee4c44a50953f0e0468b8, type: 3}
@@ -1133,284 +1133,17 @@ MonoBehaviour:
     redoRecords: []
     undoRecords:
     - Selection Change
-    - Drag
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Paste bg
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - bg Parenting
-    - bg Parenting
-    - Selection Change
-    - Selection Change
     - Selection Change
     - Selection Change
     - Inspector
     - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Driving RectTransform
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Paste InputField
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Inspector
-    - Inspector
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Inspector
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Sibling order changed
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Sibling order changed
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Selection Change
-    - Delete Game Objects
-    - Delete Game Objects
-    - Delete Game Objects
-    - Selection Change
-    - Selection Change
-    - Add Element To Array
-    - Inspector
-    - Inspector
-    - Inspector
---- !u!4 &549674019
+--- !u!4 &715347518
 Transform:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549674017}
+  m_GameObject: {fileID: 715347516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

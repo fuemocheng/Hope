@@ -477,7 +477,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: -1
+    m_BlendOutDuration: 0.6833333333333336
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -504,25 +504,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -537,7 +519,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: a_Running
   - m_Version: 1
-    m_Start: 6.533333333333333
+    m_Start: 5.066666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 4162084376051083516}
     m_Duration: 4.183333333333333
@@ -545,7 +527,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: -1960588296818003161}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: -1
+    m_BlendInDuration: 0.6833333333333336
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -588,10 +570,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: a_Idle
   - m_Version: 1
-    m_Start: 13.833333333333334
+    m_Start: 10.033333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 1831772722193248613}
-    m_Duration: 5
+    m_Duration: 3.9000000000000004
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1960588296818003161}
     m_EaseInDuration: 0
@@ -657,7 +639,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: a_Idle_Battle
   - m_Version: 1
-    m_Start: 21.666666666666668
+    m_Start: 15.166666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 7460510248048162483}
     m_Duration: 5

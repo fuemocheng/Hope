@@ -47,6 +47,8 @@ Test/Assets/StreamingAssets/build_info.txt
 Test/Assets/StreamingAssets/build_info.txt.meta
 Test/Assets/XLua/Gen
 
+#Server
+Server/
 
 # Mac
 .DS_Store
