@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!--Version is detected by default as the application release and sent to sentry-->
+    <Version>9.8.7</Version>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Sentry/Sentry.csproj" />
+  </ItemGroup>
+
+</Project>
