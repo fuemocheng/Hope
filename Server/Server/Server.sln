@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFrame", "NetFrame\NetFrame.csproj", "{EB6E5073-ED9E-489B-B533-416F12F20237}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameProtocol", "GameProtocol\GameProtocol.csproj", "{8E9291F6-D388-4FFA-B6E7-9F46BD86E6D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{EB6E5073-ED9E-489B-B533-416F12F20237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB6E5073-ED9E-489B-B533-416F12F20237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB6E5073-ED9E-489B-B533-416F12F20237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9291F6-D388-4FFA-B6E7-9F46BD86E6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9291F6-D388-4FFA-B6E7-9F46BD86E6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9291F6-D388-4FFA-B6E7-9F46BD86E6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9291F6-D388-4FFA-B6E7-9F46BD86E6D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

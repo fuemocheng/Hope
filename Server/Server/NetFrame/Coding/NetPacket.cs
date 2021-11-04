@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Google.Protobuf;
 
 namespace NetFrame.Coding
 {
@@ -21,14 +22,18 @@ namespace NetFrame.Coding
         /// <summary>
         /// 
         /// </summary>
-        public object message { get; set; }
+        public IMessage message { get; set; }
 
-        public NetPacket()
+        public NetPacket() { }
+
+        public NetPacket(int cmd, int msgid, IMessage message)
         {
-
+            this.cmd = cmd;
+            this.msgid = msgid;
+            this.message = message;
         }
 
-        public T GetMessage<T>()
+        public T GetMessge<T>() where T : IMessage
         {
             return (T)message;
         }
