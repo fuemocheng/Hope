@@ -12,11 +12,16 @@ for %%i in (proto\\*.proto) do (
 )
 
 set c=..\\..\\Test\Assets\Scripts\Proto
+set s=..\\..\\Server\Server\GameProtocol
 
 for %%b in (out\\*.cs) do (
 	if exist %c% (
 		copy %%b %c%
 		echo copy %%b to %c% ...
+	)
+	if exist %s% (
+		copy %%b %s%
+		echo copy %%b to %s% ...
 	)
 )
 
