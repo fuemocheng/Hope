@@ -14,23 +14,23 @@ enum Cmd
 	CLIENTVER_NTF = 10; 			// 客户端版本号
 
 	//Cmd
-	GAME_COMMAND = 20; 				// 游戏内部指令
+	GM_COMMAND = 20; 				// 游戏内部指令
 
 	//Login
-	GAME_LOGIN = 50; 				// 登录游戏
-	GAME_CREATE_ROLE = 51; 			// 创建角色
-	GAME_SET_ROLENAME = 52; 		// 设置角色名字
-	GAME_ROLEINFO = 53; 			// 角色信息
-	GAME_LOGIN_END = 54; 			// 登录结束
+	LOGIN = 50; 					// 登录游戏
+	CREATE_ROLE = 51; 				// 创建角色
+	SET_ROLENAME = 52; 				// 设置角色名字
+	ROLEINFO_NTF = 53; 				// 角色信息
+	LOGIN_END_NTF = 54; 			// 登录结束
 
 	//Scene
 	SCENE_LOAD = 60;				// 加载场景
 	SCENE_ROLE = 61; 				// 场景玩家
 	SCENE_ROLE_NTF = 62;			// 广播玩家数据
-	SCENE_NPC = 63;					// 广播NPC
+	SCENE_NPC_NTF = 63;				// 广播NPC
 
 	//Mail
-	MAIL_LIST = 80; 				// 邮件列表
+	MAIL_LIST_NTF = 80; 			// 邮件列表
 	MAIL_OPEN = 81;
 	MAIL_ATCH = 82;
 	MAIL_DEL = 83;
@@ -46,16 +46,6 @@ enum ErrorCode
 	VERSION_INVALID     = 4;    	// 版本号不对
 	PARAM_INVALID       = 5;    	// 参数不合法
 	OPREATE_FAST        = 6;    	// 操作太快了
-	USER_RELOGIN        = 20;   	// 重复登陆
-	TOKEN_INVALID       = 21;   	// token不合法
-	ROLE_FOUND          = 22;   	// 已经创建过角色
-	NAME_DUPLICATE      = 23;   	// 角色名重复
-	NAME_INVALID        = 24;   	// 角色名不合法
-	NEED_LOGIN          = 25;   	// 请重新登陆
-	FORBIDDEN_LOGIN     = 26;   	// 账号禁止登录
-	FORBIDDEN_TALK      = 27;   	// 角色禁言
-	LOGIN_FAST          = 28;   	// 登录过快，请2分钟后重试
-	KICK_USER           = 29;   	// 您已被强制下线
 }
 
 message Ping
@@ -66,17 +56,17 @@ message Ping
 //通用协议包装
 message CommonMessage
 {
-	Cmd code = 1;
+	Cmd cmd = 1;
 	ErrorCode errorCode = 2;
 	Ping ping = 3;
 
 	//协议号对应字段号规则：协议cmd=101，字段号req=1010，ack=1011, ntf=1011
-	//新增协议的时候，客户端可以通过菜单“TopMenu-生成网络协议”来生成协议号对应数据的绑定代码（比如GAME_LOGIN协议对应收取LoginGameAck的数据）
+	//新增协议的时候，客户端可以通过菜单“Tools-生成网络协议”来生成协议号对应数据的绑定代码（比如GAME_LOGIN协议对应收取LoginGameAck的数据）
 
-	game_proto.ClientVerNtf clientVerNtf = 100;		//通知客户端有新版本
+	game_proto.ClientVerNtf clientVerNtf = 101;		//通知客户端有新版本
 
-	game_proto.GameCommandReq gameCommandReq = 200;		//GM命令
-	game_proto.GameCommandAck gameCommandAck = 201;
+	game_proto.GMCommandReq gmCommandReq = 200;		//GM命令
+	game_proto.GMCommandAck gmCommandAck = 201;
 
 	// Login
 	game_proto.LoginReq loginReq = 500;
@@ -97,11 +87,11 @@ message CommonMessage
 	game_proto.SceneNpcNtf sceneNpcNtf = 631;
 
 	//Mail
-	game_proto.MailInfoNtf mailInfoNtf = 801;
-	game_proto.OpenMailReq openMailReq = 810;
-	game_proto.OpenMailAck openMailAck = 811;
+	game_proto.MailListNtf mailListNtf = 801;
+	game_proto.MailOpenReq mailOpenReq = 810;
+	game_proto.MailOpenAck mailOpenAck = 811;
 	game_proto.MailAtchReq mailAtchReq = 820;
 	game_proto.MailAtchAck mailAtchAck = 821;
-	game_proto.DelMailReq delMailReq = 830;
-	game_proto.DelMailAck delMailAck = 831;
+	game_proto.MailDelReq mailDelReq = 830;
+	game_proto.MailDelAck mailDelAck = 831;
 }

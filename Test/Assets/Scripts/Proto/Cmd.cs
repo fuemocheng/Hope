@@ -24,55 +24,51 @@ namespace CmdProto {
     static CmdReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgljbWQucHJvdG8SCWNtZF9wcm90bxoKZ2FtZS5wcm90byIGCgRQaW5nIvgJ",
-            "Cg1Db21tb25NZXNzYWdlEhwKBGNvZGUYASABKA4yDi5jbWRfcHJvdG8uQ21k",
-            "EicKCWVycm9yQ29kZRgCIAEoDjIULmNtZF9wcm90by5FcnJvckNvZGUSHQoE",
-            "cGluZxgDIAEoCzIPLmNtZF9wcm90by5QaW5nEi4KDGNsaWVudFZlck50Zhhk",
-            "IAEoCzIYLmdhbWVfcHJvdG8uQ2xpZW50VmVyTnRmEjMKDmdhbWVDb21tYW5k",
-            "UmVxGMgBIAEoCzIaLmdhbWVfcHJvdG8uR2FtZUNvbW1hbmRSZXESMwoOZ2Ft",
-            "ZUNvbW1hbmRBY2sYyQEgASgLMhouZ2FtZV9wcm90by5HYW1lQ29tbWFuZEFj",
-            "axInCghsb2dpblJlcRj0AyABKAsyFC5nYW1lX3Byb3RvLkxvZ2luUmVxEicK",
-            "CGxvZ2luQWNrGPUDIAEoCzIULmdhbWVfcHJvdG8uTG9naW5BY2sSMQoNY3Jl",
-            "YXRlUm9sZVJlcRj+AyABKAsyGS5nYW1lX3Byb3RvLkNyZWF0ZVJvbGVSZXES",
-            "MQoNY3JlYXRlUm9sZUFjaxj/AyABKAsyGS5nYW1lX3Byb3RvLkNyZWF0ZVJv",
-            "bGVBY2sSMwoOc2V0Um9sZU5hbWVSZXEYiAQgASgLMhouZ2FtZV9wcm90by5T",
-            "ZXRSb2xlTmFtZVJlcRIzCg5zZXRSb2xlTmFtZUFjaxiJBCABKAsyGi5nYW1l",
-            "X3Byb3RvLlNldFJvbGVOYW1lQWNrEi0KC3JvbGVJbmZvTnRmGJMEIAEoCzIX",
-            "LmdhbWVfcHJvdG8uUm9sZUluZm9OdGYSLQoLbG9naW5FbmROdGYYnQQgASgL",
-            "MhcuZ2FtZV9wcm90by5Mb2dpbkVuZE50ZhIvCgxzY2VuZUxvYWRSZXEY2AQg",
-            "ASgLMhguZ2FtZV9wcm90by5TY2VuZUxvYWRSZXESLwoMc2NlbmVMb2FkQWNr",
-            "GNkEIAEoCzIYLmdhbWVfcHJvdG8uU2NlbmVMb2FkQWNrEi8KDHNjZW5lUm9s",
-            "ZVJlcRjiBCABKAsyGC5nYW1lX3Byb3RvLlNjZW5lUm9sZVJlcRIvCgxzY2Vu",
-            "ZVJvbGVBY2sY4wQgASgLMhguZ2FtZV9wcm90by5TY2VuZVJvbGVBY2sSLwoM",
-            "c2NlbmVSb2xlTnRmGO0EIAEoCzIYLmdhbWVfcHJvdG8uU2NlbmVSb2xlTnRm",
-            "Ei0KC3NjZW5lTnBjTnRmGPcEIAEoCzIXLmdhbWVfcHJvdG8uU2NlbmVOcGNO",
-            "dGYSLQoLbWFpbEluZm9OdGYYoQYgASgLMhcuZ2FtZV9wcm90by5NYWlsSW5m",
-            "b050ZhItCgtvcGVuTWFpbFJlcRiqBiABKAsyFy5nYW1lX3Byb3RvLk9wZW5N",
-            "YWlsUmVxEi0KC29wZW5NYWlsQWNrGKsGIAEoCzIXLmdhbWVfcHJvdG8uT3Bl",
-            "bk1haWxBY2sSLQoLbWFpbEF0Y2hSZXEYtAYgASgLMhcuZ2FtZV9wcm90by5N",
-            "YWlsQXRjaFJlcRItCgttYWlsQXRjaEFjaxi1BiABKAsyFy5nYW1lX3Byb3Rv",
-            "Lk1haWxBdGNoQWNrEisKCmRlbE1haWxSZXEYvgYgASgLMhYuZ2FtZV9wcm90",
-            "by5EZWxNYWlsUmVxEisKCmRlbE1haWxBY2sYvwYgASgLMhYuZ2FtZV9wcm90",
-            "by5EZWxNYWlsQWNrKqACCgNDbWQSCAoETk9ORRAAEggKBFBJTkcQARIRCg1D",
-            "TElFTlRWRVJfTlRGEAoSEAoMR0FNRV9DT01NQU5EEBQSDgoKR0FNRV9MT0dJ",
-            "ThAyEhQKEEdBTUVfQ1JFQVRFX1JPTEUQMxIVChFHQU1FX1NFVF9ST0xFTkFN",
-            "RRA0EhEKDUdBTUVfUk9MRUlORk8QNRISCg5HQU1FX0xPR0lOX0VORBA2Eg4K",
-            "ClNDRU5FX0xPQUQQPBIOCgpTQ0VORV9ST0xFED0SEgoOU0NFTkVfUk9MRV9O",
-            "VEYQPhINCglTQ0VORV9OUEMQPxINCglNQUlMX0xJU1QQUBINCglNQUlMX09Q",
-            "RU4QURINCglNQUlMX0FUQ0gQUhIMCghNQUlMX0RFTBBTKsUCCglFcnJvckNv",
-            "ZGUSCwoHU1VDQ0VTUxAAEhIKDlNFUlZJQ0VfQ0xPU0VEEAESFwoTU0VSVklD",
-            "RV9VTkFWQUlMQUJMRRACEhEKDVNFUlZJQ0VfREJNQVgQAxITCg9WRVJTSU9O",
-            "X0lOVkFMSUQQBBIRCg1QQVJBTV9JTlZBTElEEAUSEAoMT1BSRUFURV9GQVNU",
-            "EAYSEAoMVVNFUl9SRUxPR0lOEBQSEQoNVE9LRU5fSU5WQUxJRBAVEg4KClJP",
-            "TEVfRk9VTkQQFhISCg5OQU1FX0RVUExJQ0FURRAXEhAKDE5BTUVfSU5WQUxJ",
-            "RBAYEg4KCk5FRURfTE9HSU4QGRITCg9GT1JCSURERU5fTE9HSU4QGhISCg5G",
-            "T1JCSURERU5fVEFMSxAbEg4KCkxPR0lOX0ZBU1QQHBINCglLSUNLX1VTRVIQ",
-            "HUIHWgVwcm90b1AAYgZwcm90bzM="));
+            "CgljbWQucHJvdG8SCWNtZF9wcm90bxoKZ2FtZS5wcm90byIGCgRQaW5nIu8J",
+            "Cg1Db21tb25NZXNzYWdlEhsKA2NtZBgBIAEoDjIOLmNtZF9wcm90by5DbWQS",
+            "JwoJZXJyb3JDb2RlGAIgASgOMhQuY21kX3Byb3RvLkVycm9yQ29kZRIdCgRw",
+            "aW5nGAMgASgLMg8uY21kX3Byb3RvLlBpbmcSLgoMY2xpZW50VmVyTnRmGGUg",
+            "ASgLMhguZ2FtZV9wcm90by5DbGllbnRWZXJOdGYSLwoMZ21Db21tYW5kUmVx",
+            "GMgBIAEoCzIYLmdhbWVfcHJvdG8uR01Db21tYW5kUmVxEi8KDGdtQ29tbWFu",
+            "ZEFjaxjJASABKAsyGC5nYW1lX3Byb3RvLkdNQ29tbWFuZEFjaxInCghsb2dp",
+            "blJlcRj0AyABKAsyFC5nYW1lX3Byb3RvLkxvZ2luUmVxEicKCGxvZ2luQWNr",
+            "GPUDIAEoCzIULmdhbWVfcHJvdG8uTG9naW5BY2sSMQoNY3JlYXRlUm9sZVJl",
+            "cRj+AyABKAsyGS5nYW1lX3Byb3RvLkNyZWF0ZVJvbGVSZXESMQoNY3JlYXRl",
+            "Um9sZUFjaxj/AyABKAsyGS5nYW1lX3Byb3RvLkNyZWF0ZVJvbGVBY2sSMwoO",
+            "c2V0Um9sZU5hbWVSZXEYiAQgASgLMhouZ2FtZV9wcm90by5TZXRSb2xlTmFt",
+            "ZVJlcRIzCg5zZXRSb2xlTmFtZUFjaxiJBCABKAsyGi5nYW1lX3Byb3RvLlNl",
+            "dFJvbGVOYW1lQWNrEi0KC3JvbGVJbmZvTnRmGJMEIAEoCzIXLmdhbWVfcHJv",
+            "dG8uUm9sZUluZm9OdGYSLQoLbG9naW5FbmROdGYYnQQgASgLMhcuZ2FtZV9w",
+            "cm90by5Mb2dpbkVuZE50ZhIvCgxzY2VuZUxvYWRSZXEY2AQgASgLMhguZ2Ft",
+            "ZV9wcm90by5TY2VuZUxvYWRSZXESLwoMc2NlbmVMb2FkQWNrGNkEIAEoCzIY",
+            "LmdhbWVfcHJvdG8uU2NlbmVMb2FkQWNrEi8KDHNjZW5lUm9sZVJlcRjiBCAB",
+            "KAsyGC5nYW1lX3Byb3RvLlNjZW5lUm9sZVJlcRIvCgxzY2VuZVJvbGVBY2sY",
+            "4wQgASgLMhguZ2FtZV9wcm90by5TY2VuZVJvbGVBY2sSLwoMc2NlbmVSb2xl",
+            "TnRmGO0EIAEoCzIYLmdhbWVfcHJvdG8uU2NlbmVSb2xlTnRmEi0KC3NjZW5l",
+            "TnBjTnRmGPcEIAEoCzIXLmdhbWVfcHJvdG8uU2NlbmVOcGNOdGYSLQoLbWFp",
+            "bExpc3ROdGYYoQYgASgLMhcuZ2FtZV9wcm90by5NYWlsTGlzdE50ZhItCgtt",
+            "YWlsT3BlblJlcRiqBiABKAsyFy5nYW1lX3Byb3RvLk1haWxPcGVuUmVxEi0K",
+            "C21haWxPcGVuQWNrGKsGIAEoCzIXLmdhbWVfcHJvdG8uTWFpbE9wZW5BY2sS",
+            "LQoLbWFpbEF0Y2hSZXEYtAYgASgLMhcuZ2FtZV9wcm90by5NYWlsQXRjaFJl",
+            "cRItCgttYWlsQXRjaEFjaxi1BiABKAsyFy5nYW1lX3Byb3RvLk1haWxBdGNo",
+            "QWNrEisKCm1haWxEZWxSZXEYvgYgASgLMhYuZ2FtZV9wcm90by5NYWlsRGVs",
+            "UmVxEisKCm1haWxEZWxBY2sYvwYgASgLMhYuZ2FtZV9wcm90by5NYWlsRGVs",
+            "QWNrKpUCCgNDbWQSCAoETk9ORRAAEggKBFBJTkcQARIRCg1DTElFTlRWRVJf",
+            "TlRGEAoSDgoKR01fQ09NTUFORBAUEgkKBUxPR0lOEDISDwoLQ1JFQVRFX1JP",
+            "TEUQMxIQCgxTRVRfUk9MRU5BTUUQNBIQCgxST0xFSU5GT19OVEYQNRIRCg1M",
+            "T0dJTl9FTkRfTlRGEDYSDgoKU0NFTkVfTE9BRBA8Eg4KClNDRU5FX1JPTEUQ",
+            "PRISCg5TQ0VORV9ST0xFX05URhA+EhEKDVNDRU5FX05QQ19OVEYQPxIRCg1N",
+            "QUlMX0xJU1RfTlRGEFASDQoJTUFJTF9PUEVOEFESDQoJTUFJTF9BVENIEFIS",
+            "DAoITUFJTF9ERUwQUyqSAQoJRXJyb3JDb2RlEgsKB1NVQ0NFU1MQABISCg5T",
+            "RVJWSUNFX0NMT1NFRBABEhcKE1NFUlZJQ0VfVU5BVkFJTEFCTEUQAhIRCg1T",
+            "RVJWSUNFX0RCTUFYEAMSEwoPVkVSU0lPTl9JTlZBTElEEAQSEQoNUEFSQU1f",
+            "SU5WQUxJRBAFEhAKDE9QUkVBVEVfRkFTVBAGQgdaBXByb3RvUABiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GameProto.GameReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::CmdProto.Cmd), typeof(global::CmdProto.ErrorCode), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CmdProto.Ping), global::CmdProto.Ping.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CmdProto.CommonMessage), global::CmdProto.CommonMessage.Parser, new[]{ "Code", "ErrorCode", "Ping", "ClientVerNtf", "GameCommandReq", "GameCommandAck", "LoginReq", "LoginAck", "CreateRoleReq", "CreateRoleAck", "SetRoleNameReq", "SetRoleNameAck", "RoleInfoNtf", "LoginEndNtf", "SceneLoadReq", "SceneLoadAck", "SceneRoleReq", "SceneRoleAck", "SceneRoleNtf", "SceneNpcNtf", "MailInfoNtf", "OpenMailReq", "OpenMailAck", "MailAtchReq", "MailAtchAck", "DelMailReq", "DelMailAck" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CmdProto.CommonMessage), global::CmdProto.CommonMessage.Parser, new[]{ "Cmd", "ErrorCode", "Ping", "ClientVerNtf", "GmCommandReq", "GmCommandAck", "LoginReq", "LoginAck", "CreateRoleReq", "CreateRoleAck", "SetRoleNameReq", "SetRoleNameAck", "RoleInfoNtf", "LoginEndNtf", "SceneLoadReq", "SceneLoadAck", "SceneRoleReq", "SceneRoleAck", "SceneRoleNtf", "SceneNpcNtf", "MailListNtf", "MailOpenReq", "MailOpenAck", "MailAtchReq", "MailAtchAck", "MailDelReq", "MailDelAck" }, null, null, null, null)
           }));
     }
     #endregion
@@ -89,27 +85,27 @@ namespace CmdProto {
     /// <summary>
     ///Cmd
     /// </summary>
-    [pbr::OriginalName("GAME_COMMAND")] GameCommand = 20,
+    [pbr::OriginalName("GM_COMMAND")] GmCommand = 20,
     /// <summary>
     ///Login
     /// </summary>
-    [pbr::OriginalName("GAME_LOGIN")] GameLogin = 50,
+    [pbr::OriginalName("LOGIN")] Login = 50,
     /// <summary>
     /// 创建角色
     /// </summary>
-    [pbr::OriginalName("GAME_CREATE_ROLE")] GameCreateRole = 51,
+    [pbr::OriginalName("CREATE_ROLE")] CreateRole = 51,
     /// <summary>
     /// 设置角色名字
     /// </summary>
-    [pbr::OriginalName("GAME_SET_ROLENAME")] GameSetRolename = 52,
+    [pbr::OriginalName("SET_ROLENAME")] SetRolename = 52,
     /// <summary>
     /// 角色信息
     /// </summary>
-    [pbr::OriginalName("GAME_ROLEINFO")] GameRoleinfo = 53,
+    [pbr::OriginalName("ROLEINFO_NTF")] RoleinfoNtf = 53,
     /// <summary>
     /// 登录结束
     /// </summary>
-    [pbr::OriginalName("GAME_LOGIN_END")] GameLoginEnd = 54,
+    [pbr::OriginalName("LOGIN_END_NTF")] LoginEndNtf = 54,
     /// <summary>
     ///Scene
     /// </summary>
@@ -125,11 +121,11 @@ namespace CmdProto {
     /// <summary>
     /// 广播NPC
     /// </summary>
-    [pbr::OriginalName("SCENE_NPC")] SceneNpc = 63,
+    [pbr::OriginalName("SCENE_NPC_NTF")] SceneNpcNtf = 63,
     /// <summary>
     ///Mail
     /// </summary>
-    [pbr::OriginalName("MAIL_LIST")] MailList = 80,
+    [pbr::OriginalName("MAIL_LIST_NTF")] MailListNtf = 80,
     [pbr::OriginalName("MAIL_OPEN")] MailOpen = 81,
     [pbr::OriginalName("MAIL_ATCH")] MailAtch = 82,
     [pbr::OriginalName("MAIL_DEL")] MailDel = 83,
@@ -161,46 +157,6 @@ namespace CmdProto {
     /// 操作太快了
     /// </summary>
     [pbr::OriginalName("OPREATE_FAST")] OpreateFast = 6,
-    /// <summary>
-    /// 重复登陆
-    /// </summary>
-    [pbr::OriginalName("USER_RELOGIN")] UserRelogin = 20,
-    /// <summary>
-    /// token不合法
-    /// </summary>
-    [pbr::OriginalName("TOKEN_INVALID")] TokenInvalid = 21,
-    /// <summary>
-    /// 已经创建过角色
-    /// </summary>
-    [pbr::OriginalName("ROLE_FOUND")] RoleFound = 22,
-    /// <summary>
-    /// 角色名重复
-    /// </summary>
-    [pbr::OriginalName("NAME_DUPLICATE")] NameDuplicate = 23,
-    /// <summary>
-    /// 角色名不合法
-    /// </summary>
-    [pbr::OriginalName("NAME_INVALID")] NameInvalid = 24,
-    /// <summary>
-    /// 请重新登陆
-    /// </summary>
-    [pbr::OriginalName("NEED_LOGIN")] NeedLogin = 25,
-    /// <summary>
-    /// 账号禁止登录
-    /// </summary>
-    [pbr::OriginalName("FORBIDDEN_LOGIN")] ForbiddenLogin = 26,
-    /// <summary>
-    /// 角色禁言
-    /// </summary>
-    [pbr::OriginalName("FORBIDDEN_TALK")] ForbiddenTalk = 27,
-    /// <summary>
-    /// 登录过快，请2分钟后重试
-    /// </summary>
-    [pbr::OriginalName("LOGIN_FAST")] LoginFast = 28,
-    /// <summary>
-    /// 您已被强制下线
-    /// </summary>
-    [pbr::OriginalName("KICK_USER")] KickUser = 29,
   }
 
   #endregion
@@ -396,12 +352,12 @@ namespace CmdProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CommonMessage(CommonMessage other) : this() {
-      code_ = other.code_;
+      cmd_ = other.cmd_;
       errorCode_ = other.errorCode_;
       ping_ = other.ping_ != null ? other.ping_.Clone() : null;
       clientVerNtf_ = other.clientVerNtf_ != null ? other.clientVerNtf_.Clone() : null;
-      gameCommandReq_ = other.gameCommandReq_ != null ? other.gameCommandReq_.Clone() : null;
-      gameCommandAck_ = other.gameCommandAck_ != null ? other.gameCommandAck_.Clone() : null;
+      gmCommandReq_ = other.gmCommandReq_ != null ? other.gmCommandReq_.Clone() : null;
+      gmCommandAck_ = other.gmCommandAck_ != null ? other.gmCommandAck_.Clone() : null;
       loginReq_ = other.loginReq_ != null ? other.loginReq_.Clone() : null;
       loginAck_ = other.loginAck_ != null ? other.loginAck_.Clone() : null;
       createRoleReq_ = other.createRoleReq_ != null ? other.createRoleReq_.Clone() : null;
@@ -416,13 +372,13 @@ namespace CmdProto {
       sceneRoleAck_ = other.sceneRoleAck_ != null ? other.sceneRoleAck_.Clone() : null;
       sceneRoleNtf_ = other.sceneRoleNtf_ != null ? other.sceneRoleNtf_.Clone() : null;
       sceneNpcNtf_ = other.sceneNpcNtf_ != null ? other.sceneNpcNtf_.Clone() : null;
-      mailInfoNtf_ = other.mailInfoNtf_ != null ? other.mailInfoNtf_.Clone() : null;
-      openMailReq_ = other.openMailReq_ != null ? other.openMailReq_.Clone() : null;
-      openMailAck_ = other.openMailAck_ != null ? other.openMailAck_.Clone() : null;
+      mailListNtf_ = other.mailListNtf_ != null ? other.mailListNtf_.Clone() : null;
+      mailOpenReq_ = other.mailOpenReq_ != null ? other.mailOpenReq_.Clone() : null;
+      mailOpenAck_ = other.mailOpenAck_ != null ? other.mailOpenAck_.Clone() : null;
       mailAtchReq_ = other.mailAtchReq_ != null ? other.mailAtchReq_.Clone() : null;
       mailAtchAck_ = other.mailAtchAck_ != null ? other.mailAtchAck_.Clone() : null;
-      delMailReq_ = other.delMailReq_ != null ? other.delMailReq_.Clone() : null;
-      delMailAck_ = other.delMailAck_ != null ? other.delMailAck_.Clone() : null;
+      mailDelReq_ = other.mailDelReq_ != null ? other.mailDelReq_.Clone() : null;
+      mailDelAck_ = other.mailDelAck_ != null ? other.mailDelAck_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -432,15 +388,15 @@ namespace CmdProto {
       return new CommonMessage(this);
     }
 
-    /// <summary>Field number for the "code" field.</summary>
-    public const int CodeFieldNumber = 1;
-    private global::CmdProto.Cmd code_ = global::CmdProto.Cmd.None;
+    /// <summary>Field number for the "cmd" field.</summary>
+    public const int CmdFieldNumber = 1;
+    private global::CmdProto.Cmd cmd_ = global::CmdProto.Cmd.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::CmdProto.Cmd Code {
-      get { return code_; }
+    public global::CmdProto.Cmd Cmd {
+      get { return cmd_; }
       set {
-        code_ = value;
+        cmd_ = value;
       }
     }
 
@@ -469,7 +425,7 @@ namespace CmdProto {
     }
 
     /// <summary>Field number for the "clientVerNtf" field.</summary>
-    public const int ClientVerNtfFieldNumber = 100;
+    public const int ClientVerNtfFieldNumber = 101;
     private global::GameProto.ClientVerNtf clientVerNtf_;
     /// <summary>
     ///通知客户端有新版本
@@ -483,30 +439,30 @@ namespace CmdProto {
       }
     }
 
-    /// <summary>Field number for the "gameCommandReq" field.</summary>
-    public const int GameCommandReqFieldNumber = 200;
-    private global::GameProto.GameCommandReq gameCommandReq_;
+    /// <summary>Field number for the "gmCommandReq" field.</summary>
+    public const int GmCommandReqFieldNumber = 200;
+    private global::GameProto.GMCommandReq gmCommandReq_;
     /// <summary>
     ///GM命令
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.GameCommandReq GameCommandReq {
-      get { return gameCommandReq_; }
+    public global::GameProto.GMCommandReq GmCommandReq {
+      get { return gmCommandReq_; }
       set {
-        gameCommandReq_ = value;
+        gmCommandReq_ = value;
       }
     }
 
-    /// <summary>Field number for the "gameCommandAck" field.</summary>
-    public const int GameCommandAckFieldNumber = 201;
-    private global::GameProto.GameCommandAck gameCommandAck_;
+    /// <summary>Field number for the "gmCommandAck" field.</summary>
+    public const int GmCommandAckFieldNumber = 201;
+    private global::GameProto.GMCommandAck gmCommandAck_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.GameCommandAck GameCommandAck {
-      get { return gameCommandAck_; }
+    public global::GameProto.GMCommandAck GmCommandAck {
+      get { return gmCommandAck_; }
       set {
-        gameCommandAck_ = value;
+        gmCommandAck_ = value;
       }
     }
 
@@ -684,42 +640,42 @@ namespace CmdProto {
       }
     }
 
-    /// <summary>Field number for the "mailInfoNtf" field.</summary>
-    public const int MailInfoNtfFieldNumber = 801;
-    private global::GameProto.MailInfoNtf mailInfoNtf_;
+    /// <summary>Field number for the "mailListNtf" field.</summary>
+    public const int MailListNtfFieldNumber = 801;
+    private global::GameProto.MailListNtf mailListNtf_;
     /// <summary>
     ///Mail
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.MailInfoNtf MailInfoNtf {
-      get { return mailInfoNtf_; }
+    public global::GameProto.MailListNtf MailListNtf {
+      get { return mailListNtf_; }
       set {
-        mailInfoNtf_ = value;
+        mailListNtf_ = value;
       }
     }
 
-    /// <summary>Field number for the "openMailReq" field.</summary>
-    public const int OpenMailReqFieldNumber = 810;
-    private global::GameProto.OpenMailReq openMailReq_;
+    /// <summary>Field number for the "mailOpenReq" field.</summary>
+    public const int MailOpenReqFieldNumber = 810;
+    private global::GameProto.MailOpenReq mailOpenReq_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.OpenMailReq OpenMailReq {
-      get { return openMailReq_; }
+    public global::GameProto.MailOpenReq MailOpenReq {
+      get { return mailOpenReq_; }
       set {
-        openMailReq_ = value;
+        mailOpenReq_ = value;
       }
     }
 
-    /// <summary>Field number for the "openMailAck" field.</summary>
-    public const int OpenMailAckFieldNumber = 811;
-    private global::GameProto.OpenMailAck openMailAck_;
+    /// <summary>Field number for the "mailOpenAck" field.</summary>
+    public const int MailOpenAckFieldNumber = 811;
+    private global::GameProto.MailOpenAck mailOpenAck_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.OpenMailAck OpenMailAck {
-      get { return openMailAck_; }
+    public global::GameProto.MailOpenAck MailOpenAck {
+      get { return mailOpenAck_; }
       set {
-        openMailAck_ = value;
+        mailOpenAck_ = value;
       }
     }
 
@@ -747,27 +703,27 @@ namespace CmdProto {
       }
     }
 
-    /// <summary>Field number for the "delMailReq" field.</summary>
-    public const int DelMailReqFieldNumber = 830;
-    private global::GameProto.DelMailReq delMailReq_;
+    /// <summary>Field number for the "mailDelReq" field.</summary>
+    public const int MailDelReqFieldNumber = 830;
+    private global::GameProto.MailDelReq mailDelReq_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.DelMailReq DelMailReq {
-      get { return delMailReq_; }
+    public global::GameProto.MailDelReq MailDelReq {
+      get { return mailDelReq_; }
       set {
-        delMailReq_ = value;
+        mailDelReq_ = value;
       }
     }
 
-    /// <summary>Field number for the "delMailAck" field.</summary>
-    public const int DelMailAckFieldNumber = 831;
-    private global::GameProto.DelMailAck delMailAck_;
+    /// <summary>Field number for the "mailDelAck" field.</summary>
+    public const int MailDelAckFieldNumber = 831;
+    private global::GameProto.MailDelAck mailDelAck_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::GameProto.DelMailAck DelMailAck {
-      get { return delMailAck_; }
+    public global::GameProto.MailDelAck MailDelAck {
+      get { return mailDelAck_; }
       set {
-        delMailAck_ = value;
+        mailDelAck_ = value;
       }
     }
 
@@ -786,12 +742,12 @@ namespace CmdProto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Code != other.Code) return false;
+      if (Cmd != other.Cmd) return false;
       if (ErrorCode != other.ErrorCode) return false;
       if (!object.Equals(Ping, other.Ping)) return false;
       if (!object.Equals(ClientVerNtf, other.ClientVerNtf)) return false;
-      if (!object.Equals(GameCommandReq, other.GameCommandReq)) return false;
-      if (!object.Equals(GameCommandAck, other.GameCommandAck)) return false;
+      if (!object.Equals(GmCommandReq, other.GmCommandReq)) return false;
+      if (!object.Equals(GmCommandAck, other.GmCommandAck)) return false;
       if (!object.Equals(LoginReq, other.LoginReq)) return false;
       if (!object.Equals(LoginAck, other.LoginAck)) return false;
       if (!object.Equals(CreateRoleReq, other.CreateRoleReq)) return false;
@@ -806,13 +762,13 @@ namespace CmdProto {
       if (!object.Equals(SceneRoleAck, other.SceneRoleAck)) return false;
       if (!object.Equals(SceneRoleNtf, other.SceneRoleNtf)) return false;
       if (!object.Equals(SceneNpcNtf, other.SceneNpcNtf)) return false;
-      if (!object.Equals(MailInfoNtf, other.MailInfoNtf)) return false;
-      if (!object.Equals(OpenMailReq, other.OpenMailReq)) return false;
-      if (!object.Equals(OpenMailAck, other.OpenMailAck)) return false;
+      if (!object.Equals(MailListNtf, other.MailListNtf)) return false;
+      if (!object.Equals(MailOpenReq, other.MailOpenReq)) return false;
+      if (!object.Equals(MailOpenAck, other.MailOpenAck)) return false;
       if (!object.Equals(MailAtchReq, other.MailAtchReq)) return false;
       if (!object.Equals(MailAtchAck, other.MailAtchAck)) return false;
-      if (!object.Equals(DelMailReq, other.DelMailReq)) return false;
-      if (!object.Equals(DelMailAck, other.DelMailAck)) return false;
+      if (!object.Equals(MailDelReq, other.MailDelReq)) return false;
+      if (!object.Equals(MailDelAck, other.MailDelAck)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -820,12 +776,12 @@ namespace CmdProto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Code != global::CmdProto.Cmd.None) hash ^= Code.GetHashCode();
+      if (Cmd != global::CmdProto.Cmd.None) hash ^= Cmd.GetHashCode();
       if (ErrorCode != global::CmdProto.ErrorCode.Success) hash ^= ErrorCode.GetHashCode();
       if (ping_ != null) hash ^= Ping.GetHashCode();
       if (clientVerNtf_ != null) hash ^= ClientVerNtf.GetHashCode();
-      if (gameCommandReq_ != null) hash ^= GameCommandReq.GetHashCode();
-      if (gameCommandAck_ != null) hash ^= GameCommandAck.GetHashCode();
+      if (gmCommandReq_ != null) hash ^= GmCommandReq.GetHashCode();
+      if (gmCommandAck_ != null) hash ^= GmCommandAck.GetHashCode();
       if (loginReq_ != null) hash ^= LoginReq.GetHashCode();
       if (loginAck_ != null) hash ^= LoginAck.GetHashCode();
       if (createRoleReq_ != null) hash ^= CreateRoleReq.GetHashCode();
@@ -840,13 +796,13 @@ namespace CmdProto {
       if (sceneRoleAck_ != null) hash ^= SceneRoleAck.GetHashCode();
       if (sceneRoleNtf_ != null) hash ^= SceneRoleNtf.GetHashCode();
       if (sceneNpcNtf_ != null) hash ^= SceneNpcNtf.GetHashCode();
-      if (mailInfoNtf_ != null) hash ^= MailInfoNtf.GetHashCode();
-      if (openMailReq_ != null) hash ^= OpenMailReq.GetHashCode();
-      if (openMailAck_ != null) hash ^= OpenMailAck.GetHashCode();
+      if (mailListNtf_ != null) hash ^= MailListNtf.GetHashCode();
+      if (mailOpenReq_ != null) hash ^= MailOpenReq.GetHashCode();
+      if (mailOpenAck_ != null) hash ^= MailOpenAck.GetHashCode();
       if (mailAtchReq_ != null) hash ^= MailAtchReq.GetHashCode();
       if (mailAtchAck_ != null) hash ^= MailAtchAck.GetHashCode();
-      if (delMailReq_ != null) hash ^= DelMailReq.GetHashCode();
-      if (delMailAck_ != null) hash ^= DelMailAck.GetHashCode();
+      if (mailDelReq_ != null) hash ^= MailDelReq.GetHashCode();
+      if (mailDelAck_ != null) hash ^= MailDelAck.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -865,9 +821,9 @@ namespace CmdProto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Code != global::CmdProto.Cmd.None) {
+      if (Cmd != global::CmdProto.Cmd.None) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Code);
+        output.WriteEnum((int) Cmd);
       }
       if (ErrorCode != global::CmdProto.ErrorCode.Success) {
         output.WriteRawTag(16);
@@ -878,16 +834,16 @@ namespace CmdProto {
         output.WriteMessage(Ping);
       }
       if (clientVerNtf_ != null) {
-        output.WriteRawTag(162, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(ClientVerNtf);
       }
-      if (gameCommandReq_ != null) {
+      if (gmCommandReq_ != null) {
         output.WriteRawTag(194, 12);
-        output.WriteMessage(GameCommandReq);
+        output.WriteMessage(GmCommandReq);
       }
-      if (gameCommandAck_ != null) {
+      if (gmCommandAck_ != null) {
         output.WriteRawTag(202, 12);
-        output.WriteMessage(GameCommandAck);
+        output.WriteMessage(GmCommandAck);
       }
       if (loginReq_ != null) {
         output.WriteRawTag(162, 31);
@@ -945,17 +901,17 @@ namespace CmdProto {
         output.WriteRawTag(186, 39);
         output.WriteMessage(SceneNpcNtf);
       }
-      if (mailInfoNtf_ != null) {
+      if (mailListNtf_ != null) {
         output.WriteRawTag(138, 50);
-        output.WriteMessage(MailInfoNtf);
+        output.WriteMessage(MailListNtf);
       }
-      if (openMailReq_ != null) {
+      if (mailOpenReq_ != null) {
         output.WriteRawTag(210, 50);
-        output.WriteMessage(OpenMailReq);
+        output.WriteMessage(MailOpenReq);
       }
-      if (openMailAck_ != null) {
+      if (mailOpenAck_ != null) {
         output.WriteRawTag(218, 50);
-        output.WriteMessage(OpenMailAck);
+        output.WriteMessage(MailOpenAck);
       }
       if (mailAtchReq_ != null) {
         output.WriteRawTag(162, 51);
@@ -965,13 +921,13 @@ namespace CmdProto {
         output.WriteRawTag(170, 51);
         output.WriteMessage(MailAtchAck);
       }
-      if (delMailReq_ != null) {
+      if (mailDelReq_ != null) {
         output.WriteRawTag(242, 51);
-        output.WriteMessage(DelMailReq);
+        output.WriteMessage(MailDelReq);
       }
-      if (delMailAck_ != null) {
+      if (mailDelAck_ != null) {
         output.WriteRawTag(250, 51);
-        output.WriteMessage(DelMailAck);
+        output.WriteMessage(MailDelAck);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -983,9 +939,9 @@ namespace CmdProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Code != global::CmdProto.Cmd.None) {
+      if (Cmd != global::CmdProto.Cmd.None) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Code);
+        output.WriteEnum((int) Cmd);
       }
       if (ErrorCode != global::CmdProto.ErrorCode.Success) {
         output.WriteRawTag(16);
@@ -996,16 +952,16 @@ namespace CmdProto {
         output.WriteMessage(Ping);
       }
       if (clientVerNtf_ != null) {
-        output.WriteRawTag(162, 6);
+        output.WriteRawTag(170, 6);
         output.WriteMessage(ClientVerNtf);
       }
-      if (gameCommandReq_ != null) {
+      if (gmCommandReq_ != null) {
         output.WriteRawTag(194, 12);
-        output.WriteMessage(GameCommandReq);
+        output.WriteMessage(GmCommandReq);
       }
-      if (gameCommandAck_ != null) {
+      if (gmCommandAck_ != null) {
         output.WriteRawTag(202, 12);
-        output.WriteMessage(GameCommandAck);
+        output.WriteMessage(GmCommandAck);
       }
       if (loginReq_ != null) {
         output.WriteRawTag(162, 31);
@@ -1063,17 +1019,17 @@ namespace CmdProto {
         output.WriteRawTag(186, 39);
         output.WriteMessage(SceneNpcNtf);
       }
-      if (mailInfoNtf_ != null) {
+      if (mailListNtf_ != null) {
         output.WriteRawTag(138, 50);
-        output.WriteMessage(MailInfoNtf);
+        output.WriteMessage(MailListNtf);
       }
-      if (openMailReq_ != null) {
+      if (mailOpenReq_ != null) {
         output.WriteRawTag(210, 50);
-        output.WriteMessage(OpenMailReq);
+        output.WriteMessage(MailOpenReq);
       }
-      if (openMailAck_ != null) {
+      if (mailOpenAck_ != null) {
         output.WriteRawTag(218, 50);
-        output.WriteMessage(OpenMailAck);
+        output.WriteMessage(MailOpenAck);
       }
       if (mailAtchReq_ != null) {
         output.WriteRawTag(162, 51);
@@ -1083,13 +1039,13 @@ namespace CmdProto {
         output.WriteRawTag(170, 51);
         output.WriteMessage(MailAtchAck);
       }
-      if (delMailReq_ != null) {
+      if (mailDelReq_ != null) {
         output.WriteRawTag(242, 51);
-        output.WriteMessage(DelMailReq);
+        output.WriteMessage(MailDelReq);
       }
-      if (delMailAck_ != null) {
+      if (mailDelAck_ != null) {
         output.WriteRawTag(250, 51);
-        output.WriteMessage(DelMailAck);
+        output.WriteMessage(MailDelAck);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1101,8 +1057,8 @@ namespace CmdProto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Code != global::CmdProto.Cmd.None) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Code);
+      if (Cmd != global::CmdProto.Cmd.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Cmd);
       }
       if (ErrorCode != global::CmdProto.ErrorCode.Success) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ErrorCode);
@@ -1113,11 +1069,11 @@ namespace CmdProto {
       if (clientVerNtf_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ClientVerNtf);
       }
-      if (gameCommandReq_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(GameCommandReq);
+      if (gmCommandReq_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(GmCommandReq);
       }
-      if (gameCommandAck_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(GameCommandAck);
+      if (gmCommandAck_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(GmCommandAck);
       }
       if (loginReq_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(LoginReq);
@@ -1161,14 +1117,14 @@ namespace CmdProto {
       if (sceneNpcNtf_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(SceneNpcNtf);
       }
-      if (mailInfoNtf_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailInfoNtf);
+      if (mailListNtf_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailListNtf);
       }
-      if (openMailReq_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(OpenMailReq);
+      if (mailOpenReq_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailOpenReq);
       }
-      if (openMailAck_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(OpenMailAck);
+      if (mailOpenAck_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailOpenAck);
       }
       if (mailAtchReq_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailAtchReq);
@@ -1176,11 +1132,11 @@ namespace CmdProto {
       if (mailAtchAck_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailAtchAck);
       }
-      if (delMailReq_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DelMailReq);
+      if (mailDelReq_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailDelReq);
       }
-      if (delMailAck_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(DelMailAck);
+      if (mailDelAck_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MailDelAck);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1194,8 +1150,8 @@ namespace CmdProto {
       if (other == null) {
         return;
       }
-      if (other.Code != global::CmdProto.Cmd.None) {
-        Code = other.Code;
+      if (other.Cmd != global::CmdProto.Cmd.None) {
+        Cmd = other.Cmd;
       }
       if (other.ErrorCode != global::CmdProto.ErrorCode.Success) {
         ErrorCode = other.ErrorCode;
@@ -1212,17 +1168,17 @@ namespace CmdProto {
         }
         ClientVerNtf.MergeFrom(other.ClientVerNtf);
       }
-      if (other.gameCommandReq_ != null) {
-        if (gameCommandReq_ == null) {
-          GameCommandReq = new global::GameProto.GameCommandReq();
+      if (other.gmCommandReq_ != null) {
+        if (gmCommandReq_ == null) {
+          GmCommandReq = new global::GameProto.GMCommandReq();
         }
-        GameCommandReq.MergeFrom(other.GameCommandReq);
+        GmCommandReq.MergeFrom(other.GmCommandReq);
       }
-      if (other.gameCommandAck_ != null) {
-        if (gameCommandAck_ == null) {
-          GameCommandAck = new global::GameProto.GameCommandAck();
+      if (other.gmCommandAck_ != null) {
+        if (gmCommandAck_ == null) {
+          GmCommandAck = new global::GameProto.GMCommandAck();
         }
-        GameCommandAck.MergeFrom(other.GameCommandAck);
+        GmCommandAck.MergeFrom(other.GmCommandAck);
       }
       if (other.loginReq_ != null) {
         if (loginReq_ == null) {
@@ -1308,23 +1264,23 @@ namespace CmdProto {
         }
         SceneNpcNtf.MergeFrom(other.SceneNpcNtf);
       }
-      if (other.mailInfoNtf_ != null) {
-        if (mailInfoNtf_ == null) {
-          MailInfoNtf = new global::GameProto.MailInfoNtf();
+      if (other.mailListNtf_ != null) {
+        if (mailListNtf_ == null) {
+          MailListNtf = new global::GameProto.MailListNtf();
         }
-        MailInfoNtf.MergeFrom(other.MailInfoNtf);
+        MailListNtf.MergeFrom(other.MailListNtf);
       }
-      if (other.openMailReq_ != null) {
-        if (openMailReq_ == null) {
-          OpenMailReq = new global::GameProto.OpenMailReq();
+      if (other.mailOpenReq_ != null) {
+        if (mailOpenReq_ == null) {
+          MailOpenReq = new global::GameProto.MailOpenReq();
         }
-        OpenMailReq.MergeFrom(other.OpenMailReq);
+        MailOpenReq.MergeFrom(other.MailOpenReq);
       }
-      if (other.openMailAck_ != null) {
-        if (openMailAck_ == null) {
-          OpenMailAck = new global::GameProto.OpenMailAck();
+      if (other.mailOpenAck_ != null) {
+        if (mailOpenAck_ == null) {
+          MailOpenAck = new global::GameProto.MailOpenAck();
         }
-        OpenMailAck.MergeFrom(other.OpenMailAck);
+        MailOpenAck.MergeFrom(other.MailOpenAck);
       }
       if (other.mailAtchReq_ != null) {
         if (mailAtchReq_ == null) {
@@ -1338,17 +1294,17 @@ namespace CmdProto {
         }
         MailAtchAck.MergeFrom(other.MailAtchAck);
       }
-      if (other.delMailReq_ != null) {
-        if (delMailReq_ == null) {
-          DelMailReq = new global::GameProto.DelMailReq();
+      if (other.mailDelReq_ != null) {
+        if (mailDelReq_ == null) {
+          MailDelReq = new global::GameProto.MailDelReq();
         }
-        DelMailReq.MergeFrom(other.DelMailReq);
+        MailDelReq.MergeFrom(other.MailDelReq);
       }
-      if (other.delMailAck_ != null) {
-        if (delMailAck_ == null) {
-          DelMailAck = new global::GameProto.DelMailAck();
+      if (other.mailDelAck_ != null) {
+        if (mailDelAck_ == null) {
+          MailDelAck = new global::GameProto.MailDelAck();
         }
-        DelMailAck.MergeFrom(other.DelMailAck);
+        MailDelAck.MergeFrom(other.MailDelAck);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1366,7 +1322,7 @@ namespace CmdProto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Code = (global::CmdProto.Cmd) input.ReadEnum();
+            Cmd = (global::CmdProto.Cmd) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1380,7 +1336,7 @@ namespace CmdProto {
             input.ReadMessage(Ping);
             break;
           }
-          case 802: {
+          case 810: {
             if (clientVerNtf_ == null) {
               ClientVerNtf = new global::GameProto.ClientVerNtf();
             }
@@ -1388,17 +1344,17 @@ namespace CmdProto {
             break;
           }
           case 1602: {
-            if (gameCommandReq_ == null) {
-              GameCommandReq = new global::GameProto.GameCommandReq();
+            if (gmCommandReq_ == null) {
+              GmCommandReq = new global::GameProto.GMCommandReq();
             }
-            input.ReadMessage(GameCommandReq);
+            input.ReadMessage(GmCommandReq);
             break;
           }
           case 1610: {
-            if (gameCommandAck_ == null) {
-              GameCommandAck = new global::GameProto.GameCommandAck();
+            if (gmCommandAck_ == null) {
+              GmCommandAck = new global::GameProto.GMCommandAck();
             }
-            input.ReadMessage(GameCommandAck);
+            input.ReadMessage(GmCommandAck);
             break;
           }
           case 4002: {
@@ -1500,24 +1456,24 @@ namespace CmdProto {
             break;
           }
           case 6410: {
-            if (mailInfoNtf_ == null) {
-              MailInfoNtf = new global::GameProto.MailInfoNtf();
+            if (mailListNtf_ == null) {
+              MailListNtf = new global::GameProto.MailListNtf();
             }
-            input.ReadMessage(MailInfoNtf);
+            input.ReadMessage(MailListNtf);
             break;
           }
           case 6482: {
-            if (openMailReq_ == null) {
-              OpenMailReq = new global::GameProto.OpenMailReq();
+            if (mailOpenReq_ == null) {
+              MailOpenReq = new global::GameProto.MailOpenReq();
             }
-            input.ReadMessage(OpenMailReq);
+            input.ReadMessage(MailOpenReq);
             break;
           }
           case 6490: {
-            if (openMailAck_ == null) {
-              OpenMailAck = new global::GameProto.OpenMailAck();
+            if (mailOpenAck_ == null) {
+              MailOpenAck = new global::GameProto.MailOpenAck();
             }
-            input.ReadMessage(OpenMailAck);
+            input.ReadMessage(MailOpenAck);
             break;
           }
           case 6562: {
@@ -1535,17 +1491,17 @@ namespace CmdProto {
             break;
           }
           case 6642: {
-            if (delMailReq_ == null) {
-              DelMailReq = new global::GameProto.DelMailReq();
+            if (mailDelReq_ == null) {
+              MailDelReq = new global::GameProto.MailDelReq();
             }
-            input.ReadMessage(DelMailReq);
+            input.ReadMessage(MailDelReq);
             break;
           }
           case 6650: {
-            if (delMailAck_ == null) {
-              DelMailAck = new global::GameProto.DelMailAck();
+            if (mailDelAck_ == null) {
+              MailDelAck = new global::GameProto.MailDelAck();
             }
-            input.ReadMessage(DelMailAck);
+            input.ReadMessage(MailDelAck);
             break;
           }
         }
@@ -1564,7 +1520,7 @@ namespace CmdProto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Code = (global::CmdProto.Cmd) input.ReadEnum();
+            Cmd = (global::CmdProto.Cmd) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1578,7 +1534,7 @@ namespace CmdProto {
             input.ReadMessage(Ping);
             break;
           }
-          case 802: {
+          case 810: {
             if (clientVerNtf_ == null) {
               ClientVerNtf = new global::GameProto.ClientVerNtf();
             }
@@ -1586,17 +1542,17 @@ namespace CmdProto {
             break;
           }
           case 1602: {
-            if (gameCommandReq_ == null) {
-              GameCommandReq = new global::GameProto.GameCommandReq();
+            if (gmCommandReq_ == null) {
+              GmCommandReq = new global::GameProto.GMCommandReq();
             }
-            input.ReadMessage(GameCommandReq);
+            input.ReadMessage(GmCommandReq);
             break;
           }
           case 1610: {
-            if (gameCommandAck_ == null) {
-              GameCommandAck = new global::GameProto.GameCommandAck();
+            if (gmCommandAck_ == null) {
+              GmCommandAck = new global::GameProto.GMCommandAck();
             }
-            input.ReadMessage(GameCommandAck);
+            input.ReadMessage(GmCommandAck);
             break;
           }
           case 4002: {
@@ -1698,24 +1654,24 @@ namespace CmdProto {
             break;
           }
           case 6410: {
-            if (mailInfoNtf_ == null) {
-              MailInfoNtf = new global::GameProto.MailInfoNtf();
+            if (mailListNtf_ == null) {
+              MailListNtf = new global::GameProto.MailListNtf();
             }
-            input.ReadMessage(MailInfoNtf);
+            input.ReadMessage(MailListNtf);
             break;
           }
           case 6482: {
-            if (openMailReq_ == null) {
-              OpenMailReq = new global::GameProto.OpenMailReq();
+            if (mailOpenReq_ == null) {
+              MailOpenReq = new global::GameProto.MailOpenReq();
             }
-            input.ReadMessage(OpenMailReq);
+            input.ReadMessage(MailOpenReq);
             break;
           }
           case 6490: {
-            if (openMailAck_ == null) {
-              OpenMailAck = new global::GameProto.OpenMailAck();
+            if (mailOpenAck_ == null) {
+              MailOpenAck = new global::GameProto.MailOpenAck();
             }
-            input.ReadMessage(OpenMailAck);
+            input.ReadMessage(MailOpenAck);
             break;
           }
           case 6562: {
@@ -1733,17 +1689,17 @@ namespace CmdProto {
             break;
           }
           case 6642: {
-            if (delMailReq_ == null) {
-              DelMailReq = new global::GameProto.DelMailReq();
+            if (mailDelReq_ == null) {
+              MailDelReq = new global::GameProto.MailDelReq();
             }
-            input.ReadMessage(DelMailReq);
+            input.ReadMessage(MailDelReq);
             break;
           }
           case 6650: {
-            if (delMailAck_ == null) {
-              DelMailAck = new global::GameProto.DelMailAck();
+            if (mailDelAck_ == null) {
+              MailDelAck = new global::GameProto.MailDelAck();
             }
-            input.ReadMessage(DelMailAck);
+            input.ReadMessage(MailDelAck);
             break;
           }
         }

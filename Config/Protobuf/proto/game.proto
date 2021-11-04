@@ -10,11 +10,11 @@ message ClientVerNtf {
 	string clientVer = 1; 			// 客户端版本号
 }
 
-message GameCommandReq {
+message GMCommandReq {
 	string command = 1; 			// 命令
 }
 
-message GameCommandAck {
+message GMCommandAck {
 }
 
 //--------------------Login--------------------//
@@ -140,15 +140,15 @@ message MailInfo {
 	string sub_reason = 15;
 }
 
-message MailInfoNtf {
+message MailListNtf {
 	repeated MailInfo mails = 1; 	// 邮件列表
 }
 
-message OpenMailReq {
+message MailOpenReq {
 	int32 id = 1; 					// id
 }
 
-message OpenMailAck {
+message MailOpenAck {
 }
 
 // 领取,批量领取
@@ -162,11 +162,11 @@ message MailAtchAck {
 }
 
 // 删除,批量删除
-message DelMailReq {
+message MailDelReq {
 	int32 id = 1; 					// id >0 用id,否则删除已读
 }
 
-message DelMailAck {
+message MailDelAck {
 	repeated MailInfo mails = 1; 	// 邮件列表
 }
 

@@ -25,51 +25,51 @@ namespace GameProto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpnYW1lLnByb3RvEgpnYW1lX3Byb3RvIiEKDENsaWVudFZlck50ZhIRCglj",
-            "bGllbnRWZXIYASABKAkiIQoOR2FtZUNvbW1hbmRSZXESDwoHY29tbWFuZBgB",
-            "IAEoCSIQCg5HYW1lQ29tbWFuZEFjayL7AQoITG9naW5SZXESDQoFdG9rZW4Y",
-            "ASABKAkSDwoHcmVsb2dpbhgCIAEoCBIPCgdnYW1lX2lkGAMgASgFEhIKCmNo",
-            "YW5uZWxfaWQYBCABKAUSDwoHcGxhdF9pZBgFIAEoBRIRCglkZXZpY2VfaWQY",
-            "BiABKAkSFgoOY2xpZW50X3ZlcnNpb24YByABKAkSCgoCb3MYCCABKAkSEwoL",
-            "cGhvbmVfbW9kZWwYCSABKAkSEAoIb3BlcmF0b3IYCiABKAkSDwoHbmV0d29y",
-            "axgLIAEoCRILCgNjcHUYDCABKAkSDgoGTWVtb3J5GA0gASgJEg0KBXdhbklw",
-            "GA4gASgJIh4KCExvZ2luQWNrEhIKCmNyZWF0ZVJvbGUYASABKAgiUQoNQ3Jl",
-            "YXRlUm9sZVJlcRIQCghyb2xlTmFtZRgBIAEoCRITCgtjaGFyYWN0ZXJJZBgC",
-            "IAEoBRIMCgRmYWNlGAMgASgJEgsKA3NleBgEIAEoBSIPCg1DcmVhdGVSb2xl",
-            "QWNrIiIKDlNldFJvbGVOYW1lUmVxEhAKCHJvbGVOYW1lGAEgASgJIhAKDlNl",
-            "dFJvbGVOYW1lQWNrInQKC1JvbGVJbmZvTnRmEg4KBnJvbGVJZBgBIAEoAxIQ",
-            "Cghyb2xlTmFtZRgCIAEoCRITCgtjaGFyYWN0ZXJJZBgDIAEoBRILCgNleHAY",
-            "BCABKAMSDQoFbGV2ZWwYBSABKAUSEgoKY3VzdG9tSW5mbxgGIAEoCSIxCgtM",
-            "b2dpbkVuZE50ZhIPCgdzdnJUaW1lGAEgASgDEhEKCWNsaWVudFZlchgCIAEo",
-            "CSIOCgxTY2VuZUxvYWRSZXEiDgoMU2NlbmVMb2FkQWNrIhoKCFJvbGVEYXRh",
-            "Eg4KBnJvbGVJZBgBIAEoBSIOCgxTY2VuZVJvbGVSZXEiMwoMU2NlbmVSb2xl",
-            "QWNrEiMKBXJvbGVzGAEgAygLMhQuZ2FtZV9wcm90by5Sb2xlRGF0YSIzCgxT",
-            "Y2VuZVJvbGVOdGYSIwoFcm9sZXMYASADKAsyFC5nYW1lX3Byb3RvLlJvbGVE",
-            "YXRhIiQKB05wY0luZm8SCgoCaWQYASABKAUSDQoFY2ZnSWQYAiABKAUiMAoL",
-            "U2NlbmVOcGNOdGYSIQoEbnBjcxgBIAMoCzITLmdhbWVfcHJvdG8uTnBjSW5m",
-            "byJTCghJdGVtSW5mbxINCgVjZmdJZBgBIAEoBRINCgVjb3VudBgCIAEoBRIM",
-            "CgR0eXBlGAMgASgFEgoKAklkGAQgASgFEg8KB3BhY2thZ2UYBSABKAUikwIK",
-            "CE1haWxJbmZvEgoKAmlkGAEgASgFEg0KBXRpdGxlGAIgASgJEhEKCWFkZHJl",
-            "c3NlchgDIAEoCRIMCgRib2R5GAQgASgJEiMKBWl0ZW1zGAUgAygLMhQuZ2Ft",
-            "ZV9wcm90by5JdGVtSW5mbxIQCghkYXRlVGltZRgGIAEoAxIOCgZvcGVuZWQY",
-            "ByABKAgSDgoGYXRjaGVkGAggASgIEg4KBm1hcmtlZBgJIAEoCBIOCgZ0ZW1w",
-            "SWQYCiABKAUSEgoKdGVtcFBhcmFtcxgLIAMoCRIPCgdtYXJrRGVsGAwgASgD",
-            "Eg4KBm1haWxJZBgNIAEoBRILCgNhY3QYDiABKAUSEgoKc3ViX3JlYXNvbhgP",
-            "IAEoCSIyCgtNYWlsSW5mb050ZhIjCgVtYWlscxgBIAMoCzIULmdhbWVfcHJv",
-            "dG8uTWFpbEluZm8iGQoLT3Blbk1haWxSZXESCgoCaWQYASABKAUiDQoLT3Bl",
-            "bk1haWxBY2siGQoLTWFpbEF0Y2hSZXESCgoCaWQYASABKAUiKQoLTWFpbEF0",
-            "Y2hBY2sSCwoDaWRzGAEgAygFEg0KBWFsbE9rGAIgASgIIhgKCkRlbE1haWxS",
-            "ZXESCgoCaWQYASABKAUiMQoKRGVsTWFpbEFjaxIjCgVtYWlscxgBIAMoCzIU",
-            "LmdhbWVfcHJvdG8uTWFpbEluZm8qswEKCVN0YXRlVHlwZRIOCgpTVEFURV9O",
-            "T05FEAASEAoMU1RBVEVfU0lMRU5UEAESDwoLU1RBVEVfQlJFQUsQAhIUChBT",
-            "VEFURV9LTk9DS19ET1dOEAMSFAoQU1RBVEVfS05PQ0tfQkFDSxAEEhMKD1NU",
-            "QVRFX0tOT0NLX0ZMWRAFEhAKDFNUQVRFX0ZST1pFThAGEg8KC1NUQVRFX0NI",
-            "QVJNEAcSDwoLU1RBVEVfRElaWlkQCEIHWgVwcm90b2IGcHJvdG8z"));
+            "bGllbnRWZXIYASABKAkiHwoMR01Db21tYW5kUmVxEg8KB2NvbW1hbmQYASAB",
+            "KAkiDgoMR01Db21tYW5kQWNrIvsBCghMb2dpblJlcRINCgV0b2tlbhgBIAEo",
+            "CRIPCgdyZWxvZ2luGAIgASgIEg8KB2dhbWVfaWQYAyABKAUSEgoKY2hhbm5l",
+            "bF9pZBgEIAEoBRIPCgdwbGF0X2lkGAUgASgFEhEKCWRldmljZV9pZBgGIAEo",
+            "CRIWCg5jbGllbnRfdmVyc2lvbhgHIAEoCRIKCgJvcxgIIAEoCRITCgtwaG9u",
+            "ZV9tb2RlbBgJIAEoCRIQCghvcGVyYXRvchgKIAEoCRIPCgduZXR3b3JrGAsg",
+            "ASgJEgsKA2NwdRgMIAEoCRIOCgZNZW1vcnkYDSABKAkSDQoFd2FuSXAYDiAB",
+            "KAkiHgoITG9naW5BY2sSEgoKY3JlYXRlUm9sZRgBIAEoCCJRCg1DcmVhdGVS",
+            "b2xlUmVxEhAKCHJvbGVOYW1lGAEgASgJEhMKC2NoYXJhY3RlcklkGAIgASgF",
+            "EgwKBGZhY2UYAyABKAkSCwoDc2V4GAQgASgFIg8KDUNyZWF0ZVJvbGVBY2si",
+            "IgoOU2V0Um9sZU5hbWVSZXESEAoIcm9sZU5hbWUYASABKAkiEAoOU2V0Um9s",
+            "ZU5hbWVBY2sidAoLUm9sZUluZm9OdGYSDgoGcm9sZUlkGAEgASgDEhAKCHJv",
+            "bGVOYW1lGAIgASgJEhMKC2NoYXJhY3RlcklkGAMgASgFEgsKA2V4cBgEIAEo",
+            "AxINCgVsZXZlbBgFIAEoBRISCgpjdXN0b21JbmZvGAYgASgJIjEKC0xvZ2lu",
+            "RW5kTnRmEg8KB3N2clRpbWUYASABKAMSEQoJY2xpZW50VmVyGAIgASgJIg4K",
+            "DFNjZW5lTG9hZFJlcSIOCgxTY2VuZUxvYWRBY2siGgoIUm9sZURhdGESDgoG",
+            "cm9sZUlkGAEgASgFIg4KDFNjZW5lUm9sZVJlcSIzCgxTY2VuZVJvbGVBY2sS",
+            "IwoFcm9sZXMYASADKAsyFC5nYW1lX3Byb3RvLlJvbGVEYXRhIjMKDFNjZW5l",
+            "Um9sZU50ZhIjCgVyb2xlcxgBIAMoCzIULmdhbWVfcHJvdG8uUm9sZURhdGEi",
+            "JAoHTnBjSW5mbxIKCgJpZBgBIAEoBRINCgVjZmdJZBgCIAEoBSIwCgtTY2Vu",
+            "ZU5wY050ZhIhCgRucGNzGAEgAygLMhMuZ2FtZV9wcm90by5OcGNJbmZvIlMK",
+            "CEl0ZW1JbmZvEg0KBWNmZ0lkGAEgASgFEg0KBWNvdW50GAIgASgFEgwKBHR5",
+            "cGUYAyABKAUSCgoCSWQYBCABKAUSDwoHcGFja2FnZRgFIAEoBSKTAgoITWFp",
+            "bEluZm8SCgoCaWQYASABKAUSDQoFdGl0bGUYAiABKAkSEQoJYWRkcmVzc2Vy",
+            "GAMgASgJEgwKBGJvZHkYBCABKAkSIwoFaXRlbXMYBSADKAsyFC5nYW1lX3By",
+            "b3RvLkl0ZW1JbmZvEhAKCGRhdGVUaW1lGAYgASgDEg4KBm9wZW5lZBgHIAEo",
+            "CBIOCgZhdGNoZWQYCCABKAgSDgoGbWFya2VkGAkgASgIEg4KBnRlbXBJZBgK",
+            "IAEoBRISCgp0ZW1wUGFyYW1zGAsgAygJEg8KB21hcmtEZWwYDCABKAMSDgoG",
+            "bWFpbElkGA0gASgFEgsKA2FjdBgOIAEoBRISCgpzdWJfcmVhc29uGA8gASgJ",
+            "IjIKC01haWxMaXN0TnRmEiMKBW1haWxzGAEgAygLMhQuZ2FtZV9wcm90by5N",
+            "YWlsSW5mbyIZCgtNYWlsT3BlblJlcRIKCgJpZBgBIAEoBSINCgtNYWlsT3Bl",
+            "bkFjayIZCgtNYWlsQXRjaFJlcRIKCgJpZBgBIAEoBSIpCgtNYWlsQXRjaEFj",
+            "axILCgNpZHMYASADKAUSDQoFYWxsT2sYAiABKAgiGAoKTWFpbERlbFJlcRIK",
+            "CgJpZBgBIAEoBSIxCgpNYWlsRGVsQWNrEiMKBW1haWxzGAEgAygLMhQuZ2Ft",
+            "ZV9wcm90by5NYWlsSW5mbyqzAQoJU3RhdGVUeXBlEg4KClNUQVRFX05PTkUQ",
+            "ABIQCgxTVEFURV9TSUxFTlQQARIPCgtTVEFURV9CUkVBSxACEhQKEFNUQVRF",
+            "X0tOT0NLX0RPV04QAxIUChBTVEFURV9LTk9DS19CQUNLEAQSEwoPU1RBVEVf",
+            "S05PQ0tfRkxZEAUSEAoMU1RBVEVfRlJPWkVOEAYSDwoLU1RBVEVfQ0hBUk0Q",
+            "BxIPCgtTVEFURV9ESVpaWRAIQgdaBXByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::GameProto.StateType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ClientVerNtf), global::GameProto.ClientVerNtf.Parser, new[]{ "ClientVer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.GameCommandReq), global::GameProto.GameCommandReq.Parser, new[]{ "Command" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.GameCommandAck), global::GameProto.GameCommandAck.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.GMCommandReq), global::GameProto.GMCommandReq.Parser, new[]{ "Command" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.GMCommandAck), global::GameProto.GMCommandAck.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.LoginReq), global::GameProto.LoginReq.Parser, new[]{ "Token", "Relogin", "GameId", "ChannelId", "PlatId", "DeviceId", "ClientVersion", "Os", "PhoneModel", "Operator", "Network", "Cpu", "Memory", "WanIp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.LoginAck), global::GameProto.LoginAck.Parser, new[]{ "CreateRole" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.CreateRoleReq), global::GameProto.CreateRoleReq.Parser, new[]{ "RoleName", "CharacterId", "Face", "Sex" }, null, null, null, null),
@@ -88,13 +88,13 @@ namespace GameProto {
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.SceneNpcNtf), global::GameProto.SceneNpcNtf.Parser, new[]{ "Npcs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ItemInfo), global::GameProto.ItemInfo.Parser, new[]{ "CfgId", "Count", "Type", "Id", "Package" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailInfo), global::GameProto.MailInfo.Parser, new[]{ "Id", "Title", "Addresser", "Body", "Items", "DateTime", "Opened", "Atched", "Marked", "TempId", "TempParams", "MarkDel", "MailId", "Act", "SubReason" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailInfoNtf), global::GameProto.MailInfoNtf.Parser, new[]{ "Mails" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.OpenMailReq), global::GameProto.OpenMailReq.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.OpenMailAck), global::GameProto.OpenMailAck.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailListNtf), global::GameProto.MailListNtf.Parser, new[]{ "Mails" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailOpenReq), global::GameProto.MailOpenReq.Parser, new[]{ "Id" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailOpenAck), global::GameProto.MailOpenAck.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailAtchReq), global::GameProto.MailAtchReq.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailAtchAck), global::GameProto.MailAtchAck.Parser, new[]{ "Ids", "AllOk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.DelMailReq), global::GameProto.DelMailReq.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.DelMailAck), global::GameProto.DelMailAck.Parser, new[]{ "Mails" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailDelReq), global::GameProto.MailDelReq.Parser, new[]{ "Id" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.MailDelAck), global::GameProto.MailDelAck.Parser, new[]{ "Mails" }, null, null, null, null)
           }));
     }
     #endregion
@@ -338,16 +338,16 @@ namespace GameProto {
 
   }
 
-  public sealed partial class GameCommandReq : pb::IMessage<GameCommandReq>
+  public sealed partial class GMCommandReq : pb::IMessage<GMCommandReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GameCommandReq> _parser = new pb::MessageParser<GameCommandReq>(() => new GameCommandReq());
+    private static readonly pb::MessageParser<GMCommandReq> _parser = new pb::MessageParser<GMCommandReq>(() => new GMCommandReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GameCommandReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<GMCommandReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -363,7 +363,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GameCommandReq() {
+    public GMCommandReq() {
       OnConstruction();
     }
 
@@ -371,15 +371,15 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GameCommandReq(GameCommandReq other) : this() {
+    public GMCommandReq(GMCommandReq other) : this() {
       command_ = other.command_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GameCommandReq Clone() {
-      return new GameCommandReq(this);
+    public GMCommandReq Clone() {
+      return new GMCommandReq(this);
     }
 
     /// <summary>Field number for the "command" field.</summary>
@@ -400,12 +400,12 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GameCommandReq);
+      return Equals(other as GMCommandReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GameCommandReq other) {
+    public bool Equals(GMCommandReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -478,7 +478,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GameCommandReq other) {
+    public void MergeFrom(GMCommandReq other) {
       if (other == null) {
         return;
       }
@@ -530,16 +530,16 @@ namespace GameProto {
 
   }
 
-  public sealed partial class GameCommandAck : pb::IMessage<GameCommandAck>
+  public sealed partial class GMCommandAck : pb::IMessage<GMCommandAck>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GameCommandAck> _parser = new pb::MessageParser<GameCommandAck>(() => new GameCommandAck());
+    private static readonly pb::MessageParser<GMCommandAck> _parser = new pb::MessageParser<GMCommandAck>(() => new GMCommandAck());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GameCommandAck> Parser { get { return _parser; } }
+    public static pb::MessageParser<GMCommandAck> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -555,7 +555,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GameCommandAck() {
+    public GMCommandAck() {
       OnConstruction();
     }
 
@@ -563,25 +563,25 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GameCommandAck(GameCommandAck other) : this() {
+    public GMCommandAck(GMCommandAck other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GameCommandAck Clone() {
-      return new GameCommandAck(this);
+    public GMCommandAck Clone() {
+      return new GMCommandAck(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GameCommandAck);
+      return Equals(other as GMCommandAck);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GameCommandAck other) {
+    public bool Equals(GMCommandAck other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -641,7 +641,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GameCommandAck other) {
+    public void MergeFrom(GMCommandAck other) {
       if (other == null) {
         return;
       }
@@ -5502,16 +5502,16 @@ namespace GameProto {
 
   }
 
-  public sealed partial class MailInfoNtf : pb::IMessage<MailInfoNtf>
+  public sealed partial class MailListNtf : pb::IMessage<MailListNtf>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<MailInfoNtf> _parser = new pb::MessageParser<MailInfoNtf>(() => new MailInfoNtf());
+    private static readonly pb::MessageParser<MailListNtf> _parser = new pb::MessageParser<MailListNtf>(() => new MailListNtf());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<MailInfoNtf> Parser { get { return _parser; } }
+    public static pb::MessageParser<MailListNtf> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5527,7 +5527,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MailInfoNtf() {
+    public MailListNtf() {
       OnConstruction();
     }
 
@@ -5535,15 +5535,15 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MailInfoNtf(MailInfoNtf other) : this() {
+    public MailListNtf(MailListNtf other) : this() {
       mails_ = other.mails_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public MailInfoNtf Clone() {
-      return new MailInfoNtf(this);
+    public MailListNtf Clone() {
+      return new MailListNtf(this);
     }
 
     /// <summary>Field number for the "mails" field.</summary>
@@ -5563,12 +5563,12 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as MailInfoNtf);
+      return Equals(other as MailListNtf);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(MailInfoNtf other) {
+    public bool Equals(MailListNtf other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5633,7 +5633,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(MailInfoNtf other) {
+    public void MergeFrom(MailListNtf other) {
       if (other == null) {
         return;
       }
@@ -5683,16 +5683,16 @@ namespace GameProto {
 
   }
 
-  public sealed partial class OpenMailReq : pb::IMessage<OpenMailReq>
+  public sealed partial class MailOpenReq : pb::IMessage<MailOpenReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<OpenMailReq> _parser = new pb::MessageParser<OpenMailReq>(() => new OpenMailReq());
+    private static readonly pb::MessageParser<MailOpenReq> _parser = new pb::MessageParser<MailOpenReq>(() => new MailOpenReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<OpenMailReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<MailOpenReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5708,7 +5708,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpenMailReq() {
+    public MailOpenReq() {
       OnConstruction();
     }
 
@@ -5716,15 +5716,15 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpenMailReq(OpenMailReq other) : this() {
+    public MailOpenReq(MailOpenReq other) : this() {
       id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpenMailReq Clone() {
-      return new OpenMailReq(this);
+    public MailOpenReq Clone() {
+      return new MailOpenReq(this);
     }
 
     /// <summary>Field number for the "id" field.</summary>
@@ -5745,12 +5745,12 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as OpenMailReq);
+      return Equals(other as MailOpenReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(OpenMailReq other) {
+    public bool Equals(MailOpenReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5823,7 +5823,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(OpenMailReq other) {
+    public void MergeFrom(MailOpenReq other) {
       if (other == null) {
         return;
       }
@@ -5875,16 +5875,16 @@ namespace GameProto {
 
   }
 
-  public sealed partial class OpenMailAck : pb::IMessage<OpenMailAck>
+  public sealed partial class MailOpenAck : pb::IMessage<MailOpenAck>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<OpenMailAck> _parser = new pb::MessageParser<OpenMailAck>(() => new OpenMailAck());
+    private static readonly pb::MessageParser<MailOpenAck> _parser = new pb::MessageParser<MailOpenAck>(() => new MailOpenAck());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<OpenMailAck> Parser { get { return _parser; } }
+    public static pb::MessageParser<MailOpenAck> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5900,7 +5900,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpenMailAck() {
+    public MailOpenAck() {
       OnConstruction();
     }
 
@@ -5908,25 +5908,25 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpenMailAck(OpenMailAck other) : this() {
+    public MailOpenAck(MailOpenAck other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpenMailAck Clone() {
-      return new OpenMailAck(this);
+    public MailOpenAck Clone() {
+      return new MailOpenAck(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as OpenMailAck);
+      return Equals(other as MailOpenAck);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(OpenMailAck other) {
+    public bool Equals(MailOpenAck other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5986,7 +5986,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(OpenMailAck other) {
+    public void MergeFrom(MailOpenAck other) {
       if (other == null) {
         return;
       }
@@ -6445,16 +6445,16 @@ namespace GameProto {
   /// <summary>
   /// 删除,批量删除
   /// </summary>
-  public sealed partial class DelMailReq : pb::IMessage<DelMailReq>
+  public sealed partial class MailDelReq : pb::IMessage<MailDelReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<DelMailReq> _parser = new pb::MessageParser<DelMailReq>(() => new DelMailReq());
+    private static readonly pb::MessageParser<MailDelReq> _parser = new pb::MessageParser<MailDelReq>(() => new MailDelReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DelMailReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<MailDelReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6470,7 +6470,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DelMailReq() {
+    public MailDelReq() {
       OnConstruction();
     }
 
@@ -6478,15 +6478,15 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DelMailReq(DelMailReq other) : this() {
+    public MailDelReq(MailDelReq other) : this() {
       id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DelMailReq Clone() {
-      return new DelMailReq(this);
+    public MailDelReq Clone() {
+      return new MailDelReq(this);
     }
 
     /// <summary>Field number for the "id" field.</summary>
@@ -6507,12 +6507,12 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as DelMailReq);
+      return Equals(other as MailDelReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DelMailReq other) {
+    public bool Equals(MailDelReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -6585,7 +6585,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DelMailReq other) {
+    public void MergeFrom(MailDelReq other) {
       if (other == null) {
         return;
       }
@@ -6637,16 +6637,16 @@ namespace GameProto {
 
   }
 
-  public sealed partial class DelMailAck : pb::IMessage<DelMailAck>
+  public sealed partial class MailDelAck : pb::IMessage<MailDelAck>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<DelMailAck> _parser = new pb::MessageParser<DelMailAck>(() => new DelMailAck());
+    private static readonly pb::MessageParser<MailDelAck> _parser = new pb::MessageParser<MailDelAck>(() => new MailDelAck());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DelMailAck> Parser { get { return _parser; } }
+    public static pb::MessageParser<MailDelAck> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6662,7 +6662,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DelMailAck() {
+    public MailDelAck() {
       OnConstruction();
     }
 
@@ -6670,15 +6670,15 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DelMailAck(DelMailAck other) : this() {
+    public MailDelAck(MailDelAck other) : this() {
       mails_ = other.mails_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DelMailAck Clone() {
-      return new DelMailAck(this);
+    public MailDelAck Clone() {
+      return new MailDelAck(this);
     }
 
     /// <summary>Field number for the "mails" field.</summary>
@@ -6698,12 +6698,12 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as DelMailAck);
+      return Equals(other as MailDelAck);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DelMailAck other) {
+    public bool Equals(MailDelAck other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -6768,7 +6768,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DelMailAck other) {
+    public void MergeFrom(MailDelAck other) {
       if (other == null) {
         return;
       }

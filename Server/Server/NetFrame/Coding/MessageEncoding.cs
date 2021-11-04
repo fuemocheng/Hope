@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CmdProto;
 using Google.Protobuf;
 
 namespace NetFrame.Coding
@@ -10,7 +11,7 @@ namespace NetFrame.Coding
     public class MessageEncoding
     {
         /// <summary>
-        /// 
+        /// 消息体序列化
         /// </summary>
         public static byte[] Encode(NetPacket value)
         {
@@ -21,7 +22,9 @@ namespace NetFrame.Coding
             byteArray.Write(packet.msgid);
             if (packet.message != null)
             {
-                byteArray.Write(packet.message.ToByteArray());
+                var comMsg = new CommonMessage { Cmd = (Cmd)packet.cmd };
+                ProtoUtil.ReqCommonMsg((Cmd)packet.cmd, comMsg, packet.message);
+                byteArray.Write(comMsg.ToByteArray());
             }
             byte[] result = byteArray.GetBuffer();
             byteArray.Close();
@@ -29,7 +32,7 @@ namespace NetFrame.Coding
         }
 
         /// <summary>
-        /// 
+        /// 消息体反序列化
         /// </summary>
         public static NetPacket Decode(byte[] value)
         {
@@ -46,7 +49,8 @@ namespace NetFrame.Coding
             {
                 byte[] message;
                 byteArray.Read(out message, byteArray.Length - byteArray.Position);
-                netPacket.message = Parser.Parse(cmd, message);
+                var commonMsg = CommonMessage.Parser.ParseFrom(message);
+                netPacket.message = ProtoUtil.AckCommonMsg(commonMsg);
             }
             byteArray.Close();
             return netPacket;
