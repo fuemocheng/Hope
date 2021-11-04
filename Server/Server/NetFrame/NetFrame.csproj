@@ -57,7 +57,7 @@
     <Compile Include="Coding\MessageEncoding.cs" />
     <Compile Include="Coding\NetPacket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Coding\Parser.cs" />
+    <Compile Include="Coding\ProtoUtil.cs" />
     <Compile Include="SimpleServer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
