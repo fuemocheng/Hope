@@ -14,98 +14,97 @@ namespace NetFrame.Coding
 {
     public class ProtoUtil
     {
-        public static void ReqCommonMsg(Cmd cmd, CommonMessage comMsg, IMessage data = null)
-        {
-            switch (cmd)
-            {
-                case Cmd.GmCommand:
-                    comMsg.GmCommandReq = data as GMCommandReq ?? new GMCommandReq();
-                    break;
-                case Cmd.Login:
-                    comMsg.LoginReq = data as LoginReq ?? new LoginReq();
-                    break;
-                case Cmd.CreateRole:
-                    comMsg.CreateRoleReq = data as CreateRoleReq ?? new CreateRoleReq();
-                    break;
-                case Cmd.SetRolename:
-                    comMsg.SetRoleNameReq = data as SetRoleNameReq ?? new SetRoleNameReq();
-                    break;
-                case Cmd.SceneLoad:
-                    comMsg.SceneLoadReq = data as SceneLoadReq ?? new SceneLoadReq();
-                    break;
-                case Cmd.SceneRole:
-                    comMsg.SceneRoleReq = data as SceneRoleReq ?? new SceneRoleReq();
-                    break;
-                case Cmd.MailOpen:
-                    comMsg.MailOpenReq = data as MailOpenReq ?? new MailOpenReq();
-                    break;
-                case Cmd.MailAtch:
-                    comMsg.MailAtchReq = data as MailAtchReq ?? new MailAtchReq();
-                    break;
-                case Cmd.MailDel:
-                    comMsg.MailDelReq = data as MailDelReq ?? new MailDelReq();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        public static IMessage AckCommonMsg(CommonMessage commonMsg)
+        public static IMessage ReqCommonMsg(CommonMessage comMsg)
         {
             IMessage retMessage = null;
-            var packetCmd = commonMsg.Cmd;
-
+            var packetCmd = comMsg.Cmd;
             switch (packetCmd)
             {
-                case Cmd.ClientverNtf:
-                    retMessage = commonMsg.ClientVerNtf;
-                    break;
                 case Cmd.GmCommand:
-                    retMessage = commonMsg.GmCommandAck;
+                    retMessage = comMsg.GmCommandReq;
                     break;
                 case Cmd.Login:
-                    retMessage = commonMsg.LoginAck;
+                    retMessage = comMsg.LoginReq;
                     break;
                 case Cmd.CreateRole:
-                    retMessage = commonMsg.CreateRoleAck;
+                    retMessage = comMsg.CreateRoleReq;
                     break;
                 case Cmd.SetRolename:
-                    retMessage = commonMsg.SetRoleNameAck;
-                    break;
-                case Cmd.RoleinfoNtf:
-                    retMessage = commonMsg.RoleInfoNtf;
-                    break;
-                case Cmd.LoginEndNtf:
-                    retMessage = commonMsg.LoginEndNtf;
+                    retMessage = comMsg.SetRoleNameReq;
                     break;
                 case Cmd.SceneLoad:
-                    retMessage = commonMsg.SceneLoadAck;
+                    retMessage = comMsg.SceneLoadReq;
                     break;
                 case Cmd.SceneRole:
-                    retMessage = commonMsg.SceneRoleAck;
-                    break;
-                case Cmd.SceneRoleNtf:
-                    retMessage = commonMsg.SceneRoleNtf;
-                    break;
-                case Cmd.SceneNpcNtf:
-                    retMessage = commonMsg.CreateRoleAck;
-                    break;
-                case Cmd.MailListNtf:
-                    retMessage = commonMsg.MailListNtf;
+                    retMessage = comMsg.SceneRoleReq;
                     break;
                 case Cmd.MailOpen:
-                    retMessage = commonMsg.MailOpenAck;
+                    retMessage = comMsg.MailOpenReq;
                     break;
                 case Cmd.MailAtch:
-                    retMessage = commonMsg.MailAtchAck;
+                    retMessage = comMsg.MailAtchReq;
                     break;
                 case Cmd.MailDel:
-                    retMessage = commonMsg.MailDelAck;
+                    retMessage = comMsg.MailDelReq;
                     break;
                 default:
                     break;
             }
             return retMessage;
+        }
+
+        public static void AckCommonMsg(Cmd cmd, CommonMessage comMsg, IMessage data = null)
+        {
+            switch (cmd)
+            {
+                case Cmd.ClientverNtf:
+                    comMsg.ClientVerNtf = data as ClientVerNtf ?? new ClientVerNtf();
+                    break;
+                case Cmd.GmCommand:
+                    comMsg.GmCommandAck = data as GMCommandAck ?? new GMCommandAck();
+                    break;
+                case Cmd.Login:
+                    comMsg.LoginAck = data as LoginAck ?? new LoginAck();
+                    break;
+                case Cmd.CreateRole:
+                    comMsg.CreateRoleAck = data as CreateRoleAck ?? new CreateRoleAck();
+                    break;
+                case Cmd.SetRolename:
+                    comMsg.SetRoleNameAck = data as SetRoleNameAck ?? new SetRoleNameAck();
+                    break;
+                case Cmd.RoleinfoNtf:
+                    comMsg.RoleInfoNtf = data as RoleInfoNtf ?? new RoleInfoNtf();
+                    break;
+                case Cmd.LoginEndNtf:
+                    comMsg.LoginEndNtf = data as LoginEndNtf ?? new LoginEndNtf();
+                    break;
+                case Cmd.SceneLoad:
+                    comMsg.SceneLoadAck = data as SceneLoadAck ?? new SceneLoadAck();
+                    break;
+                case Cmd.SceneRole:
+                    comMsg.SceneRoleAck = data as SceneRoleAck ?? new SceneRoleAck();
+                    break;
+                case Cmd.SceneRoleNtf:
+                    comMsg.SceneRoleNtf = data as SceneRoleNtf ?? new SceneRoleNtf();
+                    break;
+                case Cmd.SceneNpcNtf:
+                    comMsg.SceneNpcNtf = data as SceneNpcNtf ?? new SceneNpcNtf();
+                    break;
+                case Cmd.MailListNtf:
+                    comMsg.MailListNtf = data as MailListNtf ?? new MailListNtf();
+                    break;
+                case Cmd.MailOpen:
+                    comMsg.MailOpenAck = data as MailOpenAck ?? new MailOpenAck();
+                    break;
+                case Cmd.MailAtch:
+                    comMsg.MailAtchAck = data as MailAtchAck ?? new MailAtchAck();
+                    break;
+                case Cmd.MailDel:
+                    comMsg.MailDelAck = data as MailDelAck ?? new MailDelAck();
+                    break;
+                default:
+                    break;
+            }
         }
 
     }

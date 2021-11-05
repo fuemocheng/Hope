@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetFrame.Coding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace NetFrame
         /// </summary>
         /// <param name="token">发送消息的客户端对象</param>
         /// <param name="message">消息内容</param>
-        public abstract void MessageReceive(AsyncUserToken token, object message);
+        public abstract void MessageReceive(AsyncUserToken token, NetPacket message);
 
         /// <summary>
         /// 客户端断开连接

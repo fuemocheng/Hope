@@ -4,6 +4,10 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using NetFrame.Coding;
+using CmdProto;
+using GameProto;
+using Google.Protobuf;
 
 namespace NetFrame
 {
@@ -51,6 +55,8 @@ namespace NetFrame
             RecvSAEA.SetBuffer(new byte[1024], 0, 1024);
         }
 
+        #region Receive
+
         /// <summary>
         /// 网络消息到达
         /// </summary>
@@ -62,14 +68,14 @@ namespace NetFrame
             if (!m_bIsReading)
             {
                 m_bIsReading = true;
-                OnHandle();
+                OnReceive();
             }
         }
 
         /// <summary>
-        /// 缓存中有数据进行处理
+        /// 缓存中有数据进行处理, 先解码长度, 再解码消息
         /// </summary>
-        private void OnHandle()
+        private void OnReceive()
         {
             //解码消息存储对象
             byte[] buff = null;
@@ -103,15 +109,32 @@ namespace NetFrame
             if (null == messageDecode) { throw new Exception("Message decode process is null"); }
 
             //进行消息反序列化
-            object message = messageDecode(buff);
+            NetPacket message = messageDecode(buff);
 
-            //TODO: 通知应用层，处理消息
-
+            //通知应用层，处理消息
+            handlerCenter.MessageReceive(this, message);
 
             //尾递归 防止在消息存储过程中 有其他消息到达而没有经过处理
-            OnHandle();
+            OnReceive();
         }
 
+        #endregion
+
+
+        #region Send
+        /// <summary>
+        /// 主动向客户端通知 或者 回客户端消息,  先编码消息, 再编码长度
+        /// </summary>
+        public void Send(Cmd cmd, IMessage message)
+        {
+            NetPacket netPacket = new NetPacket();
+            netPacket.cmd = (int)cmd;
+            netPacket.message = message;
+
+            //先编码消息, 再编码长度
+            byte[] byteArr = lengthEncode(messageEncode(netPacket));
+            Write(byteArr);
+        }
 
         public void Write(byte[] value)
         {
@@ -127,6 +150,12 @@ namespace NetFrame
                 m_bIsWriting = true;
                 OnWrite();
             }
+        }
+
+        public void SendCallback()
+        {
+            //与OnHandle尾递归相同
+            OnWrite();
         }
 
         private void OnWrite()
@@ -150,11 +179,7 @@ namespace NetFrame
             }
         }
 
-        public void SendCallback()
-        {
-            //与OnHandle尾递归相同
-            OnWrite();
-        }
+        #endregion
 
         public void Close()
         {
