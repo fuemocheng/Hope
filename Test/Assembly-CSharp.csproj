@@ -213,6 +213,13 @@
     <Compile Include="Assets\Scripts\Extensions\BitMath.cs" />
     <Compile Include="Assets\Scripts\Proto\Game.cs" />
     <Compile Include="Assets\Scripts\Proto\Cmd.cs" />
+    <Compile Include="Assets\Scripts\Net\NetManager.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\LengthEncoding.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\CodingDelegate.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\ByteArray.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\MessageEncoding.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\ProtoUtil.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\NetPacket.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
