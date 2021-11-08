@@ -68,6 +68,7 @@
     <Compile Include="Assets\Store\Jammo-Character\Scripts\CharacterSkinController.cs" />
     <Compile Include="Assets\Scripts\Enum.cs" />
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\ByFile.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\ByteArray.cs" />
     <Compile Include="Assets\Scripts\Utility\XmlLoader.cs" />
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
     <Compile Include="Assets\Scripts\Extensions\AnimatorExt.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\XLua\Examples\09_GenericMethod\Foo.cs" />
     <Compile Include="Assets\Scripts\Template\MonoEvent.cs" />
     <Compile Include="Assets\XLua\Src\RawObject.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\NetPacket.cs" />
     <Compile Include="Assets\XLua\LuaRoot.cs" />
     <Compile Include="Assets\XLua\Examples\11_RawObject\RawObjectTest.cs" />
     <Compile Include="Assets\XLua\Src\TemplateEngine\TemplateEngine.cs" />
@@ -94,10 +96,12 @@
     <Compile Include="Assets\XLua\Examples\12_ReImplementInLua\ReImplementInLua.cs" />
     <Compile Include="Assets\Scripts\Extensions\FloatExtension.cs" />
     <Compile Include="Assets\XLua\Examples\06_Coroutine\Coroutine_Runner.cs" />
+    <Compile Include="Assets\Scripts\Net\NetManager.cs" />
     <Compile Include="Assets\Scripts\Extensions\ArrayExtension.cs" />
     <Compile Include="Assets\XLua\Src\MethodWarpsCache.cs" />
     <Compile Include="Assets\XLua\Examples\08_Hotfix\StatefullTest.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\ScreenFader\ScreenFaderMixerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\CodingDelegate.cs" />
     <Compile Include="Assets\Scripts\Timeline\CustomAnim\CustomAnimClip.cs" />
     <Compile Include="Assets\XLua\Examples\08_Hotfix\HotfixTest2.cs" />
     <Compile Include="Assets\Scripts\Timeline\CustomAnim\CustomAnimBehaviour.cs" />
@@ -118,10 +122,12 @@
     <Compile Include="Assets\Scripts\Timeline\AnimBlend\AnimBlendClip.cs" />
     <Compile Include="Assets\XLua\Examples\02_U3DScripting\LuaBehaviour.cs" />
     <Compile Include="Assets\XLua\Src\LuaBase.cs" />
+    <Compile Include="Assets\Scripts\Proto\Game.cs" />
     <Compile Include="Assets\XLua\Examples\10_SignatureLoader\SignatureLoaderTest.cs" />
     <Compile Include="Assets\Store\3DAnimationSystems\3.7 - Creating and configuring Animator Layers\Scripts\LayerWeightSetter.cs" />
     <Compile Include="Assets\Scripts\Launcher.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\ProtoUtil.cs" />
     <Compile Include="Assets\Store\3DAnimationSystems\3.4 - Creating and configuring Blend Trees\Scripts\SpeedControl.cs" />
     <Compile Include="Assets\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
     <Compile Include="Assets\Scripts\Utility\PathConfig.cs" />
@@ -135,6 +141,7 @@
     <Compile Include="Assets\XLua\Examples\04_LuaObjectOrented\InvokeLua.cs" />
     <Compile Include="Assets\Scripts\Timeline\PlayerAnim\PlayerAnimTrack.cs" />
     <Compile Include="Assets\XLua\Examples\07_AsyncTest\MessageBox.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\LengthEncoding.cs" />
     <Compile Include="Assets\Scripts\Timeline\AnimationBlend\AnimationBlendBehaviour.cs" />
     <Compile Include="Assets\XLua\Src\GenAttributes.cs" />
     <Compile Include="Assets\Scripts\EditorTools\CustomTestData.cs" />
@@ -173,6 +180,7 @@
     <Compile Include="Assets\Scripts\EditorTools\UIComponentRef.cs" />
     <Compile Include="Assets\Scripts\Extensions\RectTransformExtension.cs" />
     <Compile Include="Assets\XLua\Tutorial\CSharpCallLua\CSCallLua.cs" />
+    <Compile Include="Assets\Scripts\Net\NetFrame\MessageEncoding.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\Video\VideoScriptPlayableTrack.cs" />
     <Compile Include="Assets\XLua\Src\CodeEmit.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\TimeDilation\TimeDilationTrack.cs" />
@@ -195,6 +203,7 @@
     <Compile Include="Assets\Store\3DAnimationSystems\4.1 - Introduction to general animation scripting\SetParametersExample.cs" />
     <Compile Include="Assets\XLua\Src\GenericDelegateBridge.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\Video\VideoSchedulerPlayableBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Proto\Cmd.cs" />
     <Compile Include="Assets\Scripts\Extensions\NetExtension.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\ScreenFader\ScreenFaderBehaviour.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\TransformTween\TransformTweenClip.cs" />
@@ -211,15 +220,8 @@
     <Compile Include="Assets\Store\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Extensions\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\Extensions\BitMath.cs" />
-    <Compile Include="Assets\Scripts\Proto\Game.cs" />
-    <Compile Include="Assets\Scripts\Proto\Cmd.cs" />
-    <Compile Include="Assets\Scripts\Net\NetManager.cs" />
-    <Compile Include="Assets\Scripts\Net\NetFrame\LengthEncoding.cs" />
-    <Compile Include="Assets\Scripts\Net\NetFrame\CodingDelegate.cs" />
-    <Compile Include="Assets\Scripts\Net\NetFrame\ByteArray.cs" />
-    <Compile Include="Assets\Scripts\Net\NetFrame\MessageEncoding.cs" />
-    <Compile Include="Assets\Scripts\Net\NetFrame\ProtoUtil.cs" />
-    <Compile Include="Assets\Scripts\Net\NetFrame\NetPacket.cs" />
+    <Compile Include="Assets\Scripts\Facility\Listener.cs" />
+    <Compile Include="Assets\Scripts\Net\NetPool.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />

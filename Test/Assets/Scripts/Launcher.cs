@@ -1,3 +1,5 @@
+using NetFrame.Coding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +17,17 @@ public class Launcher : MonoSingleton<Launcher>
 
     void Start()
     {
+        /// Log初始化
         m_CustomLogHandler = new CustomLogHandler();
+        /// 网络初始化
+        NetManager.Instance.Init();
+        /// Lua初始化
         LuaRoot.Init();
     }
 
     void Update()
     {
+        NetManager.Instance.Update();
         LuaRoot.Update();
     }
 
@@ -42,6 +49,16 @@ public class Launcher : MonoSingleton<Launcher>
     {
         LogUtils.LogError("Test Connect");
         NetManager.Instance.Connect("127.0.0.1", 8001);
+
+        NetManager.Instance.Listeners.Add((int)CmdProto.Cmd.Login, OnLoginAck);
+    }
+
+    private void OnLoginAck(NetPacket packet)
+    {
+        var msg = packet.GetMessge<GameProto.LoginAck>();
+        bool createRole = msg.CreateRole;
+
+        LogUtils.LogError("createRole:" , createRole);
     }
 
     public void Login()

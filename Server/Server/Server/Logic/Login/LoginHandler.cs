@@ -52,6 +52,8 @@ namespace Server.Logic.Login
             string clientToken = loginReq.Token;
             bool reLogin = loginReq.Relogin;
 
+            Console.WriteLine("LoginHandler -> LoginAck");
+
             //反回客户端创建新角色
             LoginAck loginAck = new LoginAck { CreateRole = true };
             token.Send(Cmd.Login, loginAck);

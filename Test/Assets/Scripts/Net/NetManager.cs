@@ -33,25 +33,50 @@ public class NetManager : Singleton<NetManager>
     public ObjectEncode messageEncode;
     public ObjectDecode messageDecode;
 
+    private NetPool sendPool;
+    private NetPool recvPool;
+
+    public delegate void NetListenerDelegate(NetPacket packet);
+    public Listener<int, NetListenerDelegate> Listeners = new Listener<int, NetListenerDelegate>();
+
     public NetManager()
+    {
+    }
+
+    public void Init()
     {
         lengthEncode = LengthEncoding.Encode;
         lengthDecode = LengthEncoding.Decode;
         messageEncode = MessageEncoding.Encode;
         messageDecode = MessageEncoding.Decode;
+
+        recvPool = new NetPool();
+        sendPool = new NetPool();
     }
+
+    public void Update()
+    {
+        /// DispatchPacket
+        NetPacket packet = null;
+        while ((packet = recvPool.GetRecvPacket()) != null)
+        {
+            DispatchCmdEvent(packet);
+        }
+    }
+
+    #region Connect
 
     public void Connect(string ip, int port)
     {
-        if(IsSocketValid())
+        if (IsSocketValid())
         {
             Close("Close before connected");
         }
-        
+
         m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         IPAddress ipAddress = IPAddress.Parse(ip);
         ipEndPoint = new IPEndPoint(ipAddress, port);
-        
+
         connectSAEA = new SocketAsyncEventArgs();
         connectSAEA.RemoteEndPoint = ipEndPoint;
         connectSAEA.Completed += OnConnectedCompleted;
@@ -93,6 +118,9 @@ public class NetManager : Singleton<NetManager>
 
         m_socket.ReceiveAsync(recvSAEA);
     }
+
+    #endregion
+
 
     #region Receive
 
@@ -179,16 +207,18 @@ public class NetManager : Singleton<NetManager>
         if (null == messageDecode) { throw new Exception("Message decode process is null"); }
 
         //进行消息反序列化
-        NetPacket message = messageDecode(buff);
+        NetPacket netPacket = messageDecode(buff);
 
-        //TODO: 通知应用层，处理消息
-        //handlerCenter.MessageReceive(this, message);
+        //广播处理消息
+        //先缓存起来，放在Update中处理，防止处理时间过长造成堵塞
+        recvPool.AddRecvPacket(netPacket);
 
         //尾递归 防止在消息存储过程中 有其他消息到达而没有经过处理
         OnReceive();
     }
 
     #endregion
+
 
     #region Send
 
@@ -257,6 +287,19 @@ public class NetManager : Singleton<NetManager>
 
     #endregion
 
+
+    #region Dispatch
+
+    private void DispatchCmdEvent(NetPacket packet)
+    {
+        Listeners.Dispatch(packet.cmd, (a) => a(packet));
+    }
+
+    #endregion
+
+
+    #region Utils
+
     private bool IsSocketValid()
     {
         if (m_socket != null && m_socket.Connected)
@@ -265,6 +308,9 @@ public class NetManager : Singleton<NetManager>
         }
         return false;
     }
+
+    #endregion
+
 
     private void Close(string error)
     {

@@ -53,6 +53,8 @@ namespace NetFrame.Coding
                 var commonMsg = CommonMessage.Parser.ParseFrom(message);
                 //解析客户端的Req
                 netPacket.message = ProtoUtil.ReqCommonMsg(commonMsg);
+                netPacket.cmd = cmd;
+                netPacket.msgid = msgid;
             }
             byteArray.Close();
             return netPacket;
