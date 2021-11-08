@@ -199,20 +199,16 @@
      <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
      <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll" />
-     <None Include="Assets\Plugins\version_3_18_1.txt" />
      <None Include="Assets\Plugins\JsonDotNet\link.xml" />
      <None Include="Assets\Plugins\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
      <None Include="Assets\Plugins\Sentry\Microsoft.Bcl.AsyncInterfaces.dll" />
      <None Include="Assets\Plugins\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
      <None Include="Assets\Plugins\Android\proguard-user.txt" />
      <None Include="Assets\Plugins\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll" />
-     <None Include="Assets\Plugins\WSA\ARM64\xlua.dll" />
-     <None Include="Assets\Plugins\WSA\x64\xlua.dll" />
      <None Include="Assets\Plugins\Sentry\System.Numerics.Vectors.dll" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.dll" />
      <None Include="Assets\Plugins\Sentry\System.Text.Encodings.Web.dll" />
-     <None Include="Assets\Plugins\x86\xlua.dll" />
      <None Include="Assets\Plugins\Sentry\System.Runtime.CompilerServices.Unsafe.dll" />
      <None Include="Assets\Plugins\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.dll" />
      <None Include="Assets\Plugins\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
@@ -222,13 +218,10 @@
      <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
      <None Include="Assets\Plugins\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.dll" />
      <None Include="Assets\Plugins\Sentry\link.xml" />
-     <None Include="Assets\Plugins\x86_64\xlua.dll" />
-     <None Include="Assets\Plugins\WSA\ARM\xlua.dll" />
      <None Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.XML" />
      <None Include="Assets\Plugins\Sentry\Sentry.dll" />
      <None Include="Assets\Plugins\Sentry\System.Buffers.dll" />
      <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
-     <None Include="Assets\Plugins\WSA\x86\xlua.dll" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Program Files\Unity2020.3.6f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -501,6 +494,12 @@
     </Reference>
     <Reference Include="System.Buffers">
       <HintPath>Assets\Plugins\Sentry\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>D:\Program Files\Unity2020.3.6f1c1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>D:\Program Files\Unity2020.3.6f1c1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:\Program Files\Unity2020.3.6f1c1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
