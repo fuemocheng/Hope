@@ -1,12 +1,12 @@
 /*
  * @Author: KwoSing
  * @Date: 2021-06-09 12:00:00
- * @Description:  Ã¶¾ÙÀàĞÍ
+ * @Description:  æšä¸¾ç±»å‹
  */
 
 
 /// <summary>
-/// ´íÎóÂë
+/// é”™è¯¯ç 
 /// </summary>
 public enum EErrorCode
 {
@@ -15,7 +15,7 @@ public enum EErrorCode
 
 
 /// <summary>
-/// ×Ô¶¨Òå×é¼şÀàĞÍ
+/// è‡ªå®šä¹‰ç»„ä»¶ç±»å‹
 /// </summary>
 public enum ECustomComType
 {

@@ -7,18 +7,18 @@ using UnityEditor;
 
 public class PathConfig
 {
-    //×î´óbundle¼ÓÔØÊıÁ¿
+    //æœ€å¤§bundleåŠ è½½æ•°é‡
     public static readonly int MAXBUNDLECOUNT = 5;
 
     public static readonly string bundleSuffix = ".unity3d";
-    //±£´æ´ò°üµÄ×ÊÔ´ÃûÓë¶ÔÓ¦µÄMD5Âë
+    //ä¿å­˜æ‰“åŒ…çš„èµ„æºåä¸å¯¹åº”çš„MD5ç 
     public static readonly string version_file = "version.txt";
     public static readonly string localUrl = Application.persistentDataPath;
-    //·şÎñÆ÷ÏÂÔØ×ÊÔ´µØÖ·
+    //æœåŠ¡å™¨ä¸‹è½½èµ„æºåœ°å€
     public static readonly string serverUrl = "";
     public static readonly string bulidAssetPath = Application.streamingAssetsPath;
 
-    //µ±Ç°³ÌĞò°æ±¾ºÅ(Ä¬ÈÏ´Ó1.0¿ªÊ¼)
+    //å½“å‰ç¨‹åºç‰ˆæœ¬å·(é»˜è®¤ä»1.0å¼€å§‹)
     public static string ProductVersion = "Asset_1.0";
 
     public static string GetFileHeader
@@ -73,13 +73,13 @@ public class PathConfig
     }
 #endif
 
-    //¼ì²éurl£¬Èç¹ûÄ©Î²ÓĞ'/'²»´¦Àí£¬ÎŞÔòÌí¼Ó
+    //æ£€æŸ¥urlï¼Œå¦‚æœæœ«å°¾æœ‰'/'ä¸å¤„ç†ï¼Œæ— åˆ™æ·»åŠ 
     public static string CheckUrl(string url)
     {
         return url.Replace('\\', '/').TrimEnd('/') + '/';
     }
 
-    //Éú³ÉMD5Öµ
+    //ç”ŸæˆMD5å€¼
     public static string MD5File(string file)
     {
         try

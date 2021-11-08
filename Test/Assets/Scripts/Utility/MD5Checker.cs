@@ -4,15 +4,15 @@ using System.Security.Cryptography;
 
 public class MD5Checker
 {
-    //Òì²½check»Øµ÷
+    //å¼‚æ­¥checkå›è°ƒ
     public delegate void AsyncCheckHandler(AsyncCheckEventArgs e);
     public event AsyncCheckHandler AsyncCheckProgress;
 
-    //Ö§³ÖËùÓĞ¹şÏ£Ëã·¨
+    //æ”¯æŒæ‰€æœ‰å“ˆå¸Œç®—æ³•
     private HashAlgorithm hashAlgorithm;
-    //ÎÄ¼ş¶ÁÈ¡Á÷
+    //æ–‡ä»¶è¯»å–æµ
     private Stream inputStream;
-    //»º´æ
+    //ç¼“å­˜
     private byte[] asyncBuffer;
 
     public AsyncCheckState CompleteState { get; private set; }
@@ -33,11 +33,11 @@ public class MD5Checker
         }
         catch (ArgumentException aex)
         {
-            throw new ArgumentException(string.Format("<{0}>, ²»´æÔÚ: {1}", path, aex.Message));
+            throw new ArgumentException(string.Format("<{0}>, ä¸å­˜åœ¨: {1}", path, aex.Message));
         }
         catch (Exception ex)
         {
-            throw new Exception(string.Format("¶ÁÈ¡ÎÄ¼ş {0} , MD5Ê§°Ü: {1}", path, ex.Message));
+            throw new Exception(string.Format("è¯»å–æ–‡ä»¶ {0} , MD5å¤±è´¥: {1}", path, ex.Message));
         }
     }
 
@@ -45,18 +45,18 @@ public class MD5Checker
     {
         try
         {
-            int bufferSize = 1024 * 256;//×Ô¶¨Òå»º³åÇø´óĞ¡256K
+            int bufferSize = 1024 * 256;//è‡ªå®šä¹‰ç¼“å†²åŒºå¤§å°256K
             var buffer = new byte[bufferSize];
             Stream inputStream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read);
             HashAlgorithm hashAlgorithm = new MD5CryptoServiceProvider();
-            int readLength = 0;//Ã¿´Î¶ÁÈ¡³¤¶È
+            int readLength = 0;//æ¯æ¬¡è¯»å–é•¿åº¦
             var output = new byte[bufferSize];
             while ((readLength = inputStream.Read(buffer, 0, buffer.Length)) > 0)
             {
-                //¼ÆËãMD5
+                //è®¡ç®—MD5
                 hashAlgorithm.TransformBlock(buffer, 0, readLength, output, 0);
             }
-            //Íê³É×îºó¼ÆËã£¬±ØĞëµ÷ÓÃ(ÓÉÓÚÉÏÒ»²¿Ñ­»·ÒÑ¾­Íê³ÉËùÓĞÔËËã£¬ËùÒÔµ÷ÓÃ´Ë·½·¨Ê±ºóÃæµÄÁ½¸ö²ÎÊı¶¼Îª0)
+            //å®Œæˆæœ€åè®¡ç®—ï¼Œå¿…é¡»è°ƒç”¨(ç”±äºä¸Šä¸€éƒ¨å¾ªç¯å·²ç»å®Œæˆæ‰€æœ‰è¿ç®—ï¼Œæ‰€ä»¥è°ƒç”¨æ­¤æ–¹æ³•æ—¶åé¢çš„ä¸¤ä¸ªå‚æ•°éƒ½ä¸º0)
             hashAlgorithm.TransformFinalBlock(buffer, 0, 0);
             string md5 = BitConverter.ToString(hashAlgorithm.Hash);
             hashAlgorithm.Clear();
@@ -66,11 +66,11 @@ public class MD5Checker
         }
         catch (ArgumentException aex)
         {
-            throw new ArgumentException(string.Format("<{0}>, ²»´æÔÚ: {1}", path, aex.Message));
+            throw new ArgumentException(string.Format("<{0}>, ä¸å­˜åœ¨: {1}", path, aex.Message));
         }
         catch (Exception ex)
         {
-            throw new Exception(string.Format("¶ÁÈ¡ÎÄ¼ş {0} , MD5Ê§°Ü: {1}", path, ex.Message));
+            throw new Exception(string.Format("è¯»å–æ–‡ä»¶ {0} , MD5å¤±è´¥: {1}", path, ex.Message));
         }
     }
 
@@ -79,34 +79,34 @@ public class MD5Checker
         CompleteState = AsyncCheckState.Checking;
         try
         {
-            int bufferSize = 1024 * 256;//»º³åÇø´óĞ¡£¬1MB 1048576
+            int bufferSize = 1024 * 256;//ç¼“å†²åŒºå¤§å°ï¼Œ1MB 1048576
 
             asyncBuffer = new byte[bufferSize];
 
-            //´ò¿ªÎÄ¼şÁ÷
+            //æ‰“å¼€æ–‡ä»¶æµ
             inputStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None, bufferSize, true);
             hashAlgorithm = new MD5CryptoServiceProvider();
 
-            //Òì²½¶ÁÈ¡Êı¾İµ½»º³åÇø
+            //å¼‚æ­¥è¯»å–æ•°æ®åˆ°ç¼“å†²åŒº
             inputStream.BeginRead(asyncBuffer, 0, asyncBuffer.Length, new AsyncCallback(AsyncComputeHashCallback), null);
         }
         catch (ArgumentException aex)
         {
-            throw new ArgumentException(string.Format("<{0}>, ²»´æÔÚ: {1}", path, aex.Message));
+            throw new ArgumentException(string.Format("<{0}>, ä¸å­˜åœ¨: {1}", path, aex.Message));
         }
         catch (Exception ex)
         {
-            throw new Exception(string.Format("¶ÁÈ¡ÎÄ¼ş{0} ,MD5Ê§°Ü: {1}", path, ex.Message));
+            throw new Exception(string.Format("è¯»å–æ–‡ä»¶{0} ,MD5å¤±è´¥: {1}", path, ex.Message));
         }
     }
 
     private void AsyncComputeHashCallback(IAsyncResult result)
     {
         int bytesRead = inputStream.EndRead(result);
-        //¼ì²éÊÇ·ñµ½´ïÁ÷Ä©Î²
+        //æ£€æŸ¥æ˜¯å¦åˆ°è¾¾æµæœ«å°¾
         if (inputStream.Position < inputStream.Length)
         {
-            //Êä³ö½ø¶È
+            //è¾“å‡ºè¿›åº¦
             Progress = (float)inputStream.Position / inputStream.Length;
             string pro = string.Format("{0:P0}", Progress);
 
@@ -114,16 +114,16 @@ public class MD5Checker
                 AsyncCheckProgress(new AsyncCheckEventArgs(AsyncCheckState.Checking, pro));
 
             var output = new byte[asyncBuffer.Length];
-            //·Ö¿é¼ÆËã¹şÏ£Öµ
+            //åˆ†å—è®¡ç®—å“ˆå¸Œå€¼
             hashAlgorithm.TransformBlock(asyncBuffer, 0, asyncBuffer.Length, output, 0);
 
-            //Òì²½¶ÁÈ¡ÏÂÒ»·Ö¿é
+            //å¼‚æ­¥è¯»å–ä¸‹ä¸€åˆ†å—
             inputStream.BeginRead(asyncBuffer, 0, asyncBuffer.Length, new AsyncCallback(AsyncComputeHashCallback), null);
             return;
         }
         else
         {
-            //¼ÆËã×îºó·Ö¿é¹şÏ£Öµ
+            //è®¡ç®—æœ€ååˆ†å—å“ˆå¸Œå€¼
             hashAlgorithm.TransformFinalBlock(asyncBuffer, 0, bytesRead);
         }
 
