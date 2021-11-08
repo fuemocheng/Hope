@@ -53,9 +53,10 @@ public static class LuaRoot
 
         _luaEnv.AddLoader(CustomLoader);
 
-        //_luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
-        //_luaEnv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
-        //_luaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
+        _luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
+        _luaEnv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
+        _luaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
+        //_luaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
 
         StartLua();
     }
