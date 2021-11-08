@@ -64,7 +64,7 @@ public class NetPool
     }
 
 
-    public void CleanAll()
+    public void Clear()
     {
         recvPacketPool.Clear();
         sendPacketPool.Clear();

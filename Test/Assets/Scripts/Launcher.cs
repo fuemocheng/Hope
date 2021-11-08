@@ -1,3 +1,5 @@
+using GameProto;
+using Google.Protobuf;
 using NetFrame.Coding;
 using System;
 using System.Collections;
@@ -50,16 +52,23 @@ public class Launcher : MonoSingleton<Launcher>
         LogUtils.LogError("Test Connect");
         NetManager.Instance.Connect("127.0.0.1", 8001);
 
-        NetManager.Instance.Listeners.Add((int)CmdProto.Cmd.Login, OnLoginAck);
+        //NetManager.Instance.Listeners.Add((int)CmdProto.Cmd.Login, OnLoginAck);
     }
 
-    private void OnLoginAck(NetPacket packet)
+    private void OnLoginAck(IMessage message)
     {
-        var msg = packet.GetMessge<GameProto.LoginAck>();
+        var msg = message as LoginAck;
         bool createRole = msg.CreateRole;
-
-        LogUtils.LogError("createRole:" , createRole);
+        LogUtils.LogError("createRole:", createRole);
     }
+
+    //private void OnLoginAck(IMessage packet)
+    //{
+    //    var msg = packet.GetMessge<GameProto.LoginAck>();
+    //    bool createRole = msg.CreateRole;
+
+    //    LogUtils.LogError("createRole:" , createRole);
+    //}
 
     public void Login()
     {
@@ -70,6 +79,6 @@ public class Launcher : MonoSingleton<Launcher>
             GameId = 101010101,
             ChannelId = 202020201,
         };
-        NetManager.Instance.Send(CmdProto.Cmd.Login, loginReq);
+        NetManager.Instance.Send(CmdProto.Cmd.Login, loginReq, OnLoginAck);
     }
 }

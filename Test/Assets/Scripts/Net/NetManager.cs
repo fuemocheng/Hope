@@ -36,8 +36,10 @@ public class NetManager : Singleton<NetManager>
     private NetPool sendPool;
     private NetPool recvPool;
 
-    public delegate void NetListenerDelegate(NetPacket packet);
+    public delegate void NetListenerDelegate(IMessage message);
     public Listener<int, NetListenerDelegate> Listeners = new Listener<int, NetListenerDelegate>();
+
+    private Dictionary<int, Action<IMessage>> messageCallback = new Dictionary<int, Action<IMessage>>();
 
     public NetManager()
     {
@@ -225,7 +227,7 @@ public class NetManager : Singleton<NetManager>
     /// <summary>
     /// 主动向客户端通知 或者 回客户端消息,  先编码消息, 再编码长度
     /// </summary>
-    public void Send(Cmd cmd, IMessage message)
+    public void Send(Cmd cmd, IMessage message, Action<IMessage> callback = null)
     {
         if (!IsSocketValid())
         {
@@ -235,6 +237,11 @@ public class NetManager : Singleton<NetManager>
         NetPacket netPacket = new NetPacket();
         netPacket.cmd = (int)cmd;
         netPacket.message = message;
+
+        if(callback != null)
+        {
+            Subscribe((int)cmd, callback);
+        }
 
         //先编码消息, 再编码长度
         byte[] byteArr = lengthEncode(messageEncode(netPacket));
@@ -290,9 +297,52 @@ public class NetManager : Singleton<NetManager>
 
     #region Dispatch
 
+    /// <summary>
+    /// 广播注册事件
+    /// </summary>
+    /// <param name="packet"></param>
     private void DispatchCmdEvent(NetPacket packet)
     {
-        Listeners.Dispatch(packet.cmd, (a) => a(packet));
+        /// 广播注册
+        Listeners.Dispatch(packet.cmd, (a) => a(packet.message));
+        /// 广播回调
+        DispatchCmdCallback(packet);
+    }
+
+    /// <summary>
+    /// 广播回调
+    /// </summary>
+    /// <param name="packet"></param>
+    protected void DispatchCmdCallback(NetPacket packet)
+    {
+        if (messageCallback.TryGetValue(packet.cmd, out Action<IMessage> callback))
+        {
+            callback?.Invoke(packet.message);
+            UnSubscribe(packet.cmd, callback);
+        }
+    }
+
+    /// <summary>
+    /// 订阅消息回调事件
+    /// </summary>
+    /// <param name="cmd"></param>
+    /// <param name="callback"></param>
+    public void Subscribe(int cmd, Action<IMessage> callback)
+    {
+        if (!messageCallback.ContainsKey((int)cmd))
+            messageCallback[cmd] = null;
+
+        messageCallback[cmd] += callback;
+    }
+
+    /// <summary>
+    /// 取消订阅消息回调事件
+    /// </summary>
+    /// <param name="cmd"></param>
+    public void UnSubscribe(int cmd, Action<IMessage> callback)
+    {
+        if (messageCallback.ContainsKey((int)cmd))
+            messageCallback[cmd] -= callback;
     }
 
     #endregion
@@ -323,6 +373,12 @@ public class NetManager : Singleton<NetManager>
             //清理数据
             recvCache.Clear();
             writeQueue.Clear();
+
+            Listeners.Clear();
+            messageCallback.Clear();
+
+            recvPool.Clear();
+            sendPool.Clear();
         }
     }
 }
