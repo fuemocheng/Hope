@@ -8,7 +8,7 @@ public class LuaUtility : Singleton<LuaUtility>
     static LuaEnv s_luaEnv = null;
     static LuaTable s_globalTable = null;
 
-    //»º´æ£¬·ÀÖ¹Ã¿´Î¶¼È¥È¡
+    //ç¼“å­˜ï¼Œé˜²æ­¢æ¯æ¬¡éƒ½å»å–
     static Dictionary<int, LuaFunction> s_cachedLuaFunction = new Dictionary<int, LuaFunction>(50);
 
     static public LuaEnv luaEnv
@@ -125,7 +125,7 @@ public class LuaUtility : Singleton<LuaUtility>
         if (string.IsNullOrEmpty(strFuncName))
             return luaFunc;
 
-        //»º´æ
+        //ç¼“å­˜
         int hashCode = strFuncName.GetHashCode();
         s_cachedLuaFunction.TryGetValue(hashCode, out luaFunc);
         if (luaFunc != null)
@@ -139,7 +139,7 @@ public class LuaUtility : Singleton<LuaUtility>
             strFuncName = strFuncName.Substring(index + 1);
         }
 
-        //Èç¹ûÈÈ¸ü£¬global table ÔÚÕâÀï¸ü»»
+        //å¦‚æœçƒ­æ›´ï¼Œglobal table åœ¨è¿™é‡Œæ›´æ¢
         LuaTable global = globalTable;
 
         if (string.IsNullOrEmpty(strTableName))

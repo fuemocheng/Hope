@@ -18,16 +18,16 @@ public class NetManager : Singleton<NetManager>
     private SocketAsyncEventArgs recvSAEA;
     private SocketAsyncEventArgs sendSAEA;
 
-    /// ½ÓÊÜÏûÏ¢µÄ»º´æ ´¦ÀíÕ³°üÎÊÌâ
+    /// æ¥å—æ¶ˆæ¯çš„ç¼“å­˜ å¤„ç†ç²˜åŒ…é—®é¢˜
     private List<byte> recvCache = new List<byte>();
-    /// ·¢ËÍÏûÏ¢µÄ¶ÓÁĞ
+    /// å‘é€æ¶ˆæ¯çš„é˜Ÿåˆ—
     private Queue<byte[]> writeQueue = new Queue<byte[]>();
 
-    //ÕıÔÚ¶ÁÈ¡»òĞ´Èë
+    //æ­£åœ¨è¯»å–æˆ–å†™å…¥
     private bool m_bIsReading = false;
     private bool m_bIsWriting = false;
 
-    // Õ³°ü½âÂëÆ÷, ÏûÏ¢½âÂëÆ÷
+    // ç²˜åŒ…è§£ç å™¨, æ¶ˆæ¯è§£ç å™¨
     public LengthEncode lengthEncode;
     public LengthDecode lengthDecode;
     public ObjectEncode messageEncode;
@@ -89,7 +89,7 @@ public class NetManager : Singleton<NetManager>
 
         m_socket.ConnectAsync(connectSAEA);
 
-        //TODO: ³¬Ê±ÖØÁ¬,ÈõÍøÁ¬½ÓµÈÎÊÌâ
+        //TODO: è¶…æ—¶é‡è¿,å¼±ç½‘è¿æ¥ç­‰é—®é¢˜
 
     }
 
@@ -105,7 +105,7 @@ public class NetManager : Singleton<NetManager>
         string strIPRemote = socket.RemoteEndPoint.ToString();
         LogUtils.LogError($"Connect {strIPRemote} succeed!");
 
-        //recvSAEA ³õÊ¼»¯
+        //recvSAEA åˆå§‹åŒ–
         recvSAEA = new SocketAsyncEventArgs();
         recvSAEA.UserToken = socket;
         byte[] receiveBuffer = new byte[1024 * 4];
@@ -113,7 +113,7 @@ public class NetManager : Singleton<NetManager>
         recvSAEA.Completed += OnReceiveCompleted;
         recvSAEA.RemoteEndPoint = ipEndPoint;
 
-        //sendSAEA ³õÊ¼»¯
+        //sendSAEA åˆå§‹åŒ–
         sendSAEA = new SocketAsyncEventArgs();
         sendSAEA.UserToken = socket;
         sendSAEA.Completed += OnSendCompleted;
@@ -136,17 +136,17 @@ public class NetManager : Singleton<NetManager>
 
         Socket socket = sender as Socket;
 
-        //ÅĞ¶ÏÍøÂçÏûÏ¢½ÓÊÕÊÇ·ñ³É¹¦
+        //åˆ¤æ–­ç½‘ç»œæ¶ˆæ¯æ¥æ”¶æ˜¯å¦æˆåŠŸ
         if (e.SocketError == SocketError.Success && e.BytesTransferred > 0)
         {
-            //¿½±´ recvSAEA »º´æÖĞµÄÊı¾İ
+            //æ‹·è´ recvSAEA ç¼“å­˜ä¸­çš„æ•°æ®
             byte[] message = new byte[e.BytesTransferred];
             Buffer.BlockCopy(e.Buffer, 0, message, 0, e.BytesTransferred);
 
-            //´¦ÀíÏûÏ¢
+            //å¤„ç†æ¶ˆæ¯
             Receive(message);
 
-            //¼ÌĞøÒì²½½ÓÊÕÏûÏ¢
+            //ç»§ç»­å¼‚æ­¥æ¥æ”¶æ¶ˆæ¯
             socket.ReceiveAsync(recvSAEA);
         }
         else if (e.SocketError == SocketError.ConnectionReset && e.BytesTransferred == 0)
@@ -160,7 +160,7 @@ public class NetManager : Singleton<NetManager>
     }
 
     /// <summary>
-    /// ÍøÂçÏûÏ¢µ½´ï, recvSAEA »º´æÊı¾İ¿½±´µ½ cache ÖĞ
+    /// ç½‘ç»œæ¶ˆæ¯åˆ°è¾¾, recvSAEA ç¼“å­˜æ•°æ®æ‹·è´åˆ° cache ä¸­
     /// </summary>
     private void Receive(byte[] buff)
     {
@@ -173,19 +173,19 @@ public class NetManager : Singleton<NetManager>
     }
 
     /// <summary>
-    /// »º´æÖĞÓĞÊı¾İ½øĞĞ´¦Àí, ÏÈ½âÂë³¤¶È, ÔÙ½âÂëÏûÏ¢
+    /// ç¼“å­˜ä¸­æœ‰æ•°æ®è¿›è¡Œå¤„ç†, å…ˆè§£ç é•¿åº¦, å†è§£ç æ¶ˆæ¯
     /// </summary>
     private void OnReceive()
     {
-        //½âÂëÏûÏ¢´æ´¢¶ÔÏó
+        //è§£ç æ¶ˆæ¯å­˜å‚¨å¯¹è±¡
         byte[] buff = null;
 
-        //µ±Õ³°ü½âÂëÆ÷´æÔÚµÄÊ±ºò£¬½øĞĞÕ³°ü´¦Àí
+        //å½“ç²˜åŒ…è§£ç å™¨å­˜åœ¨çš„æ—¶å€™ï¼Œè¿›è¡Œç²˜åŒ…å¤„ç†
         if (null != lengthDecode)
         {
             buff = lengthDecode(ref recvCache);
 
-            //ÏûÏ¢Î´½ÓÊÕÈ« ÍË³öÊı¾İ´¦Àí µÈ´ıÏÂ´ÎÏûÏ¢µ½´ï
+            //æ¶ˆæ¯æœªæ¥æ”¶å…¨ é€€å‡ºæ•°æ®å¤„ç† ç­‰å¾…ä¸‹æ¬¡æ¶ˆæ¯åˆ°è¾¾
             if (null == buff)
             {
                 m_bIsReading = false;
@@ -194,8 +194,8 @@ public class NetManager : Singleton<NetManager>
         }
         else
         {
-            //²»ÓÃ´¦ÀíÕ³°ü
-            //»º´æÇøÖĞÃ»ÓĞÊı¾İ Ö±½ÓÌø³öÊı¾İ´¦Àí µÈ´ıÏûÏ¢µ½´ï
+            //ä¸ç”¨å¤„ç†ç²˜åŒ…
+            //ç¼“å­˜åŒºä¸­æ²¡æœ‰æ•°æ® ç›´æ¥è·³å‡ºæ•°æ®å¤„ç† ç­‰å¾…æ¶ˆæ¯åˆ°è¾¾
             if (recvCache.Count == 0)
             {
                 m_bIsReading = false;
@@ -205,17 +205,17 @@ public class NetManager : Singleton<NetManager>
             recvCache.Clear();
         }
 
-        //·´ĞòÁĞ»¯·½·¨ÊÇ·ñ´æÔÚ ´Ë·½·¨±ØĞë´æÔÚ
+        //ååºåˆ—åŒ–æ–¹æ³•æ˜¯å¦å­˜åœ¨ æ­¤æ–¹æ³•å¿…é¡»å­˜åœ¨
         if (null == messageDecode) { throw new Exception("Message decode process is null"); }
 
-        //½øĞĞÏûÏ¢·´ĞòÁĞ»¯
+        //è¿›è¡Œæ¶ˆæ¯ååºåˆ—åŒ–
         NetPacket netPacket = messageDecode(buff);
 
-        //¹ã²¥´¦ÀíÏûÏ¢
-        //ÏÈ»º´æÆğÀ´£¬·ÅÔÚUpdateÖĞ´¦Àí£¬·ÀÖ¹´¦ÀíÊ±¼ä¹ı³¤Ôì³É¶ÂÈû
+        //å¹¿æ’­å¤„ç†æ¶ˆæ¯
+        //å…ˆç¼“å­˜èµ·æ¥ï¼Œæ”¾åœ¨Updateä¸­å¤„ç†ï¼Œé˜²æ­¢å¤„ç†æ—¶é—´è¿‡é•¿é€ æˆå µå¡
         recvPool.AddRecvPacket(netPacket);
 
-        //Î²µİ¹é ·ÀÖ¹ÔÚÏûÏ¢´æ´¢¹ı³ÌÖĞ ÓĞÆäËûÏûÏ¢µ½´ï¶øÃ»ÓĞ¾­¹ı´¦Àí
+        //å°¾é€’å½’ é˜²æ­¢åœ¨æ¶ˆæ¯å­˜å‚¨è¿‡ç¨‹ä¸­ æœ‰å…¶ä»–æ¶ˆæ¯åˆ°è¾¾è€Œæ²¡æœ‰ç»è¿‡å¤„ç†
         OnReceive();
     }
 
@@ -225,7 +225,7 @@ public class NetManager : Singleton<NetManager>
     #region Send
 
     /// <summary>
-    /// Ö÷¶¯Ïò¿Í»§¶ËÍ¨Öª »òÕß »Ø¿Í»§¶ËÏûÏ¢,  ÏÈ±àÂëÏûÏ¢, ÔÙ±àÂë³¤¶È
+    /// ä¸»åŠ¨å‘å®¢æˆ·ç«¯é€šçŸ¥ æˆ–è€… å›å®¢æˆ·ç«¯æ¶ˆæ¯,  å…ˆç¼–ç æ¶ˆæ¯, å†ç¼–ç é•¿åº¦
     /// </summary>
     public void Send(Cmd cmd, IMessage message, Action<IMessage> callback = null)
     {
@@ -243,7 +243,7 @@ public class NetManager : Singleton<NetManager>
             Subscribe((int)cmd, callback);
         }
 
-        //ÏÈ±àÂëÏûÏ¢, ÔÙ±àÂë³¤¶È
+        //å…ˆç¼–ç æ¶ˆæ¯, å†ç¼–ç é•¿åº¦
         byte[] byteArr = lengthEncode(messageEncode(netPacket));
         Write(byteArr);
     }
@@ -260,19 +260,19 @@ public class NetManager : Singleton<NetManager>
 
     private void OnWrite()
     {
-        //ÅĞ¶Ï·¢ËÍ¶ÓÁĞÊÇ·ñÓĞĞÅÏ¢
+        //åˆ¤æ–­å‘é€é˜Ÿåˆ—æ˜¯å¦æœ‰ä¿¡æ¯
         if (writeQueue.Count == 0)
         {
             m_bIsWriting = false;
             return;
         }
-        //È¡³öµÚÒ»Ìõ´ı·¢ÏûÏ¢
+        //å–å‡ºç¬¬ä¸€æ¡å¾…å‘æ¶ˆæ¯
         byte[] buff = writeQueue.Dequeue();
-        //ÉèÖÃÏûÏ¢·¢ËÍÒì²½¶ÔÏóµÄ·¢ËÍÊı¾İ»º³åÇøÊı¾İ
+        //è®¾ç½®æ¶ˆæ¯å‘é€å¼‚æ­¥å¯¹è±¡çš„å‘é€æ•°æ®ç¼“å†²åŒºæ•°æ®
         sendSAEA.SetBuffer(buff, 0, buff.Length);
-        //¿ªÆôÒì²½·¢ËÍ
+        //å¼€å¯å¼‚æ­¥å‘é€
         bool willRaiseEvent = m_socket.SendAsync(sendSAEA);
-        //ÊÇ·ñ¹ÒÆğ
+        //æ˜¯å¦æŒ‚èµ·
         if (!willRaiseEvent)
         {
             if (sendSAEA.SocketError != SocketError.Success)
@@ -281,7 +281,7 @@ public class NetManager : Singleton<NetManager>
             }
             else
             {
-                //ÏûÏ¢·¢ËÍ³É¹¦£¬»Øµ÷
+                //æ¶ˆæ¯å‘é€æˆåŠŸï¼Œå›è°ƒ
                 OnWrite();
             }
         }
@@ -298,19 +298,19 @@ public class NetManager : Singleton<NetManager>
     #region Dispatch
 
     /// <summary>
-    /// ¹ã²¥×¢²áÊÂ¼ş
+    /// å¹¿æ’­æ³¨å†Œäº‹ä»¶
     /// </summary>
     /// <param name="packet"></param>
     private void DispatchCmdEvent(NetPacket packet)
     {
-        /// ¹ã²¥×¢²á
+        /// å¹¿æ’­æ³¨å†Œ
         Listeners.Dispatch(packet.cmd, (a) => a(packet.message));
-        /// ¹ã²¥»Øµ÷
+        /// å¹¿æ’­å›è°ƒ
         DispatchCmdCallback(packet);
     }
 
     /// <summary>
-    /// ¹ã²¥»Øµ÷
+    /// å¹¿æ’­å›è°ƒ
     /// </summary>
     /// <param name="packet"></param>
     protected void DispatchCmdCallback(NetPacket packet)
@@ -323,7 +323,7 @@ public class NetManager : Singleton<NetManager>
     }
 
     /// <summary>
-    /// ¶©ÔÄÏûÏ¢»Øµ÷ÊÂ¼ş
+    /// è®¢é˜…æ¶ˆæ¯å›è°ƒäº‹ä»¶
     /// </summary>
     /// <param name="cmd"></param>
     /// <param name="callback"></param>
@@ -336,7 +336,7 @@ public class NetManager : Singleton<NetManager>
     }
 
     /// <summary>
-    /// È¡Ïû¶©ÔÄÏûÏ¢»Øµ÷ÊÂ¼ş
+    /// å–æ¶ˆè®¢é˜…æ¶ˆæ¯å›è°ƒäº‹ä»¶
     /// </summary>
     /// <param name="cmd"></param>
     public void UnSubscribe(int cmd, Action<IMessage> callback)
@@ -370,7 +370,7 @@ public class NetManager : Singleton<NetManager>
             m_socket = null;
             LogUtils.LogError(error);
 
-            //ÇåÀíÊı¾İ
+            //æ¸…ç†æ•°æ®
             recvCache.Clear();
             writeQueue.Clear();
 

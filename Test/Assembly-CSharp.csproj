@@ -222,6 +222,7 @@
     <Compile Include="Assets\Store\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Extensions\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\Extensions\BitMath.cs" />
+    <Compile Include="Assets\XLua\BulidInInit.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />

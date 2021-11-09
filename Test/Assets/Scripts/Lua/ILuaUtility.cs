@@ -3,60 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ÔİÊ±Ã»ÓÃ
+/// æš‚æ—¶æ²¡ç”¨
 /// </summary>
 public abstract class ILuaUtility
 {
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºCallLuaFunc("test")
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º CallLuaFunc("globalTable.test")
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šCallLuaFunc("test")
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š CallLuaFunc("globalTable.test")
     /// </example>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <returns>void</returns>
     public virtual void CallLuaFunc(string funcName) { }
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºCallLuaFunc<int>("test", 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º CallLuaFunc<float>("globalTable.test", 1.0f)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šCallLuaFunc<int>("test", 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š CallLuaFunc<float>("globalTable.test", 1.0f)
     /// </example>
     /// <typeparam name="T1"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <returns>void</returns>
     public virtual void CallLuaFunc<T1>(string funcName, T1 para1) { }
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºCallLuaFunc<int, int>("test", 1, 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º CallLuaFunc<float, float>("globalTable.test", 1.0f, 2.0f)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šCallLuaFunc<int, int>("test", 1, 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š CallLuaFunc<float, float>("globalTable.test", 1.0f, 2.0f)
     /// </example>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <param name="para2"></param>
     /// <returns>void</returns>
     public virtual void CallLuaFunc<T1, T2>(string funcName, T1 para1, T2 para2) { }
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºCallLuaFunc<int, int, int>("test", 1, 1, 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º CallLuaFunc<float, float, int>("globalTable.test", 1.0f, 2.0f, 5)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šCallLuaFunc<int, int, int>("test", 1, 1, 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š CallLuaFunc<float, float, int>("globalTable.test", 1.0f, 2.0f, 5)
     /// </example>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <param name="para2"></param>
     /// <param name="para3"></param>
@@ -64,17 +64,17 @@ public abstract class ILuaUtility
     public virtual void CallLuaFunc<T1, T2, T3>(string funcName, T1 para1, T2 para2, T3 para3) { }
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºCallLuaFunc<int, int, int, int>("test", 1, 1, 1, 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º CallLuaFunc<float, float, int, int>("globalTable.test", 1.0f, 2.0f, 5, 1)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šCallLuaFunc<int, int, int, int>("test", 1, 1, 1, 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š CallLuaFunc<float, float, int, int>("globalTable.test", 1.0f, 2.0f, 5, 1)
     /// </example>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T4"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <param name="para2"></param>
     /// <param name="para3"></param>
@@ -83,27 +83,27 @@ public abstract class ILuaUtility
     public virtual void CallLuaFunc<T1, T2, T3, T4>(string funcName, T1 para1, T2 para2, T3 para3, T4 para4) { }
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ,Ò»¸ö·µ»ØÖµ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨,ä¸€ä¸ªè¿”å›å€¼
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºint result = CallLuaFuncEx<int>("test")
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º float result = CallLuaFuncEx<float>("globalTable.test")
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šint result = CallLuaFuncEx<int>("test")
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š float result = CallLuaFuncEx<float>("globalTable.test")
     /// </example>
     /// <typeparam name="TResult"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <returns>TResult</returns>
     public virtual TResult CallLuaFunc<TResult>(string funcName) => default;
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ,Ò»¸ö·µ»ØÖµ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨,ä¸€ä¸ªè¿”å›å€¼
     /// </summary>
     /// <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºint result = CallLuaFuncEx<int, int, int>("test", 1, 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º float result = CallLuaFuncEx<int, int, float>("globalTable.test", 1, 1)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šint result = CallLuaFuncEx<int, int, int>("test", 1, 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š float result = CallLuaFuncEx<int, int, float>("globalTable.test", 1, 1)
     /// </example>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="TResult"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <returns>TResult</returns>
     public virtual TResult CallLuaFunc<T1, TResult>(string funcName, T1 para1) => default;
@@ -121,17 +121,17 @@ public abstract class ILuaUtility
     public virtual TResult CallLuaFunc<T1, T2, TResult>(string funcName, T1 para1, T2 para2) => default;
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ,Ò»¸ö·µ»ØÖµ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨,ä¸€ä¸ªè¿”å›å€¼
     /// </summary>
     ///  <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºint result = CallLuaFuncEx<int, int, int, int>("test", 1, 1, 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º float result = CallLuaFuncEx<int, int, int, float>("globalTable.test", 1, 1, 1)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šint result = CallLuaFuncEx<int, int, int, int>("test", 1, 1, 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š float result = CallLuaFuncEx<int, int, int, float>("globalTable.test", 1, 1, 1)
     /// </example>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="TResult"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <param name="para2"></param>
     /// <param name="para3"></param>
@@ -139,18 +139,18 @@ public abstract class ILuaUtility
     public virtual TResult CallLuaFunc<T1, T2, T3, TResult>(string funcName, T1 para1, T2 para2, T3 para3) => default;
 
     /// <summary>
-    /// µ÷ÓÃLUAº¯Êı£¬Ö§³ÖÈ«¾Öº¯Êıµ÷ÓÃ£¬Ö§³ÖÈ«¾Ö±í¸ñÖĞº¯Êıµ÷ÓÃ,Ò»¸ö·µ»ØÖµ
+    /// è°ƒç”¨LUAå‡½æ•°ï¼Œæ”¯æŒå…¨å±€å‡½æ•°è°ƒç”¨ï¼Œæ”¯æŒå…¨å±€è¡¨æ ¼ä¸­å‡½æ•°è°ƒç”¨,ä¸€ä¸ªè¿”å›å€¼
     /// </summary>
     ///  <example>
-    /// µ÷ÓÃLuaÖĞtestº¯Êı£ºint result = CallLuaFuncEx<int, int, int, int, int>("test", 1, 1, 1, 1)
-    /// µ÷ÓÃLuaÖĞÈ«¾Ö±íÖĞtestº¯Êı£º float result = CallLuaFuncEx<int, int, int, int, float>("globalTable.test", 1, 1, 1, 1)
+    /// è°ƒç”¨Luaä¸­testå‡½æ•°ï¼šint result = CallLuaFuncEx<int, int, int, int, int>("test", 1, 1, 1, 1)
+    /// è°ƒç”¨Luaä¸­å…¨å±€è¡¨ä¸­testå‡½æ•°ï¼š float result = CallLuaFuncEx<int, int, int, int, float>("globalTable.test", 1, 1, 1, 1)
     /// </example>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T4"></typeparam>
     /// <typeparam name="TResult"></typeparam>
-    /// <param name="funcName">Luaº¯ÊıÃû</param>
+    /// <param name="funcName">Luaå‡½æ•°å</param>
     /// <param name="para1"></param>
     /// <param name="para2"></param>
     /// <param name="para3"></param>
@@ -159,20 +159,20 @@ public abstract class ILuaUtility
     public virtual TResult CallLuaFunc<T1, T2, T3, T4, TResult>(string funcName, T1 para1, T2 para2, T3 para3, T4 para4) => default;
 
     /// <summary>
-    /// Ö´ĞĞLuaÓï¾ä
+    /// æ‰§è¡ŒLuaè¯­å¥
     /// </summary>
     /// <param name="strLua"></param>
     public virtual void LuaDoString(string strLua) { }
 
     /// <summary>
-    /// Ö´ĞĞ´øÓĞ·µ»ØÖµµÄLuaÓï¾ä
+    /// æ‰§è¡Œå¸¦æœ‰è¿”å›å€¼çš„Luaè¯­å¥
     /// </summary>
     /// <param name="strLua"></param>
     /// <returns>object[]</returns>
     public virtual object[] LuaDoStringWithResultValue(string strLua) => default;
 
     /// <summary>
-    /// lua ÄÚ´æÕ¼ÓÃ
+    /// lua å†…å­˜å ç”¨
     /// </summary>
     /// <returns></returns>
     public virtual int LuaMemory() => default;
