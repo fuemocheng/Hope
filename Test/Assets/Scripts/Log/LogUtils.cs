@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,9 +8,9 @@ using UnityEngine;
 
 public static class LogUtils
 {
-    //×Ö·û»º´æÇø
+    //å­—ç¬¦ç¼“å­˜åŒº
     private static StringBuilder s_stringBuilder = new StringBuilder(1024 * 4);
-    //¼õÉÙ×Ö·û´®Æ´½ÓÔì³ÉµÄGC
+    //å‡å°‘å­—ç¬¦ä¸²æ‹¼æ¥é€ æˆçš„GC
     public static string BuildString(params object[] args)
     {
         lock (s_stringBuilder)
@@ -26,7 +26,7 @@ public static class LogUtils
     }
 
     /// <summary>
-    /// ĞÅÏ¢ÈÕÖ¾
+    /// ä¿¡æ¯æ—¥å¿—
     /// </summary>
     [Conditional("DEBUG")]
     [MethodImplAttribute(MethodImplOptions.AggressiveInlining)]
@@ -36,7 +36,7 @@ public static class LogUtils
     }
     
     /// <summary>
-    /// ¾¯¸æÈÕÖ¾
+    /// è­¦å‘Šæ—¥å¿—
     /// </summary>
     [Conditional("DEBUG")]
     [MethodImplAttribute(MethodImplOptions.AggressiveInlining)]
@@ -46,7 +46,7 @@ public static class LogUtils
     }
 
     /// <summary>
-    /// ´íÎóÈÕÖ¾
+    /// é”™è¯¯æ—¥å¿—
     /// </summary>
     [Conditional("DEBUG")]
     [MethodImplAttribute(MethodImplOptions.AggressiveInlining)]
@@ -56,7 +56,7 @@ public static class LogUtils
     }
 
     /// <summary>
-    /// Òì³£ÈÕÖ¾
+    /// å¼‚å¸¸æ—¥å¿—
     /// </summary>
     [Conditional("DEBUG")]
     [MethodImplAttribute(MethodImplOptions.AggressiveInlining)]

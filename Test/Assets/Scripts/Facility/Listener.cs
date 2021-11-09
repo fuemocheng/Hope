@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +16,11 @@ public class Listener<TK, TV> where TV : class
     }
 
     /// <summary>
-    /// Ìí¼ÓÊÂ¼şÕìÌı
+    /// æ·»åŠ äº‹ä»¶ä¾¦å¬
     /// </summary>
-    /// <param name="tk">ÊÂ¼şID</param>
-    /// <param name="tv">ÊÂ¼ş´¥·¢»Øµ÷</param>
-    /// <param name="order">Í¬Ò»ÊÂ¼şID£¬µ÷ÓÃµÄË³Ğò£¬orderÔ½Ğ¡£¬µ÷ÓÃÔ½Ôç</param>
+    /// <param name="tk">äº‹ä»¶ID</param>
+    /// <param name="tv">äº‹ä»¶è§¦å‘å›è°ƒ</param>
+    /// <param name="order">åŒä¸€äº‹ä»¶IDï¼Œè°ƒç”¨çš„é¡ºåºï¼Œorderè¶Šå°ï¼Œè°ƒç”¨è¶Šæ—©</param>
     public void Add(TK tk, TV tv, int order)
     {
         if (listeners.ContainsKey(tk))
@@ -35,11 +35,11 @@ public class Listener<TK, TV> where TV : class
     }
 
     /// <summary>
-    /// Ìí¼ÓÊÂ¼şÕìÌı
+    /// æ·»åŠ äº‹ä»¶ä¾¦å¬
     /// </summary>
-    /// <param name="tk">ÊÂ¼şID</param>
-    /// <param name="tv">ÊÂ¼ş´¥·¢»Øµ÷</param>
-    /// <param name="autoRemove">ÎªtrueÊ±£¬ÊÂ¼ş´¥·¢Ò»´Îºó×Ô¶¯É¾³ıÕìÌı</param>
+    /// <param name="tk">äº‹ä»¶ID</param>
+    /// <param name="tv">äº‹ä»¶è§¦å‘å›è°ƒ</param>
+    /// <param name="autoRemove">ä¸ºtrueæ—¶ï¼Œäº‹ä»¶è§¦å‘ä¸€æ¬¡åè‡ªåŠ¨åˆ é™¤ä¾¦å¬</param>
     public void Add(TK tk, TV tv, bool autoRemove = false)
     {
         if (listeners.ContainsKey(tk))
@@ -59,11 +59,11 @@ public class Listener<TK, TV> where TV : class
     }
 
     /// <summary>
-    /// Ìí¼ÓÊÂ¼şÕìÌı
+    /// æ·»åŠ äº‹ä»¶ä¾¦å¬
     /// </summary>
-    /// <param name="obj">ÕìÌı°ó¶¨µÄ¶ÔÏó£¬Remove(object)¿ÉÒÔÖ±½ÓÉ¾³ıËùÓĞ°ó¶¨µÄ¶ÔÏóµÄÊÂ¼ş</param>
-    /// <param name="tk">ÊÂ¼şID</param>
-    /// <param name="tv">ÊÂ¼ş´¥·¢»Øµ÷</param>
+    /// <param name="obj">ä¾¦å¬ç»‘å®šçš„å¯¹è±¡ï¼ŒRemove(object)å¯ä»¥ç›´æ¥åˆ é™¤æ‰€æœ‰ç»‘å®šçš„å¯¹è±¡çš„äº‹ä»¶</param>
+    /// <param name="tk">äº‹ä»¶ID</param>
+    /// <param name="tv">äº‹ä»¶è§¦å‘å›è°ƒ</param>
     public void Add(object obj, TK tk, TV tv)
     {
         Add(tk, tv);
@@ -95,9 +95,9 @@ public class Listener<TK, TV> where TV : class
     }
 
     /// <summary>
-    /// É¾³ıobj°ó¶¨µÄËùÓĞÊÂ¼ş£¬²Î¼ûAdd(object obj, TK tk, TV tv)
+    /// åˆ é™¤objç»‘å®šçš„æ‰€æœ‰äº‹ä»¶ï¼Œå‚è§Add(object obj, TK tk, TV tv)
     /// </summary>
-    /// <param name="obj">°ó¶¨ÊÂ¼şµÄ¶ÔÏó</param>
+    /// <param name="obj">ç»‘å®šäº‹ä»¶çš„å¯¹è±¡</param>
     public void Remove(object obj)
     {
         if (!objectMapper.ContainsKey(obj)) return;
@@ -118,7 +118,7 @@ public class Listener<TK, TV> where TV : class
     }
 
     /// <summary>
-    /// ×Öµä²»ÊÊºÏÓÃÃ¶¾Ù×ökey
+    /// å­—å…¸ä¸é€‚åˆç”¨æšä¸¾åškey
     /// </summary>
     /// <param name="tk"></param>
     /// <param name="dispatchAction"></param>
