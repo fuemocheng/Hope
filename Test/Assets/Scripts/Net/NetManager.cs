@@ -41,6 +41,9 @@ public class NetManager : Singleton<NetManager>
 
     private Dictionary<int, Action<IMessage>> messageCallback = new Dictionary<int, Action<IMessage>>();
 
+    /// Lua侧消息接收
+    public Action<int, byte[]> OnLuaNetRecv;
+
     public NetManager()
     {
     }
@@ -215,6 +218,9 @@ public class NetManager : Singleton<NetManager>
         //先缓存起来，放在Update中处理，防止处理时间过长造成堵塞
         recvPool.AddRecvPacket(netPacket);
 
+        //Lua测消息接收(未解析的数据，lua测单独处理)
+        OnLuaNetRecv?.Invoke(netPacket.cmd, buff);
+
         //尾递归 防止在消息存储过程中 有其他消息到达而没有经过处理
         OnReceive();
     }
@@ -248,7 +254,12 @@ public class NetManager : Singleton<NetManager>
         Write(byteArr);
     }
 
-    public void Write(byte[] value)
+    public void Send(int cmd, byte[] data)
+    {
+
+    }
+
+    private void Write(byte[] value)
     {
         writeQueue.Enqueue(value);
         if (!m_bIsWriting)

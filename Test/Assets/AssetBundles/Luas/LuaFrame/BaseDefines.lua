@@ -62,3 +62,5 @@ Mathf = UnityEngine.Mathf
 UIComponentRef = CS.UIComponentRef
 
 CSDGTweening = CS.DG.Tweening
+
+CSNetManager = CS.NetManager.Instance

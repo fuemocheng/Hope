@@ -70,7 +70,6 @@ public static class LuaRoot
     {
         if (m_bytesDict.ContainsKey(filepath))
             return m_bytesDict[filepath];
-#if UNITY_EDITOR
         string newpath = $"Assets/AssetBundles/Luas/{filepath}" + _luaSuffix;
         LuaAsset luaAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<LuaAsset>(newpath);
         if (luaAsset != null)
@@ -79,7 +78,6 @@ public static class LuaRoot
             m_bytesDict.Add(filepath, data);
             return data;
         }
-#endif
         return null;
     }
 
@@ -113,6 +111,7 @@ public static class LuaRoot
 
         _envTable.Get("CSStart", out _start);
         _envTable.Get("CSUpdate", out _update);
+        _envTable.Get("CSNetMsgRecv", out NetManager.Instance.OnLuaNetRecv);
 
 #if UNITY_EDITOR && UNITY_STANDALONE_WIN
         // CSHotLoadInit
@@ -150,6 +149,11 @@ public static class LuaRoot
         LuaTable table = objs[0] as LuaTable;
 
         _onHotLoadUpdate?.Invoke(table);
+    }
+
+    public static void LuaDoStringFun(string str)
+    {
+        _luaEnv.DoString(str);
     }
 
     public static void Dispose()
