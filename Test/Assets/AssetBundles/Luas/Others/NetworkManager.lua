@@ -1,6 +1,6 @@
 local pb = require "pb"
-local protoc = require "Luas/LuaFrame/protoc"
-local serpent = require "Luas/LuaFrame/serpent"
+local protoc = require "LuaFrame/protoc"
+local serpent = require "LuaFrame/serpent"
 
 local netManager = CSNetManagerEx
 
