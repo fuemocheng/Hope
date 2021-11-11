@@ -111,7 +111,7 @@ public static class LuaRoot
 
         _envTable.Get("CSStart", out _start);
         _envTable.Get("CSUpdate", out _update);
-        _envTable.Get("CSNetMsgRecv", out NetManager.Instance.OnLuaNetRecv);
+        _envTable.Get("CSNetMsgRecv", out NetManager.Instance.OnLuaNetMsgRecv);
 
 #if UNITY_EDITOR && UNITY_STANDALONE_WIN
         // CSHotLoadInit

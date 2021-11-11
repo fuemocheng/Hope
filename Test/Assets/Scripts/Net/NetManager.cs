@@ -8,6 +8,7 @@ using NetFrame;
 using NetFrame.Coding;
 using CmdProto;
 using Google.Protobuf;
+using XLua;
 
 public class NetManager : Singleton<NetManager>
 {
@@ -42,7 +43,8 @@ public class NetManager : Singleton<NetManager>
     private Dictionary<int, Action<IMessage>> messageCallback = new Dictionary<int, Action<IMessage>>();
 
     /// Lua侧消息接收
-    public Action<int, byte[]> OnLuaNetRecv;
+    [CSharpCallLua]
+    public Action<int, byte[]> OnLuaNetMsgRecv;
 
     public NetManager()
     {
@@ -238,6 +240,7 @@ public class NetManager : Singleton<NetManager>
             return;
         }
 
+        /// CommonMessage编码
         var comMsg = new CommonMessage { Cmd = cmd };
         ProtoUtil.ReqCommonMsg(cmd, comMsg, message);
 
@@ -245,7 +248,7 @@ public class NetManager : Singleton<NetManager>
         netPacket.cmd = (int)cmd;
         netPacket.data = comMsg.ToByteArray();
 
-        if(callback != null)
+        if (callback != null)
         {
             Subscribe((int)cmd, callback);
         }
@@ -255,6 +258,11 @@ public class NetManager : Singleton<NetManager>
         Write(byteArr);
     }
 
+    /// <summary>
+    /// Lua Send
+    /// </summary>
+    /// <param name="cmd"></param>
+    /// <param name="data">CommonMessage.ToByteArray()</param>
     public void Send(int cmd, byte[] data)
     {
         NetPacket netPacket = new NetPacket();
@@ -321,6 +329,7 @@ public class NetManager : Singleton<NetManager>
     /// <param name="packet"></param>
     private void DispatchCmdEvent(NetPacket packet)
     {
+        /// CommonMessage解码
         var commonMsg = CommonMessage.Parser.ParseFrom(packet.data);
         var packetCmd = packet.cmd;
         IMessage retMessage = ProtoUtil.AckCommonMsg(commonMsg);
@@ -331,9 +340,10 @@ public class NetManager : Singleton<NetManager>
         /// 分发回调的事件
         DispatchCmdCallback(packet.cmd, retMessage);
 
-        /// Lua测消息接收(未解析的数据，lua测单独处理)
-        /// byte[] CommonMessage
-        OnLuaNetRecv?.Invoke(packet.cmd, packet.data);
+        /// Lua测消息接收(未解析的数据，Lua测单独处理)
+        /// int : cmd
+        /// byte[] : CommonMessage
+        OnLuaNetMsgRecv?.Invoke(packet.cmd, packet.data);
     }
 
     /// <summary>

@@ -14,12 +14,16 @@ require "LuaFrame/luahotupdate"
 
 -- Utility
 require "LuaFrame/Utility"
+require "LuaFrame/Stack"
+require "LuaFrame/Queue"
+require "LuaFrame/LuaEventListener"
+
+-- LuaManager
 require "LuaFrame/LuaManager"
 
 --GamePlay
 require "Test/TestManager"
 require "GameLogic/Manager/NetManager"
-
 
 CSStart = function()
     LuaManager.Instance:Init()
@@ -30,5 +34,5 @@ CSUpdate = function()
 end
 
 CSNetMsgRecv = function(msgId, data)
-    NetworkManager.instance:Receive(msgId, data)
+    NetManager.instance:Receive(msgId, data)
 end
