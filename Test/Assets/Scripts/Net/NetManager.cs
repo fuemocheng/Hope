@@ -218,9 +218,6 @@ public class NetManager : Singleton<NetManager>
         //先缓存起来，放在Update中处理，防止处理时间过长造成堵塞
         recvPool.AddRecvPacket(netPacket);
 
-        //Lua测消息接收(未解析的数据，lua测单独处理)
-        OnLuaNetRecv?.Invoke(netPacket.cmd, buff);
-
         //尾递归 防止在消息存储过程中 有其他消息到达而没有经过处理
         OnReceive();
     }
@@ -240,9 +237,13 @@ public class NetManager : Singleton<NetManager>
             LogUtils.LogError("Socket is invalid!");
             return;
         }
+
+        var comMsg = new CommonMessage { Cmd = cmd };
+        ProtoUtil.ReqCommonMsg(cmd, comMsg, message);
+
         NetPacket netPacket = new NetPacket();
         netPacket.cmd = (int)cmd;
-        netPacket.message = message;
+        netPacket.data = comMsg.ToByteArray();
 
         if(callback != null)
         {
@@ -256,7 +257,13 @@ public class NetManager : Singleton<NetManager>
 
     public void Send(int cmd, byte[] data)
     {
+        NetPacket netPacket = new NetPacket();
+        netPacket.cmd = cmd;
+        netPacket.data = data;
 
+        //先编码消息, 再编码长度
+        byte[] byteArr = lengthEncode(messageEncode(netPacket));
+        Write(byteArr);
     }
 
     private void Write(byte[] value)
@@ -314,22 +321,31 @@ public class NetManager : Singleton<NetManager>
     /// <param name="packet"></param>
     private void DispatchCmdEvent(NetPacket packet)
     {
-        /// 广播注册
-        Listeners.Dispatch(packet.cmd, (a) => a(packet.message));
-        /// 广播回调
-        DispatchCmdCallback(packet);
+        var commonMsg = CommonMessage.Parser.ParseFrom(packet.data);
+        var packetCmd = packet.cmd;
+        IMessage retMessage = ProtoUtil.AckCommonMsg(commonMsg);
+
+        /// C#端处理
+        /// 分发注册的事件
+        Listeners.Dispatch(packet.cmd, (a) => a(retMessage));
+        /// 分发回调的事件
+        DispatchCmdCallback(packet.cmd, retMessage);
+
+        /// Lua测消息接收(未解析的数据，lua测单独处理)
+        /// byte[] CommonMessage
+        OnLuaNetRecv?.Invoke(packet.cmd, packet.data);
     }
 
     /// <summary>
     /// 广播回调
     /// </summary>
     /// <param name="packet"></param>
-    protected void DispatchCmdCallback(NetPacket packet)
+    protected void DispatchCmdCallback(int cmd, IMessage message)
     {
-        if (messageCallback.TryGetValue(packet.cmd, out Action<IMessage> callback))
+        if (messageCallback.TryGetValue(cmd, out Action<IMessage> callback))
         {
-            callback?.Invoke(packet.message);
-            UnSubscribe(packet.cmd, callback);
+            callback?.Invoke(message);
+            UnSubscribe(cmd, callback);
         }
     }
 

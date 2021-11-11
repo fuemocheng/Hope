@@ -14,6 +14,11 @@ namespace NetFrame.Coding
 {
     public class ProtoUtil
     {
+        /// <summary>
+        /// client request message
+        /// </summary>
+        /// <param name="comMsg"></param>
+        /// <returns></returns>
         public static IMessage ReqCommonMsg(CommonMessage comMsg)
         {
             IMessage retMessage = null;
@@ -53,6 +58,12 @@ namespace NetFrame.Coding
             return retMessage;
         }
 
+        /// <summary>
+        /// server ack client message
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="comMsg"></param>
+        /// <param name="data"></param>
         public static void AckCommonMsg(Cmd cmd, CommonMessage comMsg, IMessage data = null)
         {
             switch (cmd)

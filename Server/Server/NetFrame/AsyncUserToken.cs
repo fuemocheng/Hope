@@ -109,10 +109,15 @@ namespace NetFrame
             if (null == messageDecode) { throw new Exception("Message decode process is null"); }
 
             //进行消息反序列化
-            NetPacket message = messageDecode(buff);
+            NetPacket packet = messageDecode(buff);
+
+            //CommonMessage解码
+            var commonMsg = CommonMessage.Parser.ParseFrom(packet.data);
+            var packetCmd = packet.cmd;
+            IMessage clientReqMessage = ProtoUtil.ReqCommonMsg(commonMsg);
 
             //通知应用层，处理消息
-            handlerCenter.MessageReceive(this, message);
+            handlerCenter.MessageReceive(this, packetCmd, clientReqMessage);
 
             //尾递归 防止在消息存储过程中 有其他消息到达而没有经过处理
             OnReceive();
@@ -127,9 +132,14 @@ namespace NetFrame
         /// </summary>
         public void Send(Cmd cmd, IMessage message)
         {
+            var comMsg = new CommonMessage { Cmd = cmd };
+
+            //server ack client message  or  notify message
+            ProtoUtil.AckCommonMsg(cmd, comMsg, message);
+
             NetPacket netPacket = new NetPacket();
             netPacket.cmd = (int)cmd;
-            netPacket.message = message;
+            netPacket.data = comMsg.ToByteArray();
 
             //先编码消息, 再编码长度
             byte[] byteArr = lengthEncode(messageEncode(netPacket));

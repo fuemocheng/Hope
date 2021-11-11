@@ -20,13 +20,7 @@ namespace NetFrame.Coding
             //读取数据顺序必须和写入顺序保持一致
             byteArray.Write(packet.cmd);
             byteArray.Write(packet.msgid);
-            if (packet.message != null)
-            {
-                var comMsg = new CommonMessage { Cmd = (Cmd)packet.cmd };
-                //回复客户端请求, 或者通知客户端信息
-                ProtoUtil.ReqCommonMsg((Cmd)packet.cmd, comMsg, packet.message);
-                byteArray.Write(comMsg.ToByteArray());
-            }
+            byteArray.Write(packet.data);
             byte[] result = byteArray.GetBuffer();
             byteArray.Close();
             return result;
@@ -48,13 +42,11 @@ namespace NetFrame.Coding
 
             if (byteArray.Readable)
             {
-                byte[] message;
-                byteArray.Read(out message, byteArray.Length - byteArray.Position);
-                var commonMsg = CommonMessage.Parser.ParseFrom(message);
-                //解析客户端的Req
-                netPacket.message = ProtoUtil.AckCommonMsg(commonMsg);
+                byte[] data;
+                byteArray.Read(out data, byteArray.Length - byteArray.Position);
                 netPacket.cmd = cmd;
                 netPacket.msgid = msgid;
+                netPacket.data = data;
             }
             byteArray.Close();
             return netPacket;

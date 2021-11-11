@@ -21,22 +21,17 @@ namespace NetFrame.Coding
         public int msgid { get; set; }
 
         /// <summary>
-        /// 消息数据
+        /// 消息数据 CommonMessage.ToByteArray()
         /// </summary>
-        public IMessage message { get; set; }
+        public byte[] data { get; set; }
 
         public NetPacket() { }
 
-        public NetPacket(int cmd, int msgid, IMessage message)
+        public NetPacket(int cmd, int msgid, byte[] data)
         {
             this.cmd = cmd;
             this.msgid = msgid;
-            this.message = message;
-        }
-
-        public T GetMessge<T>() where T : IMessage
-        {
-            return (T)message;
+            this.data = data;
         }
     }
 }

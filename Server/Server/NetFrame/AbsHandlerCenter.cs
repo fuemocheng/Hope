@@ -1,9 +1,5 @@
-﻿using NetFrame.Coding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Google.Protobuf;
+using CmdProto;
 
 namespace NetFrame
 {
@@ -23,7 +19,7 @@ namespace NetFrame
         /// </summary>
         /// <param name="token">发送消息的客户端对象</param>
         /// <param name="message">消息内容</param>
-        public abstract void MessageReceive(AsyncUserToken token, NetPacket message);
+        public abstract void MessageReceive(AsyncUserToken token, int cmd, IMessage message);
 
         /// <summary>
         /// 客户端断开连接

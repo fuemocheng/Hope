@@ -38,7 +38,7 @@ public class NetPool
         }
     }
 
-    public NetPacket AddSendPacket(int cmd, int msgId, IMessage message)
+    public NetPacket AddSendPacket(int cmd, int msgId, byte[] data)
     {
         NetPacket packet = null;
         lock (sendPacketPool)
@@ -46,7 +46,7 @@ public class NetPool
             packet = new NetPacket();
             packet.cmd = cmd;
             packet.msgid = msgId;
-            packet.message = message;
+            packet.data = data;
             sendPacketPool.Enqueue(packet);
         }
         return packet;

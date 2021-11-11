@@ -23,15 +23,15 @@ namespace Server.Logic.Login
 
         }
 
-        public void MessageReceive(AsyncUserToken token, NetPacket message)
+        public void MessageReceive(AsyncUserToken token, int cmd, IMessage message)
         {
-            Cmd cmd = (Cmd)message.cmd;
-            switch (cmd)
+            Cmd command = (Cmd)cmd;
+            switch (command)
             {
                 case Cmd.GmCommand:
                     break;
                 case Cmd.Login:
-                    Login(token, message.GetMessge<LoginReq>());
+                    Login(token, message as LoginReq);
                     break;
                 case Cmd.CreateRole:
                     break;

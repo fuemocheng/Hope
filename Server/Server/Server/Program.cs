@@ -21,6 +21,8 @@ namespace Server
             server.Start(8001);
 
             Console.WriteLine("Server starts success!");
+            Console.WriteLine("Start listening....");
+
             while (true) { }
         }
     }

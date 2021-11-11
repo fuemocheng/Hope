@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NetFrame;
-using NetFrame.Coding;
 using Server.Logic;
 using Server.Logic.Login;
 using CmdProto;
 using GameProto;
+using Google.Protobuf;
 
 namespace Server
 {
@@ -32,15 +28,15 @@ namespace Server
             Console.WriteLine($"[ {token.UserSocket.RemoteEndPoint.ToString()} ] 连接");
         }
 
-        public override void MessageReceive(AsyncUserToken token, NetPacket message)
+        public override void MessageReceive(AsyncUserToken token, int cmd, IMessage message)
         {
-            Cmd cmd = (Cmd)message.cmd;
-            switch(cmd)
+            Cmd command = (Cmd)cmd;
+            switch(command)
             {
                 case Cmd.GmCommand:
                     break;
                 case Cmd.Login:
-                    login.MessageReceive(token, message);
+                    login.MessageReceive(token, cmd, message);
                     break;
                 case Cmd.CreateRole:
                     break;
