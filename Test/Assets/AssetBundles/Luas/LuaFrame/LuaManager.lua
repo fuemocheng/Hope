@@ -8,25 +8,41 @@ LuaManager = class("LuaManager")
 local M = LuaManager
 
 local lastGCTime = 0
-local gcTime = 60
+local gcTime = 5 * 60 --每5分钟强制触发luagc
 
 function M:ctor()
-    -- body
 end
 
 function M:Init()
-    -- body
-    Log("LuaManager->Init!")
+    -- Log("LuaManager->Init")
+    self:AddModules()
+end
 
+function M:AddModules()
+    self.modules = {
+        NetManager.Instance,
+    }
+    for key, module in ipairs(self.modules) do
+        if module.Init then
+            module:Init()
+        end
+    end
 end
 
 function M:Update()
     -- print("LuaManager-Update")
     self:CheckGC()
+
+    -- Module Update
+    for key, module in ipairs(self.modules) do
+        if module.Update then
+            module:Update()
+        end
+    end
 end
 
 function M:Clear()
-    -- body
+    self.modules = {}
 end
 
 function M:CheckGC()

@@ -155,6 +155,7 @@
     <Compile Include="Assets\Store\DefaultPlayables\TransformTween\TransformTweenBehaviour.cs" />
     <Compile Include="Assets\XLua\Src\ObjectCasters.cs" />
     <Compile Include="Assets\Scripts\Utility\PlatformPath.cs" />
+    <Compile Include="Assets\XLua\BulidInInit.cs" />
     <Compile Include="Assets\Scripts\Extensions\PathExtension.cs" />
     <Compile Include="Assets\XLua\Src\SignatureLoader.cs" />
     <Compile Include="Assets\Scripts\Utility\MD5Checker.cs" />
@@ -222,7 +223,7 @@
     <Compile Include="Assets\Store\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Extensions\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\Extensions\BitMath.cs" />
-    <Compile Include="Assets\XLua\BulidInInit.cs" />
+    <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
@@ -493,11 +494,11 @@
     <Reference Include="System.Memory">
       <HintPath>Assets\Plugins\Sentry\System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Assets\Plugins\Sentry\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>Library\PackageCache\com.unity.analytics@3.5.3\Unity.Analytics.Editor.dll</HintPath>

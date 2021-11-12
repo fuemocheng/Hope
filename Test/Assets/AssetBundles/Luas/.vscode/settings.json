@@ -4,7 +4,8 @@
         "undefined-global",
         "undefined-field",
         "unbalanced-assignments",
-        "redundant-parameter"
+        "redundant-parameter",
+        "undefined-doc-name"
     ],
     "files.exclude": {
         "**/.git": true,

@@ -12,6 +12,9 @@ require "LuaFrame/Class"
 require "LuaFrame/BaseDefines"
 require "LuaFrame/luahotupdate"
 
+-- ProtoEnum
+require "LuaFrame/ProtoEnum"
+
 -- Utility
 require "LuaFrame/Utility"
 require "LuaFrame/Stack"
@@ -34,5 +37,5 @@ CSUpdate = function()
 end
 
 CSNetMsgRecv = function(msgId, data)
-    NetManager.instance:Receive(msgId, data)
+    NetManager.Instance:Receive(msgId, data)
 end

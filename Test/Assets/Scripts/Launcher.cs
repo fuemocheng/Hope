@@ -55,21 +55,6 @@ public class Launcher : MonoSingleton<Launcher>
         //NetManager.Instance.Listeners.Add((int)CmdProto.Cmd.Login, OnLoginAck);
     }
 
-    private void OnLoginAck(IMessage message)
-    {
-        var msg = message as LoginAck;
-        bool createRole = msg.CreateRole;
-        LogUtils.LogError("createRole:", createRole);
-    }
-
-    //private void OnLoginAck(IMessage packet)
-    //{
-    //    var msg = packet.GetMessge<GameProto.LoginAck>();
-    //    bool createRole = msg.CreateRole;
-
-    //    LogUtils.LogError("createRole:" , createRole);
-    //}
-
     public void Login()
     {
         GameProto.LoginReq loginReq = new GameProto.LoginReq
@@ -81,4 +66,18 @@ public class Launcher : MonoSingleton<Launcher>
         };
         NetManager.Instance.Send(CmdProto.Cmd.Login, loginReq, OnLoginAck);
     }
+
+    private void OnLoginAck(IMessage message)
+    {
+        var msg = message as LoginAck;
+        bool createRole = msg.CreateRole;
+        LogUtils.LogError("createRole:", createRole);
+    }
+
+
+    public void TestLuaLogin()
+    {
+        LuaUtility.Instance.CallLuaFunc("TestLogin");
+    }
+
 }
