@@ -146,7 +146,7 @@ function M:SendAndReceive(cmd, data, target, callback)
     self:StartCheckSend()
 end
 
----comment
+---从C#端 Receive 原始 CommonMessage 的 byte[] 数据
 ---@param cmd number int
 ---@param data byte[] byte[]
 function M:Receive(cmd, data)
@@ -182,7 +182,7 @@ function M:Update()
         if os.time() - self.sendTime > 30 then
             self.isSending = false
             local resp = {}
-            resp.code = self.sendingCmd
+            resp.cmd = self.sendingCmd
             resp.errorCode = ProtoEnum.cmd_proto.ErrorCode.SERVICE_UNAVAILABLE
             self:DispatchEventToReceive(resp)
             LogError("服务器协议超时(等待时间30s) --> cmd: " .. self.sendingCmd)
