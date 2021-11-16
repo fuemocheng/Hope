@@ -1,0 +1,451 @@
+MaxScript
+
+0.	showclass
+	showclass "box.*"
+	
+1.	--Drawing a Box
+	
+	object creation and manipulation 创建和操纵
+	mybox = box()
+	mybox = box length:20 width:20 height:20
+	mybox.name = "BlueBox"
+	
+	--Modifying the Box
+	
+	mybox.wirecolor = (color 255 0 255)
+	mybox.pos = [0,-75,0]
+	mybox.scale = [1.5,1.5,1.5]
+	mybox.height = 40 -- 2 times the original 20 units 
+	mybox.width = 60 -- 3 times the original 20 units
+	showclass "box.*"
+	
+	--Standard Transformations 标准转换
+	
+	move name_obj [<x,y,z>]
+	scale name_obj [<x,y,z>]
+	
+	--Rotating the Box
+	
+	Rotating the Box, there are three ways to express rotation values in MAXScript:
+	[Euler Angles], [Quaternions ] and [Angleaxis ].
+	[欧拉角]，[四元数]和[角轴]
+	
+	rot_obj = eulerangles x y z		--定义旋转的对象
+	
+	rot_box = eulerangles 0 30 0  	--先定义一个旋转的对象
+	rotate mybox rot_box
+	
+	rot_box2 = eulerangles 30 45 60
+	The rotation is applied to an object, 
+	with the X-axis rotation occurring first, 
+	followed by the Y-axis rotation, 
+	and then the Z-axis rotation.
+	
+	--Creating and Assigning Modifiers 创建修改器
+
+	addModifier mybox (twist angle:30)		--30度的“扭曲”修改器
+	mybox.twist.angle = 60
+	
+	搜索 "Modifier : MAXWrapper" 查询其他修改器
+	
+	--Animating the Box  盒子动画
+	animate on
+	(
+		at time 0 (mybox.pos = [-100, 0, 0]; mybox.scale = [1, 1, 0.25])
+		at time 100 (mybox.pos = [100, 0, 0]; mybox.scale = [1, 1, 3])
+	)
+	在此示例中，时间以简单数字给出。如果未指定单位，则MAXScript会将其解释为帧号。您还可以按以下方式使用各种时间文字之一:
+	2.5s	-- 2.5 seconds
+	20f		-- 20 frames
+	4800t	-- 4800 ticks = 1 sec
+	1m3s5f	-- 1 min, 3 seconds, 5 frames
+	1:15.5	-- SMPTE: 1 min, 15 seconds, 5 frames
+	
+	
+2.	Conditional Statements	条件语句
+	resetMaxFile #noprompt	-- This will reset the current scene without the "Are You Sure" prompt
+	mybox = box length:10 width:10 height:10 wirecolor:blue
+
+	if mybox.height == 10 
+	then mybox.width = 20
+
+	if mybox.height == 10 
+	then mybox.width = 20 
+	else mybox.width = 10
+	
+	mybox.width = if mybox.height == 10 then 20 else 10
+	mybox.width = (if mybox.height == 10 then 20 else 10)
+	
+	if...do..	-- In the Listener, If...Then Conditions In the Listener 不会执行
+	
+	There are several different conditional operators used in MAXScript. They are listed here:
+	== 	equal to
+	!= 	not equal to
+	> 	greater than
+	>= 	greater than or equal to
+	< 	less than
+	<= 	less than or equal to
+	
+	In some scripts, you might see the words on and off used in place of true and false, respectively. These words are interchangeable and they mean the same thing to MAXScript.
+	在某些脚本中，您可能会看到分别使用“ on”和“ off”代替“ true”和“ false”。这些单词可以互换，它们对MAXScript的含义相同
+	
+	Loops 循环语句
+	
+	For Loops : For循环
+	
+	resetMaxFile #noprompt --reset the scene
+	mybox = box length:10 width:10 height:10 wirecolor:blue --new box
+	for i = 1 to 5 do --repeat five times, for each iteration do:
+	(
+		box_copy = copy mybox --create a copy of the original box
+		box_copy.pos = [i*20, 0, 0] --place it i*20 units along x
+		box_copy.wirecolor = [i*25,i*50,(5-i)*50] --blue-green gradient
+	)--end of the for loop
+
+	resetMaxFile #noprompt --reset the scene
+	mybox = box length:10 width:10 height:10 wirecolor:blue --new box
+	for i = 1 to 5 by 2 do --repeat with step of 2:
+	(
+		box_copy = copy mybox --create a copy of the original box
+		box_copy.pos = [i*20, 0, 0] --place it i*20 units along x
+		box_copy.wirecolor = [i*25,i*50,(5-i)*50] --blue-green gradient
+	)--end of the for loop
+	
+	Note that in some loops you might see the word "in" in place of the equal sign, "=". These both mean the same thing in for loops, and can be used interchangeably.
+	请注意，在某些循环中，您可能会看到单词“ in”代替等号“ =”。两者在for循环中含义相同，并且可以互换使用
+	
+	arr = for int i=1 to 5 collect i
+	#(1, 2, 3, 4, 5)
+	
+	for i in arr do print i
+	for i = 1 to arr.count do print arr[i]
+	
+	
+	While and Do Loops : while do 循环
+	
+	do <expr> while <expr> -- do loop
+	while <expr> do <expr> -- while loop
+	
+	x=10
+	while x>0 do print (x-=1)
+	
+3.	Local and Global Variables
+
+	global rad = 10
+	sphere radius:rad
+
+4.	Defining Custom Functions
+	fn subtract x y = (x - y)
+	
+	subtract 4 2
+	2
+	
+	function sign val:0 =
+	(
+		if val == 0
+		then messagebox ("Equal to 0")
+		else if val > 0
+		then messagebox ("Greater than 0")
+		else messagebox ("Less than 0")
+	)
+	sign val:-5
+	
+	function mycube side position:[0, 0, 0] =
+	(
+		box length:side width:side height:side pos:position
+	)
+
+5.	Structure Definitions
+	struct <struct_name> ( <member> , <member> )
+	
+	Struct person (name, height, age, sex)
+	Bill = person name:"Bill" height:72 age:34 sex:#male
+	
+	Joe = person name:"Joseph" sex:#male
+	Joe.age 
+	undefined
+	Since you did not provide these members with an optional default value in our structure definition, 
+	they will default to a value of undefined.
+	
+6.	MAX Commands in MAXScript
+	
+	max file open
+	max unhide all
+	max quick render
+	
+	The keyword max is followed by one or more words that describe the command. 
+	The available commands can be displayed by using the "?" character in a partial max command.
+	关键字max后跟一个或多个描述命令的单词。可以使用“？”显示可用命令。max部分命令中的字符。
+	
+	max time ? --shows all the time-related commands
+	max sel ? --shows all the commands with ’sel’ in them as a substring
+	max ? --shows all the commands (there are a lot)
+	
+	MAX Commands website
+	https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=__files_GUID_A96857E7_73FE_4F42_BE71_E8185356F4C9_htm
+	
+7.	Saving Your Commands in a Script File / Loading and Running Your Script File	
+	
+	To include your script in another script:
+	include "box_draw.ms"
+	include "box_mod.ms"
+	include "box_trans.ms"
+	
+8. 	Source Code Layout
+
+	If you do want to break a line at the end of a sub-expression, 
+	you can use the backslash line continuation character: ’\’. 
+	The previous example of an invalid break can be made valid using the line continuation character after the ’r;e’:
+	如果您确实想在子表达式的末尾换行，可以使用反斜杠换行符：“ \”。可以使用“ r; e”后的换行符使无效中断的前面示例有效：
+	
+	a + b * c / d - e \
+	+ f * g / h
+	
+	MAXScript also lets you combine multiple statements and expressions in a single line. 
+	The statements or expressions are separated with a ’;’
+	MAXScript还使您可以在一行中组合多个语句和表达式。语句或表达式之间用“;”分隔
+	
+	--comments 注释
+	
+9.	Entering Arrays in MAXScript
+	
+	#()	--an empty one.
+	
+	#(<expr> , <expr>)
+	
+	Each value of <expr> can be a number, an expression (e.g., sin pi, 6.2^3), or a string (e.g., "hello").
+	Elements do not have to be the same type of information, 
+	and there is no limit on the number of elements you can have in an array.
+	元素不必是同一类型的信息，并且数组中可以包含的元素数量没有限制。
+	
+	#(5, pi, "String", 6 + 3^2)
+	#(5, 3.14159, "String", 15)
+	
+10.	Notice that MAXScript doesn’t distinguish between lowercase and uppercase variable names 
+	because MAXScript names are not case-sensitive. 
+	请注意，由于MAXScript名称不区分大小写，因此MAXScript不能区分大小写变量名。
+	
+11.	Mathematical Operations in MAXScript	MAXScript中的数学运算
+	
+	Operations with Strings
+	a="MAXScript" ; b=" is fun!"
+	a+b
+	"MAXScript is fun!"
+	
+	String Values
+	https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=__files_GUID_A6A60FC7_6206_4FFC_80E2_0EF8544BE2C4_htm
+	
+	"123.4" as float-- returns 123.4 
+	
+	Creating Random Numbers
+	One very useful mathematical operation in MAXScript is the random number function. 
+	It returns a pseudo-random number selected inclusively between two user-specified arguments.
+	MAXScript中一种非常有用的数学运算是随机数函数。
+	它返回一个伪随机数，该伪随机数包括在两个用户指定的参数之间（包括两个字符）
+	
+	random 1 100
+	--MAXScript returns a random integer between 1 and 100.
+	
+	random 1.0 100
+	--MAXScript returns a random float between 1.0 and 100.0
+	
+	NOTE:
+	For reasons beyond the scope of this tutorial, 
+	the random command will generate the same "random" numbers each time a script is run. 
+	This happens if you restart the software and run the script, but not if you run the script over and over. 
+	If you want the values created by the random function to change each time you start the software,
+	you can use the seed command:
+	
+	seed <number>
+	
+	
+	<destination> += <expr> -- add <expr> to destination
+	<destination> -= <expr> -- subtract <expr> from destination
+	<destination> *= <expr> -- multiply destination by <expr>
+	<destination> /= <expr> -- divide destination by <expr>
+	
+	x += 1
+	x = x + 1
+	
+12.	MAXScript 加载 3ds Max FBX 插件
+	
+	pluginManager.loadClass FBXIMPORTER 
+	pluginManager.loadClass FBXEXPORTER
+	
+	FBXImporterGetParam "FBXProperties"	使用此命令可以列出可带路径、类型和指定值的所有导入属性。
+	FBXExporterGetParam "FBXProperties"	使用此命令可以列出可带路径、类型和指定值的所有导出属性。
+	FBXImporterSetParam "Import|IncludeGrp|Animation|Markers" true	使用此命令可以将导入值设置为 true。
+	FBXExporterSetParam "Export|IncludeGrp|LightGrp|Light" true	使用此命令可以将导出值设置为 true。
+	FBXImporterGetParam "Import|IncludeGrp| LightGrp|Animation|Markers"	使用此命令可以查询导入值。
+	FBXExporterGetParam "Export|IncludeGrp|LightGrp|Light"	使用此命令可以查询导出值。
+	
+13.	for i in geometry where (i.material == undefined) do i.isHidden = false
+	
+	
+	hideByCategory.geometry = true
+	
+	<boolean>loadMaxFile <filename_string> [useFileUnits:<bool>] [quiet:<bool>] 
+	
+	
+	filepath = @"D:\Resources\Raw\Char_002_01_Fight_Idle.max"
+	loadMaxFile filepath
+	
+	val = undefined
+	loadmaxfile filepath missingExtFilesList:&val missingExtFilesAction:#logmsg quiet:true
+	http://docs.autodesk.com/3DSMAX/16/ENU/MAXScript-Help/index.html?url=files/GUID-A1FFEDE0-9B92-4CD5-8127-76AA393D5143.htm,topicNumber=d30e682031
+	
+14.	print importerPlugin.classes
+	
+	Checking For MAX File
+	<bool>isMaxFile <filename_string> 
+	isMaxFile "$scenes/ca_test1.max" 	--returns true if file exists
+	
+15.	rootNode 根节点
+	
+	for i in rootNode.children do print(i.name)
+	
+	Sel = Selection as array
+	delName = Sel[1].name
+	
+16.	Creating User Interfaces
+	UI Control
+	
+	Listbox UI Control	
+	listbox listFileName "导入文件目录:" items:(for o in objects collect o.name)
+	
+	
+17.	File Name Parsing
+
+18.	dialog = DotNetObject"System.Windows.Forms.OpenFileDialog"
+	OpenFileDialog
+	https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.forms.openfiledialog?view=netcore-3.1
+
+	dialog = DotNetObject"System.Windows.Forms.FolderBrowserDialog"
+	FolderBrowserDialog
+	https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.forms.folderbrowserdialog?view=netcore-3.1
+	
+	
+19. 正则表达式
+	https://docs.microsoft.com/zh-cn/dotnet/api/system.text.regularexpressions.regex.-ctor?view=net-5.0
+	
+	pattern = "[^a-zA-Z0-9_\-\.\@\(\) ]"	--除了这些字符外是否有其他字符	乱码字符
+	
+	rgx = dotNetObject "System.Text.RegularExpressions.Regex" "" 	--构造函数需要参数
+	str = "Char_002B_body"
+	bisfound = rgx.IsMatch str pattern			
+	false
+	
+	rgx = dotNetObject "System.Text.RegularExpressions.Regex" pattern
+	str =  "Char_002B_body×þ×ü"
+	bisfound = rgx.IsMatch str			--除了这些字符外是否有其他字符		
+	true
+	
+20.	and or
+	
+	true and false
+	false
+	true or false
+	true
+
+21.	#, $
+	# 号
+	(1)数组
+	#(123, "hi")
+	(2)系统目录
+	fileName = getDir #scripts + "\\xxx.ms"
+
+	$ 号
+	节点路径$box03/box01
+	
+21.	count = 0
+	for i in geometry do 
+	(
+		--print i.name
+		tmpArr = getPolygonCount i
+		count = count + tmpArr[1]
+	)
+
+22.	units.DisplayType 单位
+
+23.	count = 0
+	for obj in geometry do(
+		select obj
+		convertTomesh obj			--转换为可编辑网格
+				
+		max modify mode				--switch to modify panel
+		subObjectLevel = 4 			--switch to Face level
+		
+		--<bool>PolyToolsSelect.NumericFace <integer>sides <integer>type <bool>withinSel 
+		--选中所有面数大于4的面
+		PolyToolsSelect.NumericFace 4 1 false
+				
+		sf = for i in obj.selectedFaces collect i.index
+		--sf = getFaceSelection obj
+		print obj.name
+		print sf as string
+		print sf.count
+		count = count + sf.count
+		convertTopoly obj			--转换为可编辑多边形
+		clearSelection()
+	)
+	print count
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	

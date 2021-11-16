@@ -281,7 +281,7 @@ ProtoEnum = {
                 {
                     var s = item.Groups[1].Value;
                     sw.Write("---@class " + item.Groups[1].Value + "\n");
-                    Debug.Log(s);
+                    //Debug.Log(s);
                 }
             }
             sw.Close();
