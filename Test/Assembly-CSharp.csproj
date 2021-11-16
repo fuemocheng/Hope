@@ -62,6 +62,7 @@
     <Compile Include="Assets\XLua\Examples\01_Helloworld\Helloworld.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\ScreenFader\ScreenFaderClip.cs" />
     <Compile Include="Assets\XLua\Examples\08_Hotfix\HotfixTest.cs" />
+    <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
     <Compile Include="Assets\Store\DefaultPlayables\Video\VideoScriptPlayableAsset.cs" />
     <Compile Include="Assets\XLua\Src\LuaDLL.cs" />
     <Compile Include="Assets\Store\3DAnimationSystems\3.3 - Creating and configuring Animator States\Scripts\SpeedSetter.cs" />
@@ -223,7 +224,6 @@
     <Compile Include="Assets\Store\DefaultPlayables\NavMeshAgentControl\NavMeshAgentControlClip.cs" />
     <Compile Include="Assets\Scripts\Extensions\TransformExtension.cs" />
     <Compile Include="Assets\Scripts\Extensions\BitMath.cs" />
-    <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
@@ -233,6 +233,7 @@
      <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
      <None Include="Assets\Shader\TestShader\CustomColor.shader" />
      <None Include="Assets\Config\TodoAdded.txt" />
+     <None Include="Assets\TODO.txt" />
      <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
      <None Include="Assets\XLua\Plugins\x86\xlua.dll" />
      <None Include="Assets\Store\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />

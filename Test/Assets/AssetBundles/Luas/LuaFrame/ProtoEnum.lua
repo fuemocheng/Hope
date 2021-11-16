@@ -1,3 +1,6 @@
+
+--- 此文件自动创建，请勿修改
+
 ProtoEnum = {
     cmd_proto = { },
     game_proto = { }
@@ -7,7 +10,7 @@ ProtoEnum.cmd_proto.Cmd = {
 	NONE = 0;
 	PING = 1;
 
-    --Version
+	--Version
 	CLIENTVER_NTF = 10; 			-- 客户端版本号
 
 	--Cmd
@@ -31,8 +34,8 @@ ProtoEnum.cmd_proto.Cmd = {
 	MAIL_OPEN = 81;
 	MAIL_ATCH = 82;
 	MAIL_DEL = 83;
-
 }
+
 
 ProtoEnum.cmd_proto.ErrorCode = {
 	SUCCESS = 0;
@@ -44,3 +47,18 @@ ProtoEnum.cmd_proto.ErrorCode = {
 	PARAM_INVALID       = 5;    	-- 参数不合法
 	OPREATE_FAST        = 6;    	-- 操作太快了
 }
+
+
+ProtoEnum.game_proto.StateType = {
+	STATE_NONE = 0;
+	STATE_SILENT = 1;				-- 沉默
+	STATE_BREAK = 2;				-- 打断
+	STATE_KNOCK_DOWN = 3;			-- 击倒
+	STATE_KNOCK_BACK = 4;			-- 击退
+	STATE_KNOCK_FLY = 5; 			-- 击飞
+	STATE_FROZEN = 6;				-- 冰冻
+	STATE_CHARM	= 7;				-- 魅惑
+	STATE_DIZZY	= 8; 				-- 眩晕
+}
+
+

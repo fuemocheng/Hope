@@ -102,6 +102,7 @@
     <Compile Include="Assets\Editor\ShaderVariant\ShaderVariantCountWindow.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\Graph\Node.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\Graph\Layouts\IGraphLayout.cs" />
+    <Compile Include="Assets\Editor\TopMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
