@@ -89,6 +89,7 @@
     <Compile Include="Assets\XLua\Src\Editor\Generator.cs" />
     <Compile Include="Assets\Scripts\EditorTools\Editor\TemplateWindow.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\Graph\Graph.cs" />
+    <Compile Include="Assets\Editor\TopMenu.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\PlayableNodes\PlayableNode.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\PlayableNodes\PlayableOutputNode.cs" />
     <Compile Include="Assets\XLua\Src\Editor\LuaImporter.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets\Editor\ShaderVariant\ShaderVariantCountWindow.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\Graph\Node.cs" />
     <Compile Include="Assets\graph-visualizer-2.2\Editor\Graph\Layouts\IGraphLayout.cs" />
-    <Compile Include="Assets\Editor\TopMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
