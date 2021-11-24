@@ -10,13 +10,13 @@ using UnityEngine;
 //{
 //    public override void OnImportAsset(AssetImportContext ctx)
 //    {
-//        //¶ÁÈ¡ÎÄ¼şÄÚÈİ
+//        //è¯»å–æ–‡ä»¶å†…å®¹
 //        var md = File.ReadAllText(ctx.assetPath);
-//        //×ª³ÉTextAsset£¨Unity¿ÉÊ¶±ğÀàĞÍ£©
+//        //è½¬æˆTextAssetï¼ˆUnityå¯è¯†åˆ«ç±»å‹ï¼‰
 //        var assetsText = new TextAsset(md);
-//        //½«¶ÔÏóassetTextÌí¼Óµ½µ¼Èë²Ù×÷(AssetImportContext)µÄ½á¹ûÖĞ¡£
+//        //å°†å¯¹è±¡assetTextæ·»åŠ åˆ°å¯¼å…¥æ“ä½œ(AssetImportContext)çš„ç»“æœä¸­ã€‚
 //        ctx.AddObjectToAsset("main obj", assetsText);
-//        //½«¶ÔÏóassetText×÷Îªµ¼Èë²Ù×÷µÄÖ÷Òª¶ÔÏó¡£
+//        //å°†å¯¹è±¡assetTextä½œä¸ºå¯¼å…¥æ“ä½œçš„ä¸»è¦å¯¹è±¡ã€‚
 //        ctx.SetMainObject(assetsText);
 //    }
 //}
