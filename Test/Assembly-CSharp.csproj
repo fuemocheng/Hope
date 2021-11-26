@@ -231,7 +231,7 @@
      <None Include="Assets\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
      <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
      <None Include="Assets\Shader\TestShader\CustomColor.shader" />
-     <None Include="Assets\Config\TodoAdded.txt" />
+     <None Include="Assets\Tutorial\TodoAdded.txt" />
      <None Include="Assets\TODO.txt" />
      <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
      <None Include="Assets\XLua\Plugins\x86\xlua.dll" />
@@ -243,7 +243,7 @@
      <None Include="Assets\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
      <None Include="Assets\XLua\Plugins\x86_64\xlua.dll" />
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
-     <None Include="Assets\Config\ResourcesNote.txt" />
+     <None Include="Assets\Tutorial\Resourceswebsite.txt" />
      <None Include="Assets\XLua\Plugins\WSA\x64\xlua.dll" />
      <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
      <None Include="Assets\XLua\CHANGELOG.txt" />
