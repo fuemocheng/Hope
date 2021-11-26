@@ -172,20 +172,42 @@ ThreadPriority.BelowNormal: 每帧最多4毫秒
 ThreadPriority.Low: 每帧最多2毫秒。
 ```
 从Unity5.2开始，加载多个对象时候，会一直进行直到达到对象加载的帧时间限制为止。假设所有其他因素相等，asset加载API的异步变体将总是比同步版本花费更长的时间，因为发出异步调用和对象之间有最小的一帧延迟。
+
 #### 3.AssetBundle 依赖项
 在UnityEditor中，可以通过AssetDatabase.GetAssetBundleDependencies()查询AssetBundle依赖项;
 
 AssetBundles分配和依赖项可以通过AssetImport API访问和更改;
 
+当一个或多个AssetBundle 的UnityEngine.Objects引用了一个或者多个其他AssetBundle 的UnityEngine.Objects，那么这个AssetBundle就会依赖于另外的AssetBundle。AssetBundles充当由它包含的每个对象的FileGUID和LocalID标识的源数据;
+
+因为一个对象是在其Instance ID第一次被间接引用时加载的，而且由于一个对象在加载其AssetBundle时被分配了一个有效的Instance ID，所以加载AssetBundles的顺序并不重要。相反，在加载对象本身之前，重要的是加载包含对象依赖关系的所有AssetBundles。Unity不会尝试在加载父AssetBundle时自动加载任何子AssetBundle;
+
+简单来说就是AssetBundle之间的加载没有先后，但是Asset的加载有;
+
+#### 4.AssetBundle manifests
+当使用BuildPipeline.BuildAssetBundles API执行AssetBundle构建管线时，Unity会序列化一个包含每个AssetBundle依赖项信息的对象。此数据存储在单独的AssetBundle中，其中包含AssetBundleManifest类型的单个对象;
+
+此Asset将存储在与构建AssetBundles的父目录同名的AssetBundle中。如果一个项目将其AssetBundles构建到位于(Projectroot)/Build/Client/的文件夹中，那么包含清单的AssetBundle将被保存为(Projectroot)/build/client/Client.manifest;
+
+包含Manifest的AssetBundle可以像任何其他AssetBundle一样加载、缓存和卸载;
+
+AssetBundleManifest对象本身提供GetAllAssetBundles API来列出与清单同时构建的所有AssetBundles，以及查询特定AssetBundle的依赖项的两个方法：
+```
+AssetBundleManifest.GetAllDependencies    返回AssetBundle的所有层次依赖项，
+    (其中包括AssetBundle的直接子级、其子级的依赖项等);
+AssetBundleManifest.GetDirectDependations 只返回AssetBundle的直接子级;
+```
+请注意，这两个API分配的都是字符串数组。因此，最好是在性能要求不敏感的时候使用。
+
+#### 5.建议
+在多数情况下，最好在玩家进入应用程序的性能关键区域(如主游戏关卡或世界)之前加载尽可能多的所需对象。这在移动平台上尤为重要，因为在移动平台上，访问本地存储的速度很慢，并且在运行时加载和卸载对象会触发垃圾回收。
 
 
+### 四、管理已经加载的Assets
 
+AssetBundle.unload 此API将卸载正在调用的AssetBundle的包头信息。
 
-
-
-
-
-
+unload参数决定是否也卸载从此AssetBundle实例化的所有对象。如果设置为true，那么从AssetBundle创建的所有对象也将立即卸载！即使它们目前正在活动场景中被引用。
 
 
 
