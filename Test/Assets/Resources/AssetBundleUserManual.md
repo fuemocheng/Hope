@@ -142,7 +142,40 @@ Unity已经放弃了对改接口的维护，并可能在未来的某个版本中
 ```
 
 ### 三、从AssetBundles中加载Assets
-#### 1.
+#### 1.Unity提供了三个不同的API从AssetBundles加载UnityEngine.Objects
+```
+LoadAsset (LoadAssetAsync)
+LoadAllAssets (LoadAllAssetsAsync)
+LoadAssetWithSubAssets (LoadAssetWithSubAssetsAsync)
+```
+并且这些API的同步版本总是比异步版本快至少一个帧（其实是因为异步版本为了确保异步，都至少延迟了1帧），异步加载每帧会加载多个对象，直到他们的时间切片切出。
+
+##### LoadAllAsset
+加载多个独立的UnityEngine.Objects时应使用LoadAllAsset。并且只有在需要加载AssetBundle中的大多数或所有对象时，才应该使用它。与其他两个API相比，LoadAllAsset比对LoadAsset的多个单独调用略快一些。因此，如果要加载的Asset数量很大，但如果需要一次性加载不到三分之二的AssetBundle的话，则考虑将AssetBundle拆分为多个较小的包，再使用LoadAllAsset。
+
+##### LoadAssetWithSubAsset
+加载包含多个嵌入式对象的复合Asset时，应使用LoadAssetWithSubAsset，例如嵌入动画的FBX模型或嵌入多个精灵的sprite图集。也就是说，如果需要加载的对象都来自同一Asset，但与许多其他无关对象一起存储在AssetBundle中，则使用此API。
+
+##### LoadAsset
+任何其他情况，请使用LoadAsset或LoadAssetAsync。
+
+#### 2.低层级的加载细节
+Object加载是在主线程上执行，但数据从工作线程上的存储中读取。任何不触碰Unity系统中线程敏感部分(脚本、图形)的工作都将在工作线程上转换。例如，VBO将从网格创建，纹理将被解压，等等。
+
+从Unity5.3开始，Object加载就被并行化了。在工作线程上反序列化、处理和集成多个Object。当一个Object完成加载时，它的Awake回调将被调用，该对象的其余部分将在下一个帧中对UnityEngine可用。
+
+同步AssetBundle.Load方法将暂停主线程，直到Object加载完成。但它们也会加载时间切片的Object，以便Object集成不会占用太多的毫秒帧时间。应用程序属性设置毫秒数的属性为Application.backgroundLoadingPriority。
+```
+ThreadPriority.High: 每帧最多50毫秒
+ThreadPriority.Normal: 每帧最多10毫秒
+ThreadPriority.BelowNormal: 每帧最多4毫秒
+ThreadPriority.Low: 每帧最多2毫秒。
+```
+从Unity5.2开始，加载多个对象时候，会一直进行直到达到对象加载的帧时间限制为止。假设所有其他因素相等，asset加载API的异步变体将总是比同步版本花费更长的时间，因为发出异步调用和对象之间有最小的一帧延迟。
+#### 3.AssetBundle 依赖项
+在UnityEditor中，可以通过AssetDatabase.GetAssetBundleDependencies()查询AssetBundle依赖项;
+
+AssetBundles分配和依赖项可以通过AssetImport API访问和更改;
 
 
 
@@ -157,4 +190,13 @@ Unity已经放弃了对改接口的维护，并可能在未来的某个版本中
 
 
 
-n..
+
+
+
+
+
+
+
+
+### 参考链接
+[AssetBundle原理](https://zhuanlan.zhihu.com/p/97551363)

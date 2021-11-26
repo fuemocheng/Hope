@@ -71,7 +71,11 @@ public static class LuaRoot
         if (m_bytesDict.ContainsKey(filepath))
             return m_bytesDict[filepath];
         string newpath = $"Assets/AssetBundles/Luas/{filepath}" + _luaSuffix;
-        LuaAsset luaAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<LuaAsset>(newpath);
+        LuaAsset luaAsset = null;
+
+#if UNITY_EDITOR
+        luaAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<LuaAsset>(newpath);
+#endif
         if (luaAsset != null)
         {
             var data = luaAsset.GetDecodeBytes();

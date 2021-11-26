@@ -38,6 +38,7 @@ public class ResourceManager : Singleton<ResourceManager>
         return assetPath;
     }
 
+
     public UnityEngine.Object Load(string path, Type type, string suffix = "")
     {
         if (path.IsNull()) return default;
@@ -46,8 +47,9 @@ public class ResourceManager : Singleton<ResourceManager>
 
         string assetPath = GetAssetFullPath(path, type, suffix);
 
+#if UNITY_EDITOR
         assetResult = UnityEditor.AssetDatabase.LoadAssetAtPath(assetPath, type);
-
+#endif
         return assetResult;
     }
 }

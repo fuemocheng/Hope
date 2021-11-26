@@ -9,7 +9,7 @@ public class ExportAssets : MonoBehaviour
     [@MenuItem("Tools/Build Asset Bundles")]
     static void BuildAssetBundles()
     {
-        BuildPipeline.BuildAssetBundles(Application.dataPath + "/AssetBundles", 
+        BuildPipeline.BuildAssetBundles(Application.dataPath + "/Build", 
             BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.StandaloneWindows64);
     }
     

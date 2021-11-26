@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1816841940
+CRC: 2441168614
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -15,4 +15,5 @@ AssetBundleManifest:
         Dependency_0: cube
     Info_3:
       Name: shader
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: cube
