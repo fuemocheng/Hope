@@ -1,6 +1,8 @@
+#UnityProject
+
 *.csproj
 *.unityproj
-#*.sln
+*.sln
 *.suo
 *.tmp
 *.user
@@ -10,7 +12,20 @@
 *.svd
 *.pdb
 
+# Mac
+.DS_Store
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+UserSettings/EditorUserSettings.asset
+
 # XGC Add
+/.vs/
+/.vsconfig/
 .vs
 .vsconfig
 Export
@@ -23,4 +38,4 @@ Assets/StreamingAssets/build_info.meta
 Assets/StreamingAssets/build_info.txt
 Assets/StreamingAssets/build_info.txt.meta
 Assets/XLua/Gen
-Assets/Store
+
