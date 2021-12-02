@@ -1,0 +1,31 @@
+--------------------
+-- 2021/11/16 16:34:56
+--------------------
+---@class ClientVerNtf
+---@class GMCommandReq
+---@class GMCommandAck
+---@class LoginReq
+---@class LoginAck
+---@class CreateRoleReq
+---@class CreateRoleAck
+---@class SetRoleNameReq
+---@class SetRoleNameAck
+---@class RoleInfoNtf
+---@class LoginEndNtf
+---@class SceneLoadReq
+---@class SceneLoadAck
+---@class RoleData
+---@class SceneRoleReq
+---@class SceneRoleAck
+---@class SceneRoleNtf
+---@class NpcInfo
+---@class SceneNpcNtf
+---@class ItemInfo
+---@class MailInfo
+---@class MailListNtf
+---@class MailOpenReq
+---@class MailOpenAck
+---@class MailAtchReq
+---@class MailAtchAck
+---@class MailDelReq
+---@class MailDelAck

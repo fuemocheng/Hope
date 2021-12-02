@@ -1,0 +1,44 @@
+minVersion: '0.13.2'
+github:
+  owner: getsentry
+  repo: sentry-dotnet
+changelogPolicy: auto
+statusProvider:
+  name: github
+artifactProvider:
+  name: github
+targets:
+  - name: nuget
+  - name: github
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.Extensions.Logging"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.AspNetCore"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.AspNetCore.Grpc"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.AspNet"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.Log4Net"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.Serilog"
+  - name: registry
+    type: sdk
+    config:
+      canonical: "nuget:Sentry.NLog"

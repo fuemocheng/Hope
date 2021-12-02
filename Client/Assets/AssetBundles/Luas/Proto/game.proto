@@ -1,0 +1,187 @@
+syntax = "proto3";
+package game_proto;
+
+option go_package = "proto";
+
+//--------------------初始化--------------------//
+
+// 通知客户端版本
+message ClientVerNtf {
+	string clientVer = 1; 			// 客户端版本号
+}
+
+message GMCommandReq {
+	string command = 1; 			// 命令
+}
+
+message GMCommandAck {
+}
+
+//--------------------Login--------------------//
+
+message LoginReq {
+	string token = 1;				// 认证数据
+	bool relogin = 2;
+
+	// 下面是日志需要的一堆数据
+	int32 game_id = 3; 				// APPID
+	int32 channel_id = 4;			// 渠道ID
+	int32 plat_id = 5; 				// ios:2/android:1
+	string device_id = 6;			// 设备号
+	string client_version= 7;		// 客户端版本
+	string os = 8;					// 操作系统版本
+	string phone_model = 9; 		// 品牌型号
+	string operator = 10;			// 运营商
+	string network = 11;			// WIFI/2G/3G/4G/5G
+	string cpu = 12;				// cpu类型_频率_核数
+	string Memory = 13;				// 内存，单位M
+	string wanIp = 14; 				// 外网IP
+}
+
+message LoginAck {
+	bool createRole = 1; 			// 是否创建角色
+}
+
+message CreateRoleReq {
+	string roleName = 1; 			// 角色名
+	int32 characterId = 2;
+	string face = 3;				// 脸型
+    int32 sex = 4;  				// 性别 男0女1
+}
+
+message CreateRoleAck {
+}
+
+message SetRoleNameReq {
+	string roleName = 1; 			// 角色名
+}
+
+message SetRoleNameAck {
+}
+
+message RoleInfoNtf {
+	int64 roleId = 1; 				// 角色id
+	string roleName = 2;			// 角色名
+	int32 characterId = 3;
+	int64 exp = 4; 					// 经验
+	int32 level = 5; 				// 等级
+	string customInfo = 6;			// 自定义捏脸信息
+}
+
+message LoginEndNtf {
+	int64 svrTime = 1; 				// 服务器时间
+	string clientVer = 2; 			// 客户端版本号
+}
+
+//--------------------Scene--------------------//
+
+message SceneLoadReq {
+}
+
+message SceneLoadAck {
+}
+
+// 角色数据
+message RoleData {
+	int32 roleId = 1;				// 角色ID
+}
+
+// 请求角色
+message SceneRoleReq {
+}
+
+message SceneRoleAck {
+	repeated RoleData roles = 1;
+}
+
+message SceneRoleNtf {
+	repeated RoleData roles = 1;
+}
+
+// NPC
+message NpcInfo {
+	int32 id = 1;					// 唯一id
+	int32 cfgId = 2; 				// npcID
+}
+
+message SceneNpcNtf {
+	repeated NpcInfo npcs = 1;		
+}
+
+//--------------------交互--------------------//
+
+message ItemInfo
+{
+	int32 cfgId = 1; 				// 模板ID
+	int32 count = 2; 				// 数量
+	int32 type = 3; 				// 类型 
+	int32 Id = 4;					// 道具唯一ID
+	int32 package = 5;				// 当前所在背包
+}
+
+message MailInfo {
+	int32 id = 1;
+	string title = 2;
+	string addresser = 3;			// 发件人
+	string body = 4; 				// base64过的有可能有特殊字符
+	repeated ItemInfo items = 5; 	// 附件列表
+	int64 dateTime = 6;  			// 发送时间
+
+	bool opened = 7; 				// 有没有看过
+	bool atched = 8; 				// 有没有领过附件
+	bool marked = 9; 				// 标记
+
+	int32 tempId = 10;				// 邮件模板，走多语言
+	repeated string tempParams = 11;// 模板参数
+
+	int64 markDel = 12; 			// 取消关注时间戳，隔天才能删除
+	int32 mailId = 13; 				// 全局唯一id
+	int32 act = 14;
+	string sub_reason = 15;
+}
+
+message MailListNtf {
+	repeated MailInfo mails = 1; 	// 邮件列表
+}
+
+message MailOpenReq {
+	int32 id = 1; 					// id
+}
+
+message MailOpenAck {
+}
+
+// 领取,批量领取
+message MailAtchReq {
+	int32 id = 1; 					// id >0 用id,否则批量领取
+}
+
+message MailAtchAck {
+	repeated int32 ids = 1;
+	bool allOk = 2;					// 是不是都成功
+}
+
+// 删除,批量删除
+message MailDelReq {
+	int32 id = 1; 					// id >0 用id,否则删除已读
+}
+
+message MailDelAck {
+	repeated MailInfo mails = 1; 	// 邮件列表
+}
+
+//--------------------Enum--------------------//
+
+// 状态类型
+enum StateType
+{
+	STATE_NONE = 0;
+	STATE_SILENT = 1;				// 沉默
+	STATE_BREAK = 2;				// 打断
+	STATE_KNOCK_DOWN = 3;			// 击倒
+	STATE_KNOCK_BACK = 4;			// 击退
+	STATE_KNOCK_FLY = 5; 			// 击飞
+	STATE_FROZEN = 6;				// 冰冻
+	STATE_CHARM	= 7;				// 魅惑
+	STATE_DIZZY	= 8; 				// 眩晕
+}

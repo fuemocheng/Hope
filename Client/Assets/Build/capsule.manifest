@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 1879977468
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 490c289cabbaa43fe45cc3c034a4635b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5b3090d6f4531fcf19e60f84dca58659
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Test/Capsule/Capsule_01.prefab
+- Assets/Resources/Test/Capsule/capsuleMat_01.mat
+Dependencies:
+- D:/GitHub/Test/Test/Assets/Build/cube

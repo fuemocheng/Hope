@@ -1,0 +1,33 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:59739",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "throw",
+      "environmentVariables": {
+        "SENTRY_DSN": "https://80aed643f81249d4bed3e30687b310ab@o447951.ingest.sentry.io/5428537",
+        "SENTRY_RELEASE": "e386dfd",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Sentry.Samples.AspNetCore.Basic": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "throw",
+      "environmentVariables": {
+        "SENTRY_DSN": "https://80aed643f81249d4bed3e30687b310ab@o447951.ingest.sentry.io/5428537",
+        "SENTRY_RELEASE": "e386dfd",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:59740"
+    }
+  }
+}
