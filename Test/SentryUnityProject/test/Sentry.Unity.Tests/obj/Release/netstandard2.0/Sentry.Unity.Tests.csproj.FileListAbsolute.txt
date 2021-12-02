@@ -1,9 +1,0 @@
-D:\WorkSpace\fzdl_dev_02\Client\package-dev\Tests\Runtime\Sentry.Unity.Tests.dll
-D:\WorkSpace\fzdl_dev_02\Client\package-dev\Tests\Runtime\Sentry.Unity.Tests.pdb
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.csprojAssemblyReference.cache
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.GeneratedMSBuildEditorConfig.editorconfig
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.AssemblyInfoInputs.cache
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.AssemblyInfo.cs
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.csproj.CoreCompileInputs.cache
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.dll
-D:\WorkSpace\fzdl_dev_02\Client\SentryUnityProject\test\Sentry.Unity.Tests\obj\Release\netstandard2.0\Sentry.Unity.Tests.pdb
