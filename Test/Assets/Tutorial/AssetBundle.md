@@ -208,13 +208,84 @@ AssetBundleManifest.GetDirectDependations 只返回AssetBundle的直接子级;
 AssetBundle.unload 此API将卸载正在调用的AssetBundle的包头信息。
 
 unload参数决定是否也卸载从此AssetBundle实例化的所有对象。如果设置为true，那么从AssetBundle创建的所有对象也将立即卸载！即使它们目前正在活动场景中被引用。
+```
+举个例子，假设material M是从AssetBundle AB加载的，并且假设M当前在活动场景中;
+如果调用AssetBundle.Unload(True)，则M将从场景中移除，销毁并卸载;
+如果调用AssetBundle.Unload(False)，则AB的包头信息将被卸载，但M将保持在场景中，并且仍然是可用的;
+调用AssetBundle.Unload(False)破坏了M和AB之间的链接;
+如果AB稍后再次加载，则AB中包含的对象的新副本将会被加载到内存中;
 
+如果AB稍后再次加载，将会重新加载AssetBundle的头信息的新副本。
+然而，M不是从这个新的AB拷贝加载的。Unity并没有在AB和M的新副本之间建立任何联系。
 
+如果调用AssetBundle.LoadAsset()来重新加载M，Unity将不会将旧的M副本作为为AB中数据的实例。
+因此，Unity将加载一个新的副本的M，所以此时将会有两个相同的副本M在现场。
+```
 
+##### Asset冗余
+显式分配给AssetBundle的Objects 将只被构建到该AssetBundle中。
+当Objects的AssetImporter将其AssetBundleName属性设置为非空字符串时，该Objects 将被“显式分配”。这可以通过在Objects的检查器中选择AssetBundle来完成，也可以从Editor脚本中进行。
 
+Objects 还可以通过将其定义为AssetBundle构建映射的一部分来分配给AssetBundle，该映射将与重载的BuildPipeline.BuildAssetBundles()函数一起使用，该函数接受AssetBundleBuild数组。
 
+在AssetBundle中未显式分配的Objects，将会包含在其他任何一个或者多个未标记的AssetBundles中。
+例如，如果两个不同的Objects被分配给两个不同的AssetBundles，但都具有对公共依赖Objects的引用，那么该依赖Objects会被复制到两个AssetBundles中。重复的依赖关系也会被实例化，这意味着依赖Objects的两个副本将被视为具有不同标识符的不同Objects。这将增加应用程序的AssetBundles的总大小。如果应用程序同时加载了这两个Objects，就会导被依赖对象加载两遍，并保存在内存里。
 
+可以通过位于UnityEditor命名空间中的AssetDatabase跟踪对象依赖关系。正如名称空间所暗示的那样，此API仅在UnityEditor中可用，而在运行时不能使用。GetDependents可用于定位特定对象或资产的所有直接依赖项。请注意，这些依赖项可能有它们自己的依赖项。此外，AssetImport还可以用于查询分配任何特定Objects的AssetBundle。
 
+通过组合AssetDatabase和AssetImport，可以编写一个编辑器脚本，以确保将AssetBundle的所有直接或间接依赖项分配给AssetBundles，或者确保没有两个AssetBundles共享未分配给AssetBundle的依赖项。由于Asset副本的内存成本，建议所有项目都有这样的脚本。
+
+#####  Sprite atlas 冗余
+任何自动生成的sprite图集都将被分配给AssetBundle，其中包含生成Sprite图集的Sprite Objects。如果Sprite Objects被分配给多个AssetBundles的话，那么Sprite图集将不会分配给AssetBundle并将产生副本。如果Sprite Objects没有分配给AssetBundle，那么Sprite图集也不会分配给AssetBundle。
+
+为了确保Sprite图集不被复制，请检查所有被标记在同一个Sprite图集中的Sprite都被分配到同一个AssetBundle中。
+
+##### Android 纹理
+由于Android生态系统中的设备硬件分化很多，所以通常需要将纹理压缩成几种不同的格式。虽然所有Android设备都支持ETC1，但ETC1不支持带有alpha通道的纹理。如果一个应用程序不需要OpenGL ES 2的支持，那么最干净的解决方法就是使用ETC2，这是所有Android OpenGL ES 3设备所支持的。
+
+很多应用程序需要在不支持ETC2的旧设备上发布。解决这个问题的一种方法是使用Unity5的AssetBundle变体(有关其他选项的详细信息，请参阅Unity的Android优化指南)。
+
+要使用AssetBundle变体，所有不能使用ETC1进行完全压缩的纹理必须隔离到只有纹理的AssetBundles中。接下来，使用DXT 5、PVRTC和ATITC等特定供应商的纹理压缩格式，创建这些AssetBundles的足够变体，以支持Android生态系统中不具备ETC 2功能的切片。对于每个AssetBundle变体，需要包含的纹理的TextureImporter设置更改为适合该变体的压缩格式。
+
+在运行时，可以使用SystemInfo.SupportsTextureFormat检测到对不同纹理压缩格式的支持。此信息应用于选择和加载AssetBundle变体，以支持的对应压缩纹理格式。
+
+##### iOS 文件句柄过渡使用
+当前版本的Unity已经不受此问题影响了。
+
+在Unity5.3.2p2之前的版本中，在加载AssetBundle的整个时间里，Unity都会为AssetBundle保存一个打开的文件句柄。在大多数平台上，这不是一个问题。但是，IOS限制进程的文件句柄的数量最多同时打开255。如果加载AssetBundle导致超出此限制，则加载调用将失败，出现“打开文件句柄太多”错误。
+
+##### AssetBundle变体
+AssetBundle系统的一个关键特点是引入了AssetBundle变体。变体的目的是允许应用程序调整其内容以更好地适应其运行时环境。变体允许不同AssetBundle文件中的不同UnityEngine.Objects在加载对象和解析实例ID引用时显示为“相同”对象。从概念上讲，它允许两个UnityEngine.Objects看起来共享相同的FileGUID&LocalID，并通过字符串变体ID标识实际的UnityEngine.Object。
+
+该系统有两个主要用例：
+
+1、变体简化了适用于给定平台的AssetBundle的加载。
+
+例如：构建系统可能会创建一个包含高分辨率纹理和复杂着色器的AssetBundle，适用于独立的DirectX 11 Windows构建，以及第二个AssetBundle，其内容保真度较低，适用于android。在运行时，项目的资源加载代码可以为其平台加载适当的AssetBundle变体，传递给AssetBundle.Load API的对象名称不需要更改。
+
+2、变体允许应用程序在同一个平台上加载不同的内容，但使用不同的硬件。
+
+这是支持多种移动设备的关键。iphone 4无法在任何real-world的应用程序中保证和最新iphone相同的内容保真度。
+
+在Android上，AssetBundle变体可以用来解决屏幕纵横比和设备间DPI的巨大差别。
+
+##### AssetBundle变体局限
+
+AssetBundle变体系统的一个关键限制是，它要求从不同的Asset构建变体。即使这些Asset之间的唯一变化是它们的导入设置，这个限制也是合理的。如果在变量A和变体B中构建的纹理之间的唯一区别是在Unity纹理导入器中选择的特定纹理压缩算法，则变量A和变体B仍然必须是完全不同的Asset。这意味着变量A和变体B必须是磁盘上的单独文件。
+
+这一限制使大型项目的管理变得复杂，因为必须将特定Asset的多个副本保存在源代码管理中。当开发人员希望更改Asset的内容时，必须更新Asset的所有副本。对于这个问题，没有非常好的解决办法。
+
+大多数团队会实现他们自己的AssetBundle变体。这是通过构建带有定义良好后缀的AssetBundles文件名来完成的，以便标识给定的AssetBundle表示的特定变体。自定义代码在构建这些Asset时以编程方式更改Asset的导入设置。一些开发人员已经扩展了他们的自定义系统，使其也能够更改附加在Prefabs上的组件的参数。
+
+#### 压缩还是不压缩？
+加载时间：当从本地存储或本地缓存加载时，未压缩的AssetBundles加载速度比压缩的AssetBundles快得多
+
+构建时间：在压缩文件时，LZMA和LZ4非常慢，统一编辑器依次处理AssetBundles。拥有大量资产Bundles的项目将花费大量的时间压缩它们。
+
+应用程序大小：如果AssetBundles是在应用程序中提供的，那么压缩它们将减少应用程序的总大小。或者，AssetBundles可以在安装后下载。
+
+##### Crunch 压缩
+主要由dxt压缩纹理组成的使用Crunch压缩算法的AssetBundles应该是算非压缩的。
 
 
 
