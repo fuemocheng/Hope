@@ -33,8 +33,9 @@ LZ4:   相对LZMA压缩比更低，所以打出来的包体会更大点，运行
 
 7.[关于LZMA和LZ4压缩的疑惑解析](https://zhuanlan.zhihu.com/p/37258259)
 
-![AssetBundleMemory](https://uwa-public.oss-cn-beijing.aliyuncs.com/answer/image/public/100225/1497928152018.png)
+![AssetBundleMemory](https://github.com/fuemocheng/Hope/blob/master/Resources/Image/AssetBundleMemory.png?raw=true)
 
+![AssetBundle](https://github.com/fuemocheng/Hope/blob/master/Resources/Image/AssetBundle.jpg?raw=true)
 ### 二、加载AssetBundles
 #### 1.AssetBundles的压缩方式：LZMA、LZ4、还是未压缩的;
 
