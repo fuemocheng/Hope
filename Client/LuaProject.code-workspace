@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "Assets\\AssetBundles\\Luas"
+		},
+		{
+			"path": "..\\Document"
+		}
+	],
+	"settings": {
+		"Lua.diagnostics.disable": [
+			"lowercase-global",
+			"undefined-global",
+			"undefined-field",
+			"unbalanced-assignments",
+			"redundant-parameter",
+			"undefined-doc-name"
+		],
+		"files.associations": {
+			".txt": "lua"
+		}
+	}
+}
