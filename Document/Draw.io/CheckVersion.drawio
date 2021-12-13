@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="QUaw3bAE2YYsnRq7ILRl" name="第 1 页">
-        <mxGraphModel dx="1630" dy="1234" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1506" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -8,109 +8,214 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="ProcedureLaunch" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="1164" y="60" width="126" height="60" as="geometry"/>
+                    <mxGeometry x="1140" y="50" width="126" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="7" target="13">
+                <mxCell id="42" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="7" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-89" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="7" target="10">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-89" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="7" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1300" y="190" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="1266" y="185"/>
+                            <mxPoint x="1500" y="185"/>
+                            <mxPoint x="1500" y="880"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="7" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;ProcedureSplash&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="1164" y="180" width="126" height="50" as="geometry"/>
+                    <mxGeometry x="1140" y="160" width="126" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="编辑器模式下，直接进入预加载流程；否则检查版本，看是否要进行热更新" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="1310" y="160" width="250" height="70" as="geometry"/>
+                    <mxGeometry x="1288" y="115" width="250" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="ProcedurePreload" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="1440" y="300" width="130" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-79" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="13" target="yiAYSCsGN9VdWLq7-ZU1-77">
+                <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="10" target="59" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-80" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="13" target="yiAYSCsGN9VdWLq7-ZU1-78">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="10" value="ProcedurePreload&lt;br&gt;&lt;br&gt;开始加载游戏运行&lt;br&gt;必不可少的资源" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1118" y="840" width="170" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="ProcedureCheckVersion&lt;br&gt;向服务器请求版本信息" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="1000" y="300" width="160" height="80" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-79" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="13" target="yiAYSCsGN9VdWLq7-ZU1-77" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1203" y="380"/>
+                            <mxPoint x="1203" y="380"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="18" value="VersionInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-80" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="13" target="yiAYSCsGN9VdWLq7-ZU1-78" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1315" y="628" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1413" y="285"/>
+                            <mxPoint x="1413" y="583"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="ProcedureCheckVersion&lt;br&gt;&lt;span&gt;版本检测&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1091.5" y="260" width="223" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="VersionInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
                     <mxGeometry x="20" y="20" width="400" height="260" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="19" value="+ ForceUpdateGame: bool                       是否需要强制更新游戏" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="19" value="+ ForceUpdateGame: bool                       是否需要强制更新游戏" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="26" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="+ LastestGameVersion: string                  最新的游戏版本号 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="20" value="+ LastestGameVersion: string                  最新的游戏版本号 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="52" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="+ InternalGameVersion: int                       最新的游戏内部版本号" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="21" value="+ InternalGameVersion: int                       最新的游戏内部版本号" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="78" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="+ InternalResourceVersion: int                  最新的资源内部版本号" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="22" value="+ InternalResourceVersion: int                  最新的资源内部版本号" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="104" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="+ UpdatePrefixUri: string                           最新的资源内部版本号    " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="23" value="+ UpdatePrefixUri: string                           最新的资源内部版本号    " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="130" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="+ VersionListLength: int                             资源版本列表长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="24" value="+ VersionListLength: int                             资源版本列表长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="156" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="+ VersionListHashCode: int                       资源版本列表哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="25" value="+ VersionListHashCode: int                       资源版本列表哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="182" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="+ VersionListCompressedLength: int         资源版本列表压缩后长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="26" value="+ VersionListCompressedLength: int         资源版本列表压缩后长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="208" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="+ VersionListCompressedHashCode: int   资源版本列表压缩后哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="18">
+                <mxCell id="33" value="+ VersionListCompressedHashCode: int   资源版本列表压缩后哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="18" vertex="1">
                     <mxGeometry y="234" width="400" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-55" value="ProcedureCheckVersion" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="1660" y="60" width="430" height="304" as="geometry">
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-55" value="ProcedureCheckVersion" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1660" y="60" width="430" height="280" as="geometry">
                         <mxRectangle x="1650" y="56" width="110" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-84" value="向服务器请求版本信息&#10;可更新模式并检查版本资源列表。&#10;如果为热更新，就配置下载文件地址，校验本地客户端和下载到的版本资源列表版本号，如果一致，说明不用更新，直接进入下一流程，如果不一致，说明需要更新版本资源列表，更新成功后，进入下一流程。" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;fontSize=14;" vertex="1" parent="yiAYSCsGN9VdWLq7-ZU1-55">
-                    <mxGeometry y="26" width="430" height="134" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-84" value="向服务器请求版本信息&#10;可更新模式并检查版本资源列表。&#10;如果为热更新，就配置下载文件地址，校验本地客户端和下载到的版本资源列表版本号，如果一致，说明不用更新，直接进入下一流程，如果不一致，说明需要更新版本资源列表，更新成功后，进入下一流程。" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;fontSize=14;" parent="yiAYSCsGN9VdWLq7-ZU1-55" vertex="1">
+                    <mxGeometry y="26" width="430" height="104" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-56" value="OnEnter:AddWebRequest(BuildInfo.CheckVersionUrl)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;fontSize=14;" vertex="1" parent="yiAYSCsGN9VdWLq7-ZU1-55">
-                    <mxGeometry y="160" width="430" height="26" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-56" value="OnEnter:AddWebRequest(BuildInfo.CheckVersionUrl)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;fontSize=14;" parent="yiAYSCsGN9VdWLq7-ZU1-55" vertex="1">
+                    <mxGeometry y="130" width="430" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-57" value="OnWebRequestSuccess:&#10;  GameEntry.Resource.CheckVersionList(InternalResourceVersion)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="yiAYSCsGN9VdWLq7-ZU1-55">
-                    <mxGeometry y="186" width="430" height="48" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-57" value="OnWebRequestSuccess:&#10;  GameEntry.Resource.CheckVersionList(InternalResourceVersion)&#10;  检查版本资源列表结果" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="yiAYSCsGN9VdWLq7-ZU1-55" vertex="1">
+                    <mxGeometry y="156" width="430" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-58" value="OnUpdate:&#10;        m_NeedUpdateVersion:  ProcedureUpdateVersion&#10;        !m_NeedUpdateVersion: ProcedureVerifyResources" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="yiAYSCsGN9VdWLq7-ZU1-55">
-                    <mxGeometry y="234" width="430" height="70" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-58" value="OnUpdate:&#10;        m_NeedUpdateVersion:  ProcedureUpdateVersion&#10;        !m_NeedUpdateVersion: ProcedureVerifyResources" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="yiAYSCsGN9VdWLq7-ZU1-55" vertex="1">
+                    <mxGeometry y="210" width="430" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-75" value="m_ResourceManager = GameFrameworkEntry.GetModule&amp;lt;IResourceManager&amp;gt;();&lt;br&gt;GameFramework.Resource.ResourceManager.CheckVersionList -&amp;gt; &lt;br&gt;GameFramework.Resource.VersionListProcessor.CheckVersionList：&lt;br&gt;    1.Get VersionListFile  &amp;quot;GameFrameworkVersion.dat&amp;quot; in Application.persistentDataPath;&lt;br&gt;    2.GetValue &amp;quot;InternalResourceVersion&amp;quot; in versionListFile;&lt;br&gt;    3.CheckVersion()" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;html=1;" vertex="1" parent="1">
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-75" value="m_ResourceManager = GameFrameworkEntry.GetModule&amp;lt;IResourceManager&amp;gt;();&lt;br&gt;GameFramework.Resource.ResourceManager.CheckVersionList -&amp;gt; &lt;br&gt;GameFramework.Resource.VersionListProcessor.CheckVersionList：&lt;br&gt;    1.Get VersionListFile  &amp;quot;GameFrameworkVersion.dat&amp;quot; in Application.persistentDataPath;&lt;br&gt;    2.GetValue &amp;quot;InternalResourceVersion&amp;quot; in versionListFile;&lt;br&gt;    3.CheckVersion()" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;html=1;" parent="1" vertex="1">
                     <mxGeometry x="2160" y="60" width="570" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-76" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.491;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" edge="1" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-57" target="yiAYSCsGN9VdWLq7-ZU1-75">
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-76" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.491;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-57" target="yiAYSCsGN9VdWLq7-ZU1-75" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-77" value="ProcedureUpdateVersion" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#2a2a2a;verticalAlign=middle;" vertex="1" parent="1">
-                    <mxGeometry x="1132" y="450" width="190" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-83" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-78" target="yiAYSCsGN9VdWLq7-ZU1-81">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-78" value="ProcedureVerifyResources&lt;br&gt;使用可更新模式并校验资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#2a2a2a;verticalAlign=middle;" vertex="1" parent="1">
-                    <mxGeometry x="822.5" y="450" width="200" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-88" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-81" target="yiAYSCsGN9VdWLq7-ZU1-77">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-90" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-81" target="10">
+                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-77" target="yiAYSCsGN9VdWLq7-ZU1-78" edge="1">
                     <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-77" value="ProcedureUpdateVersion&lt;br&gt;&lt;br&gt;检测资源并根据情况判断&lt;br&gt;是否下载更新资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#2a2a2a;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1098" y="390" width="210" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-83" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-78" target="yiAYSCsGN9VdWLq7-ZU1-81" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1203" y="660" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="1340" y="585"/>
-                            <mxPoint x="1340" y="330"/>
+                            <mxPoint x="1203" y="700"/>
+                            <mxPoint x="1203" y="700"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-81" value="ProcedureCheckResources&lt;br&gt;使用可更新模式并检查资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#2a2a2a;verticalAlign=middle;" vertex="1" parent="1">
-                    <mxGeometry x="820" y="560" width="205" height="50" as="geometry"/>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-78" value="ProcedureVerifyResources&lt;br&gt;校验资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#2a2a2a;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1103" y="550" width="200" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-88" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-81" target="yiAYSCsGN9VdWLq7-ZU1-77" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="940" y="690" as="sourcePoint"/>
+                        <mxPoint x="680" y="510" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1203" y="790"/>
+                            <mxPoint x="990" y="790"/>
+                            <mxPoint x="990" y="430"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-90" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="yiAYSCsGN9VdWLq7-ZU1-81" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                        <mxPoint x="1280" y="790" as="sourcePoint"/>
+                        <mxPoint x="1040" y="700" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="yiAYSCsGN9VdWLq7-ZU1-81" value="ProcedureCheckResources&lt;br&gt;检查资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#2a2a2a;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1100.5" y="680" width="205" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="是否需要更新" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1203" y="320" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1350" y="290" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="350" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;span&gt;版本检测，判断直接强制更新&lt;/span&gt;&lt;span&gt;（下载全新客户端）&lt;br&gt;还是需要&lt;/span&gt;&lt;span&gt;下载资源，根据情况是否改变&lt;/span&gt;&lt;span&gt;资源表&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="827" y="210" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="UpdateVersionComplete" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1203" y="500" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="VerifyResourcesComplete" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="640" width="180" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="NeedUpdateResources" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="750" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1118" y="770" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1203" y="800" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="59" target="61" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1203" y="1110"/>
+                            <mxPoint x="1055" y="1110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;" parent="1" source="59" target="63" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1203" y="1110"/>
+                            <mxPoint x="1373" y="1110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="ProcedureChangeScene" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1118" y="990" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=14;" parent="1" source="61" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1055" y="1320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="ProcedureMain" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="970" y="1140" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="ProcedureMenu" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1288" y="1140" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="切换场景" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1288" y="1010" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="游戏主流程&lt;br&gt;游戏逻辑" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="870" y="1150" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="游戏菜单流程" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1470" y="1149" width="100" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
