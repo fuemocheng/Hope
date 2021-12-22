@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="QUaw3bAE2YYsnRq7ILRl" name="第 1 页">
-        <mxGraphModel dx="1914" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="2415" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -56,7 +56,7 @@
                     <mxGeometry x="1091.5" y="260" width="223" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="VersionInfo 版本信息 class" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="40" width="450" height="260" as="geometry">
+                    <mxGeometry x="-1600" y="40" width="450" height="260" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -261,7 +261,7 @@
                     <mxGeometry x="2160" y="580" width="560" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="88" value="VerifyInfo 资源校验信息 struct&#10;GameFramework.Resource.ResourceManager.ResourceVerifier" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=45;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="680" width="450" height="201" as="geometry">
+                    <mxGeometry x="-1600" y="640" width="450" height="201" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -284,7 +284,7 @@
                     <mxGeometry y="175" width="450" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="98" value="ResourceName 资源名称 struct&#10;GameFramework.Resource.ResourceManager.ResourceName" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=41;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="910" width="450" height="145" as="geometry">
+                    <mxGeometry x="-1600" y="870" width="450" height="145" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -301,18 +301,21 @@
                     <mxGeometry y="119" width="450" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="105" value="FileSystem 文件系统 Struct&#10;GameFramework.Resource.LocalVersionList" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="1580" width="450" height="102" as="geometry">
+                    <mxGeometry x="-1600" y="1580" width="450" height="128" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="106" value="+ Name: string                                          文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="105" vertex="1">
                     <mxGeometry y="50" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="107" value="+ m_ResourceIndexes(): int[]                   文件系统包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="105" vertex="1">
+                <mxCell id="243" value="+ m_ResourceIndexes(): int[]                   文件系统包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="105">
                     <mxGeometry y="76" width="450" height="26" as="geometry"/>
                 </mxCell>
+                <mxCell id="107" value="+ int[] GetResourceIndexes()                   获取文件系统包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="105" vertex="1">
+                    <mxGeometry y="102" width="450" height="26" as="geometry"/>
+                </mxCell>
                 <mxCell id="110" value="LocalVersionList 本地版本资源列表 struct&#10;GameFramework.Resource" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="1200" width="450" height="128" as="geometry">
+                    <mxGeometry x="-1600" y="1200" width="450" height="128" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -326,7 +329,7 @@
                     <mxGeometry y="102" width="450" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="115" value="Resource 资源 struct&#10;GameFramework.Resource.LocalVersionList" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="1350" width="450" height="206" as="geometry">
+                    <mxGeometry x="-1600" y="1350" width="450" height="206" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -351,168 +354,309 @@
                 <mxCell id="122" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=-0.004;entryY=0.253;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" parent="1" source="85" target="87" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="123" value="CheckInfo 资源检查信息 class&#10;GameFramework.Resource.ResourceManager.ResourceChecker" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=45;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="40" width="580" height="627" as="geometry">
+                <mxCell id="123" value="CheckInfo 资源检查信息 class&#10;GameFramework.Resource.ResourceManager.ResourceChecker" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=45;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-800" y="40" width="580" height="627" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="124" value="+ ResourceName: ResourceName         资源名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="124" value="+ ResourceName: ResourceName         资源名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="45" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="125" value="+ Status: CheckStatus                            资源检查状态 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="125" value="+ Status: CheckStatus                            资源检查状态 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="71" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="126" value="+ NeedRemove: bool                              是否需要移除读写区的资源" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="126" value="+ NeedRemove: bool                              是否需要移除读写区的资源" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="97" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" value="+ NeedMoveToDisk: bool                        是否需要将读写区的资源移动到磁盘" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="127" value="+ NeedMoveToDisk: bool                        是否需要将读写区的资源移动到磁盘" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="123" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="128" value="+ NeedMoveToFileSystem: bool             是否需要将读写区的资源移动到文件系统 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="128" value="+ NeedMoveToFileSystem: bool             是否需要将读写区的资源移动到文件系统 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="149" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="129" value="+ FileSystemName: string                       资源所在的文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="129" value="+ FileSystemName: string                       资源所在的文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="175" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="130" value="+ ReadWriteUseFileSystem: bool           资源是否使用文件系统" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="130" value="+ ReadWriteUseFileSystem: bool           资源是否使用文件系统" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="201" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="131" value="+ ReadWriteFileSystemName: string      读写资源所在的文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="131" value="+ ReadWriteFileSystemName: string      读写资源所在的文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="227" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="136" value="+ LoadType: LoadType                           资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="136" value="+ LoadType: LoadType                           资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="253" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="132" value="+ Length: int                                            资源大小" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="132" value="+ Length: int                                            资源大小" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="279" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="133" value="+ HashCode: int                                      资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="133" value="+ HashCode: int                                      资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="305" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="134" value="+ CompressedLength: int                        压缩后大小" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="134" value="+ CompressedLength: int                        压缩后大小" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="331" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="135" value="+ CompressedHashCode: int                  压缩后哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="135" value="+ CompressedHashCode: int                  压缩后哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="357" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="162" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="123">
+                <mxCell id="162" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="123" vertex="1">
                     <mxGeometry y="383" width="580" height="17" as="geometry"/>
                 </mxCell>
-                <mxCell id="138" value="+ SetCachedFileSystemName(string fileSystemName)&#10;   临时缓存资源所在的文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="138" value="+ SetCachedFileSystemName(string fileSystemName)&#10;   临时缓存资源所在的文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="400" width="580" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="139" value="+ SetVersionInfo(LoadType loadType, int length, int hashCode, &#10;                            int compressedLength, int compressedHashCode)&#10;   设置资源在版本中的信息" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="139" value="+ SetVersionInfo(LoadType loadType, int length, int hashCode, &#10;                            int compressedLength, int compressedHashCode)&#10;   设置资源在版本中的信息" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="440" width="580" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="157" value="+ SetReadOnlyInfo(LoadType loadType, int length, int hashCode)&#10;   设置资源在只读区中的信息" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="157" value="+ SetReadOnlyInfo(LoadType loadType, int length, int hashCode)&#10;   设置资源在只读区中的信息" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="500" width="580" height="38" as="geometry"/>
                 </mxCell>
-                <mxCell id="158" value="+ void SetReadWriteInfo(LoadType loadType, int length, int hashCode)&#10;   设置资源在读写区中的信息" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="158" value="+ void SetReadWriteInfo(LoadType loadType, int length, int hashCode)&#10;   设置资源在读写区中的信息" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="538" width="580" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="159" value="+ void RefreshStatus(string currentVariant, bool ignoreOtherVariant)&#10;   刷新资源信息状态" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="123">
+                <mxCell id="159" value="+ void RefreshStatus(string currentVariant, bool ignoreOtherVariant)&#10;   刷新资源信息状态" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="123" vertex="1">
                     <mxGeometry y="580" width="580" height="47" as="geometry"/>
                 </mxCell>
-                <mxCell id="164" value="enum CheckStatus:byte 资源检查状态&#10;GameFramework.Resource.ResourceManager.ResourceChecker.CheckInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="700" width="580" height="196" as="geometry">
+                <mxCell id="164" value="enum CheckStatus:byte 资源检查状态&#10;GameFramework.Resource.ResourceManager.ResourceChecker.CheckInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-800" y="700" width="580" height="196" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="165" value="+ Unknown=0                                      资源状态未知" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="164">
+                <mxCell id="165" value="+ Unknown=0                                      资源状态未知" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="164" vertex="1">
                     <mxGeometry y="40" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="166" value="+ StorageInReadOnly                         资源存在且已存放于只读区中" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="164">
+                <mxCell id="166" value="+ StorageInReadOnly                         资源存在且已存放于只读区中" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="164" vertex="1">
                     <mxGeometry y="66" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="167" value="+ StorageInReadWrite                        资源存在且已存放于读写区中" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="164">
+                <mxCell id="167" value="+ StorageInReadWrite                        资源存在且已存放于读写区中" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="164" vertex="1">
                     <mxGeometry y="92" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="168" value="+ Unavailable                                      资源不适用于当前变体" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="164">
+                <mxCell id="168" value="+ Unavailable                                      资源不适用于当前变体" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="164" vertex="1">
                     <mxGeometry y="118" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="169" value="+ Update                                             资源需要更新 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="164">
+                <mxCell id="169" value="+ Update                                             资源需要更新 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="164" vertex="1">
                     <mxGeometry y="144" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="170" value="+ Disuse                                              资源版本列表长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="164">
+                <mxCell id="170" value="+ Disuse                                              资源版本列表长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="164" vertex="1">
                     <mxGeometry y="170" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="174" value="LocalVersionInfo 本地资源状态信息 struct&#10;GameFramework.Resource.ResourceManager.ResourceChecker.CheckInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="930" width="580" height="206" as="geometry">
+                <mxCell id="174" value="LocalVersionInfo 本地资源状态信息 struct&#10;GameFramework.Resource.ResourceManager.ResourceChecker.CheckInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-800" y="930" width="580" height="206" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="175" value="+ Exist: bool                                            资源是否存在" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="174">
+                <mxCell id="175" value="+ Exist: bool                                            资源是否存在" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="174" vertex="1">
                     <mxGeometry y="50" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="176" value="+ UseFileSystem: bool                            是否使用文件系统&#10; " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="174">
+                <mxCell id="176" value="+ UseFileSystem: bool                            是否使用文件系统&#10; " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="174" vertex="1">
                     <mxGeometry y="76" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="177" value="+ FileSystemName: string                       文件系统名" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="174">
+                <mxCell id="177" value="+ FileSystemName: string                       文件系统名" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="174" vertex="1">
                     <mxGeometry y="102" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="178" value="+ LoadType: LoadType                            资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="174">
+                <mxCell id="178" value="+ LoadType: LoadType                            资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="174" vertex="1">
                     <mxGeometry y="128" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="179" value="+ Length: int                                             资源大小 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="174">
+                <mxCell id="179" value="+ Length: int                                             资源大小 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="174" vertex="1">
                     <mxGeometry y="154" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="180" value="+ HashCode: int                                      资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="174">
+                <mxCell id="180" value="+ HashCode: int                                      资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="174" vertex="1">
                     <mxGeometry y="180" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="181" value="RemoteVersionInfo 远程资源状态信息 struct&#10;GameFramework.Resource.ResourceManager.ResourceChecker.CheckInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="1190" width="580" height="258" as="geometry">
+                <mxCell id="181" value="RemoteVersionInfo 远程资源状态信息 struct&#10;GameFramework.Resource.ResourceManager.ResourceChecker.CheckInfo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-800" y="1190" width="580" height="258" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="182" value="+ Exist: bool                                            资源是否存在" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="182" value="+ Exist: bool                                            资源是否存在" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="50" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="183" value="+ UseFileSystem: bool                            是否使用文件系统&#10; " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="183" value="+ UseFileSystem: bool                            是否使用文件系统&#10; " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="76" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="184" value="+ FileSystemName: string                       文件系统名" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="184" value="+ FileSystemName: string                       文件系统名" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="102" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="185" value="+ LoadType: LoadType                            资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="185" value="+ LoadType: LoadType                            资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="128" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="186" value="+ Length: int                                             资源大小 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="186" value="+ Length: int                                             资源大小 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="154" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="187" value="+ HashCode: int                                      资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="187" value="+ HashCode: int                                      资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="180" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="188" value="+ CompressedLength: int                        压缩大小" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="188" value="+ CompressedLength: int                        压缩大小" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="206" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="189" value="+ CompressedHashCode: int                  压缩哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="181">
+                <mxCell id="189" value="+ CompressedHashCode: int                  压缩哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="181" vertex="1">
                     <mxGeometry y="232" width="580" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="190" value="enum LoadType : byte  资源加载方式类型&#10;GameFramework.Resource.ResourceManager" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=45;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="-800" y="357" width="450" height="227" as="geometry">
+                <mxCell id="190" value="enum LoadType : byte  资源加载方式类型&#10;GameFramework.Resource.ResourceManager" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=45;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-1600" y="357" width="450" height="227" as="geometry">
                         <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="191" value="+ LoadFromFile = 0                                  使用文件方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="191" value="+ LoadFromFile = 0                                  使用文件方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="45" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="192" value="+ LoadFromMemory                                 使用内存方式加载 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="192" value="+ LoadFromMemory                                 使用内存方式加载 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="71" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="193" value="+ LoadFromMemoryAndQuickDecrypt     使用内存快速解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="193" value="+ LoadFromMemoryAndQuickDecrypt     使用内存快速解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="97" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="194" value="+ LoadFromMemoryAndDecrypt              使用内存解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="194" value="+ LoadFromMemoryAndDecrypt              使用内存解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="123" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="195" value="+ LoadFromBinary                                    使用二进制方式加载 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="195" value="+ LoadFromBinary                                    使用二进制方式加载 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="149" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="196" value="+ LoadFromBinaryAndQuickDecrypt        使用二进制快速解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="196" value="+ LoadFromBinaryAndQuickDecrypt        使用二进制快速解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="175" width="450" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="197" value="+ LoadFromBinaryAndDecrypt                 使用二进制解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="190">
+                <mxCell id="197" value="+ LoadFromBinaryAndDecrypt                 使用二进制解密方式加载" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="190" vertex="1">
                     <mxGeometry y="201" width="450" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="199" value="UpdatableVersionList 可更新模式版本资源列表 struct&#10;GameFramework.Resource&#10;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="650" height="448" as="geometry"/>
+                </mxCell>
+                <mxCell id="200" value="+ EmptyAssetArray: static readonly Asset[] " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="50" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="205" value="+ EmptyResourceArray: static readonly Resource[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="76" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="203" value="+ EmptyFileSystemArray: static readonly FileSystem[] " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="102" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="208" value="+ EmptyResourceGroupArray: static readonly ResourceGroup[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="128" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="207" value="+ IsValid: bool                                                                                  可更新模式版本资源列表是否有效" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="154" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="206" value="+ ApplicableGameVersion: string                                                    适配的游戏版本号" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="180" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="211" value="+ InternalResourceVersion: int                                                        内部资源版本号" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="206" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="210" value="+ m_Assets: readonly Asset[] " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="232" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="215" value="+ m_Resources: readonly Resource[] " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="258" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="209" value="+ m_FileSystems: readonly FileSystem[] " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="284" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="214" value="+ m_ResourceGroups: readonly ResourceGroup[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="310" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="201" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="199">
+                    <mxGeometry y="336" width="650" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="202" value="+ Asset[] GetAssets()                                                                     获取包含的资源集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="344" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="204" value="+ Resource[] GetResources()                                                        获取包含的资源集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="370" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="212" value="+ FileSystem[] GetFileSystems()                                                   获取包含的文件系统集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="396" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="213" value="+ ResourceGroup[] GetResourceGroups()                                    获取包含的资源组集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="199">
+                    <mxGeometry y="422" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="218" value="Asset 资源 struct&#10;GameFramework.Resource.UpdatableVersionList" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="540" width="650" height="136" as="geometry"/>
+                </mxCell>
+                <mxCell id="219" value="+ Name: string                                             资源名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="218">
+                    <mxGeometry y="50" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="222" value="+ m_DependencyAssetIndexes: int[]           资源包含的依赖资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="218">
+                    <mxGeometry y="76" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="218">
+                    <mxGeometry y="102" width="650" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="221" value="+ int[] GetDependencyAssetIndexes()         获取资源包含的依赖资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="218">
+                    <mxGeometry y="110" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="225" value="Resource 资源 struct&#10;GameFramework.Resource.UpdatableVersionList" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="714" width="650" height="318" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="226" value="+ Name: string                                          资源名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="50" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="227" value="+ Variant: string                                        资源变体名称&#10; " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="76" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="228" value="+ Extension: string                                    资源扩展名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="102" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="229" value="+ LoadType: LoadType                             资源加载方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="128" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="230" value="+ Length: int                                              资源大小 " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="154" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="231" value="+ HashCode: int                                        资源哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="180" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="232" value="+ CompressedLength: int                         资源压缩后长度" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="206" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="233" value="+ CompressedHashCode: int                   资源压缩后哈希值" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="232" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="236" value="+ m_AssetIndexes: int[]                            资源包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="258" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="235" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="225">
+                    <mxGeometry y="284" width="650" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="234" value="+ int[] GetAssetIndexes()                          获取资源包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="225">
+                    <mxGeometry y="292" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="237" value="FileSystem 文件系统 Struct&#10;GameFramework.Resource.UpdatableVersionList" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1067" width="650" height="136" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="238" value="+ Name: string                                          文件系统名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="237">
+                    <mxGeometry y="50" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="239" value="+ m_ResourceIndexes(): int[]                   文件系统包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="237">
+                    <mxGeometry y="76" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="240" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="237">
+                    <mxGeometry y="102" width="650" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="241" value="+ int[] GetResourceIndexes()                   获取文件系统包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="237">
+                    <mxGeometry y="110" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="242" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="1">
+                    <mxGeometry x="-1600" y="1680" width="450" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="244" value="ResourceGroup 资源组 Struct&#10;GameFramework.Resource.UpdatableVersionList" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1240" width="650" height="136" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="245" value="+ Name: string                                          资源组名称" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="244">
+                    <mxGeometry y="50" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="246" value="+ m_ResourceIndexes(): int[]                   资源组包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="244">
+                    <mxGeometry y="76" width="650" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="247" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="244">
+                    <mxGeometry y="102" width="650" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="248" value="+ int[] GetResourceIndexes()                   获取资源组包含的资源索引集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="244">
+                    <mxGeometry y="110" width="650" height="26" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
