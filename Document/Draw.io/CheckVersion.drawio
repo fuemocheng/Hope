@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="QUaw3bAE2YYsnRq7ILRl" name="第 1 页">
-        <mxGraphModel dx="5065" dy="1028" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="5892" dy="1028" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -894,6 +894,9 @@
                 </mxCell>
                 <mxCell id="357" value="+ ResourceGroup[] GetResourceGroups()                                    获取包含的资源组集合" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="341">
                     <mxGeometry y="432" width="640" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="359" value="&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34; , &amp;#34;microsoft yahei&amp;#34; ; font-size: 16px&quot;&gt;Asset: 用于描述 Unity 中的一个具体资产，如一个预制体、一个材质、一张图片等&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34; , &amp;#34;microsoft yahei&amp;#34; ; font-size: 16px&quot;&gt;Resource:用于描述 Unity 中的一个 AssetBundle（一些 Asset 的集合），或者一&lt;br&gt;个 Game Framework 定义下的二进制文件（一个 Asset 的二进制形式，能够用于&lt;br&gt;脱离 Unity 直接加载）&lt;/span&gt;&lt;span style=&quot;font-family: &amp;#34;verdana&amp;#34; , &amp;#34;microsoft yahei&amp;#34; ; font-size: 16px&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=18;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="-4100" y="40" width="610" height="110" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
