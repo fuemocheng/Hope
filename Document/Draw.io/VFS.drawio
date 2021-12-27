@@ -1,0 +1,253 @@
+<mxfile host="65bd71144e">
+    <diagram id="E3-_9oIKnNbRrOoI10gW" name="第 1 页">
+        <mxGraphModel dx="4830" dy="65" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="FileSystem:IFileSystem 文件系统 class&#10;GameFramework.FileSystem" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="-2367" y="1340" width="600" height="708" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="- ClusterSize: int                                         1024*4    4096" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="50" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="- CachedBytesLength: int                           0x1000    4096" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="76" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="-                                                                   " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="102" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="- EmptyStringArray: string[]                         --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="128" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="- s_CachedBytes: byte[]                              --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="154" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="-                                                                   " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="180" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="- HeaderDataSize: int                                  --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="206" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="- BlockDataSize: int                                     --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="232" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="- StringDataSize: int                                    --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="258" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="-                                                                   " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="284" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="- m_FullPath: string                                     --文件系统完整路径" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="310" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="- m_Access: FileSystemAccess                  --文件系统访问方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="336" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="- m_Stream: FileSystemStream                  --文件系统访问方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="362" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="- m_FileDatas: Dictionary&lt;string, int&gt;         --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="388" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="- m_BlockDatas: List&lt;BlockData&gt;               --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="414" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="- m_FreeBlockIndexes: GameFrameworkMultiDictionary&lt;int, int&gt;              --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="440" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="- m_StringDatas: SortedDictionary&lt;int, StringData&gt;                                    --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="466" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="- m_FreeStringIndexes: Queue&lt;int&gt;                                                            --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="492" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="- m_FreeStringDatas: Queue&lt;StringData&gt;                                                  --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="518" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="-                                                                    " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="544" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="- m_HeaderData: HeaderData                                                                      --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="570" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="- m_BlockDataOffset: int                                                                               --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="596" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="- m_StringDataOffset: int                                                                              --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="622" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="- m_FileDataOffset: int                                                                                  --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="648" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="2">
+                    <mxGeometry y="674" width="600" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="+                                                                    --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="2">
+                    <mxGeometry y="682" width="600" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="HeaderData 头数据 Struct&#10;GameFramework.FileSystem.FileSystem" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="-3280" y="1200" width="680" height="552" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" value="- HeaderLength: int                                          -- Header长度，3字节" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="50" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="- FileSystemVersion: int                                   -- 文件系统版本" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="76" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="- EncryptBytesLength: int                                -- 加密字节长度，4字节" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="102" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="- Header:static readonly byte[]                        -- { (byte)'G', (byte)'F', (byte)'F' }" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="128" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="- m_Header: readonly byte[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="154" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="- m_Version: readonly byte" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="180" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="- m_EncryptBytes: readonly byte[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="206" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="- m_MaxFileCount: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="232" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="- m_MaxBlockCount:int " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="258" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="- m_BlockCount :int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="284" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="+" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="310" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="+ IsValid: bool                                                  --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="336" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="+ Version: byte                                                 --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="362" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="+ MaxFileCount: int                                          --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="388" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="+ MaxBlockCount: int                                       --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="414" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="+ BlockCount: int                                              --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="440" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="49">
+                    <mxGeometry y="466" width="680" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="+ HeaderData(byte version, byte[] encryptBytes, int maxFileCount, int maxBlockCount, int blockCount)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="474" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="+ GetEncryptBytes(): byte[]                             --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="500" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="+ SetBlockCount(int): HeaderData                  --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="49">
+                    <mxGeometry y="526" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="BlockData 块数据 Struct&#10;GameFramework.FileSystem.FileSystem" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="-3280" y="1800" width="680" height="344" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="75" value="+ Empty: static readonly BlockData                 -- new BlockData(0, 0)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="50" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="- m_StringIndex: readonly int                           -- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="76" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="- m_ClusterIndex: readonly int                         -- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="102" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="- m_Length: readonly int                                  -- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="128" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="+" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="154" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="+ Using: bool                                                    --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="180" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="+ StringIndex: int                                              --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="206" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="+ ClusterIndex: int                                            --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="232" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="+ Length: int                                                     --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="258" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="74">
+                    <mxGeometry y="284" width="680" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="+ BlockData(int stringIndex, int clusterIndex, int length)            --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="292" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="+ Free() : BlockData                                                                   --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="74">
+                    <mxGeometry y="318" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="StringData 字符串数据 Struct&#10;GameFramework.FileSystem.FileSystem" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="-3280" y="2200" width="680" height="240" as="geometry">
+                        <mxRectangle x="20" y="20" width="90" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="97" value="- s_CachedBytes: static readonly byte[]                                      -- new byte[byte.MaxValue + 1]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="50" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="- m_Length: readonly byte                                                           -- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="76" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="- m_Bytes: readonly byte[]                                                           -- 最大 byte.MaxValue 255" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="102" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="95">
+                    <mxGeometry y="128" width="680" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="+ StringData(byte length, byte[] bytes)                                                   --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="136" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="+ GetString(byte[] encryptBytes)                                                            --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="162" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="+ SetString(string value, byte[] encryptBytes): StringData                     --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="188" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="+ Clear(): StringData                                                                              --" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" vertex="1" parent="95">
+                    <mxGeometry y="214" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="58" target="20">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-2530" y="1445"/>
+                            <mxPoint x="-2530" y="1715"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="115" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="87" target="20">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-2490" y="2019"/>
+                            <mxPoint x="-2490" y="1715"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="116" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="108" target="20">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-2380" y="1741" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-2450" y="2315"/>
+                            <mxPoint x="-2450" y="1715"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

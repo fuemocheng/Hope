@@ -133,5 +133,139 @@ int size = Marshal.SizeOf(myInfo);
 size=16+16+256  
 可见，获取到的非托管大小为288  
 
+## 3.FlagAttribute 指示可以将枚举作为位域（即一组标志）处理
+[Enum, Flags and bitwise operators](http://www.alanzucconi.com/2015/07/26/enum-flags-and-bitwise-operators/)
+Flag 特性微软的解释是：指示可以将枚举作为位域（即一组标志）处理，FlagsAttribute属性就是枚举类型的一项可选属性，它的主要作用是可以将枚举作为位域处理(P.S. C#不支持位域)。所谓位域是单个存储单元内相邻二进制位的集合。
 
+eg.
+```
+// Powers of two
+[Flags] 
+public enum AttackType 
+{
+    // Decimal     // Binary
+    None   = 0,    // 000000
+    Melee  = 1,    // 000001
+    Fire   = 2,    // 000010
+    Ice    = 4,    // 000100
+    Poison = 8     // 001000
+}
+
+```
+### Bitwise OR  按位或
+What the bitwise OR does is setting the bit in the i-th position to 1 if either one of its operands has the i-th bit to 1.  
+按位 OR 的作用是 如果其任一操作数的第 i 个位为 1，则将第 i 个位置的位设置为 1。
+```
+attackType = AttackType.Melee | AttackType.Fire;
+// OR
+attackType = AttackType.Melee;
+attackType |= AttackType.Fire;
+```
+```
+// Label          Binary   Decimal
+// Melee:         000001 = 1
+// Fire:          000010 = 2
+// Melee | Fire:  000011 = 3
+```
+```
+[Flags] 
+public enum AttackType 
+{
+    // Decimal                  // Binary
+    None         = 0,           // 000000
+    Melee        = 1,           // 000001
+    Fire         = 2,           // 000010
+    Ice          = 4,           // 000100
+    Poison       = 8,           // 001000
+
+    MeleeAndFire = Melee | Fire // 000011
+}
+```
+
+### Bitwise AND  按位与
+按位 OR 的作用是 如果两个操作数的第 i 个位都为 1，则将第 i 个位置的位设置为 1。
+```
+attackType = AttackType.Melee | AttackType.Fire;
+bool isIce = (attackType & AttackType.Ice) != 0;    //判断attackType是否含有Ice
+```
+```
+// Label                Binary   Decimal
+// Ice:                 000100 = 4
+// MeleeAndFire:        000011 = 3
+// MeleeAndFire & Ice:  000000 = 0          MeleeAndFire不含有Ice
+
+// Fire:                000010 = 2
+// MeleeAndFire:        000011 = 3
+// MeleeAndFire & Fire: 000010 = 2          MeleeAndFire含有Fire
+```
+
+### Bitwise NOT 按位非
+按位非,它所做的只是反转整数的所有位
+```
+attackType = AttackType.Melee | AttackType.Fire         // 000011
+                                                        // ~ AttackType.Fire = 111101
+attackType &= ~ AttackType.Fire;                        // 000001   去除Fire
+attackType |= AttackType.Ice;                           // 000101   AttackType.Melee | AttackType.Ice
+```
+通过按位非 AttackType.Fire 属性，我们留下了一个全 1 的位掩码，除了相对于 Fire 属性的位置为零。  
+当与attackType 进行 AND 运算时，它将保持所有其他位不变并取消设置fire 属性。
+
+### Bitwise XOR 按位异或
+参与运算的两个值，如果两个相应bit位相同，则结果为0，否则为1。
+```
+0^0 = 0
+1^0 = 1
+0^1 = 1
+1^1 = 0
+按位异或的3个特点：
+（1） 0^0=0，0^1=1 0异或任何数＝任何数
+（2） 1^0=1，1^1=0 1异或任何数＝任何数取反
+（3） 任何数异或自己＝把自己置0
+```
+It allows to toggle a value.它允许切换值
+```
+attackType = AttackType.Melee | AttackType.Fire;    //000011
+
+attackType ^= AttackType.Fire;      // Toggle fire  000001
+attackType ^= AttackType.Ice;       // Toggle ice   000101
+```
+
+### Bitwise shifts 按位移位
+可以使用按位移位轻松创建 2 的 n 次幂
+```
+[Flags] 
+public enum AttackType 
+{
+    //               // Binary  // Dec
+    None   = 0,      // 000000  0
+    Melee  = 1 << 0, // 000001  1
+    Fire   = 1 << 1, // 000010  2
+    Ice    = 1 << 2, // 000100  4
+    Poison = 1 << 3, // 001000  8
+}
+```
+
+### Conclusion
+```
+public static AttackType SetFlag (AttackType a, AttackType b)
+{
+    return a | b;
+}
+
+public static AttackType UnsetFlag (AttackType a, AttackType b)
+{
+    return a & (~b);
+}
+
+// Works with "None" as well
+public static bool HasFlag (AttackType a, AttackType b)
+{
+    return (a & b) == b;
+}
+
+public static AttackType ToogleFlag (AttackType a, AttackType b)
+{
+    return a ^ b;
+}
+```
 
