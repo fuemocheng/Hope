@@ -43,3 +43,4 @@ Config/src/pkg
 
 
 *.vfs
+HTTPFileServer/~temp.vfs.bak
